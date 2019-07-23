@@ -96,6 +96,13 @@ namespace TransferZero.Sdk.Model
         public bool? Editable { get; private set; }
 
         /// <summary>
+        /// Shows whether the transaction made to the recipient can be retried or not
+        /// </summary>
+        /// <value>Shows whether the transaction made to the recipient can be retried or not</value>
+        [DataMember(Name="retriable", EmitDefaultValue=false)]
+        public bool? Retriable { get; private set; }
+
+        /// <summary>
         /// Shows how much this payment is worth in USD
         /// </summary>
         /// <value>Shows how much this payment is worth in USD</value>
@@ -204,6 +211,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  Editable: ").Append(Editable).Append("\n");
+            sb.Append("  Retriable: ").Append(Retriable).Append("\n");
             sb.Append("  InputUsdAmount: ").Append(InputUsdAmount).Append("\n");
             sb.Append("  MayCancel: ").Append(MayCancel).Append("\n");
             sb.Append("  StateReason: ").Append(StateReason).Append("\n");
@@ -281,6 +289,11 @@ namespace TransferZero.Sdk.Model
                     this.Editable == input.Editable ||
                     (this.Editable != null &&
                     this.Editable.Equals(input.Editable))
+                ) && 
+                (
+                    this.Retriable == input.Retriable ||
+                    (this.Retriable != null &&
+                    this.Retriable.Equals(input.Retriable))
                 ) && 
                 (
                     this.InputUsdAmount == input.InputUsdAmount ||
@@ -375,6 +388,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
                 if (this.Editable != null)
                     hashCode = hashCode * 59 + this.Editable.GetHashCode();
+                if (this.Retriable != null)
+                    hashCode = hashCode * 59 + this.Retriable.GetHashCode();
                 if (this.InputUsdAmount != null)
                     hashCode = hashCode * 59 + this.InputUsdAmount.GetHashCode();
                 if (this.MayCancel != null)

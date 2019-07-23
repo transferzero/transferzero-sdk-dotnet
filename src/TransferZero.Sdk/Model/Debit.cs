@@ -38,31 +38,31 @@ namespace TransferZero.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Debit" /> class.
         /// </summary>
-        /// <param name="amount">The amount to be debited from your account.  The “amount” parameter is optional - - if included, it must equal the amount required to fund the transaction. - if omitted, it will default to the amount required to fund the transaction. .</param>
-        /// <param name="currency">The currency of the amount in 3-character alpha ISO 4217 currency format (required).</param>
+        /// <param name="amount">The amount to be debited from your account.  The \&quot;amount\&quot; parameter is optional - - if included, it must equal the amount required to fund the transaction. - if omitted, it will default to the amount required to fund the transaction. .</param>
+        /// <param name="currency">The currency of the amount in 3-character alpha ISO 4217 currency format.  The \&quot;currency\&quot; parameter is optional - if omitted, it will default to the payin currency of the transaction. - it can be added in as an additional check to ensure that the expected currency is used. (an error will be given back if it does not match up with the payin currency of the transaction) .</param>
         /// <param name="toType">Describes what the debit is funding (required).</param>
         /// <param name="toId">The ID of the resource the debit is funding (required).</param>
         /// <param name="metadata">Metadata of account debit.</param>
         public Debit(double? amount = default(double?), string currency = default(string), string toType = default(string), Guid? toId = default(Guid?), Object metadata = default(Object))
         {
-            this.Currency = currency;
             this.ToType = toType;
             this.ToId = toId;
             this.Amount = amount;
+            this.Currency = currency;
             this.Metadata = metadata;
         }
         
         /// <summary>
-        /// The amount to be debited from your account.  The “amount” parameter is optional - - if included, it must equal the amount required to fund the transaction. - if omitted, it will default to the amount required to fund the transaction. 
+        /// The amount to be debited from your account.  The \&quot;amount\&quot; parameter is optional - - if included, it must equal the amount required to fund the transaction. - if omitted, it will default to the amount required to fund the transaction. 
         /// </summary>
-        /// <value>The amount to be debited from your account.  The “amount” parameter is optional - - if included, it must equal the amount required to fund the transaction. - if omitted, it will default to the amount required to fund the transaction. </value>
+        /// <value>The amount to be debited from your account.  The \&quot;amount\&quot; parameter is optional - - if included, it must equal the amount required to fund the transaction. - if omitted, it will default to the amount required to fund the transaction. </value>
         [DataMember(Name="amount", EmitDefaultValue=false)]
         public double? Amount { get; set; }
 
         /// <summary>
-        /// The currency of the amount in 3-character alpha ISO 4217 currency format
+        /// The currency of the amount in 3-character alpha ISO 4217 currency format.  The \&quot;currency\&quot; parameter is optional - if omitted, it will default to the payin currency of the transaction. - it can be added in as an additional check to ensure that the expected currency is used. (an error will be given back if it does not match up with the payin currency of the transaction) 
         /// </summary>
-        /// <value>The currency of the amount in 3-character alpha ISO 4217 currency format</value>
+        /// <value>The currency of the amount in 3-character alpha ISO 4217 currency format.  The \&quot;currency\&quot; parameter is optional - if omitted, it will default to the payin currency of the transaction. - it can be added in as an additional check to ensure that the expected currency is used. (an error will be given back if it does not match up with the payin currency of the transaction) </value>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; set; }
 

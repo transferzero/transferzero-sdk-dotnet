@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Metadata** | [**Object**](.md) | Additional metadata that can be added to a recipient. These values will be returned on request | [optional] 
 **CreatedAt** | **DateTime?** | Date and time that the recipient was created. | [optional] 
 **Editable** | **bool?** | Shows whether the recipient can be edited using the PATCH /v1/recipients/{id} endpoint or not | [optional] 
+**Retriable** | **bool?** | Shows whether the transaction made to the recipient can be retried or not | [optional] 
 **InputUsdAmount** | **decimal?** | Shows how much this payment is worth in USD | [optional] 
 **MayCancel** | **bool?** | Shows whether the payment can be cancelled using the DELETE /v1/recipients/{id} endpoint or not. The payment can not be cancelled if the payout is pending. | [optional] 
 **StateReason** | **string** | In case the payment is unsuccessful it holds the error message associated with the last unsuccessful payout. | [optional] 
