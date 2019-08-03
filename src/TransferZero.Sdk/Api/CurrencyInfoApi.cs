@@ -50,8 +50,9 @@ namespace TransferZero.Sdk.Api
         /// Fetches a list of currencies available to use as the input currency in other API requests. Usually the 3-character alpha ISO 4217 currency code (eg. USD) is used as the identifier. Use this endpoint to determine the current exchange rate from a specific input currency to any output currency that&#39;s available. 
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="senderId">Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/in?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
         /// <returns>CurrencyExchangeListResponse</returns>
-        CurrencyExchangeListResponse InfoCurrenciesIn ();
+        CurrencyExchangeListResponse InfoCurrenciesIn (Guid? senderId = null);
 
         /// <summary>
         /// Getting a list of possible input currencies
@@ -60,8 +61,9 @@ namespace TransferZero.Sdk.Api
         /// Fetches a list of currencies available to use as the input currency in other API requests. Usually the 3-character alpha ISO 4217 currency code (eg. USD) is used as the identifier. Use this endpoint to determine the current exchange rate from a specific input currency to any output currency that&#39;s available. 
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="senderId">Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/in?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
         /// <returns>ApiResponse of CurrencyExchangeListResponse</returns>
-        ApiResponse<CurrencyExchangeListResponse> InfoCurrenciesInWithHttpInfo ();
+        ApiResponse<CurrencyExchangeListResponse> InfoCurrenciesInWithHttpInfo (Guid? senderId = null);
         /// <summary>
         /// Getting a list of possible output currencies
         /// </summary>
@@ -69,8 +71,9 @@ namespace TransferZero.Sdk.Api
         /// Fetches a list of currencies available to use as the output currency and their exchange rates against the available input currencies. Usually the 3-character alpha ISO 4217 currency code (eg. USD) is used as the identifier. 
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="senderId">Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/out?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
         /// <returns>CurrencyExchangeListResponse</returns>
-        CurrencyExchangeListResponse InfoCurrenciesOut ();
+        CurrencyExchangeListResponse InfoCurrenciesOut (Guid? senderId = null);
 
         /// <summary>
         /// Getting a list of possible output currencies
@@ -79,8 +82,9 @@ namespace TransferZero.Sdk.Api
         /// Fetches a list of currencies available to use as the output currency and their exchange rates against the available input currencies. Usually the 3-character alpha ISO 4217 currency code (eg. USD) is used as the identifier. 
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="senderId">Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/out?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
         /// <returns>ApiResponse of CurrencyExchangeListResponse</returns>
-        ApiResponse<CurrencyExchangeListResponse> InfoCurrenciesOutWithHttpInfo ();
+        ApiResponse<CurrencyExchangeListResponse> InfoCurrenciesOutWithHttpInfo (Guid? senderId = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -109,8 +113,9 @@ namespace TransferZero.Sdk.Api
         /// Fetches a list of currencies available to use as the input currency in other API requests. Usually the 3-character alpha ISO 4217 currency code (eg. USD) is used as the identifier. Use this endpoint to determine the current exchange rate from a specific input currency to any output currency that&#39;s available. 
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="senderId">Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/in?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
         /// <returns>Task of CurrencyExchangeListResponse</returns>
-        System.Threading.Tasks.Task<CurrencyExchangeListResponse> InfoCurrenciesInAsync ();
+        System.Threading.Tasks.Task<CurrencyExchangeListResponse> InfoCurrenciesInAsync (Guid? senderId = null);
 
         /// <summary>
         /// Getting a list of possible input currencies
@@ -119,8 +124,9 @@ namespace TransferZero.Sdk.Api
         /// Fetches a list of currencies available to use as the input currency in other API requests. Usually the 3-character alpha ISO 4217 currency code (eg. USD) is used as the identifier. Use this endpoint to determine the current exchange rate from a specific input currency to any output currency that&#39;s available. 
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="senderId">Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/in?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
         /// <returns>Task of ApiResponse (CurrencyExchangeListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CurrencyExchangeListResponse>> InfoCurrenciesInAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<CurrencyExchangeListResponse>> InfoCurrenciesInAsyncWithHttpInfo (Guid? senderId = null);
         /// <summary>
         /// Getting a list of possible output currencies
         /// </summary>
@@ -128,8 +134,9 @@ namespace TransferZero.Sdk.Api
         /// Fetches a list of currencies available to use as the output currency and their exchange rates against the available input currencies. Usually the 3-character alpha ISO 4217 currency code (eg. USD) is used as the identifier. 
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="senderId">Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/out?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
         /// <returns>Task of CurrencyExchangeListResponse</returns>
-        System.Threading.Tasks.Task<CurrencyExchangeListResponse> InfoCurrenciesOutAsync ();
+        System.Threading.Tasks.Task<CurrencyExchangeListResponse> InfoCurrenciesOutAsync (Guid? senderId = null);
 
         /// <summary>
         /// Getting a list of possible output currencies
@@ -138,8 +145,9 @@ namespace TransferZero.Sdk.Api
         /// Fetches a list of currencies available to use as the output currency and their exchange rates against the available input currencies. Usually the 3-character alpha ISO 4217 currency code (eg. USD) is used as the identifier. 
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="senderId">Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/out?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
         /// <returns>Task of ApiResponse (CurrencyExchangeListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CurrencyExchangeListResponse>> InfoCurrenciesOutAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<CurrencyExchangeListResponse>> InfoCurrenciesOutAsyncWithHttpInfo (Guid? senderId = null);
         #endregion Asynchronous Operations
     }
 
@@ -410,10 +418,11 @@ namespace TransferZero.Sdk.Api
         /// Getting a list of possible input currencies Fetches a list of currencies available to use as the input currency in other API requests. Usually the 3-character alpha ISO 4217 currency code (eg. USD) is used as the identifier. Use this endpoint to determine the current exchange rate from a specific input currency to any output currency that&#39;s available. 
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="senderId">Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/in?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
         /// <returns>CurrencyExchangeListResponse</returns>
-        public CurrencyExchangeListResponse InfoCurrenciesIn ()
+        public CurrencyExchangeListResponse InfoCurrenciesIn (Guid? senderId = null)
         {
-             ApiResponse<CurrencyExchangeListResponse> localVarResponse = InfoCurrenciesInWithHttpInfo();
+             ApiResponse<CurrencyExchangeListResponse> localVarResponse = InfoCurrenciesInWithHttpInfo(senderId);
              return localVarResponse.Data;
         }
 
@@ -421,8 +430,9 @@ namespace TransferZero.Sdk.Api
         /// Getting a list of possible input currencies Fetches a list of currencies available to use as the input currency in other API requests. Usually the 3-character alpha ISO 4217 currency code (eg. USD) is used as the identifier. Use this endpoint to determine the current exchange rate from a specific input currency to any output currency that&#39;s available. 
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="senderId">Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/in?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
         /// <returns>ApiResponse of CurrencyExchangeListResponse</returns>
-        public ApiResponse< CurrencyExchangeListResponse > InfoCurrenciesInWithHttpInfo ()
+        public ApiResponse< CurrencyExchangeListResponse > InfoCurrenciesInWithHttpInfo (Guid? senderId = null)
         {
 
             var localVarPath = "/info/currencies/in";
@@ -446,6 +456,7 @@ namespace TransferZero.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (senderId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sender_id", senderId)); // query parameter
 
             var request = new RestRequest(localVarPath, Method.GET);
 
@@ -487,10 +498,11 @@ namespace TransferZero.Sdk.Api
         /// Getting a list of possible input currencies Fetches a list of currencies available to use as the input currency in other API requests. Usually the 3-character alpha ISO 4217 currency code (eg. USD) is used as the identifier. Use this endpoint to determine the current exchange rate from a specific input currency to any output currency that&#39;s available. 
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="senderId">Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/in?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
         /// <returns>Task of CurrencyExchangeListResponse</returns>
-        public async System.Threading.Tasks.Task<CurrencyExchangeListResponse> InfoCurrenciesInAsync ()
+        public async System.Threading.Tasks.Task<CurrencyExchangeListResponse> InfoCurrenciesInAsync (Guid? senderId = null)
         {
-             ApiResponse<CurrencyExchangeListResponse> localVarResponse = await InfoCurrenciesInAsyncWithHttpInfo();
+             ApiResponse<CurrencyExchangeListResponse> localVarResponse = await InfoCurrenciesInAsyncWithHttpInfo(senderId);
              return localVarResponse.Data;
 
         }
@@ -499,8 +511,9 @@ namespace TransferZero.Sdk.Api
         /// Getting a list of possible input currencies Fetches a list of currencies available to use as the input currency in other API requests. Usually the 3-character alpha ISO 4217 currency code (eg. USD) is used as the identifier. Use this endpoint to determine the current exchange rate from a specific input currency to any output currency that&#39;s available. 
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="senderId">Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/in?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
         /// <returns>Task of ApiResponse (CurrencyExchangeListResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CurrencyExchangeListResponse>> InfoCurrenciesInAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<CurrencyExchangeListResponse>> InfoCurrenciesInAsyncWithHttpInfo (Guid? senderId = null)
         {
 
             var localVarPath = "/info/currencies/in";
@@ -524,6 +537,7 @@ namespace TransferZero.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (senderId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sender_id", senderId)); // query parameter
 
             var request = new RestRequest(localVarPath, Method.GET);
 
@@ -565,10 +579,11 @@ namespace TransferZero.Sdk.Api
         /// Getting a list of possible output currencies Fetches a list of currencies available to use as the output currency and their exchange rates against the available input currencies. Usually the 3-character alpha ISO 4217 currency code (eg. USD) is used as the identifier. 
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="senderId">Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/out?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
         /// <returns>CurrencyExchangeListResponse</returns>
-        public CurrencyExchangeListResponse InfoCurrenciesOut ()
+        public CurrencyExchangeListResponse InfoCurrenciesOut (Guid? senderId = null)
         {
-             ApiResponse<CurrencyExchangeListResponse> localVarResponse = InfoCurrenciesOutWithHttpInfo();
+             ApiResponse<CurrencyExchangeListResponse> localVarResponse = InfoCurrenciesOutWithHttpInfo(senderId);
              return localVarResponse.Data;
         }
 
@@ -576,8 +591,9 @@ namespace TransferZero.Sdk.Api
         /// Getting a list of possible output currencies Fetches a list of currencies available to use as the output currency and their exchange rates against the available input currencies. Usually the 3-character alpha ISO 4217 currency code (eg. USD) is used as the identifier. 
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="senderId">Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/out?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
         /// <returns>ApiResponse of CurrencyExchangeListResponse</returns>
-        public ApiResponse< CurrencyExchangeListResponse > InfoCurrenciesOutWithHttpInfo ()
+        public ApiResponse< CurrencyExchangeListResponse > InfoCurrenciesOutWithHttpInfo (Guid? senderId = null)
         {
 
             var localVarPath = "/info/currencies/out";
@@ -601,6 +617,7 @@ namespace TransferZero.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (senderId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sender_id", senderId)); // query parameter
 
             var request = new RestRequest(localVarPath, Method.GET);
 
@@ -642,10 +659,11 @@ namespace TransferZero.Sdk.Api
         /// Getting a list of possible output currencies Fetches a list of currencies available to use as the output currency and their exchange rates against the available input currencies. Usually the 3-character alpha ISO 4217 currency code (eg. USD) is used as the identifier. 
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="senderId">Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/out?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
         /// <returns>Task of CurrencyExchangeListResponse</returns>
-        public async System.Threading.Tasks.Task<CurrencyExchangeListResponse> InfoCurrenciesOutAsync ()
+        public async System.Threading.Tasks.Task<CurrencyExchangeListResponse> InfoCurrenciesOutAsync (Guid? senderId = null)
         {
-             ApiResponse<CurrencyExchangeListResponse> localVarResponse = await InfoCurrenciesOutAsyncWithHttpInfo();
+             ApiResponse<CurrencyExchangeListResponse> localVarResponse = await InfoCurrenciesOutAsyncWithHttpInfo(senderId);
              return localVarResponse.Data;
 
         }
@@ -654,8 +672,9 @@ namespace TransferZero.Sdk.Api
         /// Getting a list of possible output currencies Fetches a list of currencies available to use as the output currency and their exchange rates against the available input currencies. Usually the 3-character alpha ISO 4217 currency code (eg. USD) is used as the identifier. 
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="senderId">Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/out?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
         /// <returns>Task of ApiResponse (CurrencyExchangeListResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CurrencyExchangeListResponse>> InfoCurrenciesOutAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<CurrencyExchangeListResponse>> InfoCurrenciesOutAsyncWithHttpInfo (Guid? senderId = null)
         {
 
             var localVarPath = "/info/currencies/out";
@@ -679,6 +698,7 @@ namespace TransferZero.Sdk.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (senderId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sender_id", senderId)); // query parameter
 
             var request = new RestRequest(localVarPath, Method.GET);
 
