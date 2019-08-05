@@ -46,6 +46,13 @@ namespace TransferZero.Sdk.Model
         public decimal? Rate { get; private set; }
 
         /// <summary>
+        /// Mark to market rate of this particular currency against the base one with the margin factored in
+        /// </summary>
+        /// <value>Mark to market rate of this particular currency against the base one with the margin factored in</value>
+        [DataMember(Name="mtm_rate", EmitDefaultValue=false)]
+        public decimal? MtmRate { get; private set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -54,6 +61,7 @@ namespace TransferZero.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class CurrencyOppositeAllOf {\n");
             sb.Append("  Rate: ").Append(Rate).Append("\n");
+            sb.Append("  MtmRate: ").Append(MtmRate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,6 +100,11 @@ namespace TransferZero.Sdk.Model
                     this.Rate == input.Rate ||
                     (this.Rate != null &&
                     this.Rate.Equals(input.Rate))
+                ) && 
+                (
+                    this.MtmRate == input.MtmRate ||
+                    (this.MtmRate != null &&
+                    this.MtmRate.Equals(input.MtmRate))
                 );
         }
 
@@ -106,6 +119,8 @@ namespace TransferZero.Sdk.Model
                 int hashCode = 41;
                 if (this.Rate != null)
                     hashCode = hashCode * 59 + this.Rate.GetHashCode();
+                if (this.MtmRate != null)
+                    hashCode = hashCode * 59 + this.MtmRate.GetHashCode();
                 return hashCode;
             }
         }
