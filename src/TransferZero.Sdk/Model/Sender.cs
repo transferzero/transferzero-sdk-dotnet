@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// This contains the details of the sender. The first time a specific sender is used the full details should be provided. Once a sender is created and is used, the next time you MUST only send the ID of the sender. This is so we can match the same sender across multiple transactions for KYC and audit purposes.  Personal Sender Example: &#x60;&#x60;&#x60;json {   \&quot;country\&quot;: \&quot;UG\&quot;,   \&quot;phone_country\&quot;: \&quot;UG\&quot;,   \&quot;phone_number\&quot;: \&quot;752403639\&quot;,   \&quot;email\&quot;: \&quot;example@home.org\&quot;,   \&quot;first_name\&quot;: \&quot;Johnny\&quot;,   \&quot;last_name\&quot;: \&quot;English\&quot;,   \&quot;city\&quot;: \&quot;Kampala\&quot;,   \&quot;street\&quot;: \&quot;Unknown 17-3\&quot;,   \&quot;address_description\&quot;: \&quot;Description of address\&quot;,   \&quot;postal_code\&quot;: \&quot;798983\&quot;,   \&quot;birth_date\&quot;: \&quot;1900-12-31\&quot;,   \&quot;documents\&quot;: [ ],   \&quot;ip\&quot;: \&quot;127.0.0.1\&quot;,   \&quot;external_id\&quot;: \&quot;806ec63a-a5a7-43cc-9d75-1ee74fbcc026\&quot;,   \&quot;metadata\&quot;: { } } &#x60;&#x60;&#x60;  Business Sender Example:  &#x60;&#x60;&#x60;json {   \&quot;type\&quot;: \&quot;business\&quot;,   \&quot;country\&quot;: \&quot;UG\&quot;,   \&quot;phone_country\&quot;: \&quot;UG\&quot;,   \&quot;phone_number\&quot;: \&quot;752403639\&quot;,   \&quot;email\&quot;: \&quot;example@home.org\&quot;,   \&quot;name\&quot;: \&quot;MyCompany\&quot;,   \&quot;city\&quot;: \&quot;Kampala\&quot;,   \&quot;street\&quot;: \&quot;Unknown 17-3\&quot;,   \&quot;postal_code\&quot;: \&quot;798983\&quot;,   \&quot;address_description\&quot;: \&quot;Description of address\&quot;,   \&quot;documents\&quot;: [ ],   \&quot;ip\&quot;: \&quot;127.0.0.1\&quot;,   \&quot;external_id\&quot;: \&quot;806ec63a-a5a7-43cc-9d75-1ee74fbcc026\&quot;,   \&quot;metadata\&quot;: { } } &#x60;&#x60;&#x60;  [Sender in the API documentation](https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#sender)
+    /// This contains the details of the sender. The first time a specific sender is used the full details should be provided. Once a sender is created and is used, the next time you MUST only send the ID of the sender. This is so we can match the same sender across multiple transactions for KYC and audit purposes.  Personal Sender Example: &#x60;&#x60;&#x60;json {   \&quot;country\&quot;: \&quot;UG\&quot;,   \&quot;phone_country\&quot;: \&quot;UG\&quot;,   \&quot;phone_number\&quot;: \&quot;752403639\&quot;,   \&quot;email\&quot;: \&quot;example@home.org\&quot;,   \&quot;first_name\&quot;: \&quot;Johnny\&quot;,   \&quot;last_name\&quot;: \&quot;English\&quot;,   \&quot;city\&quot;: \&quot;Kampala\&quot;,   \&quot;street\&quot;: \&quot;Unknown 17-3\&quot;,   \&quot;address_description\&quot;: \&quot;Description of address\&quot;,   \&quot;postal_code\&quot;: \&quot;798983\&quot;,   \&quot;birth_date\&quot;: \&quot;1900-12-31\&quot;,   \&quot;documents\&quot;: [ ],   \&quot;ip\&quot;: \&quot;127.0.0.1\&quot;,   \&quot;identification_number\&quot;: \&quot;AB123456\&quot;,   \&quot;identification_type\&quot;: \&quot;ID\&quot;,   \&quot;external_id\&quot;: \&quot;806ec63a-a5a7-43cc-9d75-1ee74fbcc026\&quot;,   \&quot;metadata\&quot;: { } } &#x60;&#x60;&#x60;  Business Sender Example:  &#x60;&#x60;&#x60;json {   \&quot;type\&quot;: \&quot;business\&quot;,   \&quot;country\&quot;: \&quot;UG\&quot;,   \&quot;phone_country\&quot;: \&quot;UG\&quot;,   \&quot;phone_number\&quot;: \&quot;752403639\&quot;,   \&quot;email\&quot;: \&quot;example@home.org\&quot;,   \&quot;name\&quot;: \&quot;MyCompany\&quot;,   \&quot;city\&quot;: \&quot;Kampala\&quot;,   \&quot;street\&quot;: \&quot;Unknown 17-3\&quot;,   \&quot;postal_code\&quot;: \&quot;798983\&quot;,   \&quot;address_description\&quot;: \&quot;Description of address\&quot;,   \&quot;documents\&quot;: [ ],   \&quot;ip\&quot;: \&quot;127.0.0.1\&quot;,   \&quot;identification_number\&quot;: \&quot;AB123456\&quot;,   \&quot;identification_type\&quot;: \&quot;ID\&quot;,   \&quot;external_id\&quot;: \&quot;806ec63a-a5a7-43cc-9d75-1ee74fbcc026\&quot;,   \&quot;metadata\&quot;: { } } &#x60;&#x60;&#x60;  [Sender in the API documentation](https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#sender)
     /// </summary>
     [DataContract]
     public partial class Sender :  IEquatable<Sender>, IValidatableObject
@@ -58,6 +58,45 @@ namespace TransferZero.Sdk.Model
         [DataMember(Name="type", EmitDefaultValue=false)]
         public TypeEnum? Type { get; set; }
         /// <summary>
+        /// Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other
+        /// </summary>
+        /// <value>Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum IdentificationTypeEnum
+        {
+            /// <summary>
+            /// Enum DL for value: DL
+            /// </summary>
+            [EnumMember(Value = "DL")]
+            DL = 1,
+
+            /// <summary>
+            /// Enum PP for value: PP
+            /// </summary>
+            [EnumMember(Value = "PP")]
+            PP = 2,
+
+            /// <summary>
+            /// Enum ID for value: ID
+            /// </summary>
+            [EnumMember(Value = "ID")]
+            ID = 3,
+
+            /// <summary>
+            /// Enum OT for value: OT
+            /// </summary>
+            [EnumMember(Value = "OT")]
+            OT = 4
+
+        }
+
+        /// <summary>
+        /// Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other
+        /// </summary>
+        /// <value>Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other</value>
+        [DataMember(Name="identification_type", EmitDefaultValue=false)]
+        public IdentificationTypeEnum? IdentificationType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="Sender" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -85,12 +124,14 @@ namespace TransferZero.Sdk.Model
         /// <param name="postalCode">Zip code of sender (required).</param>
         /// <param name="birthDate">Date of birth of sender.</param>
         /// <param name="ip">IP of sender (required).</param>
+        /// <param name="identificationNumber">Identification number of document used.</param>
+        /// <param name="identificationType">Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other.</param>
         /// <param name="documents">Needed for KYC checks. Required to approve the sender unless KYC is waived for your account. Please send us an empty list of documents: &#x60;\&quot;documents\&quot;: [ ]&#x60; in the request if KYC has been waived.  If the documents already exist, please send the Document ID eg. &#x60;&#x60;&#x60;JSON \&quot;documents\&quot;: [   {     \&quot;id\&quot;: \&quot;b6648ba3-1c7b-4f59-8580-684899c84a07\&quot;   } ] &#x60;&#x60;&#x60; (required).</param>
         /// <param name="metadata">Metadata of sender. You can store any detail specific to your integration here (for example the local ID of the sender on your end). When requesting sender details you will receive the sent metadata back. Also when sending sender related webhooks you will receive the details stored here as well..</param>
         /// <param name="state">state.</param>
         /// <param name="id">id.</param>
         /// <param name="externalId">Optional ID that is supplied by partner linking it to the partner&#39;s own Sender ID. Note: if present we will validate whether the sent ID is a duplicate in our system or not..</param>
-        public Sender(TypeEnum? type = default(TypeEnum?), string country = default(string), string phoneCountry = default(string), string phoneNumber = default(string), string email = default(string), string firstName = default(string), string middleName = default(string), string lastName = default(string), string occupation = default(string), string nationality = default(string), string onboardingStatus = default(string), string address = default(string), string description = default(string), string name = default(string), string city = default(string), string street = default(string), string addressDescription = default(string), string postalCode = default(string), DateTime? birthDate = default(DateTime?), string ip = default(string), List<Document> documents = default(List<Document>), Object metadata = default(Object), SenderState state = default(SenderState), Guid? id = default(Guid?), string externalId = default(string))
+        public Sender(TypeEnum? type = default(TypeEnum?), string country = default(string), string phoneCountry = default(string), string phoneNumber = default(string), string email = default(string), string firstName = default(string), string middleName = default(string), string lastName = default(string), string occupation = default(string), string nationality = default(string), string onboardingStatus = default(string), string address = default(string), string description = default(string), string name = default(string), string city = default(string), string street = default(string), string addressDescription = default(string), string postalCode = default(string), DateTime? birthDate = default(DateTime?), string ip = default(string), string identificationNumber = default(string), IdentificationTypeEnum? identificationType = default(IdentificationTypeEnum?), List<Document> documents = default(List<Document>), Object metadata = default(Object), SenderState state = default(SenderState), Guid? id = default(Guid?), string externalId = default(string))
         {
             this.Country = country;
             this.PhoneCountry = phoneCountry;
@@ -113,6 +154,8 @@ namespace TransferZero.Sdk.Model
             this.Name = name;
             this.AddressDescription = addressDescription;
             this.BirthDate = birthDate;
+            this.IdentificationNumber = identificationNumber;
+            this.IdentificationType = identificationType;
             this.Metadata = metadata;
             this.State = state;
             this.Id = id;
@@ -255,6 +298,14 @@ namespace TransferZero.Sdk.Model
         public string Ip { get; set; }
 
         /// <summary>
+        /// Identification number of document used
+        /// </summary>
+        /// <value>Identification number of document used</value>
+        [DataMember(Name="identification_number", EmitDefaultValue=false)]
+        public string IdentificationNumber { get; set; }
+
+
+        /// <summary>
         /// Needed for KYC checks. Required to approve the sender unless KYC is waived for your account. Please send us an empty list of documents: &#x60;\&quot;documents\&quot;: [ ]&#x60; in the request if KYC has been waived.  If the documents already exist, please send the Document ID eg. &#x60;&#x60;&#x60;JSON \&quot;documents\&quot;: [   {     \&quot;id\&quot;: \&quot;b6648ba3-1c7b-4f59-8580-684899c84a07\&quot;   } ] &#x60;&#x60;&#x60;
         /// </summary>
         /// <value>Needed for KYC checks. Required to approve the sender unless KYC is waived for your account. Please send us an empty list of documents: &#x60;\&quot;documents\&quot;: [ ]&#x60; in the request if KYC has been waived.  If the documents already exist, please send the Document ID eg. &#x60;&#x60;&#x60;JSON \&quot;documents\&quot;: [   {     \&quot;id\&quot;: \&quot;b6648ba3-1c7b-4f59-8580-684899c84a07\&quot;   } ] &#x60;&#x60;&#x60;</value>
@@ -322,6 +373,8 @@ namespace TransferZero.Sdk.Model
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("  BirthDate: ").Append(BirthDate).Append("\n");
             sb.Append("  Ip: ").Append(Ip).Append("\n");
+            sb.Append("  IdentificationNumber: ").Append(IdentificationNumber).Append("\n");
+            sb.Append("  IdentificationType: ").Append(IdentificationType).Append("\n");
             sb.Append("  Documents: ").Append(Documents).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
@@ -463,6 +516,16 @@ namespace TransferZero.Sdk.Model
                     this.Ip.Equals(input.Ip))
                 ) && 
                 (
+                    this.IdentificationNumber == input.IdentificationNumber ||
+                    (this.IdentificationNumber != null &&
+                    this.IdentificationNumber.Equals(input.IdentificationNumber))
+                ) && 
+                (
+                    this.IdentificationType == input.IdentificationType ||
+                    (this.IdentificationType != null &&
+                    this.IdentificationType.Equals(input.IdentificationType))
+                ) && 
+                (
                     this.Documents == input.Documents ||
                     this.Documents != null &&
                     this.Documents.SequenceEqual(input.Documents)
@@ -543,6 +606,10 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.BirthDate.GetHashCode();
                 if (this.Ip != null)
                     hashCode = hashCode * 59 + this.Ip.GetHashCode();
+                if (this.IdentificationNumber != null)
+                    hashCode = hashCode * 59 + this.IdentificationNumber.GetHashCode();
+                if (this.IdentificationType != null)
+                    hashCode = hashCode * 59 + this.IdentificationType.GetHashCode();
                 if (this.Documents != null)
                     hashCode = hashCode * 59 + this.Documents.GetHashCode();
                 if (this.Metadata != null)
