@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **PhoneNumber** | **string** |  | 
 **MobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  | 
 **BankName** | **string** |  | 
+**BankCountry** | **string** |  | 
 **Iban** | **string** |  | 
 **Bic** | **string** |  | [optional] 
 **SenderIdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 
