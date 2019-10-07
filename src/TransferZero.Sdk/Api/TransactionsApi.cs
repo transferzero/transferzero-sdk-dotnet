@@ -76,8 +76,9 @@ namespace TransferZero.Sdk.Api
         /// <param name="page">The page number to request (defaults to 1) (optional)</param>
         /// <param name="per">The number of results to load per page (defaults to 10) (optional)</param>
         /// <param name="externalId">Allows filtering results by &#x60;external_id&#x60;.  Example: &#x60;/v1/senders?external_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
+        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>TransactionListResponse</returns>
-        TransactionListResponse GetTransactions (int? page = null, int? per = null, string externalId = null);
+        TransactionListResponse GetTransactions (int? page = null, int? per = null, string externalId = null, string senderId = null);
 
         /// <summary>
         /// Get a list of transactions
@@ -89,8 +90,9 @@ namespace TransferZero.Sdk.Api
         /// <param name="page">The page number to request (defaults to 1) (optional)</param>
         /// <param name="per">The number of results to load per page (defaults to 10) (optional)</param>
         /// <param name="externalId">Allows filtering results by &#x60;external_id&#x60;.  Example: &#x60;/v1/senders?external_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
+        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>ApiResponse of TransactionListResponse</returns>
-        ApiResponse<TransactionListResponse> GetTransactionsWithHttpInfo (int? page = null, int? per = null, string externalId = null);
+        ApiResponse<TransactionListResponse> GetTransactionsWithHttpInfo (int? page = null, int? per = null, string externalId = null, string senderId = null);
         /// <summary>
         /// Creates a fake payin for transaction
         /// </summary>
@@ -231,8 +233,9 @@ namespace TransferZero.Sdk.Api
         /// <param name="page">The page number to request (defaults to 1) (optional)</param>
         /// <param name="per">The number of results to load per page (defaults to 10) (optional)</param>
         /// <param name="externalId">Allows filtering results by &#x60;external_id&#x60;.  Example: &#x60;/v1/senders?external_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
+        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>Task of TransactionListResponse</returns>
-        System.Threading.Tasks.Task<TransactionListResponse> GetTransactionsAsync (int? page = null, int? per = null, string externalId = null);
+        System.Threading.Tasks.Task<TransactionListResponse> GetTransactionsAsync (int? page = null, int? per = null, string externalId = null, string senderId = null);
 
         /// <summary>
         /// Get a list of transactions
@@ -244,8 +247,9 @@ namespace TransferZero.Sdk.Api
         /// <param name="page">The page number to request (defaults to 1) (optional)</param>
         /// <param name="per">The number of results to load per page (defaults to 10) (optional)</param>
         /// <param name="externalId">Allows filtering results by &#x60;external_id&#x60;.  Example: &#x60;/v1/senders?external_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
+        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>Task of ApiResponse (TransactionListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TransactionListResponse>> GetTransactionsAsyncWithHttpInfo (int? page = null, int? per = null, string externalId = null);
+        System.Threading.Tasks.Task<ApiResponse<TransactionListResponse>> GetTransactionsAsyncWithHttpInfo (int? page = null, int? per = null, string externalId = null, string senderId = null);
         /// <summary>
         /// Creates a fake payin for transaction
         /// </summary>
@@ -800,10 +804,11 @@ namespace TransferZero.Sdk.Api
         /// <param name="page">The page number to request (defaults to 1) (optional)</param>
         /// <param name="per">The number of results to load per page (defaults to 10) (optional)</param>
         /// <param name="externalId">Allows filtering results by &#x60;external_id&#x60;.  Example: &#x60;/v1/senders?external_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
+        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>TransactionListResponse</returns>
-        public TransactionListResponse GetTransactions (int? page = null, int? per = null, string externalId = null)
+        public TransactionListResponse GetTransactions (int? page = null, int? per = null, string externalId = null, string senderId = null)
         {
-             ApiResponse<TransactionListResponse> localVarResponse = GetTransactionsWithHttpInfo(page, per, externalId);
+             ApiResponse<TransactionListResponse> localVarResponse = GetTransactionsWithHttpInfo(page, per, externalId, senderId);
              return localVarResponse.Data;
         }
 
@@ -814,8 +819,9 @@ namespace TransferZero.Sdk.Api
         /// <param name="page">The page number to request (defaults to 1) (optional)</param>
         /// <param name="per">The number of results to load per page (defaults to 10) (optional)</param>
         /// <param name="externalId">Allows filtering results by &#x60;external_id&#x60;.  Example: &#x60;/v1/senders?external_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
+        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>ApiResponse of TransactionListResponse</returns>
-        public ApiResponse< TransactionListResponse > GetTransactionsWithHttpInfo (int? page = null, int? per = null, string externalId = null)
+        public ApiResponse< TransactionListResponse > GetTransactionsWithHttpInfo (int? page = null, int? per = null, string externalId = null, string senderId = null)
         {
 
             var localVarPath = "/transactions";
@@ -842,6 +848,7 @@ namespace TransferZero.Sdk.Api
             if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
             if (per != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "per", per)); // query parameter
             if (externalId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "external_id", externalId)); // query parameter
+            if (senderId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sender_id", senderId)); // query parameter
 
             var request = new RestRequest(localVarPath, Method.GET);
 
@@ -886,10 +893,11 @@ namespace TransferZero.Sdk.Api
         /// <param name="page">The page number to request (defaults to 1) (optional)</param>
         /// <param name="per">The number of results to load per page (defaults to 10) (optional)</param>
         /// <param name="externalId">Allows filtering results by &#x60;external_id&#x60;.  Example: &#x60;/v1/senders?external_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
+        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>Task of TransactionListResponse</returns>
-        public async System.Threading.Tasks.Task<TransactionListResponse> GetTransactionsAsync (int? page = null, int? per = null, string externalId = null)
+        public async System.Threading.Tasks.Task<TransactionListResponse> GetTransactionsAsync (int? page = null, int? per = null, string externalId = null, string senderId = null)
         {
-             ApiResponse<TransactionListResponse> localVarResponse = await GetTransactionsAsyncWithHttpInfo(page, per, externalId);
+             ApiResponse<TransactionListResponse> localVarResponse = await GetTransactionsAsyncWithHttpInfo(page, per, externalId, senderId);
              return localVarResponse.Data;
 
         }
@@ -901,8 +909,9 @@ namespace TransferZero.Sdk.Api
         /// <param name="page">The page number to request (defaults to 1) (optional)</param>
         /// <param name="per">The number of results to load per page (defaults to 10) (optional)</param>
         /// <param name="externalId">Allows filtering results by &#x60;external_id&#x60;.  Example: &#x60;/v1/senders?external_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; (optional)</param>
+        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>Task of ApiResponse (TransactionListResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TransactionListResponse>> GetTransactionsAsyncWithHttpInfo (int? page = null, int? per = null, string externalId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<TransactionListResponse>> GetTransactionsAsyncWithHttpInfo (int? page = null, int? per = null, string externalId = null, string senderId = null)
         {
 
             var localVarPath = "/transactions";
@@ -929,6 +938,7 @@ namespace TransferZero.Sdk.Api
             if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
             if (per != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "per", per)); // query parameter
             if (externalId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "external_id", externalId)); // query parameter
+            if (senderId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sender_id", senderId)); // query parameter
 
             var request = new RestRequest(localVarPath, Method.GET);
 

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **LastName** | **string** |  | 
 **BankCode** | **string** |  | 
 **BankAccount** | **string** |  | 
-**BankAccountType** | [**PayoutMethodBankAccountTypeEnum**](PayoutMethodBankAccountTypeEnum.md) |  | 
+**BankAccountType** | [**PayoutMethodBankAccountTypeEnum**](PayoutMethodBankAccountTypeEnum.md) |  | [optional] 
 **PhoneNumber** | **string** |  | 
 **MobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  | 
 **BankName** | **string** |  | 

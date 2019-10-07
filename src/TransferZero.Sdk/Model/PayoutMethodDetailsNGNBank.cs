@@ -42,7 +42,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="lastName">lastName (required).</param>
         /// <param name="bankCode">bankCode (required).</param>
         /// <param name="bankAccount">bankAccount (required).</param>
-        /// <param name="bankAccountType">bankAccountType (required).</param>
+        /// <param name="bankAccountType">bankAccountType.</param>
         public PayoutMethodDetailsNGNBank(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum))
         {
             this.FirstName = firstName;
