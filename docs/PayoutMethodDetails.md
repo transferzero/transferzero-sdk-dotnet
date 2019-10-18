@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 **BankAccountType** | [**PayoutMethodBankAccountTypeEnum**](PayoutMethodBankAccountTypeEnum.md) |  | [optional] 
 **PhoneNumber** | **string** |  | 
 **MobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  | 
+**Iban** | **string** |  | 
 **BankName** | **string** |  | 
 **BankCountry** | **string** |  | 
-**Iban** | **string** |  | 
 **Bic** | **string** |  | [optional] 
 **SenderIdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 
 **SenderIdentityCardId** | **string** |  | 

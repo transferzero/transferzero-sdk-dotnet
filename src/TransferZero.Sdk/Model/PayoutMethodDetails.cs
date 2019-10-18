@@ -45,9 +45,9 @@ namespace TransferZero.Sdk.Model
         /// <param name="bankAccountType">bankAccountType.</param>
         /// <param name="phoneNumber">phoneNumber (required).</param>
         /// <param name="mobileProvider">mobileProvider (required).</param>
+        /// <param name="iban">iban (required).</param>
         /// <param name="bankName">bankName (required).</param>
         /// <param name="bankCountry">bankCountry (required).</param>
-        /// <param name="iban">iban (required).</param>
         /// <param name="bic">bic.</param>
         /// <param name="senderIdentityCardType">senderIdentityCardType (required).</param>
         /// <param name="senderIdentityCardId">senderIdentityCardId (required).</param>
@@ -58,7 +58,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="identityCardType">identityCardType.</param>
         /// <param name="identityCardId">identityCardId.</param>
         /// <param name="reference">reference.</param>
-        public PayoutMethodDetails(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), string bankName = default(string), string bankCountry = default(string), string iban = default(string), string bic = default(string), PayoutMethodIdentityCardTypeEnum senderIdentityCardType = default(PayoutMethodIdentityCardTypeEnum), string senderIdentityCardId = default(string), string senderCityOfBirth = default(string), string senderCountryOfBirth = default(string), PayoutMethodGenderEnum senderGender = default(PayoutMethodGenderEnum), string reason = default(string), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), string reference = default(string))
+        public PayoutMethodDetails(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), string iban = default(string), string bankName = default(string), string bankCountry = default(string), string bic = default(string), PayoutMethodIdentityCardTypeEnum senderIdentityCardType = default(PayoutMethodIdentityCardTypeEnum), string senderIdentityCardId = default(string), string senderCityOfBirth = default(string), string senderCountryOfBirth = default(string), PayoutMethodGenderEnum senderGender = default(PayoutMethodGenderEnum), string reason = default(string), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), string reference = default(string))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -66,9 +66,9 @@ namespace TransferZero.Sdk.Model
             this.BankAccount = bankAccount;
             this.PhoneNumber = phoneNumber;
             this.MobileProvider = mobileProvider;
+            this.Iban = iban;
             this.BankName = bankName;
             this.BankCountry = bankCountry;
-            this.Iban = iban;
             this.SenderIdentityCardType = senderIdentityCardType;
             this.SenderIdentityCardId = senderIdentityCardId;
             this.SenderCityOfBirth = senderCityOfBirth;
@@ -125,6 +125,12 @@ namespace TransferZero.Sdk.Model
         public PayoutMethodMobileProviderEnum MobileProvider { get; set; }
 
         /// <summary>
+        /// Gets or Sets Iban
+        /// </summary>
+        [DataMember(Name="iban", EmitDefaultValue=false)]
+        public string Iban { get; set; }
+
+        /// <summary>
         /// Gets or Sets BankName
         /// </summary>
         [DataMember(Name="bank_name", EmitDefaultValue=false)]
@@ -135,12 +141,6 @@ namespace TransferZero.Sdk.Model
         /// </summary>
         [DataMember(Name="bank_country", EmitDefaultValue=false)]
         public string BankCountry { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Iban
-        /// </summary>
-        [DataMember(Name="iban", EmitDefaultValue=false)]
-        public string Iban { get; set; }
 
         /// <summary>
         /// Gets or Sets Bic
@@ -217,9 +217,9 @@ namespace TransferZero.Sdk.Model
             sb.Append("  BankAccountType: ").Append(BankAccountType).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  MobileProvider: ").Append(MobileProvider).Append("\n");
+            sb.Append("  Iban: ").Append(Iban).Append("\n");
             sb.Append("  BankName: ").Append(BankName).Append("\n");
             sb.Append("  BankCountry: ").Append(BankCountry).Append("\n");
-            sb.Append("  Iban: ").Append(Iban).Append("\n");
             sb.Append("  Bic: ").Append(Bic).Append("\n");
             sb.Append("  SenderIdentityCardType: ").Append(SenderIdentityCardType).Append("\n");
             sb.Append("  SenderIdentityCardId: ").Append(SenderIdentityCardId).Append("\n");
@@ -300,6 +300,11 @@ namespace TransferZero.Sdk.Model
                     this.MobileProvider.Equals(input.MobileProvider))
                 ) && 
                 (
+                    this.Iban == input.Iban ||
+                    (this.Iban != null &&
+                    this.Iban.Equals(input.Iban))
+                ) && 
+                (
                     this.BankName == input.BankName ||
                     (this.BankName != null &&
                     this.BankName.Equals(input.BankName))
@@ -308,11 +313,6 @@ namespace TransferZero.Sdk.Model
                     this.BankCountry == input.BankCountry ||
                     (this.BankCountry != null &&
                     this.BankCountry.Equals(input.BankCountry))
-                ) && 
-                (
-                    this.Iban == input.Iban ||
-                    (this.Iban != null &&
-                    this.Iban.Equals(input.Iban))
                 ) && 
                 (
                     this.Bic == input.Bic ||
@@ -389,12 +389,12 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
                 if (this.MobileProvider != null)
                     hashCode = hashCode * 59 + this.MobileProvider.GetHashCode();
+                if (this.Iban != null)
+                    hashCode = hashCode * 59 + this.Iban.GetHashCode();
                 if (this.BankName != null)
                     hashCode = hashCode * 59 + this.BankName.GetHashCode();
                 if (this.BankCountry != null)
                     hashCode = hashCode * 59 + this.BankCountry.GetHashCode();
-                if (this.Iban != null)
-                    hashCode = hashCode * 59 + this.Iban.GetHashCode();
                 if (this.Bic != null)
                     hashCode = hashCode * 59 + this.Bic.GetHashCode();
                 if (this.SenderIdentityCardType != null)

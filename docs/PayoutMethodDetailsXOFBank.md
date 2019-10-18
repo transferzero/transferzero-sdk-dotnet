@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FirstName** | **string** |  | 
 **LastName** | **string** |  | 
-**BankAccount** | **string** |  | 
+**Iban** | **string** |  | 
 **BankName** | **string** |  | 
 **BankCountry** | **string** |  | 
 
