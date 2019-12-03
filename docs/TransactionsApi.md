@@ -5,6 +5,7 @@ All URIs are relative to *https://api-sandbox.transferzero.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CalculateTransactions**](TransactionsApi.md#calculatetransactions) | **POST** /transactions/calculate | Calculates transaction amounts for a transaction payload
+[**CreateAndFundTransaction**](TransactionsApi.md#createandfundtransaction) | **POST** /transactions/create_and_fund | Creates a new transaction and funds it from account balance
 [**GetTransaction**](TransactionsApi.md#gettransaction) | **GET** /transactions/{Transaction ID} | Fetch a single transaction
 [**GetTransactions**](TransactionsApi.md#gettransactions) | **GET** /transactions | Get a list of transactions
 [**PayinTransaction**](TransactionsApi.md#payintransaction) | **POST** /transactions/{Transaction ID}/payin | Creates a fake payin for transaction
@@ -103,6 +104,119 @@ Module Example
                 Debug.WriteLine(result)
             Else
                 Debug.Print("Exception when calling TransactionsApi.CalculateTransactions: " + e.Message )
+            End If
+        End Try
+    End Sub
+End Module
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **transactionRequest** | [**TransactionRequest**](TransactionRequest.md)|  | 
+
+### Return type
+
+[**TransactionResponse**](TransactionResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="createandfundtransaction"></a>
+# **CreateAndFundTransaction**
+> TransactionResponse CreateAndFundTransaction (TransactionRequest transactionRequest)
+
+Creates a new transaction and funds it from account balance
+
+This endpoint creates a transaction and funds it from an account balance. You must ensure that you have established an account with us in the pay-in currency of the transactions you wish to create, and that this account is sufficently funded, before calling this endpoint.  Note that the <pre>external_id</pre> field is required for requests to this endpoint.
+
+### Example
+
+#### C#
+
+```csharp
+using System;
+using System.Diagnostics;
+using TransferZero.Sdk.Api;
+using TransferZero.Sdk.Client;
+using TransferZero.Sdk.Model;
+
+namespace Example
+{
+    public class CreateAndFundTransactionExample
+    {
+        public void main()
+        {
+            Configuration configuration = new Configuration();
+            configuration.ApiKey = "<key>";
+            configuration.ApiSecret = "<secret>";
+            configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
+
+            var apiInstance = new TransactionsApi(configuration);
+            var transactionRequest = new TransactionRequest(); // TransactionRequest | 
+
+            try {
+                // Creates a new transaction and funds it from account balance
+                TransactionResponse result = apiInstance.CreateAndFundTransaction(transactionRequest);
+                Debug.WriteLine(result);
+            } catch (ApiException e)
+            {
+                if (e.IsValidationError) {
+                    // In case there was a validation error, obtain the object
+                    TransactionResponse result = e.ParseObject<TransactionResponse>();
+                    Debug.WriteLing("There was a validation error while processing!");
+                    Debug.WriteLine(result);
+                } else {
+                    Debug.Print("Exception when calling TransactionsApi.CreateAndFundTransaction: " + e.Message );
+                }
+            }
+        }
+    }
+}
+```
+
+#### VB.NET
+
+```vbnet
+Imports TransferZero.Sdk.Api;
+Imports TransferZero.Sdk.Client;
+Imports TransferZero.Sdk.Model;
+Imports System
+Imports System.Collections.Generic
+Imports System.Linq
+Imports System.Text
+Imports System.Threading.Tasks
+
+Module Example
+    Sub Main(ByVal args As String())
+        Dim configuration As Configuration = New Configuration()
+        configuration.ApiKey = "KEY"
+        configuration.ApiSecret = "SECRET"
+        configuration.BasePath = "https://api-sandbox.transferzero.com/v1"
+
+        Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
+
+        Dim apiInstance = new TransactionsApi(configuration)
+        Dim transactionRequest = new TransactionRequest() REM TransactionRequest | 
+
+
+        Try
+            REM Creates a new transaction and funds it from account balance
+            Dim result As TransactionResponse = apiInstance.CreateAndFundTransaction(transactionRequest)
+            Debug.WriteLine(result)
+        Catch e as ApiException
+            If e.IsValidationError Then
+                REM In case there was a validation error, obtain the object
+                Dim result as TransactionResponse = e.ParseObject(Of TransactionResponse)()
+                Debug.WriteLine("There was a validation error while processing!")
+                Debug.WriteLine(result)
+            Else
+                Debug.Print("Exception when calling TransactionsApi.CreateAndFundTransaction: " + e.Message )
             End If
         End Try
     End Sub

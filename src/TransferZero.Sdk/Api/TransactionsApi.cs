@@ -46,6 +46,27 @@ namespace TransferZero.Sdk.Api
         /// <returns>ApiResponse of TransactionResponse</returns>
         ApiResponse<TransactionResponse> CalculateTransactionsWithHttpInfo (TransactionRequest transactionRequest);
         /// <summary>
+        /// Creates a new transaction and funds it from account balance
+        /// </summary>
+        /// <remarks>
+        /// This endpoint creates a transaction and funds it from an account balance. You must ensure that you have established an account with us in the pay-in currency of the transactions you wish to create, and that this account is sufficently funded, before calling this endpoint.  Note that the &lt;pre&gt;external_id&lt;/pre&gt; field is required for requests to this endpoint.
+        /// </remarks>
+        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="transactionRequest"></param>
+        /// <returns>TransactionResponse</returns>
+        TransactionResponse CreateAndFundTransaction (TransactionRequest transactionRequest);
+
+        /// <summary>
+        /// Creates a new transaction and funds it from account balance
+        /// </summary>
+        /// <remarks>
+        /// This endpoint creates a transaction and funds it from an account balance. You must ensure that you have established an account with us in the pay-in currency of the transactions you wish to create, and that this account is sufficently funded, before calling this endpoint.  Note that the &lt;pre&gt;external_id&lt;/pre&gt; field is required for requests to this endpoint.
+        /// </remarks>
+        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="transactionRequest"></param>
+        /// <returns>ApiResponse of TransactionResponse</returns>
+        ApiResponse<TransactionResponse> CreateAndFundTransactionWithHttpInfo (TransactionRequest transactionRequest);
+        /// <summary>
         /// Fetch a single transaction
         /// </summary>
         /// <remarks>
@@ -202,6 +223,27 @@ namespace TransferZero.Sdk.Api
         /// <param name="transactionRequest"></param>
         /// <returns>Task of ApiResponse (TransactionResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<TransactionResponse>> CalculateTransactionsAsyncWithHttpInfo (TransactionRequest transactionRequest);
+        /// <summary>
+        /// Creates a new transaction and funds it from account balance
+        /// </summary>
+        /// <remarks>
+        /// This endpoint creates a transaction and funds it from an account balance. You must ensure that you have established an account with us in the pay-in currency of the transactions you wish to create, and that this account is sufficently funded, before calling this endpoint.  Note that the &lt;pre&gt;external_id&lt;/pre&gt; field is required for requests to this endpoint.
+        /// </remarks>
+        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="transactionRequest"></param>
+        /// <returns>Task of TransactionResponse</returns>
+        System.Threading.Tasks.Task<TransactionResponse> CreateAndFundTransactionAsync (TransactionRequest transactionRequest);
+
+        /// <summary>
+        /// Creates a new transaction and funds it from account balance
+        /// </summary>
+        /// <remarks>
+        /// This endpoint creates a transaction and funds it from an account balance. You must ensure that you have established an account with us in the pay-in currency of the transactions you wish to create, and that this account is sufficently funded, before calling this endpoint.  Note that the &lt;pre&gt;external_id&lt;/pre&gt; field is required for requests to this endpoint.
+        /// </remarks>
+        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="transactionRequest"></param>
+        /// <returns>Task of ApiResponse (TransactionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TransactionResponse>> CreateAndFundTransactionAsyncWithHttpInfo (TransactionRequest transactionRequest);
         /// <summary>
         /// Fetch a single transaction
         /// </summary>
@@ -622,6 +664,189 @@ namespace TransferZero.Sdk.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("CalculateTransactions", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TransactionResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (TransactionResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TransactionResponse)));
+        }
+
+        /// <summary>
+        /// Creates a new transaction and funds it from account balance This endpoint creates a transaction and funds it from an account balance. You must ensure that you have established an account with us in the pay-in currency of the transactions you wish to create, and that this account is sufficently funded, before calling this endpoint.  Note that the &lt;pre&gt;external_id&lt;/pre&gt; field is required for requests to this endpoint.
+        /// </summary>
+        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="transactionRequest"></param>
+        /// <returns>TransactionResponse</returns>
+        public TransactionResponse CreateAndFundTransaction (TransactionRequest transactionRequest)
+        {
+             ApiResponse<TransactionResponse> localVarResponse = CreateAndFundTransactionWithHttpInfo(transactionRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Creates a new transaction and funds it from account balance This endpoint creates a transaction and funds it from an account balance. You must ensure that you have established an account with us in the pay-in currency of the transactions you wish to create, and that this account is sufficently funded, before calling this endpoint.  Note that the &lt;pre&gt;external_id&lt;/pre&gt; field is required for requests to this endpoint.
+        /// </summary>
+        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="transactionRequest"></param>
+        /// <returns>ApiResponse of TransactionResponse</returns>
+        public ApiResponse< TransactionResponse > CreateAndFundTransactionWithHttpInfo (TransactionRequest transactionRequest)
+        {
+            // verify the required parameter 'transactionRequest' is set
+            if (transactionRequest == null)
+                throw new ApiException(400, "Missing required parameter 'transactionRequest' when calling TransactionsApi->CreateAndFundTransaction");
+
+            var localVarPath = "/transactions/create_and_fund";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (transactionRequest != null && transactionRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(transactionRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = transactionRequest; // byte array
+            }
+
+            var request = new RestRequest(localVarPath, Method.POST);
+
+            // add path and query parameter, if any
+            foreach (var param in localVarPathParams)
+                request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
+
+            foreach (var param in localVarQueryParams)
+                request.AddQueryParameter(param.Key, param.Value);
+
+            // generate full URL
+            string fullUri = this.Configuration.ApiClient.RestClient.BuildUri(request).AbsoluteUri;
+
+			string nonce = System.Guid.NewGuid().ToString();
+            string authSignature = this.Configuration.GetSignature(nonce, fullUri, "POST", localVarPostBody == null ? "" : localVarPostBody.ToString());
+			localVarHeaderParams.Add("Authorization-Key", this.Configuration.ApiKey);
+            localVarHeaderParams.Add("Authorization-Nonce", nonce);
+			localVarHeaderParams.Add("Authorization-Signature", authSignature);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateAndFundTransaction", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TransactionResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (TransactionResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TransactionResponse)));
+        }
+
+        /// <summary>
+        /// Creates a new transaction and funds it from account balance This endpoint creates a transaction and funds it from an account balance. You must ensure that you have established an account with us in the pay-in currency of the transactions you wish to create, and that this account is sufficently funded, before calling this endpoint.  Note that the &lt;pre&gt;external_id&lt;/pre&gt; field is required for requests to this endpoint.
+        /// </summary>
+        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="transactionRequest"></param>
+        /// <returns>Task of TransactionResponse</returns>
+        public async System.Threading.Tasks.Task<TransactionResponse> CreateAndFundTransactionAsync (TransactionRequest transactionRequest)
+        {
+             ApiResponse<TransactionResponse> localVarResponse = await CreateAndFundTransactionAsyncWithHttpInfo(transactionRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Creates a new transaction and funds it from account balance This endpoint creates a transaction and funds it from an account balance. You must ensure that you have established an account with us in the pay-in currency of the transactions you wish to create, and that this account is sufficently funded, before calling this endpoint.  Note that the &lt;pre&gt;external_id&lt;/pre&gt; field is required for requests to this endpoint.
+        /// </summary>
+        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="transactionRequest"></param>
+        /// <returns>Task of ApiResponse (TransactionResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TransactionResponse>> CreateAndFundTransactionAsyncWithHttpInfo (TransactionRequest transactionRequest)
+        {
+            // verify the required parameter 'transactionRequest' is set
+            if (transactionRequest == null)
+                throw new ApiException(400, "Missing required parameter 'transactionRequest' when calling TransactionsApi->CreateAndFundTransaction");
+
+            var localVarPath = "/transactions/create_and_fund";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (transactionRequest != null && transactionRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(transactionRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = transactionRequest; // byte array
+            }
+
+            var request = new RestRequest(localVarPath, Method.POST);
+
+            // add path parameter, if any
+            foreach (var param in localVarPathParams)
+                request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
+
+            foreach (var param in localVarQueryParams)
+                request.AddQueryParameter(param.Key, param.Value);
+
+            // generate full URL
+            string fullUri = this.Configuration.ApiClient.RestClient.BuildUri(request).AbsoluteUri;
+
+			string nonce = System.Guid.NewGuid().ToString();
+            string authSignature = this.Configuration.GetSignature(nonce, fullUri, "POST", localVarPostBody == null ? "" : localVarPostBody.ToString());
+			localVarHeaderParams.Add("Authorization-Key", this.Configuration.ApiKey);
+            localVarHeaderParams.Add("Authorization-Nonce", nonce);
+			localVarHeaderParams.Add("Authorization-Signature", authSignature);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateAndFundTransaction", localVarResponse);
                 if (exception != null) throw exception;
             }
 

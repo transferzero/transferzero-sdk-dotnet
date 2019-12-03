@@ -195,6 +195,7 @@ Class | Method | HTTP request | Description
 *SendersApi* | [**PatchSender**](docs/SendersApi.md#patchsender) | **PATCH** /senders/{Sender ID} | Updating a sender
 *SendersApi* | [**PostSenders**](docs/SendersApi.md#postsenders) | **POST** /senders | Creating a sender
 *TransactionsApi* | [**CalculateTransactions**](docs/TransactionsApi.md#calculatetransactions) | **POST** /transactions/calculate | Calculates transaction amounts for a transaction payload
+*TransactionsApi* | [**CreateAndFundTransaction**](docs/TransactionsApi.md#createandfundtransaction) | **POST** /transactions/create_and_fund | Creates a new transaction and funds it from account balance
 *TransactionsApi* | [**GetTransaction**](docs/TransactionsApi.md#gettransaction) | **GET** /transactions/{Transaction ID} | Fetch a single transaction
 *TransactionsApi* | [**GetTransactions**](docs/TransactionsApi.md#gettransactions) | **GET** /transactions | Get a list of transactions
 *TransactionsApi* | [**PayinTransaction**](docs/TransactionsApi.md#payintransaction) | **POST** /transactions/{Transaction ID}/payin | Creates a fake payin for transaction
@@ -224,9 +225,11 @@ Class | Method | HTTP request | Description
  - [Model.ApiLogResponse](docs/ApiLogResponse.md)
  - [Model.Currency](docs/Currency.md)
  - [Model.CurrencyExchange](docs/CurrencyExchange.md)
+ - [Model.CurrencyExchangeAllOf](docs/CurrencyExchangeAllOf.md)
  - [Model.CurrencyExchangeListResponse](docs/CurrencyExchangeListResponse.md)
  - [Model.CurrencyListResponse](docs/CurrencyListResponse.md)
  - [Model.CurrencyOpposite](docs/CurrencyOpposite.md)
+ - [Model.CurrencyOppositeAllOf](docs/CurrencyOppositeAllOf.md)
  - [Model.Debit](docs/Debit.md)
  - [Model.DebitListRequest](docs/DebitListRequest.md)
  - [Model.DebitListResponse](docs/DebitListResponse.md)
@@ -238,6 +241,7 @@ Class | Method | HTTP request | Description
  - [Model.DocumentRequest](docs/DocumentRequest.md)
  - [Model.DocumentResponse](docs/DocumentResponse.md)
  - [Model.DocumentWebhook](docs/DocumentWebhook.md)
+ - [Model.DocumentWebhookAllOf](docs/DocumentWebhookAllOf.md)
  - [Model.ErrorStatus](docs/ErrorStatus.md)
  - [Model.FieldDescription](docs/FieldDescription.md)
  - [Model.FieldSelectValidation](docs/FieldSelectValidation.md)
@@ -270,12 +274,14 @@ Class | Method | HTTP request | Description
  - [Model.PayoutMethodRequest](docs/PayoutMethodRequest.md)
  - [Model.PayoutMethodResponse](docs/PayoutMethodResponse.md)
  - [Model.PayoutMethodWebhook](docs/PayoutMethodWebhook.md)
+ - [Model.PayoutMethodWebhookAllOf](docs/PayoutMethodWebhookAllOf.md)
  - [Model.Recipient](docs/Recipient.md)
  - [Model.RecipientListResponse](docs/RecipientListResponse.md)
  - [Model.RecipientRequest](docs/RecipientRequest.md)
  - [Model.RecipientResponse](docs/RecipientResponse.md)
  - [Model.RecipientState](docs/RecipientState.md)
  - [Model.RecipientWebhook](docs/RecipientWebhook.md)
+ - [Model.RecipientWebhookAllOf](docs/RecipientWebhookAllOf.md)
  - [Model.Sender](docs/Sender.md)
  - [Model.SenderListResponse](docs/SenderListResponse.md)
  - [Model.SenderRequest](docs/SenderRequest.md)
@@ -284,6 +290,7 @@ Class | Method | HTTP request | Description
  - [Model.SenderResponseMeta](docs/SenderResponseMeta.md)
  - [Model.SenderState](docs/SenderState.md)
  - [Model.SenderWebhook](docs/SenderWebhook.md)
+ - [Model.SenderWebhookAllOf](docs/SenderWebhookAllOf.md)
  - [Model.Transaction](docs/Transaction.md)
  - [Model.TransactionListResponse](docs/TransactionListResponse.md)
  - [Model.TransactionRequest](docs/TransactionRequest.md)
@@ -293,6 +300,7 @@ Class | Method | HTTP request | Description
  - [Model.TransactionState](docs/TransactionState.md)
  - [Model.TransactionTraits](docs/TransactionTraits.md)
  - [Model.TransactionWebhook](docs/TransactionWebhook.md)
+ - [Model.TransactionWebhookAllOf](docs/TransactionWebhookAllOf.md)
  - [Model.ValidationErrorDescription](docs/ValidationErrorDescription.md)
  - [Model.Webhook](docs/Webhook.md)
  - [Model.WebhookDefinition](docs/WebhookDefinition.md)

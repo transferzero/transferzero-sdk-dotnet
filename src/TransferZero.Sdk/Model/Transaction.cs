@@ -45,7 +45,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="recipients">The details of where the payment should go. although transactions can support paying out multiple recipients, usually one is provided.  (required).</param>
         /// <param name="traits">traits.</param>
         /// <param name="state">state.</param>
-        /// <param name="externalId">Optional ID that is supplied by partner linking it to the partner&#39;s own Sender ID. Note: if present we will validate whether the sent ID is a duplicate in our system or not..</param>
+        /// <param name="externalId">Optional ID that is supplied by partner linking it to the partner&#39;s own Transaction ID. Note: if present we will validate whether the sent ID is a duplicate in our system or not..</param>
         public Transaction(string inputCurrency = default(string), List<PayinMethod> payinMethods = default(List<PayinMethod>), Object metadata = default(Object), Sender sender = default(Sender), List<Recipient> recipients = default(List<Recipient>), TransactionTraits traits = default(TransactionTraits), TransactionState state = default(TransactionState), string externalId = default(string))
         {
             this.InputCurrency = inputCurrency;
@@ -147,9 +147,9 @@ namespace TransferZero.Sdk.Model
         public DateTime? ExpiresAt { get; private set; }
 
         /// <summary>
-        /// Optional ID that is supplied by partner linking it to the partner&#39;s own Sender ID. Note: if present we will validate whether the sent ID is a duplicate in our system or not.
+        /// Optional ID that is supplied by partner linking it to the partner&#39;s own Transaction ID. Note: if present we will validate whether the sent ID is a duplicate in our system or not.
         /// </summary>
-        /// <value>Optional ID that is supplied by partner linking it to the partner&#39;s own Sender ID. Note: if present we will validate whether the sent ID is a duplicate in our system or not.</value>
+        /// <value>Optional ID that is supplied by partner linking it to the partner&#39;s own Transaction ID. Note: if present we will validate whether the sent ID is a duplicate in our system or not.</value>
         [DataMember(Name="external_id", EmitDefaultValue=false)]
         public string ExternalId { get; set; }
 
