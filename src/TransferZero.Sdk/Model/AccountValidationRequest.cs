@@ -31,9 +31,9 @@ namespace TransferZero.Sdk.Model
     public partial class AccountValidationRequest :  IEquatable<AccountValidationRequest>, IValidatableObject
     {
         /// <summary>
-        /// Country of account in 2-character alpha ISO 3166-2 country format (only NG is currently supported)
+        /// Country of account in 2-character alpha ISO 3166-2 country format
         /// </summary>
-        /// <value>Country of account in 2-character alpha ISO 3166-2 country format (only NG is currently supported)</value>
+        /// <value>Country of account in 2-character alpha ISO 3166-2 country format</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum CountryEnum
         {
@@ -52,9 +52,9 @@ namespace TransferZero.Sdk.Model
         }
 
         /// <summary>
-        /// Country of account in 2-character alpha ISO 3166-2 country format (only NG is currently supported)
+        /// Country of account in 2-character alpha ISO 3166-2 country format
         /// </summary>
-        /// <value>Country of account in 2-character alpha ISO 3166-2 country format (only NG is currently supported)</value>
+        /// <value>Country of account in 2-character alpha ISO 3166-2 country format</value>
         [DataMember(Name="country", EmitDefaultValue=false)]
         public CountryEnum Country { get; set; }
         /// <summary>
@@ -85,9 +85,9 @@ namespace TransferZero.Sdk.Model
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public CurrencyEnum Currency { get; set; }
         /// <summary>
-        /// The method of the payment. Currently only bank is supported
+        /// The method of the payment. Currently bank and mobile are supported
         /// </summary>
-        /// <value>The method of the payment. Currently only bank is supported</value>
+        /// <value>The method of the payment. Currently bank and mobile are supported</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum MethodEnum
         {
@@ -95,14 +95,20 @@ namespace TransferZero.Sdk.Model
             /// Enum Bank for value: bank
             /// </summary>
             [EnumMember(Value = "bank")]
-            Bank = 1
+            Bank = 1,
+
+            /// <summary>
+            /// Enum Mobile for value: mobile
+            /// </summary>
+            [EnumMember(Value = "mobile")]
+            Mobile = 2
 
         }
 
         /// <summary>
-        /// The method of the payment. Currently only bank is supported
+        /// The method of the payment. Currently bank and mobile are supported
         /// </summary>
-        /// <value>The method of the payment. Currently only bank is supported</value>
+        /// <value>The method of the payment. Currently bank and mobile are supported</value>
         [DataMember(Name="method", EmitDefaultValue=false)]
         public MethodEnum Method { get; set; }
         /// <summary>
@@ -113,18 +119,20 @@ namespace TransferZero.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountValidationRequest" /> class.
         /// </summary>
-        /// <param name="bankAccount">Account Number to query (required).</param>
-        /// <param name="bankCode">Bank Code to query - same codes are used as for creating the transactions (required).</param>
-        /// <param name="country">Country of account in 2-character alpha ISO 3166-2 country format (only NG is currently supported) (required).</param>
+        /// <param name="bankAccount">Account Number to query.</param>
+        /// <param name="bankCode">Bank Code to query - same codes are used as for creating the transactions.</param>
+        /// <param name="phoneNumber">Phone number to query.</param>
+        /// <param name="country">Country of account in 2-character alpha ISO 3166-2 country format (required).</param>
         /// <param name="currency">The currency the bank account is in (required).</param>
-        /// <param name="method">The method of the payment. Currently only bank is supported (required).</param>
-        public AccountValidationRequest(string bankAccount = default(string), string bankCode = default(string), CountryEnum country = default(CountryEnum), CurrencyEnum currency = default(CurrencyEnum), MethodEnum method = default(MethodEnum))
+        /// <param name="method">The method of the payment. Currently bank and mobile are supported (required).</param>
+        public AccountValidationRequest(string bankAccount = default(string), string bankCode = default(string), string phoneNumber = default(string), CountryEnum country = default(CountryEnum), CurrencyEnum currency = default(CurrencyEnum), MethodEnum method = default(MethodEnum))
         {
-            this.BankAccount = bankAccount;
-            this.BankCode = bankCode;
             this.Country = country;
             this.Currency = currency;
             this.Method = method;
+            this.BankAccount = bankAccount;
+            this.BankCode = bankCode;
+            this.PhoneNumber = phoneNumber;
         }
         
         /// <summary>
@@ -141,6 +149,13 @@ namespace TransferZero.Sdk.Model
         [DataMember(Name="bank_code", EmitDefaultValue=false)]
         public string BankCode { get; set; }
 
+        /// <summary>
+        /// Phone number to query
+        /// </summary>
+        /// <value>Phone number to query</value>
+        [DataMember(Name="phone_number", EmitDefaultValue=false)]
+        public string PhoneNumber { get; set; }
+
 
 
 
@@ -154,6 +169,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("class AccountValidationRequest {\n");
             sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
             sb.Append("  BankCode: ").Append(BankCode).Append("\n");
+            sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  Method: ").Append(Method).Append("\n");
@@ -202,6 +218,11 @@ namespace TransferZero.Sdk.Model
                     this.BankCode.Equals(input.BankCode))
                 ) && 
                 (
+                    this.PhoneNumber == input.PhoneNumber ||
+                    (this.PhoneNumber != null &&
+                    this.PhoneNumber.Equals(input.PhoneNumber))
+                ) && 
+                (
                     this.Country == input.Country ||
                     (this.Country != null &&
                     this.Country.Equals(input.Country))
@@ -231,6 +252,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.BankAccount.GetHashCode();
                 if (this.BankCode != null)
                     hashCode = hashCode * 59 + this.BankCode.GetHashCode();
+                if (this.PhoneNumber != null)
+                    hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
                 if (this.Country != null)
                     hashCode = hashCode * 59 + this.Country.GetHashCode();
                 if (this.Currency != null)

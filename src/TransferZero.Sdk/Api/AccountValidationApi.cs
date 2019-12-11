@@ -25,10 +25,10 @@ namespace TransferZero.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Validates the existence of a bank account
+        /// Validates the existence of a bank account or a mobile phone number
         /// </summary>
         /// <remarks>
-        /// Validates the existence of a bank account and returns the associated customer name
+        /// Validates the existence of a bank account or mobile phone number and returns the associated customer name
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationRequest"></param>
@@ -36,10 +36,10 @@ namespace TransferZero.Sdk.Api
         AccountValidationResponse PostAccountValidations (AccountValidationRequest accountValidationRequest);
 
         /// <summary>
-        /// Validates the existence of a bank account
+        /// Validates the existence of a bank account or a mobile phone number
         /// </summary>
         /// <remarks>
-        /// Validates the existence of a bank account and returns the associated customer name
+        /// Validates the existence of a bank account or mobile phone number and returns the associated customer name
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationRequest"></param>
@@ -48,10 +48,10 @@ namespace TransferZero.Sdk.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Validates the existence of a bank account
+        /// Validates the existence of a bank account or a mobile phone number
         /// </summary>
         /// <remarks>
-        /// Validates the existence of a bank account and returns the associated customer name
+        /// Validates the existence of a bank account or mobile phone number and returns the associated customer name
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationRequest"></param>
@@ -59,10 +59,10 @@ namespace TransferZero.Sdk.Api
         System.Threading.Tasks.Task<AccountValidationResponse> PostAccountValidationsAsync (AccountValidationRequest accountValidationRequest);
 
         /// <summary>
-        /// Validates the existence of a bank account
+        /// Validates the existence of a bank account or a mobile phone number
         /// </summary>
         /// <remarks>
-        /// Validates the existence of a bank account and returns the associated customer name
+        /// Validates the existence of a bank account or mobile phone number and returns the associated customer name
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationRequest"></param>
@@ -180,7 +180,7 @@ namespace TransferZero.Sdk.Api
         }
 
         /// <summary>
-        /// Validates the existence of a bank account Validates the existence of a bank account and returns the associated customer name
+        /// Validates the existence of a bank account or a mobile phone number Validates the existence of a bank account or mobile phone number and returns the associated customer name
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationRequest"></param>
@@ -192,7 +192,7 @@ namespace TransferZero.Sdk.Api
         }
 
         /// <summary>
-        /// Validates the existence of a bank account Validates the existence of a bank account and returns the associated customer name
+        /// Validates the existence of a bank account or a mobile phone number Validates the existence of a bank account or mobile phone number and returns the associated customer name
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationRequest"></param>
@@ -271,7 +271,7 @@ namespace TransferZero.Sdk.Api
         }
 
         /// <summary>
-        /// Validates the existence of a bank account Validates the existence of a bank account and returns the associated customer name
+        /// Validates the existence of a bank account or a mobile phone number Validates the existence of a bank account or mobile phone number and returns the associated customer name
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationRequest"></param>
@@ -284,7 +284,7 @@ namespace TransferZero.Sdk.Api
         }
 
         /// <summary>
-        /// Validates the existence of a bank account Validates the existence of a bank account and returns the associated customer name
+        /// Validates the existence of a bank account or a mobile phone number Validates the existence of a bank account or mobile phone number and returns the associated customer name
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountValidationRequest"></param>

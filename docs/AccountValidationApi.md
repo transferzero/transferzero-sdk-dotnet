@@ -4,16 +4,16 @@ All URIs are relative to *https://api-sandbox.transferzero.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PostAccountValidations**](AccountValidationApi.md#postaccountvalidations) | **POST** /account_validations | Validates the existence of a bank account
+[**PostAccountValidations**](AccountValidationApi.md#postaccountvalidations) | **POST** /account_validations | Validates the existence of a bank account or a mobile phone number
 
 
 <a name="postaccountvalidations"></a>
 # **PostAccountValidations**
 > AccountValidationResponse PostAccountValidations (AccountValidationRequest accountValidationRequest)
 
-Validates the existence of a bank account
+Validates the existence of a bank account or a mobile phone number
 
-Validates the existence of a bank account and returns the associated customer name
+Validates the existence of a bank account or mobile phone number and returns the associated customer name
 
 ### Example
 
@@ -41,7 +41,7 @@ namespace Example
             var accountValidationRequest = new AccountValidationRequest(); // AccountValidationRequest | 
 
             try {
-                // Validates the existence of a bank account
+                // Validates the existence of a bank account or a mobile phone number
                 AccountValidationResponse result = apiInstance.PostAccountValidations(accountValidationRequest);
                 Debug.WriteLine(result);
             } catch (ApiException e)
@@ -86,7 +86,7 @@ Module Example
 
 
         Try
-            REM Validates the existence of a bank account
+            REM Validates the existence of a bank account or a mobile phone number
             Dim result As AccountValidationResponse = apiInstance.PostAccountValidations(accountValidationRequest)
             Debug.WriteLine(result)
         Catch e as ApiException
