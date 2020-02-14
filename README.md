@@ -174,6 +174,7 @@ Class | Method | HTTP request | Description
 *CurrencyInfoApi* | [**InfoCurrencies**](docs/CurrencyInfoApi.md#infocurrencies) | **GET** /info/currencies | Getting a list of possible requested currencies
 *CurrencyInfoApi* | [**InfoCurrenciesIn**](docs/CurrencyInfoApi.md#infocurrenciesin) | **GET** /info/currencies/in | Getting a list of possible input currencies
 *CurrencyInfoApi* | [**InfoCurrenciesOut**](docs/CurrencyInfoApi.md#infocurrenciesout) | **GET** /info/currencies/out | Getting a list of possible output currencies
+*DocumentsApi* | [**DeleteDocument**](docs/DocumentsApi.md#deletedocument) | **DELETE** /documents/{Document ID} | Deleting a document
 *DocumentsApi* | [**GetDocument**](docs/DocumentsApi.md#getdocument) | **GET** /documents/{Document ID} | Fetching a document
 *DocumentsApi* | [**GetDocuments**](docs/DocumentsApi.md#getdocuments) | **GET** /documents | Getting a list of documents
 *DocumentsApi* | [**PostDocuments**](docs/DocumentsApi.md#postdocuments) | **POST** /documents | Creating a document
@@ -225,9 +226,11 @@ Class | Method | HTTP request | Description
  - [Model.ApiLogResponse](docs/ApiLogResponse.md)
  - [Model.Currency](docs/Currency.md)
  - [Model.CurrencyExchange](docs/CurrencyExchange.md)
+ - [Model.CurrencyExchangeAllOf](docs/CurrencyExchangeAllOf.md)
  - [Model.CurrencyExchangeListResponse](docs/CurrencyExchangeListResponse.md)
  - [Model.CurrencyListResponse](docs/CurrencyListResponse.md)
  - [Model.CurrencyOpposite](docs/CurrencyOpposite.md)
+ - [Model.CurrencyOppositeAllOf](docs/CurrencyOppositeAllOf.md)
  - [Model.Debit](docs/Debit.md)
  - [Model.DebitListRequest](docs/DebitListRequest.md)
  - [Model.DebitListResponse](docs/DebitListResponse.md)
@@ -239,6 +242,7 @@ Class | Method | HTTP request | Description
  - [Model.DocumentRequest](docs/DocumentRequest.md)
  - [Model.DocumentResponse](docs/DocumentResponse.md)
  - [Model.DocumentWebhook](docs/DocumentWebhook.md)
+ - [Model.DocumentWebhookAllOf](docs/DocumentWebhookAllOf.md)
  - [Model.ErrorStatus](docs/ErrorStatus.md)
  - [Model.FieldDescription](docs/FieldDescription.md)
  - [Model.FieldSelectValidation](docs/FieldSelectValidation.md)
@@ -271,12 +275,14 @@ Class | Method | HTTP request | Description
  - [Model.PayoutMethodRequest](docs/PayoutMethodRequest.md)
  - [Model.PayoutMethodResponse](docs/PayoutMethodResponse.md)
  - [Model.PayoutMethodWebhook](docs/PayoutMethodWebhook.md)
+ - [Model.PayoutMethodWebhookAllOf](docs/PayoutMethodWebhookAllOf.md)
  - [Model.Recipient](docs/Recipient.md)
  - [Model.RecipientListResponse](docs/RecipientListResponse.md)
  - [Model.RecipientRequest](docs/RecipientRequest.md)
  - [Model.RecipientResponse](docs/RecipientResponse.md)
  - [Model.RecipientState](docs/RecipientState.md)
  - [Model.RecipientWebhook](docs/RecipientWebhook.md)
+ - [Model.RecipientWebhookAllOf](docs/RecipientWebhookAllOf.md)
  - [Model.Sender](docs/Sender.md)
  - [Model.SenderListResponse](docs/SenderListResponse.md)
  - [Model.SenderRequest](docs/SenderRequest.md)
@@ -285,6 +291,7 @@ Class | Method | HTTP request | Description
  - [Model.SenderResponseMeta](docs/SenderResponseMeta.md)
  - [Model.SenderState](docs/SenderState.md)
  - [Model.SenderWebhook](docs/SenderWebhook.md)
+ - [Model.SenderWebhookAllOf](docs/SenderWebhookAllOf.md)
  - [Model.Transaction](docs/Transaction.md)
  - [Model.TransactionListResponse](docs/TransactionListResponse.md)
  - [Model.TransactionRequest](docs/TransactionRequest.md)
@@ -294,6 +301,7 @@ Class | Method | HTTP request | Description
  - [Model.TransactionState](docs/TransactionState.md)
  - [Model.TransactionTraits](docs/TransactionTraits.md)
  - [Model.TransactionWebhook](docs/TransactionWebhook.md)
+ - [Model.TransactionWebhookAllOf](docs/TransactionWebhookAllOf.md)
  - [Model.ValidationErrorDescription](docs/ValidationErrorDescription.md)
  - [Model.Webhook](docs/Webhook.md)
  - [Model.WebhookDefinition](docs/WebhookDefinition.md)

@@ -65,16 +65,24 @@ namespace TransferZero.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Document" /> class.
         /// </summary>
+        /// <param name="senderId">senderId.</param>
         /// <param name="upload">Base64 encoded data uri of an image/pdf file or a fully qualified url (required).</param>
         /// <param name="uploadFileName">Name of the upload (required).</param>
         /// <param name="metadata">Metadata of document.</param>
-        public Document(string upload = default(string), string uploadFileName = default(string), Object metadata = default(Object))
+        public Document(Guid? senderId = default(Guid?), string upload = default(string), string uploadFileName = default(string), Object metadata = default(Object))
         {
             this.Upload = upload;
             this.UploadFileName = uploadFileName;
+            this.SenderId = senderId;
             this.Metadata = metadata;
         }
         
+        /// <summary>
+        /// Gets or Sets SenderId
+        /// </summary>
+        [DataMember(Name="sender_id", EmitDefaultValue=false)]
+        public Guid? SenderId { get; set; }
+
         /// <summary>
         /// Base64 encoded data uri of an image/pdf file or a fully qualified url
         /// </summary>
@@ -117,6 +125,13 @@ namespace TransferZero.Sdk.Model
 
 
         /// <summary>
+        /// This is a brief description of the document type
+        /// </summary>
+        /// <value>This is a brief description of the document type</value>
+        [DataMember(Name="document_type", EmitDefaultValue=false)]
+        public string DocumentType { get; private set; }
+
+        /// <summary>
         /// Issuing country of ID in 2-character alpha ISO 3166-2 country format
         /// </summary>
         /// <value>Issuing country of ID in 2-character alpha ISO 3166-2 country format</value>
@@ -144,6 +159,7 @@ namespace TransferZero.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Document {\n");
+            sb.Append("  SenderId: ").Append(SenderId).Append("\n");
             sb.Append("  Upload: ").Append(Upload).Append("\n");
             sb.Append("  UploadFileName: ").Append(UploadFileName).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
@@ -151,6 +167,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  UploadFileSize: ").Append(UploadFileSize).Append("\n");
             sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("  Side: ").Append(Side).Append("\n");
+            sb.Append("  DocumentType: ").Append(DocumentType).Append("\n");
             sb.Append("  IssuingCountry: ").Append(IssuingCountry).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Errors: ").Append(Errors).Append("\n");
@@ -189,6 +206,11 @@ namespace TransferZero.Sdk.Model
 
             return 
                 (
+                    this.SenderId == input.SenderId ||
+                    (this.SenderId != null &&
+                    this.SenderId.Equals(input.SenderId))
+                ) && 
+                (
                     this.Upload == input.Upload ||
                     (this.Upload != null &&
                     this.Upload.Equals(input.Upload))
@@ -224,6 +246,11 @@ namespace TransferZero.Sdk.Model
                     this.Side.Equals(input.Side))
                 ) && 
                 (
+                    this.DocumentType == input.DocumentType ||
+                    (this.DocumentType != null &&
+                    this.DocumentType.Equals(input.DocumentType))
+                ) && 
+                (
                     this.IssuingCountry == input.IssuingCountry ||
                     (this.IssuingCountry != null &&
                     this.IssuingCountry.Equals(input.IssuingCountry))
@@ -249,6 +276,8 @@ namespace TransferZero.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.SenderId != null)
+                    hashCode = hashCode * 59 + this.SenderId.GetHashCode();
                 if (this.Upload != null)
                     hashCode = hashCode * 59 + this.Upload.GetHashCode();
                 if (this.UploadFileName != null)
@@ -263,6 +292,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.Category.GetHashCode();
                 if (this.Side != null)
                     hashCode = hashCode * 59 + this.Side.GetHashCode();
+                if (this.DocumentType != null)
+                    hashCode = hashCode * 59 + this.DocumentType.GetHashCode();
                 if (this.IssuingCountry != null)
                     hashCode = hashCode * 59 + this.IssuingCountry.GetHashCode();
                 if (this.Id != null)
