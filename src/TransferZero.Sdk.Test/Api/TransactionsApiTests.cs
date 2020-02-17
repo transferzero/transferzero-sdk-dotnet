@@ -77,6 +77,18 @@ namespace TransferZero.Sdk.Test
         }
         
         /// <summary>
+        /// Test CreateAndFundTransaction
+        /// </summary>
+        [Test]
+        public void CreateAndFundTransactionTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //TransactionRequest transactionRequest = null;
+            //var response = instance.CreateAndFundTransaction(transactionRequest);
+            //Assert.IsInstanceOf<TransactionResponse> (response, "response is TransactionResponse");
+        }
+        
+        /// <summary>
         /// Test GetTransaction
         /// </summary>
         [Test]
@@ -98,7 +110,8 @@ namespace TransferZero.Sdk.Test
             //int? page = null;
             //int? per = null;
             //string externalId = null;
-            //var response = instance.GetTransactions(page, per, externalId);
+            //string senderId = null;
+            //var response = instance.GetTransactions(page, per, externalId, senderId);
             //Assert.IsInstanceOf<TransactionListResponse> (response, "response is TransactionListResponse");
         }
         

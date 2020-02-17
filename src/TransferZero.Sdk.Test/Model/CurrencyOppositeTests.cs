@@ -154,6 +154,14 @@ namespace TransferZero.Sdk.Test
         {
             // TODO unit test for the property 'Rate'
         }
+        /// <summary>
+        /// Test the property 'MtmRate'
+        /// </summary>
+        [Test]
+        public void MtmRateTest()
+        {
+            // TODO unit test for the property 'MtmRate'
+        }
 
     }
 

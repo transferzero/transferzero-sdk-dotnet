@@ -83,12 +83,12 @@ namespace TransferZero.Sdk.Test
             // TODO unit test for the property 'LastName'
         }
         /// <summary>
-        /// Test the property 'BankAccount'
+        /// Test the property 'Iban'
         /// </summary>
         [Test]
-        public void BankAccountTest()
+        public void IbanTest()
         {
-            // TODO unit test for the property 'BankAccount'
+            // TODO unit test for the property 'Iban'
         }
         /// <summary>
         /// Test the property 'BankName'

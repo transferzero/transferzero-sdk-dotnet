@@ -67,6 +67,14 @@ namespace TransferZero.Sdk.Test
 
 
         /// <summary>
+        /// Test the property 'PaymentMethod'
+        /// </summary>
+        [Test]
+        public void PaymentMethodTest()
+        {
+            // TODO unit test for the property 'PaymentMethod'
+        }
+        /// <summary>
         /// Test the property 'RedirectUrl'
         /// </summary>
         [Test]

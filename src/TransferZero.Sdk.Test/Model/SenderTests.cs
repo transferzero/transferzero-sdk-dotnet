@@ -227,6 +227,22 @@ namespace TransferZero.Sdk.Test
             // TODO unit test for the property 'Ip'
         }
         /// <summary>
+        /// Test the property 'IdentificationNumber'
+        /// </summary>
+        [Test]
+        public void IdentificationNumberTest()
+        {
+            // TODO unit test for the property 'IdentificationNumber'
+        }
+        /// <summary>
+        /// Test the property 'IdentificationType'
+        /// </summary>
+        [Test]
+        public void IdentificationTypeTest()
+        {
+            // TODO unit test for the property 'IdentificationType'
+        }
+        /// <summary>
         /// Test the property 'Documents'
         /// </summary>
         [Test]

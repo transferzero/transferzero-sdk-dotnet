@@ -115,6 +115,14 @@ namespace TransferZero.Sdk.Test
             // TODO unit test for the property 'Editable'
         }
         /// <summary>
+        /// Test the property 'Retriable'
+        /// </summary>
+        [Test]
+        public void RetriableTest()
+        {
+            // TODO unit test for the property 'Retriable'
+        }
+        /// <summary>
         /// Test the property 'InputUsdAmount'
         /// </summary>
         [Test]

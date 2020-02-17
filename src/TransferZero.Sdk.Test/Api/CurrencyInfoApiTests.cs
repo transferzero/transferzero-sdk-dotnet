@@ -82,7 +82,8 @@ namespace TransferZero.Sdk.Test
         public void InfoCurrenciesInTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.InfoCurrenciesIn();
+            //Guid? senderId = null;
+            //var response = instance.InfoCurrenciesIn(senderId);
             //Assert.IsInstanceOf<CurrencyExchangeListResponse> (response, "response is CurrencyExchangeListResponse");
         }
         
@@ -93,7 +94,8 @@ namespace TransferZero.Sdk.Test
         public void InfoCurrenciesOutTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.InfoCurrenciesOut();
+            //Guid? senderId = null;
+            //var response = instance.InfoCurrenciesOut(senderId);
             //Assert.IsInstanceOf<CurrencyExchangeListResponse> (response, "response is CurrencyExchangeListResponse");
         }
         

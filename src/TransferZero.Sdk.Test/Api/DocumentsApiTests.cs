@@ -65,6 +65,19 @@ namespace TransferZero.Sdk.Test
 
         
         /// <summary>
+        /// Test DeleteDocument
+        /// </summary>
+        [Test]
+        public void DeleteDocumentTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //Guid? documentID = null;
+            //string senderId = null;
+            //var response = instance.DeleteDocument(documentID, senderId);
+            //Assert.IsInstanceOf<DocumentResponse> (response, "response is DocumentResponse");
+        }
+        
+        /// <summary>
         /// Test GetDocument
         /// </summary>
         [Test]
@@ -72,7 +85,8 @@ namespace TransferZero.Sdk.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //Guid? documentID = null;
-            //var response = instance.GetDocument(documentID);
+            //string senderId = null;
+            //var response = instance.GetDocument(documentID, senderId);
             //Assert.IsInstanceOf<DocumentResponse> (response, "response is DocumentResponse");
         }
         
@@ -85,7 +99,8 @@ namespace TransferZero.Sdk.Test
             // TODO uncomment below to test the method and replace null with proper value
             //int? page = null;
             //int? per = null;
-            //var response = instance.GetDocuments(page, per);
+            //string senderId = null;
+            //var response = instance.GetDocuments(page, per, senderId);
             //Assert.IsInstanceOf<DocumentListResponse> (response, "response is DocumentListResponse");
         }
         

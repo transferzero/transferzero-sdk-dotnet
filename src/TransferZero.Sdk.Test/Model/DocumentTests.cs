@@ -67,6 +67,14 @@ namespace TransferZero.Sdk.Test
 
 
         /// <summary>
+        /// Test the property 'SenderId'
+        /// </summary>
+        [Test]
+        public void SenderIdTest()
+        {
+            // TODO unit test for the property 'SenderId'
+        }
+        /// <summary>
         /// Test the property 'Upload'
         /// </summary>
         [Test]
@@ -121,6 +129,14 @@ namespace TransferZero.Sdk.Test
         public void SideTest()
         {
             // TODO unit test for the property 'Side'
+        }
+        /// <summary>
+        /// Test the property 'DocumentType'
+        /// </summary>
+        [Test]
+        public void DocumentTypeTest()
+        {
+            // TODO unit test for the property 'DocumentType'
         }
         /// <summary>
         /// Test the property 'IssuingCountry'

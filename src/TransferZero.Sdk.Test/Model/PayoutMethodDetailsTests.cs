@@ -123,6 +123,14 @@ namespace TransferZero.Sdk.Test
             // TODO unit test for the property 'MobileProvider'
         }
         /// <summary>
+        /// Test the property 'Iban'
+        /// </summary>
+        [Test]
+        public void IbanTest()
+        {
+            // TODO unit test for the property 'Iban'
+        }
+        /// <summary>
         /// Test the property 'BankName'
         /// </summary>
         [Test]
@@ -131,12 +139,12 @@ namespace TransferZero.Sdk.Test
             // TODO unit test for the property 'BankName'
         }
         /// <summary>
-        /// Test the property 'Iban'
+        /// Test the property 'BankCountry'
         /// </summary>
         [Test]
-        public void IbanTest()
+        public void BankCountryTest()
         {
-            // TODO unit test for the property 'Iban'
+            // TODO unit test for the property 'BankCountry'
         }
         /// <summary>
         /// Test the property 'Bic'

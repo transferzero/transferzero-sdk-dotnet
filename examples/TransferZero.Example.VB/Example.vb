@@ -10,7 +10,7 @@ Imports System.Threading.Tasks
 Module Example
     Sub AccountValidationExample(ByVal configuration As Configuration)
 
-        ' See https//github.com/transferzero/api-documentation/blob/master/additional-features.md#bank-account-name-enquiry
+        ' See https//docs.transferzero.com/docs/additional-features/#bank-account-name-enquiry
         ' for more information on how this feature can be used
 
         Dim accountValidationRequest As AccountValidationRequest = New AccountValidationRequest(
@@ -36,17 +36,17 @@ Module Example
     End Sub
 
     Function CreateTransactionExample(ByVal configuration As Configuration) As Guid?
-        ' Please check our documentation at https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md
+        ' Please check our documentation at https://docs.transferzero.com/docs/transaction-flow/
         ' for details on how transactions work
 
         Dim api As TransactionsApi = New TransactionsApi(configuration)
 
         ' When adding a sender to transaction, please use either an id Or external_id. Providing both will result in a validation error.
-        ' Please see our documentation at https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#sender
+        ' Please see our documentation at https://docs.transferzero.com/docs/transaction-flow/#sender
 
         Dim sender As Sender = New Sender(id:=Guid.Parse("058de445-ffff-ffff-ffff-da9c751d14bf"))
 
-        ' You can find the various payout options at https//github.com/transferzero/api-documentation/blob/master/transaction-flow.md#payout-details
+        ' You can find the various payout options at https//docs.transferzero.com/docs/transaction-flow/#payout-details
 
         Dim ngnBankDetails As PayoutMethodDetails = New PayoutMethodDetails(
             bankAccount:="123456789",
@@ -57,7 +57,7 @@ Module Example
 
         Dim payoutMethod As PayoutMethod = New PayoutMethod(type:="NGN::Bank", details:=ngnBankDetails)
 
-        ' Please see https//github.com/transferzero/api-documentation/blob/master/transaction-flow.md#requested-amount-And-currency
+        ' Please see https//docs.transferzero.com/docs/transaction-flow/#requested-amount-And-currency
         ' on what the request amount And currencies do
 
         Dim recipient As Recipient = New Recipient(
@@ -65,10 +65,10 @@ Module Example
             requestedCurrency:="NGN",
             payoutMethod:=payoutMethod)
 
-        ' Similarly you can check https//github.com/transferzero/api-documentation/blob/master/transaction-flow.md#requested-amount-And-currency
+        ' Similarly you can check https//docs.transferzero.com/docs/transaction-flow/#requested-amount-And-currency
         ' on details about the input currency parameter
 
-        ' Find more details on external IDs at https//github.com/transferzero/api-documentation/blob/master/transaction-flow.md#external-id
+        ' Find more details on external IDs at https//docs.transferzero.com/docs/transaction-flow/#external-id
 
         Dim transaction As Transaction = New Transaction(
             inputCurrency:="USD",
@@ -104,7 +104,7 @@ Module Example
             Return Nothing
         End If
 
-        ' Please see https//github.com/transferzero/api-documentation/blob/master/transaction-flow.md#funding-transactions
+        ' Please see https//docs.transferzero.com/docs/transaction-flow/#funding-transactions
         ' on details about funding transactions
 
         Dim debit As Debit = New Debit(currency:="USD", toId:=transactionId, toType:="Transaction")
@@ -132,7 +132,7 @@ Module Example
     End Function
 
     Function GetTransactionFromErrorMessageExample(ByVal configuration As Configuration) As String
-        ' Please see https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#receiving-error-messages
+        ' Please see https://docs.transferzero.com/docs/transaction-flow/#receiving-error-messages
         ' on details about error messages
 
         Dim transationId As Guid = Guid.Parse("2cf44191-ffff-ffff-ffff-f0d133a709f1")
@@ -143,7 +143,7 @@ Module Example
     End Function
 
     Function GetTransactionFromExternalId(ByVal configuration As Configuration) As Transaction
-        ' Please see https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#external-id
+        ' Please see https://docs.transferzero.com/docs/transaction-flow/#external-id
         ' for more details on external IDs
 
         Dim transactionsApi As TransactionsApi = New TransactionsApi(configuration)
@@ -162,7 +162,7 @@ Module Example
     End Function
 
     Sub ParseWebhookExample(ByVal configuration As Configuration)
-        ' Please see https://github.com/transferzero/api-documentation#webhooks
+        ' Please see https://docs.transferzero.com#webhooks
         ' on more details about how webhooks / callbacks from from our system
 
         Dim webhookContent As String = "{  ""webhook"": ""02b769ff-ffff-ffff-ffff-820d285d76c7"",  ""event"": ""transaction.created"",  ""object"": {    ""id"": ""9170b966-ffff-ffff-ffff-7af5ad7e335f"",    ""metadata"": {},    ""state"": ""approved"",    ""input_amount"": 50.00,    ""input_currency"": ""EUR"",    ""sender"": {      ""id"": ""4be2a144-ffff-ffff-ffff-8ebcbfbbbe0c"",      ""type"": ""person"",      ""state"": ""initial"",      ""state_reason"": null,      ""country"": ""GB"",      ""street"": ""Test"",      ""postal_code"": ""EH1 1TT"",      ""city"": ""London"",      ""phone_country"": ""GB"",      ""phone_number"": ""+447123456789"",      ""email"": ""test@example.com"",      ""ip"": ""127.0.0.1"",      ""first_name"": ""Test"",      ""last_name"": ""Name"",      ""birth_date"": ""1990-01-01"",      ""metadata"": {},      ""providers"": {}    },    ""payin_methods"": [],    ""paid_amount"": 50.00,    ""due_amount"": 0,    ""recipients"": [      {        ""id"": ""69dee5aa-ffff-ffff-ffff-0a2c06353c6b"",        ""transaction_id"": ""9170b966-ffff-ffff-ffff-7af5ad7e335f"",        ""created_at"": ""2017-07-24T15:08:58Z"",        ""input_usd_amount"": 60.00,        ""state"": ""initial"",        ""transaction_state"": ""initial"",        ""requested_amount"": 50.00,        ""requested_currency"": ""EUR"",        ""input_amount"": 50.00,        ""input_currency"": ""EUR"",        ""output_amount"": 20001,        ""output_currency"": ""NGN"",        ""payout_method"": {          ""id"": ""c67580ee-ffff-ffff-ffff-ac51f1d0c035"",          ""type"": ""NGN::Bank"",          ""details"": {            ""email"": """",            ""bank_code"": ""011"",            ""last_name"": ""Test"",            ""first_name"": ""User"",            ""bank_account"": ""1111111111"",            ""bank_account_type"": ""10""          },          ""metadata"": {},          ""provider"": ""interswitch"",          ""fields"": {            ""email"": {              ""type"": ""input"",              ""validations"": {                ""format"": ""\\A((\\w+([\\-+.]\\w+)*@[a-zA-Z0-9]+([\\-\\.][a-zA-Z0-9]+)*)*){3,320}\\z""              }            },            ""first_name"": {              ""type"": ""input"",              ""validations"": {                ""presence"": true              }            },            ""last_name"": {              ""type"": ""input"",              ""validations"": {                ""presence"": true              }            },            ""bank_code"": {              ""type"": ""select"",              ""options"": {                ""063"": ""Diamond Bank"",                ""050"": ""EcoBank"",                ""214"": ""FCMB Bank"",                ""070"": ""Fidelity Bank"",                ""011"": ""First Bank of Nigeria"",                ""058"": ""Guaranty Trust Bank "",                ""030"": ""Heritage Bank"",                ""301"": ""Jaiz Bank"",                ""082"": ""Keystone "",                ""014"": ""Mainstreet "",                ""076"": ""Skye Bank"",                ""039"": ""Stanbic IBTC Bank "",                ""232"": ""Sterling bank"",                ""032"": ""Union Bank"",                ""033"": ""United Bank for Africa "",                ""215"": ""Unity Bank"",                ""035"": ""Wema Bank"",                ""057"": ""Zenith International ""              },              ""validations"": {                ""presence"": true,                ""inclusion"": {                  ""in"": {                    ""063"": ""Diamond Bank"",                    ""050"": ""EcoBank"",                    ""214"": ""FCMB Bank"",                    ""070"": ""Fidelity Bank"",                    ""011"": ""First Bank of Nigeria"",                    ""058"": ""Guaranty Trust Bank "",                    ""030"": ""Heritage Bank"",                    ""301"": ""Jaiz Bank"",                    ""082"": ""Keystone "",                    ""014"": ""Mainstreet "",                    ""076"": ""Skye Bank"",                    ""039"": ""Stanbic IBTC Bank "",                    ""232"": ""Sterling bank"",                    ""032"": ""Union Bank"",                    ""033"": ""United Bank for Africa "",                    ""215"": ""Unity Bank"",                    ""035"": ""Wema Bank"",                    ""057"": ""Zenith International ""                  }                }              }            },            ""bank_account"": {              ""type"": ""input"",              ""validations"": {                ""presence"": true              }            },            ""bank_account_type"": {              ""type"": ""select"",              ""options"": {                ""20"": ""Current"",                ""10"": ""Savings""              },              ""validations"": {                ""presence"": true,                ""inclusion"": {                  ""in"": {                    ""20"": ""Current"",                    ""10"": ""Savings""                  }                }              }            }          }        },        ""metadata"": {}      }    ],    ""created_at"": ""2017-07-24T15:08:58Z"",    ""expires_at"": ""2017-07-24T16:08:58Z""  }}"
@@ -207,7 +207,7 @@ Module Example
     End Sub
 
     Function CreateSenderExample(ByVal configuration As Configuration) As Guid?
-        ' For more details on senders please check https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#sender
+        ' For more details on senders please check https://docs.transferzero.com/docs/transaction-flow/#sender
 
         Dim sendersApi As SendersApi = New SendersApi(configuration)
         Dim sender As Sender = New Sender(
@@ -247,7 +247,7 @@ Module Example
 
     Function GetSenderFromExternalId(ByVal configuration As Configuration) As Sender
         ' For more details on senders And external IDs on senders
-        ' please check https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#sender
+        ' please check https://docs.transferzero.com/docs/transaction-flow/#sender
 
         Dim sendersApi As SendersApi = New SendersApi(configuration)
         Dim externalId As String = "SENDER-00001"
@@ -265,7 +265,7 @@ Module Example
     End Function
 
     Sub UpdateSenderExample(ByVal configuration As Configuration)
-        ' For more details on senders please check https://github.com/transferzero/api-documentation/blob/master/transaction-flow.md#sender
+        ' For more details on senders please check https://docs.transferzero.com/docs/transaction-flow/#sender
 
         Dim sendersApi As SendersApi = New SendersApi(configuration)
         Dim sender As Sender = New Sender()
@@ -289,7 +289,7 @@ Module Example
     End Sub
 
     Sub Main(ByVal args As String())
-        ' Please see our documentation at https://github.com/transferzero/api-documentation
+        ' Please see our documentation at https://docs.transferzero.com
         ' and the API specification at http://api.transferzero.com/documentation/
         ' for more information.
 

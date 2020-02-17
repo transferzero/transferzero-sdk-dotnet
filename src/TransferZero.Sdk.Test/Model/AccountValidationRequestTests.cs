@@ -83,6 +83,14 @@ namespace TransferZero.Sdk.Test
             // TODO unit test for the property 'BankCode'
         }
         /// <summary>
+        /// Test the property 'PhoneNumber'
+        /// </summary>
+        [Test]
+        public void PhoneNumberTest()
+        {
+            // TODO unit test for the property 'PhoneNumber'
+        }
+        /// <summary>
         /// Test the property 'Country'
         /// </summary>
         [Test]
