@@ -67,7 +67,13 @@ namespace TransferZero.Sdk.Model
         /// Enum Disabled for value: disabled
         /// </summary>
         [EnumMember(Value = "disabled")]
-        Disabled = 6
+        Disabled = 6,
+
+        /// <summary>
+        /// Enum Incomplete for value: incomplete
+        /// </summary>
+        [EnumMember(Value = "incomplete")]
+        Incomplete = 7
 
     }
 

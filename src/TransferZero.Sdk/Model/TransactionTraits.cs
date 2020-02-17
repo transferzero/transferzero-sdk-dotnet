@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// Additional features that are enabled on the transaction. For more details please see [Additional features](https://github.com/transferzero/api-documentation/blob/master/additional-features.md) in our API documentation
+    /// Additional features that are enabled on the transaction. For more details please see [Additional features](https://docs.transferzero.com/docs/additional-features/) in our API documentation
     /// </summary>
     [DataContract]
     public partial class TransactionTraits :  IEquatable<TransactionTraits>, IValidatableObject
@@ -33,8 +33,8 @@ namespace TransferZero.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionTraits" /> class.
         /// </summary>
-        /// <param name="autoRefund">Enables or disables the auto refund functionality. Please see [Auto cancellation and refund of transactions](https://github.com/transferzero/api-documentation/blob/master/additional-features.md#auto-cancellation-and-refund-of-transactions) for more details.</param>
-        /// <param name="accountValidation">Enabled or disables the name validation functionality. Please see [Name validation in transactions](https://github.com/transferzero/api-documentation/blob/master/additional-features.md#name-validation-in-transactions) for more details.</param>
+        /// <param name="autoRefund">Enables or disables the auto refund functionality. Please see [Auto cancellation and refund of transactions](https://docs.transferzero.com/docs/additional-features/#auto-cancellation-and-refund-of-transactions) for more details.</param>
+        /// <param name="accountValidation">Enabled or disables the name validation functionality. Please see [Name validation in transactions](https://docs.transferzero.com/docs/additional-features/#name-validation-in-transactions) for more details.</param>
         public TransactionTraits(bool? autoRefund = default(bool?), bool? accountValidation = default(bool?))
         {
             this.AutoRefund = autoRefund;
@@ -42,16 +42,16 @@ namespace TransferZero.Sdk.Model
         }
         
         /// <summary>
-        /// Enables or disables the auto refund functionality. Please see [Auto cancellation and refund of transactions](https://github.com/transferzero/api-documentation/blob/master/additional-features.md#auto-cancellation-and-refund-of-transactions) for more details
+        /// Enables or disables the auto refund functionality. Please see [Auto cancellation and refund of transactions](https://docs.transferzero.com/docs/additional-features/#auto-cancellation-and-refund-of-transactions) for more details
         /// </summary>
-        /// <value>Enables or disables the auto refund functionality. Please see [Auto cancellation and refund of transactions](https://github.com/transferzero/api-documentation/blob/master/additional-features.md#auto-cancellation-and-refund-of-transactions) for more details</value>
+        /// <value>Enables or disables the auto refund functionality. Please see [Auto cancellation and refund of transactions](https://docs.transferzero.com/docs/additional-features/#auto-cancellation-and-refund-of-transactions) for more details</value>
         [DataMember(Name="auto_refund", EmitDefaultValue=false)]
         public bool? AutoRefund { get; set; }
 
         /// <summary>
-        /// Enabled or disables the name validation functionality. Please see [Name validation in transactions](https://github.com/transferzero/api-documentation/blob/master/additional-features.md#name-validation-in-transactions) for more details
+        /// Enabled or disables the name validation functionality. Please see [Name validation in transactions](https://docs.transferzero.com/docs/additional-features/#name-validation-in-transactions) for more details
         /// </summary>
-        /// <value>Enabled or disables the name validation functionality. Please see [Name validation in transactions](https://github.com/transferzero/api-documentation/blob/master/additional-features.md#name-validation-in-transactions) for more details</value>
+        /// <value>Enabled or disables the name validation functionality. Please see [Name validation in transactions](https://docs.transferzero.com/docs/additional-features/#name-validation-in-transactions) for more details</value>
         [DataMember(Name="account_validation", EmitDefaultValue=false)]
         public bool? AccountValidation { get; set; }
 

@@ -38,16 +38,25 @@ namespace TransferZero.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PayinMethodDetails" /> class.
         /// </summary>
-        /// <param name="redirectUrl">This is where the user should be redirected back when the payment has been finished (required).</param>
+        /// <param name="paymentMethod">The payment method which the user will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both..</param>
+        /// <param name="redirectUrl">This is where the user should be redirected back when the payment has been finished.</param>
         /// <param name="phoneNumber">The phone number where the funds should be collected from (required).</param>
         /// <param name="sendInstructions">States whether to send out the instructions to the phone number on how to pay the funds or not. This shuold always be set to true, otherwise the sender might not receive a prompt for payment..</param>
-        public PayinMethodDetails(string redirectUrl = default(string), string phoneNumber = default(string), bool? sendInstructions = default(bool?))
+        public PayinMethodDetails(string paymentMethod = default(string), string redirectUrl = default(string), string phoneNumber = default(string), bool? sendInstructions = default(bool?))
         {
-            this.RedirectUrl = redirectUrl;
             this.PhoneNumber = phoneNumber;
+            this.PaymentMethod = paymentMethod;
+            this.RedirectUrl = redirectUrl;
             this.SendInstructions = sendInstructions;
         }
         
+        /// <summary>
+        /// The payment method which the user will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both.
+        /// </summary>
+        /// <value>The payment method which the user will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both.</value>
+        [DataMember(Name="payment_method", EmitDefaultValue=false)]
+        public string PaymentMethod { get; set; }
+
         /// <summary>
         /// This is where the user should be redirected back when the payment has been finished
         /// </summary>
@@ -77,6 +86,7 @@ namespace TransferZero.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PayinMethodDetails {\n");
+            sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
             sb.Append("  RedirectUrl: ").Append(RedirectUrl).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  SendInstructions: ").Append(SendInstructions).Append("\n");
@@ -115,6 +125,11 @@ namespace TransferZero.Sdk.Model
 
             return 
                 (
+                    this.PaymentMethod == input.PaymentMethod ||
+                    (this.PaymentMethod != null &&
+                    this.PaymentMethod.Equals(input.PaymentMethod))
+                ) && 
+                (
                     this.RedirectUrl == input.RedirectUrl ||
                     (this.RedirectUrl != null &&
                     this.RedirectUrl.Equals(input.RedirectUrl))
@@ -140,6 +155,8 @@ namespace TransferZero.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.PaymentMethod != null)
+                    hashCode = hashCode * 59 + this.PaymentMethod.GetHashCode();
                 if (this.RedirectUrl != null)
                     hashCode = hashCode * 59 + this.RedirectUrl.GetHashCode();
                 if (this.PhoneNumber != null)

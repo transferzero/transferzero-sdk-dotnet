@@ -33,17 +33,21 @@ namespace TransferZero.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PayinMethodDetailsNGNBank" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PayinMethodDetailsNGNBank() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PayinMethodDetailsNGNBank" /> class.
-        /// </summary>
-        /// <param name="redirectUrl">This is where the user should be redirected back when the payment has been finished (required).</param>
-        public PayinMethodDetailsNGNBank(string redirectUrl = default(string))
+        /// <param name="paymentMethod">The payment method which the user will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both..</param>
+        /// <param name="redirectUrl">This is where the user should be redirected back when the payment has been finished.</param>
+        public PayinMethodDetailsNGNBank(string paymentMethod = default(string), string redirectUrl = default(string))
         {
+            this.PaymentMethod = paymentMethod;
             this.RedirectUrl = redirectUrl;
         }
         
+        /// <summary>
+        /// The payment method which the user will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both.
+        /// </summary>
+        /// <value>The payment method which the user will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both.</value>
+        [DataMember(Name="payment_method", EmitDefaultValue=false)]
+        public string PaymentMethod { get; set; }
+
         /// <summary>
         /// This is where the user should be redirected back when the payment has been finished
         /// </summary>
@@ -59,6 +63,7 @@ namespace TransferZero.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PayinMethodDetailsNGNBank {\n");
+            sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
             sb.Append("  RedirectUrl: ").Append(RedirectUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -95,6 +100,11 @@ namespace TransferZero.Sdk.Model
 
             return 
                 (
+                    this.PaymentMethod == input.PaymentMethod ||
+                    (this.PaymentMethod != null &&
+                    this.PaymentMethod.Equals(input.PaymentMethod))
+                ) && 
+                (
                     this.RedirectUrl == input.RedirectUrl ||
                     (this.RedirectUrl != null &&
                     this.RedirectUrl.Equals(input.RedirectUrl))
@@ -110,6 +120,8 @@ namespace TransferZero.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.PaymentMethod != null)
+                    hashCode = hashCode * 59 + this.PaymentMethod.GetHashCode();
                 if (this.RedirectUrl != null)
                     hashCode = hashCode * 59 + this.RedirectUrl.GetHashCode();
                 return hashCode;

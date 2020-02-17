@@ -39,7 +39,7 @@ namespace TransferZero.Sdk.Model
         /// Initializes a new instance of the <see cref="Transaction" /> class.
         /// </summary>
         /// <param name="inputCurrency">The input currency describes what currency the transaction will be paid in (3-character alpha ISO 4217 currency format). For example if you wish to create an EUR to NGN transaction then input currency should be set to EUR. (required).</param>
-        /// <param name="payinMethods">Allows setting alternative collections, where funding the transaction is done through alternative means and not via account balance.  For more information please see [Collections from senders](https://github.com/transferzero/api-documentation/blob/master/additional-features.md#collections-from-senders) in the API documentation.</param>
+        /// <param name="payinMethods">Allows setting alternative collections, where funding the transaction is done through alternative means and not via account balance.  For more information please see [Collections from senders](https://docs.transferzero.com/docs/additional-features/#collections-from-senders) in the API documentation.</param>
         /// <param name="metadata">Additional metadata to store on the transaction. If you widh to store your local transaction ID, you should add it here inside a &#x60;sendRef&#x60; field, and we will return this value back to you in the daily transaction reports..</param>
         /// <param name="sender">sender (required).</param>
         /// <param name="recipients">The details of where the payment should go. although transactions can support paying out multiple recipients, usually one is provided.  (required).</param>
@@ -66,9 +66,9 @@ namespace TransferZero.Sdk.Model
         public string InputCurrency { get; set; }
 
         /// <summary>
-        /// Allows setting alternative collections, where funding the transaction is done through alternative means and not via account balance.  For more information please see [Collections from senders](https://github.com/transferzero/api-documentation/blob/master/additional-features.md#collections-from-senders) in the API documentation
+        /// Allows setting alternative collections, where funding the transaction is done through alternative means and not via account balance.  For more information please see [Collections from senders](https://docs.transferzero.com/docs/additional-features/#collections-from-senders) in the API documentation
         /// </summary>
-        /// <value>Allows setting alternative collections, where funding the transaction is done through alternative means and not via account balance.  For more information please see [Collections from senders](https://github.com/transferzero/api-documentation/blob/master/additional-features.md#collections-from-senders) in the API documentation</value>
+        /// <value>Allows setting alternative collections, where funding the transaction is done through alternative means and not via account balance.  For more information please see [Collections from senders](https://docs.transferzero.com/docs/additional-features/#collections-from-senders) in the API documentation</value>
         [DataMember(Name="payin_methods", EmitDefaultValue=false)]
         public List<PayinMethod> PayinMethods { get; set; }
 
