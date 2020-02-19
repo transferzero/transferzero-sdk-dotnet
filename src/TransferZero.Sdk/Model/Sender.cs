@@ -127,11 +127,12 @@ namespace TransferZero.Sdk.Model
         /// <param name="identificationNumber">Identification number of document used.</param>
         /// <param name="identificationType">Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other.</param>
         /// <param name="documents">Needed for KYC checks. Required to approve the sender unless KYC is waived for your account. Please send us an empty list of documents: &#x60;\&quot;documents\&quot;: [ ]&#x60; in the request if KYC has been waived.  If the documents already exist, please send the Document ID eg. &#x60;&#x60;&#x60;JSON \&quot;documents\&quot;: [   {     \&quot;id\&quot;: \&quot;b6648ba3-1c7b-4f59-8580-684899c84a07\&quot;   } ] &#x60;&#x60;&#x60; (required).</param>
+        /// <param name="politicallyExposedPeople">A list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country, for example heads of state or heads of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: &#x60;&#x60;&#x60;json   {     \&quot;name\&quot;: \&quot;Ronald Reagan\&quot;,     \&quot;position\&quot;: \&quot;President of the United States\&quot;,     \&quot;started_date\&quot;: \&quot;1981-01-20T00:00:00.000Z\&quot;,     \&quot;ended_date\&quot;: \&quot;1989-01-20T00:00:00.000Z\&quot;   } &#x60;&#x60;&#x60;.</param>
         /// <param name="metadata">Metadata of sender. You can store any detail specific to your integration here (for example the local ID of the sender on your end). When requesting sender details you will receive the sent metadata back. Also when sending sender related webhooks you will receive the details stored here as well..</param>
         /// <param name="state">state.</param>
         /// <param name="id">id.</param>
         /// <param name="externalId">Optional ID that is supplied by partner linking it to the partner&#39;s own Sender ID. Note: if present we will validate whether the sent ID is a duplicate in our system or not..</param>
-        public Sender(TypeEnum? type = default(TypeEnum?), string country = default(string), string phoneCountry = default(string), string phoneNumber = default(string), string email = default(string), string firstName = default(string), string middleName = default(string), string lastName = default(string), string occupation = default(string), string nationality = default(string), string onboardingStatus = default(string), string address = default(string), string description = default(string), string name = default(string), string city = default(string), string street = default(string), string addressDescription = default(string), string postalCode = default(string), DateTime? birthDate = default(DateTime?), string ip = default(string), string identificationNumber = default(string), IdentificationTypeEnum? identificationType = default(IdentificationTypeEnum?), List<Document> documents = default(List<Document>), Object metadata = default(Object), SenderState state = default(SenderState), Guid? id = default(Guid?), string externalId = default(string))
+        public Sender(TypeEnum? type = default(TypeEnum?), string country = default(string), string phoneCountry = default(string), string phoneNumber = default(string), string email = default(string), string firstName = default(string), string middleName = default(string), string lastName = default(string), string occupation = default(string), string nationality = default(string), string onboardingStatus = default(string), string address = default(string), string description = default(string), string name = default(string), string city = default(string), string street = default(string), string addressDescription = default(string), string postalCode = default(string), DateTime? birthDate = default(DateTime?), string ip = default(string), string identificationNumber = default(string), IdentificationTypeEnum? identificationType = default(IdentificationTypeEnum?), List<Document> documents = default(List<Document>), List<PoliticallyExposedPerson> politicallyExposedPeople = default(List<PoliticallyExposedPerson>), Object metadata = default(Object), SenderState state = default(SenderState), Guid? id = default(Guid?), string externalId = default(string))
         {
             this.Country = country;
             this.PhoneCountry = phoneCountry;
@@ -156,6 +157,7 @@ namespace TransferZero.Sdk.Model
             this.BirthDate = birthDate;
             this.IdentificationNumber = identificationNumber;
             this.IdentificationType = identificationType;
+            this.PoliticallyExposedPeople = politicallyExposedPeople;
             this.Metadata = metadata;
             this.State = state;
             this.Id = id;
@@ -313,6 +315,13 @@ namespace TransferZero.Sdk.Model
         public List<Document> Documents { get; set; }
 
         /// <summary>
+        /// A list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country, for example heads of state or heads of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: &#x60;&#x60;&#x60;json   {     \&quot;name\&quot;: \&quot;Ronald Reagan\&quot;,     \&quot;position\&quot;: \&quot;President of the United States\&quot;,     \&quot;started_date\&quot;: \&quot;1981-01-20T00:00:00.000Z\&quot;,     \&quot;ended_date\&quot;: \&quot;1989-01-20T00:00:00.000Z\&quot;   } &#x60;&#x60;&#x60;
+        /// </summary>
+        /// <value>A list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country, for example heads of state or heads of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: &#x60;&#x60;&#x60;json   {     \&quot;name\&quot;: \&quot;Ronald Reagan\&quot;,     \&quot;position\&quot;: \&quot;President of the United States\&quot;,     \&quot;started_date\&quot;: \&quot;1981-01-20T00:00:00.000Z\&quot;,     \&quot;ended_date\&quot;: \&quot;1989-01-20T00:00:00.000Z\&quot;   } &#x60;&#x60;&#x60;</value>
+        [DataMember(Name="politically_exposed_people", EmitDefaultValue=false)]
+        public List<PoliticallyExposedPerson> PoliticallyExposedPeople { get; set; }
+
+        /// <summary>
         /// Metadata of sender. You can store any detail specific to your integration here (for example the local ID of the sender on your end). When requesting sender details you will receive the sent metadata back. Also when sending sender related webhooks you will receive the details stored here as well.
         /// </summary>
         /// <value>Metadata of sender. You can store any detail specific to your integration here (for example the local ID of the sender on your end). When requesting sender details you will receive the sent metadata back. Also when sending sender related webhooks you will receive the details stored here as well.</value>
@@ -376,6 +385,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  IdentificationNumber: ").Append(IdentificationNumber).Append("\n");
             sb.Append("  IdentificationType: ").Append(IdentificationType).Append("\n");
             sb.Append("  Documents: ").Append(Documents).Append("\n");
+            sb.Append("  PoliticallyExposedPeople: ").Append(PoliticallyExposedPeople).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
@@ -531,6 +541,11 @@ namespace TransferZero.Sdk.Model
                     this.Documents.SequenceEqual(input.Documents)
                 ) && 
                 (
+                    this.PoliticallyExposedPeople == input.PoliticallyExposedPeople ||
+                    this.PoliticallyExposedPeople != null &&
+                    this.PoliticallyExposedPeople.SequenceEqual(input.PoliticallyExposedPeople)
+                ) && 
+                (
                     this.Metadata == input.Metadata ||
                     (this.Metadata != null &&
                     this.Metadata.Equals(input.Metadata))
@@ -612,6 +627,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.IdentificationType.GetHashCode();
                 if (this.Documents != null)
                     hashCode = hashCode * 59 + this.Documents.GetHashCode();
+                if (this.PoliticallyExposedPeople != null)
+                    hashCode = hashCode * 59 + this.PoliticallyExposedPeople.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 if (this.State != null)
