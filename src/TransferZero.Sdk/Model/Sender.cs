@@ -97,6 +97,87 @@ namespace TransferZero.Sdk.Model
         [DataMember(Name="identification_type", EmitDefaultValue=false)]
         public IdentificationTypeEnum? IdentificationType { get; set; }
         /// <summary>
+        /// Legal entity type (used only with a Business sender)
+        /// </summary>
+        /// <value>Legal entity type (used only with a Business sender)</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum LegalEntityTypeEnum
+        {
+            /// <summary>
+            /// Enum Soleproprietorship for value: sole_proprietorship
+            /// </summary>
+            [EnumMember(Value = "sole_proprietorship")]
+            Soleproprietorship = 1,
+
+            /// <summary>
+            /// Enum Partnership for value: partnership
+            /// </summary>
+            [EnumMember(Value = "partnership")]
+            Partnership = 2,
+
+            /// <summary>
+            /// Enum Privatelyownedcompany for value: privately_owned_company
+            /// </summary>
+            [EnumMember(Value = "privately_owned_company")]
+            Privatelyownedcompany = 3,
+
+            /// <summary>
+            /// Enum Publiclyownedcompany for value: publicly_owned_company
+            /// </summary>
+            [EnumMember(Value = "publicly_owned_company")]
+            Publiclyownedcompany = 4,
+
+            /// <summary>
+            /// Enum Governmentownedentity for value: government_owned_entity
+            /// </summary>
+            [EnumMember(Value = "government_owned_entity")]
+            Governmentownedentity = 5,
+
+            /// <summary>
+            /// Enum Trust for value: trust
+            /// </summary>
+            [EnumMember(Value = "trust")]
+            Trust = 6,
+
+            /// <summary>
+            /// Enum Ngo for value: ngo
+            /// </summary>
+            [EnumMember(Value = "ngo")]
+            Ngo = 7,
+
+            /// <summary>
+            /// Enum Clubandsociety for value: club_and_society
+            /// </summary>
+            [EnumMember(Value = "club_and_society")]
+            Clubandsociety = 8,
+
+            /// <summary>
+            /// Enum Go for value: go
+            /// </summary>
+            [EnumMember(Value = "go")]
+            Go = 9,
+
+            /// <summary>
+            /// Enum Other for value: other
+            /// </summary>
+            [EnumMember(Value = "other")]
+            Other = 10,
+
+            /// <summary>
+            /// Enum Financialinstitution for value: financial_institution
+            /// </summary>
+            [EnumMember(Value = "financial_institution")]
+            Financialinstitution = 11
+
+        }
+
+        /// <summary>
+        /// Legal entity type (used only with a Business sender)
+        /// </summary>
+        /// <value>Legal entity type (used only with a Business sender)</value>
+        [DataMember(Name="legal_entity_type", EmitDefaultValue=false)]
+        public LegalEntityTypeEnum? LegalEntityType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="Sender" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -104,66 +185,102 @@ namespace TransferZero.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Sender" /> class.
         /// </summary>
+        /// <param name="id">id.</param>
         /// <param name="type">Type of sender to create - either person or business (defaults to person) .</param>
+        /// <param name="state">state.</param>
         /// <param name="country">Country of sender in 2-character alpha ISO 3166-2 country format (required).</param>
+        /// <param name="street">Sender&#39;s street (required).</param>
+        /// <param name="postalCode">Zip code of sender (required).</param>
+        /// <param name="city">Sender&#39;s city (required).</param>
         /// <param name="phoneCountry">Phone country of sender in 2-character alpha ISO 3166-2 country format (required).</param>
         /// <param name="phoneNumber">Phone number of sender (without country callcode).</param>
         /// <param name="email">Email of sender (required).</param>
+        /// <param name="ip">IP of sender (required).</param>
+        /// <param name="addressDescription">Description of address.</param>
+        /// <param name="identificationNumber">Identification number of document used.</param>
+        /// <param name="identificationType">Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other.</param>
+        /// <param name="name">Name of sender (used only with a Business sender).</param>
         /// <param name="firstName">First name of sender (used only with a Personal sender).</param>
         /// <param name="middleName">Middle name of sender (used only with a Personal sender).</param>
         /// <param name="lastName">Last name of sender (used only with a Personal sender).</param>
+        /// <param name="birthDate">Date of birth of sender (used only with a Personal sender).</param>
         /// <param name="occupation">Occupation of sender (used only with a Personal sender).</param>
         /// <param name="nationality">The nationality of the sender (used only with a Personal sender).</param>
-        /// <param name="onboardingStatus">The onboarding status of the sender.</param>
-        /// <param name="address">The address of the sender.</param>
-        /// <param name="description">Description of the sender.</param>
-        /// <param name="name">Name of sender (used only with a Business sender).</param>
-        /// <param name="city">Sender&#39;s city (required).</param>
-        /// <param name="street">Sender&#39;s street (required).</param>
-        /// <param name="addressDescription">Description of address.</param>
-        /// <param name="postalCode">Zip code of sender (required).</param>
-        /// <param name="birthDate">Date of birth of sender.</param>
-        /// <param name="ip">IP of sender (required).</param>
-        /// <param name="identificationNumber">Identification number of document used.</param>
-        /// <param name="identificationType">Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other.</param>
+        /// <param name="legalEntityType">Legal entity type (used only with a Business sender).</param>
+        /// <param name="registrationDate">The registration date (used only with a Business sender).</param>
+        /// <param name="registrationNumber">The registration number (used only with a Business sender).</param>
+        /// <param name="natureOfBusiness">Nature of business options (used only with a Business sender).</param>
+        /// <param name="sourceOfFunds">The source of funds.</param>
+        /// <param name="coreBusinessActivities">The core activities (used only with a Business sender).</param>
+        /// <param name="purposeOfOpeningAccount">The purpose for opening their account (used only with a Business sender).</param>
+        /// <param name="officePhone">The official phone number (used only with a Business sender).</param>
+        /// <param name="vatRegistrationNumber">The VAT registration number (used only with a Business sender).</param>
+        /// <param name="financialRegulator">The Financial Regulator (used only with a Business sender).</param>
+        /// <param name="regulatoryLicenceNumber">The Regulatory Licence Number (used only with a Business sender).</param>
+        /// <param name="contactPersonEmail">The contact&#39;s email address (used only with a Business sender).</param>
+        /// <param name="tradingCountry">The Business trading country (used only with a Business sender).</param>
+        /// <param name="tradingAddress">The Business trading address (used only with a Business sender).</param>
         /// <param name="documents">Needed for KYC checks. Required to approve the sender unless KYC is waived for your account. Please send us an empty list of documents: &#x60;\&quot;documents\&quot;: [ ]&#x60; in the request if KYC has been waived.  If the documents already exist, please send the Document ID eg. &#x60;&#x60;&#x60;JSON \&quot;documents\&quot;: [   {     \&quot;id\&quot;: \&quot;b6648ba3-1c7b-4f59-8580-684899c84a07\&quot;   } ] &#x60;&#x60;&#x60; (required).</param>
-        /// <param name="politicallyExposedPeople">A list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country, for example heads of state or heads of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: &#x60;&#x60;&#x60;json   {     \&quot;name\&quot;: \&quot;Ronald Reagan\&quot;,     \&quot;position\&quot;: \&quot;President of the United States\&quot;,     \&quot;started_date\&quot;: \&quot;1981-01-20T00:00:00.000Z\&quot;,     \&quot;ended_date\&quot;: \&quot;1989-01-20T00:00:00.000Z\&quot;   } &#x60;&#x60;&#x60;.</param>
         /// <param name="metadata">Metadata of sender. You can store any detail specific to your integration here (for example the local ID of the sender on your end). When requesting sender details you will receive the sent metadata back. Also when sending sender related webhooks you will receive the details stored here as well..</param>
-        /// <param name="state">state.</param>
-        /// <param name="id">id.</param>
+        /// <param name="onboardingStatus">The onboarding status of the sender.</param>
+        /// <param name="politicallyExposedPeople">A list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country, for example heads of state or heads of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: &#x60;&#x60;&#x60;json   {     \&quot;name\&quot;: \&quot;Ronald Reagan\&quot;,     \&quot;position\&quot;: \&quot;President of the United States\&quot;,     \&quot;started_date\&quot;: \&quot;1981-01-20T00:00:00.000Z\&quot;,     \&quot;ended_date\&quot;: \&quot;1989-01-20T00:00:00.000Z\&quot;   } &#x60;&#x60;&#x60;.</param>
         /// <param name="externalId">Optional ID that is supplied by partner linking it to the partner&#39;s own Sender ID. Note: if present we will validate whether the sent ID is a duplicate in our system or not..</param>
-        public Sender(TypeEnum? type = default(TypeEnum?), string country = default(string), string phoneCountry = default(string), string phoneNumber = default(string), string email = default(string), string firstName = default(string), string middleName = default(string), string lastName = default(string), string occupation = default(string), string nationality = default(string), string onboardingStatus = default(string), string address = default(string), string description = default(string), string name = default(string), string city = default(string), string street = default(string), string addressDescription = default(string), string postalCode = default(string), DateTime? birthDate = default(DateTime?), string ip = default(string), string identificationNumber = default(string), IdentificationTypeEnum? identificationType = default(IdentificationTypeEnum?), List<Document> documents = default(List<Document>), List<PoliticallyExposedPerson> politicallyExposedPeople = default(List<PoliticallyExposedPerson>), Object metadata = default(Object), SenderState state = default(SenderState), Guid? id = default(Guid?), string externalId = default(string))
+        public Sender(Guid? id = default(Guid?), TypeEnum? type = default(TypeEnum?), SenderState state = default(SenderState), string country = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string phoneCountry = default(string), string phoneNumber = default(string), string email = default(string), string ip = default(string), string addressDescription = default(string), string identificationNumber = default(string), IdentificationTypeEnum? identificationType = default(IdentificationTypeEnum?), string name = default(string), string firstName = default(string), string middleName = default(string), string lastName = default(string), DateTime? birthDate = default(DateTime?), string occupation = default(string), string nationality = default(string), LegalEntityTypeEnum? legalEntityType = default(LegalEntityTypeEnum?), string registrationDate = default(string), string registrationNumber = default(string), string natureOfBusiness = default(string), string sourceOfFunds = default(string), string coreBusinessActivities = default(string), string purposeOfOpeningAccount = default(string), string officePhone = default(string), string vatRegistrationNumber = default(string), string financialRegulator = default(string), string regulatoryLicenceNumber = default(string), string contactPersonEmail = default(string), string tradingCountry = default(string), string tradingAddress = default(string), List<Document> documents = default(List<Document>), Object metadata = default(Object), string onboardingStatus = default(string), List<PoliticallyExposedPerson> politicallyExposedPeople = default(List<PoliticallyExposedPerson>), string externalId = default(string))
         {
             this.Country = country;
-            this.PhoneCountry = phoneCountry;
-            this.Email = email;
-            this.City = city;
             this.Street = street;
             this.PostalCode = postalCode;
+            this.City = city;
+            this.PhoneCountry = phoneCountry;
+            this.Email = email;
             this.Ip = ip;
             this.Documents = documents;
+            this.Id = id;
             this.Type = type;
+            this.State = state;
             this.PhoneNumber = phoneNumber;
+            this.AddressDescription = addressDescription;
+            this.IdentificationNumber = identificationNumber;
+            this.IdentificationType = identificationType;
+            this.Name = name;
             this.FirstName = firstName;
             this.MiddleName = middleName;
             this.LastName = lastName;
+            this.BirthDate = birthDate;
             this.Occupation = occupation;
             this.Nationality = nationality;
-            this.OnboardingStatus = onboardingStatus;
-            this.Address = address;
-            this.Description = description;
-            this.Name = name;
-            this.AddressDescription = addressDescription;
-            this.BirthDate = birthDate;
-            this.IdentificationNumber = identificationNumber;
-            this.IdentificationType = identificationType;
-            this.PoliticallyExposedPeople = politicallyExposedPeople;
+            this.LegalEntityType = legalEntityType;
+            this.RegistrationDate = registrationDate;
+            this.RegistrationNumber = registrationNumber;
+            this.NatureOfBusiness = natureOfBusiness;
+            this.SourceOfFunds = sourceOfFunds;
+            this.CoreBusinessActivities = coreBusinessActivities;
+            this.PurposeOfOpeningAccount = purposeOfOpeningAccount;
+            this.OfficePhone = officePhone;
+            this.VatRegistrationNumber = vatRegistrationNumber;
+            this.FinancialRegulator = financialRegulator;
+            this.RegulatoryLicenceNumber = regulatoryLicenceNumber;
+            this.ContactPersonEmail = contactPersonEmail;
+            this.TradingCountry = tradingCountry;
+            this.TradingAddress = tradingAddress;
             this.Metadata = metadata;
-            this.State = state;
-            this.Id = id;
+            this.OnboardingStatus = onboardingStatus;
+            this.PoliticallyExposedPeople = politicallyExposedPeople;
             this.ExternalId = externalId;
         }
         
+        /// <summary>
+        /// Gets or Sets Id
+        /// </summary>
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public Guid? Id { get; set; }
+
+
+        /// <summary>
+        /// Gets or Sets State
+        /// </summary>
+        [DataMember(Name="state", EmitDefaultValue=false)]
+        public SenderState State { get; set; }
 
         /// <summary>
         /// Country of sender in 2-character alpha ISO 3166-2 country format
@@ -171,6 +288,27 @@ namespace TransferZero.Sdk.Model
         /// <value>Country of sender in 2-character alpha ISO 3166-2 country format</value>
         [DataMember(Name="country", EmitDefaultValue=false)]
         public string Country { get; set; }
+
+        /// <summary>
+        /// Sender&#39;s street
+        /// </summary>
+        /// <value>Sender&#39;s street</value>
+        [DataMember(Name="street", EmitDefaultValue=false)]
+        public string Street { get; set; }
+
+        /// <summary>
+        /// Zip code of sender
+        /// </summary>
+        /// <value>Zip code of sender</value>
+        [DataMember(Name="postal_code", EmitDefaultValue=false)]
+        public string PostalCode { get; set; }
+
+        /// <summary>
+        /// Sender&#39;s city
+        /// </summary>
+        /// <value>Sender&#39;s city</value>
+        [DataMember(Name="city", EmitDefaultValue=false)]
+        public string City { get; set; }
 
         /// <summary>
         /// Phone country of sender in 2-character alpha ISO 3166-2 country format
@@ -194,6 +332,35 @@ namespace TransferZero.Sdk.Model
         public string Email { get; set; }
 
         /// <summary>
+        /// IP of sender
+        /// </summary>
+        /// <value>IP of sender</value>
+        [DataMember(Name="ip", EmitDefaultValue=false)]
+        public string Ip { get; set; }
+
+        /// <summary>
+        /// Description of address
+        /// </summary>
+        /// <value>Description of address</value>
+        [DataMember(Name="address_description", EmitDefaultValue=false)]
+        public string AddressDescription { get; set; }
+
+        /// <summary>
+        /// Identification number of document used
+        /// </summary>
+        /// <value>Identification number of document used</value>
+        [DataMember(Name="identification_number", EmitDefaultValue=false)]
+        public string IdentificationNumber { get; set; }
+
+
+        /// <summary>
+        /// Name of sender (used only with a Business sender)
+        /// </summary>
+        /// <value>Name of sender (used only with a Business sender)</value>
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
+
+        /// <summary>
         /// First name of sender (used only with a Personal sender)
         /// </summary>
         /// <value>First name of sender (used only with a Personal sender)</value>
@@ -215,6 +382,14 @@ namespace TransferZero.Sdk.Model
         public string LastName { get; set; }
 
         /// <summary>
+        /// Date of birth of sender (used only with a Personal sender)
+        /// </summary>
+        /// <value>Date of birth of sender (used only with a Personal sender)</value>
+        [DataMember(Name="birth_date", EmitDefaultValue=false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime? BirthDate { get; set; }
+
+        /// <summary>
         /// Occupation of sender (used only with a Personal sender)
         /// </summary>
         /// <value>Occupation of sender (used only with a Personal sender)</value>
@@ -228,84 +403,97 @@ namespace TransferZero.Sdk.Model
         [DataMember(Name="nationality", EmitDefaultValue=false)]
         public string Nationality { get; set; }
 
-        /// <summary>
-        /// The onboarding status of the sender
-        /// </summary>
-        /// <value>The onboarding status of the sender</value>
-        [DataMember(Name="onboarding_status", EmitDefaultValue=false)]
-        public string OnboardingStatus { get; set; }
 
         /// <summary>
-        /// The address of the sender
+        /// The registration date (used only with a Business sender)
         /// </summary>
-        /// <value>The address of the sender</value>
-        [DataMember(Name="address", EmitDefaultValue=false)]
-        public string Address { get; set; }
+        /// <value>The registration date (used only with a Business sender)</value>
+        [DataMember(Name="registration_date", EmitDefaultValue=false)]
+        public string RegistrationDate { get; set; }
 
         /// <summary>
-        /// Description of the sender
+        /// The registration number (used only with a Business sender)
         /// </summary>
-        /// <value>Description of the sender</value>
-        [DataMember(Name="description", EmitDefaultValue=false)]
-        public string Description { get; set; }
+        /// <value>The registration number (used only with a Business sender)</value>
+        [DataMember(Name="registration_number", EmitDefaultValue=false)]
+        public string RegistrationNumber { get; set; }
 
         /// <summary>
-        /// Name of sender (used only with a Business sender)
+        /// Nature of business options (used only with a Business sender)
         /// </summary>
-        /// <value>Name of sender (used only with a Business sender)</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
-        public string Name { get; set; }
+        /// <value>Nature of business options (used only with a Business sender)</value>
+        [DataMember(Name="nature_of_business", EmitDefaultValue=false)]
+        public string NatureOfBusiness { get; set; }
 
         /// <summary>
-        /// Sender&#39;s city
+        /// The source of funds
         /// </summary>
-        /// <value>Sender&#39;s city</value>
-        [DataMember(Name="city", EmitDefaultValue=false)]
-        public string City { get; set; }
+        /// <value>The source of funds</value>
+        [DataMember(Name="source_of_funds", EmitDefaultValue=false)]
+        public string SourceOfFunds { get; set; }
 
         /// <summary>
-        /// Sender&#39;s street
+        /// The core activities (used only with a Business sender)
         /// </summary>
-        /// <value>Sender&#39;s street</value>
-        [DataMember(Name="street", EmitDefaultValue=false)]
-        public string Street { get; set; }
+        /// <value>The core activities (used only with a Business sender)</value>
+        [DataMember(Name="core_business_activities", EmitDefaultValue=false)]
+        public string CoreBusinessActivities { get; set; }
 
         /// <summary>
-        /// Description of address
+        /// The purpose for opening their account (used only with a Business sender)
         /// </summary>
-        /// <value>Description of address</value>
-        [DataMember(Name="address_description", EmitDefaultValue=false)]
-        public string AddressDescription { get; set; }
+        /// <value>The purpose for opening their account (used only with a Business sender)</value>
+        [DataMember(Name="purpose_of_opening_account", EmitDefaultValue=false)]
+        public string PurposeOfOpeningAccount { get; set; }
 
         /// <summary>
-        /// Zip code of sender
+        /// The official phone number (used only with a Business sender)
         /// </summary>
-        /// <value>Zip code of sender</value>
-        [DataMember(Name="postal_code", EmitDefaultValue=false)]
-        public string PostalCode { get; set; }
+        /// <value>The official phone number (used only with a Business sender)</value>
+        [DataMember(Name="office_phone", EmitDefaultValue=false)]
+        public string OfficePhone { get; set; }
 
         /// <summary>
-        /// Date of birth of sender
+        /// The VAT registration number (used only with a Business sender)
         /// </summary>
-        /// <value>Date of birth of sender</value>
-        [DataMember(Name="birth_date", EmitDefaultValue=false)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime? BirthDate { get; set; }
+        /// <value>The VAT registration number (used only with a Business sender)</value>
+        [DataMember(Name="vat_registration_number", EmitDefaultValue=false)]
+        public string VatRegistrationNumber { get; set; }
 
         /// <summary>
-        /// IP of sender
+        /// The Financial Regulator (used only with a Business sender)
         /// </summary>
-        /// <value>IP of sender</value>
-        [DataMember(Name="ip", EmitDefaultValue=false)]
-        public string Ip { get; set; }
+        /// <value>The Financial Regulator (used only with a Business sender)</value>
+        [DataMember(Name="financial_regulator", EmitDefaultValue=false)]
+        public string FinancialRegulator { get; set; }
 
         /// <summary>
-        /// Identification number of document used
+        /// The Regulatory Licence Number (used only with a Business sender)
         /// </summary>
-        /// <value>Identification number of document used</value>
-        [DataMember(Name="identification_number", EmitDefaultValue=false)]
-        public string IdentificationNumber { get; set; }
+        /// <value>The Regulatory Licence Number (used only with a Business sender)</value>
+        [DataMember(Name="regulatory_licence_number", EmitDefaultValue=false)]
+        public string RegulatoryLicenceNumber { get; set; }
 
+        /// <summary>
+        /// The contact&#39;s email address (used only with a Business sender)
+        /// </summary>
+        /// <value>The contact&#39;s email address (used only with a Business sender)</value>
+        [DataMember(Name="contact_person_email", EmitDefaultValue=false)]
+        public string ContactPersonEmail { get; set; }
+
+        /// <summary>
+        /// The Business trading country (used only with a Business sender)
+        /// </summary>
+        /// <value>The Business trading country (used only with a Business sender)</value>
+        [DataMember(Name="trading_country", EmitDefaultValue=false)]
+        public string TradingCountry { get; set; }
+
+        /// <summary>
+        /// The Business trading address (used only with a Business sender)
+        /// </summary>
+        /// <value>The Business trading address (used only with a Business sender)</value>
+        [DataMember(Name="trading_address", EmitDefaultValue=false)]
+        public string TradingAddress { get; set; }
 
         /// <summary>
         /// Needed for KYC checks. Required to approve the sender unless KYC is waived for your account. Please send us an empty list of documents: &#x60;\&quot;documents\&quot;: [ ]&#x60; in the request if KYC has been waived.  If the documents already exist, please send the Document ID eg. &#x60;&#x60;&#x60;JSON \&quot;documents\&quot;: [   {     \&quot;id\&quot;: \&quot;b6648ba3-1c7b-4f59-8580-684899c84a07\&quot;   } ] &#x60;&#x60;&#x60;
@@ -315,37 +503,11 @@ namespace TransferZero.Sdk.Model
         public List<Document> Documents { get; set; }
 
         /// <summary>
-        /// A list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country, for example heads of state or heads of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: &#x60;&#x60;&#x60;json   {     \&quot;name\&quot;: \&quot;Ronald Reagan\&quot;,     \&quot;position\&quot;: \&quot;President of the United States\&quot;,     \&quot;started_date\&quot;: \&quot;1981-01-20T00:00:00.000Z\&quot;,     \&quot;ended_date\&quot;: \&quot;1989-01-20T00:00:00.000Z\&quot;   } &#x60;&#x60;&#x60;
-        /// </summary>
-        /// <value>A list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country, for example heads of state or heads of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: &#x60;&#x60;&#x60;json   {     \&quot;name\&quot;: \&quot;Ronald Reagan\&quot;,     \&quot;position\&quot;: \&quot;President of the United States\&quot;,     \&quot;started_date\&quot;: \&quot;1981-01-20T00:00:00.000Z\&quot;,     \&quot;ended_date\&quot;: \&quot;1989-01-20T00:00:00.000Z\&quot;   } &#x60;&#x60;&#x60;</value>
-        [DataMember(Name="politically_exposed_people", EmitDefaultValue=false)]
-        public List<PoliticallyExposedPerson> PoliticallyExposedPeople { get; set; }
-
-        /// <summary>
         /// Metadata of sender. You can store any detail specific to your integration here (for example the local ID of the sender on your end). When requesting sender details you will receive the sent metadata back. Also when sending sender related webhooks you will receive the details stored here as well.
         /// </summary>
         /// <value>Metadata of sender. You can store any detail specific to your integration here (for example the local ID of the sender on your end). When requesting sender details you will receive the sent metadata back. Also when sending sender related webhooks you will receive the details stored here as well.</value>
         [DataMember(Name="metadata", EmitDefaultValue=false)]
         public Object Metadata { get; set; }
-
-        /// <summary>
-        /// Gets or Sets State
-        /// </summary>
-        [DataMember(Name="state", EmitDefaultValue=false)]
-        public SenderState State { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Id
-        /// </summary>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public Guid? Id { get; set; }
-
-        /// <summary>
-        /// Optional ID that is supplied by partner linking it to the partner&#39;s own Sender ID. Note: if present we will validate whether the sent ID is a duplicate in our system or not.
-        /// </summary>
-        /// <value>Optional ID that is supplied by partner linking it to the partner&#39;s own Sender ID. Note: if present we will validate whether the sent ID is a duplicate in our system or not.</value>
-        [DataMember(Name="external_id", EmitDefaultValue=false)]
-        public string ExternalId { get; set; }
 
         /// <summary>
         /// The fields that have some problems and don&#39;t pass validation
@@ -355,6 +517,27 @@ namespace TransferZero.Sdk.Model
         public Dictionary<string, List<ValidationErrorDescription>> Errors { get; private set; }
 
         /// <summary>
+        /// The onboarding status of the sender
+        /// </summary>
+        /// <value>The onboarding status of the sender</value>
+        [DataMember(Name="onboarding_status", EmitDefaultValue=false)]
+        public string OnboardingStatus { get; set; }
+
+        /// <summary>
+        /// A list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country, for example heads of state or heads of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: &#x60;&#x60;&#x60;json   {     \&quot;name\&quot;: \&quot;Ronald Reagan\&quot;,     \&quot;position\&quot;: \&quot;President of the United States\&quot;,     \&quot;started_date\&quot;: \&quot;1981-01-20T00:00:00.000Z\&quot;,     \&quot;ended_date\&quot;: \&quot;1989-01-20T00:00:00.000Z\&quot;   } &#x60;&#x60;&#x60;
+        /// </summary>
+        /// <value>A list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country, for example heads of state or heads of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: &#x60;&#x60;&#x60;json   {     \&quot;name\&quot;: \&quot;Ronald Reagan\&quot;,     \&quot;position\&quot;: \&quot;President of the United States\&quot;,     \&quot;started_date\&quot;: \&quot;1981-01-20T00:00:00.000Z\&quot;,     \&quot;ended_date\&quot;: \&quot;1989-01-20T00:00:00.000Z\&quot;   } &#x60;&#x60;&#x60;</value>
+        [DataMember(Name="politically_exposed_people", EmitDefaultValue=false)]
+        public List<PoliticallyExposedPerson> PoliticallyExposedPeople { get; set; }
+
+        /// <summary>
+        /// Optional ID that is supplied by partner linking it to the partner&#39;s own Sender ID. Note: if present we will validate whether the sent ID is a duplicate in our system or not.
+        /// </summary>
+        /// <value>Optional ID that is supplied by partner linking it to the partner&#39;s own Sender ID. Note: if present we will validate whether the sent ID is a duplicate in our system or not.</value>
+        [DataMember(Name="external_id", EmitDefaultValue=false)]
+        public string ExternalId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -362,35 +545,47 @@ namespace TransferZero.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Sender {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
+            sb.Append("  Street: ").Append(Street).Append("\n");
+            sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
+            sb.Append("  City: ").Append(City).Append("\n");
             sb.Append("  PhoneCountry: ").Append(PhoneCountry).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("  Ip: ").Append(Ip).Append("\n");
+            sb.Append("  AddressDescription: ").Append(AddressDescription).Append("\n");
+            sb.Append("  IdentificationNumber: ").Append(IdentificationNumber).Append("\n");
+            sb.Append("  IdentificationType: ").Append(IdentificationType).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
+            sb.Append("  BirthDate: ").Append(BirthDate).Append("\n");
             sb.Append("  Occupation: ").Append(Occupation).Append("\n");
             sb.Append("  Nationality: ").Append(Nationality).Append("\n");
-            sb.Append("  OnboardingStatus: ").Append(OnboardingStatus).Append("\n");
-            sb.Append("  Address: ").Append(Address).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  City: ").Append(City).Append("\n");
-            sb.Append("  Street: ").Append(Street).Append("\n");
-            sb.Append("  AddressDescription: ").Append(AddressDescription).Append("\n");
-            sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
-            sb.Append("  BirthDate: ").Append(BirthDate).Append("\n");
-            sb.Append("  Ip: ").Append(Ip).Append("\n");
-            sb.Append("  IdentificationNumber: ").Append(IdentificationNumber).Append("\n");
-            sb.Append("  IdentificationType: ").Append(IdentificationType).Append("\n");
+            sb.Append("  LegalEntityType: ").Append(LegalEntityType).Append("\n");
+            sb.Append("  RegistrationDate: ").Append(RegistrationDate).Append("\n");
+            sb.Append("  RegistrationNumber: ").Append(RegistrationNumber).Append("\n");
+            sb.Append("  NatureOfBusiness: ").Append(NatureOfBusiness).Append("\n");
+            sb.Append("  SourceOfFunds: ").Append(SourceOfFunds).Append("\n");
+            sb.Append("  CoreBusinessActivities: ").Append(CoreBusinessActivities).Append("\n");
+            sb.Append("  PurposeOfOpeningAccount: ").Append(PurposeOfOpeningAccount).Append("\n");
+            sb.Append("  OfficePhone: ").Append(OfficePhone).Append("\n");
+            sb.Append("  VatRegistrationNumber: ").Append(VatRegistrationNumber).Append("\n");
+            sb.Append("  FinancialRegulator: ").Append(FinancialRegulator).Append("\n");
+            sb.Append("  RegulatoryLicenceNumber: ").Append(RegulatoryLicenceNumber).Append("\n");
+            sb.Append("  ContactPersonEmail: ").Append(ContactPersonEmail).Append("\n");
+            sb.Append("  TradingCountry: ").Append(TradingCountry).Append("\n");
+            sb.Append("  TradingAddress: ").Append(TradingAddress).Append("\n");
             sb.Append("  Documents: ").Append(Documents).Append("\n");
-            sb.Append("  PoliticallyExposedPeople: ").Append(PoliticallyExposedPeople).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
-            sb.Append("  State: ").Append(State).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  ExternalId: ").Append(ExternalId).Append("\n");
             sb.Append("  Errors: ").Append(Errors).Append("\n");
+            sb.Append("  OnboardingStatus: ").Append(OnboardingStatus).Append("\n");
+            sb.Append("  PoliticallyExposedPeople: ").Append(PoliticallyExposedPeople).Append("\n");
+            sb.Append("  ExternalId: ").Append(ExternalId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -426,14 +621,39 @@ namespace TransferZero.Sdk.Model
 
             return 
                 (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
                 ) && 
                 (
+                    this.State == input.State ||
+                    (this.State != null &&
+                    this.State.Equals(input.State))
+                ) && 
+                (
                     this.Country == input.Country ||
                     (this.Country != null &&
                     this.Country.Equals(input.Country))
+                ) && 
+                (
+                    this.Street == input.Street ||
+                    (this.Street != null &&
+                    this.Street.Equals(input.Street))
+                ) && 
+                (
+                    this.PostalCode == input.PostalCode ||
+                    (this.PostalCode != null &&
+                    this.PostalCode.Equals(input.PostalCode))
+                ) && 
+                (
+                    this.City == input.City ||
+                    (this.City != null &&
+                    this.City.Equals(input.City))
                 ) && 
                 (
                     this.PhoneCountry == input.PhoneCountry ||
@@ -451,6 +671,31 @@ namespace TransferZero.Sdk.Model
                     this.Email.Equals(input.Email))
                 ) && 
                 (
+                    this.Ip == input.Ip ||
+                    (this.Ip != null &&
+                    this.Ip.Equals(input.Ip))
+                ) && 
+                (
+                    this.AddressDescription == input.AddressDescription ||
+                    (this.AddressDescription != null &&
+                    this.AddressDescription.Equals(input.AddressDescription))
+                ) && 
+                (
+                    this.IdentificationNumber == input.IdentificationNumber ||
+                    (this.IdentificationNumber != null &&
+                    this.IdentificationNumber.Equals(input.IdentificationNumber))
+                ) && 
+                (
+                    this.IdentificationType == input.IdentificationType ||
+                    (this.IdentificationType != null &&
+                    this.IdentificationType.Equals(input.IdentificationType))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
                     this.FirstName == input.FirstName ||
                     (this.FirstName != null &&
                     this.FirstName.Equals(input.FirstName))
@@ -466,6 +711,11 @@ namespace TransferZero.Sdk.Model
                     this.LastName.Equals(input.LastName))
                 ) && 
                 (
+                    this.BirthDate == input.BirthDate ||
+                    (this.BirthDate != null &&
+                    this.BirthDate.Equals(input.BirthDate))
+                ) && 
+                (
                     this.Occupation == input.Occupation ||
                     (this.Occupation != null &&
                     this.Occupation.Equals(input.Occupation))
@@ -476,64 +726,74 @@ namespace TransferZero.Sdk.Model
                     this.Nationality.Equals(input.Nationality))
                 ) && 
                 (
-                    this.OnboardingStatus == input.OnboardingStatus ||
-                    (this.OnboardingStatus != null &&
-                    this.OnboardingStatus.Equals(input.OnboardingStatus))
+                    this.LegalEntityType == input.LegalEntityType ||
+                    (this.LegalEntityType != null &&
+                    this.LegalEntityType.Equals(input.LegalEntityType))
                 ) && 
                 (
-                    this.Address == input.Address ||
-                    (this.Address != null &&
-                    this.Address.Equals(input.Address))
+                    this.RegistrationDate == input.RegistrationDate ||
+                    (this.RegistrationDate != null &&
+                    this.RegistrationDate.Equals(input.RegistrationDate))
                 ) && 
                 (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
+                    this.RegistrationNumber == input.RegistrationNumber ||
+                    (this.RegistrationNumber != null &&
+                    this.RegistrationNumber.Equals(input.RegistrationNumber))
                 ) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.NatureOfBusiness == input.NatureOfBusiness ||
+                    (this.NatureOfBusiness != null &&
+                    this.NatureOfBusiness.Equals(input.NatureOfBusiness))
                 ) && 
                 (
-                    this.City == input.City ||
-                    (this.City != null &&
-                    this.City.Equals(input.City))
+                    this.SourceOfFunds == input.SourceOfFunds ||
+                    (this.SourceOfFunds != null &&
+                    this.SourceOfFunds.Equals(input.SourceOfFunds))
                 ) && 
                 (
-                    this.Street == input.Street ||
-                    (this.Street != null &&
-                    this.Street.Equals(input.Street))
+                    this.CoreBusinessActivities == input.CoreBusinessActivities ||
+                    (this.CoreBusinessActivities != null &&
+                    this.CoreBusinessActivities.Equals(input.CoreBusinessActivities))
                 ) && 
                 (
-                    this.AddressDescription == input.AddressDescription ||
-                    (this.AddressDescription != null &&
-                    this.AddressDescription.Equals(input.AddressDescription))
+                    this.PurposeOfOpeningAccount == input.PurposeOfOpeningAccount ||
+                    (this.PurposeOfOpeningAccount != null &&
+                    this.PurposeOfOpeningAccount.Equals(input.PurposeOfOpeningAccount))
                 ) && 
                 (
-                    this.PostalCode == input.PostalCode ||
-                    (this.PostalCode != null &&
-                    this.PostalCode.Equals(input.PostalCode))
+                    this.OfficePhone == input.OfficePhone ||
+                    (this.OfficePhone != null &&
+                    this.OfficePhone.Equals(input.OfficePhone))
                 ) && 
                 (
-                    this.BirthDate == input.BirthDate ||
-                    (this.BirthDate != null &&
-                    this.BirthDate.Equals(input.BirthDate))
+                    this.VatRegistrationNumber == input.VatRegistrationNumber ||
+                    (this.VatRegistrationNumber != null &&
+                    this.VatRegistrationNumber.Equals(input.VatRegistrationNumber))
                 ) && 
                 (
-                    this.Ip == input.Ip ||
-                    (this.Ip != null &&
-                    this.Ip.Equals(input.Ip))
+                    this.FinancialRegulator == input.FinancialRegulator ||
+                    (this.FinancialRegulator != null &&
+                    this.FinancialRegulator.Equals(input.FinancialRegulator))
                 ) && 
                 (
-                    this.IdentificationNumber == input.IdentificationNumber ||
-                    (this.IdentificationNumber != null &&
-                    this.IdentificationNumber.Equals(input.IdentificationNumber))
+                    this.RegulatoryLicenceNumber == input.RegulatoryLicenceNumber ||
+                    (this.RegulatoryLicenceNumber != null &&
+                    this.RegulatoryLicenceNumber.Equals(input.RegulatoryLicenceNumber))
                 ) && 
                 (
-                    this.IdentificationType == input.IdentificationType ||
-                    (this.IdentificationType != null &&
-                    this.IdentificationType.Equals(input.IdentificationType))
+                    this.ContactPersonEmail == input.ContactPersonEmail ||
+                    (this.ContactPersonEmail != null &&
+                    this.ContactPersonEmail.Equals(input.ContactPersonEmail))
+                ) && 
+                (
+                    this.TradingCountry == input.TradingCountry ||
+                    (this.TradingCountry != null &&
+                    this.TradingCountry.Equals(input.TradingCountry))
+                ) && 
+                (
+                    this.TradingAddress == input.TradingAddress ||
+                    (this.TradingAddress != null &&
+                    this.TradingAddress.Equals(input.TradingAddress))
                 ) && 
                 (
                     this.Documents == input.Documents ||
@@ -541,34 +801,29 @@ namespace TransferZero.Sdk.Model
                     this.Documents.SequenceEqual(input.Documents)
                 ) && 
                 (
-                    this.PoliticallyExposedPeople == input.PoliticallyExposedPeople ||
-                    this.PoliticallyExposedPeople != null &&
-                    this.PoliticallyExposedPeople.SequenceEqual(input.PoliticallyExposedPeople)
-                ) && 
-                (
                     this.Metadata == input.Metadata ||
                     (this.Metadata != null &&
                     this.Metadata.Equals(input.Metadata))
                 ) && 
                 (
-                    this.State == input.State ||
-                    (this.State != null &&
-                    this.State.Equals(input.State))
+                    this.Errors == input.Errors ||
+                    this.Errors != null &&
+                    this.Errors.SequenceEqual(input.Errors)
                 ) && 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.OnboardingStatus == input.OnboardingStatus ||
+                    (this.OnboardingStatus != null &&
+                    this.OnboardingStatus.Equals(input.OnboardingStatus))
+                ) && 
+                (
+                    this.PoliticallyExposedPeople == input.PoliticallyExposedPeople ||
+                    this.PoliticallyExposedPeople != null &&
+                    this.PoliticallyExposedPeople.SequenceEqual(input.PoliticallyExposedPeople)
                 ) && 
                 (
                     this.ExternalId == input.ExternalId ||
                     (this.ExternalId != null &&
                     this.ExternalId.Equals(input.ExternalId))
-                ) && 
-                (
-                    this.Errors == input.Errors ||
-                    this.Errors != null &&
-                    this.Errors.SequenceEqual(input.Errors)
                 );
         }
 
@@ -581,64 +836,88 @@ namespace TransferZero.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Id != null)
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.State != null)
+                    hashCode = hashCode * 59 + this.State.GetHashCode();
                 if (this.Country != null)
                     hashCode = hashCode * 59 + this.Country.GetHashCode();
+                if (this.Street != null)
+                    hashCode = hashCode * 59 + this.Street.GetHashCode();
+                if (this.PostalCode != null)
+                    hashCode = hashCode * 59 + this.PostalCode.GetHashCode();
+                if (this.City != null)
+                    hashCode = hashCode * 59 + this.City.GetHashCode();
                 if (this.PhoneCountry != null)
                     hashCode = hashCode * 59 + this.PhoneCountry.GetHashCode();
                 if (this.PhoneNumber != null)
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
                 if (this.Email != null)
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
+                if (this.Ip != null)
+                    hashCode = hashCode * 59 + this.Ip.GetHashCode();
+                if (this.AddressDescription != null)
+                    hashCode = hashCode * 59 + this.AddressDescription.GetHashCode();
+                if (this.IdentificationNumber != null)
+                    hashCode = hashCode * 59 + this.IdentificationNumber.GetHashCode();
+                if (this.IdentificationType != null)
+                    hashCode = hashCode * 59 + this.IdentificationType.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.FirstName != null)
                     hashCode = hashCode * 59 + this.FirstName.GetHashCode();
                 if (this.MiddleName != null)
                     hashCode = hashCode * 59 + this.MiddleName.GetHashCode();
                 if (this.LastName != null)
                     hashCode = hashCode * 59 + this.LastName.GetHashCode();
+                if (this.BirthDate != null)
+                    hashCode = hashCode * 59 + this.BirthDate.GetHashCode();
                 if (this.Occupation != null)
                     hashCode = hashCode * 59 + this.Occupation.GetHashCode();
                 if (this.Nationality != null)
                     hashCode = hashCode * 59 + this.Nationality.GetHashCode();
-                if (this.OnboardingStatus != null)
-                    hashCode = hashCode * 59 + this.OnboardingStatus.GetHashCode();
-                if (this.Address != null)
-                    hashCode = hashCode * 59 + this.Address.GetHashCode();
-                if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.City != null)
-                    hashCode = hashCode * 59 + this.City.GetHashCode();
-                if (this.Street != null)
-                    hashCode = hashCode * 59 + this.Street.GetHashCode();
-                if (this.AddressDescription != null)
-                    hashCode = hashCode * 59 + this.AddressDescription.GetHashCode();
-                if (this.PostalCode != null)
-                    hashCode = hashCode * 59 + this.PostalCode.GetHashCode();
-                if (this.BirthDate != null)
-                    hashCode = hashCode * 59 + this.BirthDate.GetHashCode();
-                if (this.Ip != null)
-                    hashCode = hashCode * 59 + this.Ip.GetHashCode();
-                if (this.IdentificationNumber != null)
-                    hashCode = hashCode * 59 + this.IdentificationNumber.GetHashCode();
-                if (this.IdentificationType != null)
-                    hashCode = hashCode * 59 + this.IdentificationType.GetHashCode();
+                if (this.LegalEntityType != null)
+                    hashCode = hashCode * 59 + this.LegalEntityType.GetHashCode();
+                if (this.RegistrationDate != null)
+                    hashCode = hashCode * 59 + this.RegistrationDate.GetHashCode();
+                if (this.RegistrationNumber != null)
+                    hashCode = hashCode * 59 + this.RegistrationNumber.GetHashCode();
+                if (this.NatureOfBusiness != null)
+                    hashCode = hashCode * 59 + this.NatureOfBusiness.GetHashCode();
+                if (this.SourceOfFunds != null)
+                    hashCode = hashCode * 59 + this.SourceOfFunds.GetHashCode();
+                if (this.CoreBusinessActivities != null)
+                    hashCode = hashCode * 59 + this.CoreBusinessActivities.GetHashCode();
+                if (this.PurposeOfOpeningAccount != null)
+                    hashCode = hashCode * 59 + this.PurposeOfOpeningAccount.GetHashCode();
+                if (this.OfficePhone != null)
+                    hashCode = hashCode * 59 + this.OfficePhone.GetHashCode();
+                if (this.VatRegistrationNumber != null)
+                    hashCode = hashCode * 59 + this.VatRegistrationNumber.GetHashCode();
+                if (this.FinancialRegulator != null)
+                    hashCode = hashCode * 59 + this.FinancialRegulator.GetHashCode();
+                if (this.RegulatoryLicenceNumber != null)
+                    hashCode = hashCode * 59 + this.RegulatoryLicenceNumber.GetHashCode();
+                if (this.ContactPersonEmail != null)
+                    hashCode = hashCode * 59 + this.ContactPersonEmail.GetHashCode();
+                if (this.TradingCountry != null)
+                    hashCode = hashCode * 59 + this.TradingCountry.GetHashCode();
+                if (this.TradingAddress != null)
+                    hashCode = hashCode * 59 + this.TradingAddress.GetHashCode();
                 if (this.Documents != null)
                     hashCode = hashCode * 59 + this.Documents.GetHashCode();
-                if (this.PoliticallyExposedPeople != null)
-                    hashCode = hashCode * 59 + this.PoliticallyExposedPeople.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
-                if (this.State != null)
-                    hashCode = hashCode * 59 + this.State.GetHashCode();
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.ExternalId != null)
-                    hashCode = hashCode * 59 + this.ExternalId.GetHashCode();
                 if (this.Errors != null)
                     hashCode = hashCode * 59 + this.Errors.GetHashCode();
+                if (this.OnboardingStatus != null)
+                    hashCode = hashCode * 59 + this.OnboardingStatus.GetHashCode();
+                if (this.PoliticallyExposedPeople != null)
+                    hashCode = hashCode * 59 + this.PoliticallyExposedPeople.GetHashCode();
+                if (this.ExternalId != null)
+                    hashCode = hashCode * 59 + this.ExternalId.GetHashCode();
                 return hashCode;
             }
         }
