@@ -221,11 +221,11 @@ namespace TransferZero.Sdk.Model
         /// <param name="tradingCountry">The Business trading country (used only with a Business sender).</param>
         /// <param name="tradingAddress">The Business trading address (used only with a Business sender).</param>
         /// <param name="documents">Needed for KYC checks. Required to approve the sender unless KYC is waived for your account. Please send us an empty list of documents: &#x60;\&quot;documents\&quot;: [ ]&#x60; in the request if KYC has been waived.  If the documents already exist, please send the Document ID eg. &#x60;&#x60;&#x60;JSON \&quot;documents\&quot;: [   {     \&quot;id\&quot;: \&quot;b6648ba3-1c7b-4f59-8580-684899c84a07\&quot;   } ] &#x60;&#x60;&#x60; (required).</param>
-        /// <param name="politicallyExposedPeople">A list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country, for example heads of state or heads of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: &#x60;&#x60;&#x60;json   {     \&quot;name\&quot;: \&quot;Ronald Reagan\&quot;,     \&quot;position\&quot;: \&quot;President of the United States\&quot;,     \&quot;started_date\&quot;: \&quot;1981-01-20T00:00:00.000Z\&quot;,     \&quot;ended_date\&quot;: \&quot;1989-01-20T00:00:00.000Z\&quot;   } &#x60;&#x60;&#x60;.</param>
         /// <param name="metadata">Metadata of sender. You can store any detail specific to your integration here (for example the local ID of the sender on your end). When requesting sender details you will receive the sent metadata back. Also when sending sender related webhooks you will receive the details stored here as well..</param>
         /// <param name="onboardingStatus">The onboarding status of the sender.</param>
+        /// <param name="politicallyExposedPeople">An optional list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country, for example heads of state or heads of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: &#x60;&#x60;&#x60;json   {     \&quot;politically_exposed_person\&quot;: {       \&quot;name\&quot;: \&quot;Ronald Reagan\&quot;,       \&quot;position\&quot;: \&quot;President of the United States\&quot;,       \&quot;started_date\&quot;: \&quot;1981-01-20T00:00:00.000Z\&quot;,       \&quot;ended_date\&quot;: \&quot;1989-01-20T00:00:00.000Z\&quot;,       \&quot;sender_id\&quot;: \&quot;344fb668-196d-43db-9d94-b34b7e6c7e0b\&quot;     }   } &#x60;&#x60;&#x60;.</param>
         /// <param name="externalId">Optional ID that is supplied by partner linking it to the partner&#39;s own Sender ID. Note: if present we will validate whether the sent ID is a duplicate in our system or not..</param>
-        public Sender(Guid? id = default(Guid?), TypeEnum? type = default(TypeEnum?), SenderState state = default(SenderState), string country = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string phoneCountry = default(string), string phoneNumber = default(string), string email = default(string), string ip = default(string), string addressDescription = default(string), string identificationNumber = default(string), IdentificationTypeEnum? identificationType = default(IdentificationTypeEnum?), string name = default(string), string firstName = default(string), string middleName = default(string), string lastName = default(string), DateTime? birthDate = default(DateTime?), string occupation = default(string), string nationality = default(string), LegalEntityTypeEnum? legalEntityType = default(LegalEntityTypeEnum?), string registrationDate = default(string), string registrationNumber = default(string), string natureOfBusiness = default(string), string sourceOfFunds = default(string), string coreBusinessActivities = default(string), string purposeOfOpeningAccount = default(string), string officePhone = default(string), string vatRegistrationNumber = default(string), string financialRegulator = default(string), string regulatoryLicenceNumber = default(string), string contactPersonEmail = default(string), string tradingCountry = default(string), string tradingAddress = default(string), List<Document> documents = default(List<Document>), List<PoliticallyExposedPerson> politicallyExposedPeople = default(List<PoliticallyExposedPerson>), Object metadata = default(Object), string onboardingStatus = default(string), string externalId = default(string))
+        public Sender(Guid? id = default(Guid?), TypeEnum? type = default(TypeEnum?), SenderState state = default(SenderState), string country = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string phoneCountry = default(string), string phoneNumber = default(string), string email = default(string), string ip = default(string), string addressDescription = default(string), string identificationNumber = default(string), IdentificationTypeEnum? identificationType = default(IdentificationTypeEnum?), string name = default(string), string firstName = default(string), string middleName = default(string), string lastName = default(string), DateTime? birthDate = default(DateTime?), string occupation = default(string), string nationality = default(string), LegalEntityTypeEnum? legalEntityType = default(LegalEntityTypeEnum?), string registrationDate = default(string), string registrationNumber = default(string), string natureOfBusiness = default(string), string sourceOfFunds = default(string), string coreBusinessActivities = default(string), string purposeOfOpeningAccount = default(string), string officePhone = default(string), string vatRegistrationNumber = default(string), string financialRegulator = default(string), string regulatoryLicenceNumber = default(string), string contactPersonEmail = default(string), string tradingCountry = default(string), string tradingAddress = default(string), List<Document> documents = default(List<Document>), Object metadata = default(Object), string onboardingStatus = default(string), List<PoliticallyExposedPerson> politicallyExposedPeople = default(List<PoliticallyExposedPerson>), string externalId = default(string))
         {
             this.Country = country;
             this.Street = street;
@@ -263,9 +263,9 @@ namespace TransferZero.Sdk.Model
             this.ContactPersonEmail = contactPersonEmail;
             this.TradingCountry = tradingCountry;
             this.TradingAddress = tradingAddress;
-            this.PoliticallyExposedPeople = politicallyExposedPeople;
             this.Metadata = metadata;
             this.OnboardingStatus = onboardingStatus;
+            this.PoliticallyExposedPeople = politicallyExposedPeople;
             this.ExternalId = externalId;
         }
         
@@ -503,13 +503,6 @@ namespace TransferZero.Sdk.Model
         public List<Document> Documents { get; set; }
 
         /// <summary>
-        /// A list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country, for example heads of state or heads of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: &#x60;&#x60;&#x60;json   {     \&quot;name\&quot;: \&quot;Ronald Reagan\&quot;,     \&quot;position\&quot;: \&quot;President of the United States\&quot;,     \&quot;started_date\&quot;: \&quot;1981-01-20T00:00:00.000Z\&quot;,     \&quot;ended_date\&quot;: \&quot;1989-01-20T00:00:00.000Z\&quot;   } &#x60;&#x60;&#x60;
-        /// </summary>
-        /// <value>A list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country, for example heads of state or heads of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: &#x60;&#x60;&#x60;json   {     \&quot;name\&quot;: \&quot;Ronald Reagan\&quot;,     \&quot;position\&quot;: \&quot;President of the United States\&quot;,     \&quot;started_date\&quot;: \&quot;1981-01-20T00:00:00.000Z\&quot;,     \&quot;ended_date\&quot;: \&quot;1989-01-20T00:00:00.000Z\&quot;   } &#x60;&#x60;&#x60;</value>
-        [DataMember(Name="politically_exposed_people", EmitDefaultValue=false)]
-        public List<PoliticallyExposedPerson> PoliticallyExposedPeople { get; set; }
-
-        /// <summary>
         /// Metadata of sender. You can store any detail specific to your integration here (for example the local ID of the sender on your end). When requesting sender details you will receive the sent metadata back. Also when sending sender related webhooks you will receive the details stored here as well.
         /// </summary>
         /// <value>Metadata of sender. You can store any detail specific to your integration here (for example the local ID of the sender on your end). When requesting sender details you will receive the sent metadata back. Also when sending sender related webhooks you will receive the details stored here as well.</value>
@@ -529,6 +522,13 @@ namespace TransferZero.Sdk.Model
         /// <value>The onboarding status of the sender</value>
         [DataMember(Name="onboarding_status", EmitDefaultValue=false)]
         public string OnboardingStatus { get; set; }
+
+        /// <summary>
+        /// An optional list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country, for example heads of state or heads of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: &#x60;&#x60;&#x60;json   {     \&quot;politically_exposed_person\&quot;: {       \&quot;name\&quot;: \&quot;Ronald Reagan\&quot;,       \&quot;position\&quot;: \&quot;President of the United States\&quot;,       \&quot;started_date\&quot;: \&quot;1981-01-20T00:00:00.000Z\&quot;,       \&quot;ended_date\&quot;: \&quot;1989-01-20T00:00:00.000Z\&quot;,       \&quot;sender_id\&quot;: \&quot;344fb668-196d-43db-9d94-b34b7e6c7e0b\&quot;     }   } &#x60;&#x60;&#x60;
+        /// </summary>
+        /// <value>An optional list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country, for example heads of state or heads of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: &#x60;&#x60;&#x60;json   {     \&quot;politically_exposed_person\&quot;: {       \&quot;name\&quot;: \&quot;Ronald Reagan\&quot;,       \&quot;position\&quot;: \&quot;President of the United States\&quot;,       \&quot;started_date\&quot;: \&quot;1981-01-20T00:00:00.000Z\&quot;,       \&quot;ended_date\&quot;: \&quot;1989-01-20T00:00:00.000Z\&quot;,       \&quot;sender_id\&quot;: \&quot;344fb668-196d-43db-9d94-b34b7e6c7e0b\&quot;     }   } &#x60;&#x60;&#x60;</value>
+        [DataMember(Name="politically_exposed_people", EmitDefaultValue=false)]
+        public List<PoliticallyExposedPerson> PoliticallyExposedPeople { get; set; }
 
         /// <summary>
         /// Optional ID that is supplied by partner linking it to the partner&#39;s own Sender ID. Note: if present we will validate whether the sent ID is a duplicate in our system or not.
@@ -581,10 +581,10 @@ namespace TransferZero.Sdk.Model
             sb.Append("  TradingCountry: ").Append(TradingCountry).Append("\n");
             sb.Append("  TradingAddress: ").Append(TradingAddress).Append("\n");
             sb.Append("  Documents: ").Append(Documents).Append("\n");
-            sb.Append("  PoliticallyExposedPeople: ").Append(PoliticallyExposedPeople).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("  OnboardingStatus: ").Append(OnboardingStatus).Append("\n");
+            sb.Append("  PoliticallyExposedPeople: ").Append(PoliticallyExposedPeople).Append("\n");
             sb.Append("  ExternalId: ").Append(ExternalId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -801,11 +801,6 @@ namespace TransferZero.Sdk.Model
                     this.Documents.SequenceEqual(input.Documents)
                 ) && 
                 (
-                    this.PoliticallyExposedPeople == input.PoliticallyExposedPeople ||
-                    this.PoliticallyExposedPeople != null &&
-                    this.PoliticallyExposedPeople.SequenceEqual(input.PoliticallyExposedPeople)
-                ) && 
-                (
                     this.Metadata == input.Metadata ||
                     (this.Metadata != null &&
                     this.Metadata.Equals(input.Metadata))
@@ -819,6 +814,11 @@ namespace TransferZero.Sdk.Model
                     this.OnboardingStatus == input.OnboardingStatus ||
                     (this.OnboardingStatus != null &&
                     this.OnboardingStatus.Equals(input.OnboardingStatus))
+                ) && 
+                (
+                    this.PoliticallyExposedPeople == input.PoliticallyExposedPeople ||
+                    this.PoliticallyExposedPeople != null &&
+                    this.PoliticallyExposedPeople.SequenceEqual(input.PoliticallyExposedPeople)
                 ) && 
                 (
                     this.ExternalId == input.ExternalId ||
@@ -908,14 +908,14 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.TradingAddress.GetHashCode();
                 if (this.Documents != null)
                     hashCode = hashCode * 59 + this.Documents.GetHashCode();
-                if (this.PoliticallyExposedPeople != null)
-                    hashCode = hashCode * 59 + this.PoliticallyExposedPeople.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 if (this.Errors != null)
                     hashCode = hashCode * 59 + this.Errors.GetHashCode();
                 if (this.OnboardingStatus != null)
                     hashCode = hashCode * 59 + this.OnboardingStatus.GetHashCode();
+                if (this.PoliticallyExposedPeople != null)
+                    hashCode = hashCode * 59 + this.PoliticallyExposedPeople.GetHashCode();
                 if (this.ExternalId != null)
                     hashCode = hashCode * 59 + this.ExternalId.GetHashCode();
                 return hashCode;

@@ -65,24 +65,16 @@ namespace TransferZero.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Document" /> class.
         /// </summary>
-        /// <param name="senderId">senderId.</param>
         /// <param name="upload">Base64 encoded data uri of an image/pdf file or a fully qualified url (required).</param>
         /// <param name="uploadFileName">Name of the upload (required).</param>
         /// <param name="metadata">Metadata of document.</param>
-        public Document(Guid? senderId = default(Guid?), string upload = default(string), string uploadFileName = default(string), Object metadata = default(Object))
+        public Document(string upload = default(string), string uploadFileName = default(string), Object metadata = default(Object))
         {
             this.Upload = upload;
             this.UploadFileName = uploadFileName;
-            this.SenderId = senderId;
             this.Metadata = metadata;
         }
         
-        /// <summary>
-        /// Gets or Sets SenderId
-        /// </summary>
-        [DataMember(Name="sender_id", EmitDefaultValue=false)]
-        public Guid? SenderId { get; set; }
-
         /// <summary>
         /// Base64 encoded data uri of an image/pdf file or a fully qualified url
         /// </summary>
@@ -145,6 +137,13 @@ namespace TransferZero.Sdk.Model
         public Guid? Id { get; private set; }
 
         /// <summary>
+        /// The state of the document. Can be one of the following:  - &#x60;initial&#x60;: When a document is created and has not been through any checks (the default state) - &#x60;verified&#x60;: A document has passed compliance checks - &#x60;rejected&#x60;: The document has failed compliance checks
+        /// </summary>
+        /// <value>The state of the document. Can be one of the following:  - &#x60;initial&#x60;: When a document is created and has not been through any checks (the default state) - &#x60;verified&#x60;: A document has passed compliance checks - &#x60;rejected&#x60;: The document has failed compliance checks</value>
+        [DataMember(Name="state", EmitDefaultValue=false)]
+        public string State { get; private set; }
+
+        /// <summary>
         /// The fields that have some problems and don&#39;t pass validation
         /// </summary>
         /// <value>The fields that have some problems and don&#39;t pass validation</value>
@@ -159,7 +158,6 @@ namespace TransferZero.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Document {\n");
-            sb.Append("  SenderId: ").Append(SenderId).Append("\n");
             sb.Append("  Upload: ").Append(Upload).Append("\n");
             sb.Append("  UploadFileName: ").Append(UploadFileName).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
@@ -170,6 +168,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  DocumentType: ").Append(DocumentType).Append("\n");
             sb.Append("  IssuingCountry: ").Append(IssuingCountry).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -205,11 +204,6 @@ namespace TransferZero.Sdk.Model
                 return false;
 
             return 
-                (
-                    this.SenderId == input.SenderId ||
-                    (this.SenderId != null &&
-                    this.SenderId.Equals(input.SenderId))
-                ) && 
                 (
                     this.Upload == input.Upload ||
                     (this.Upload != null &&
@@ -261,6 +255,11 @@ namespace TransferZero.Sdk.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
+                    this.State == input.State ||
+                    (this.State != null &&
+                    this.State.Equals(input.State))
+                ) && 
+                (
                     this.Errors == input.Errors ||
                     this.Errors != null &&
                     this.Errors.SequenceEqual(input.Errors)
@@ -276,8 +275,6 @@ namespace TransferZero.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.SenderId != null)
-                    hashCode = hashCode * 59 + this.SenderId.GetHashCode();
                 if (this.Upload != null)
                     hashCode = hashCode * 59 + this.Upload.GetHashCode();
                 if (this.UploadFileName != null)
@@ -298,6 +295,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.IssuingCountry.GetHashCode();
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.State != null)
+                    hashCode = hashCode * 59 + this.State.GetHashCode();
                 if (this.Errors != null)
                     hashCode = hashCode * 59 + this.Errors.GetHashCode();
                 return hashCode;

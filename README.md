@@ -174,7 +174,6 @@ Class | Method | HTTP request | Description
 *CurrencyInfoApi* | [**InfoCurrencies**](docs/CurrencyInfoApi.md#infocurrencies) | **GET** /info/currencies | Getting a list of possible requested currencies
 *CurrencyInfoApi* | [**InfoCurrenciesIn**](docs/CurrencyInfoApi.md#infocurrenciesin) | **GET** /info/currencies/in | Getting a list of possible input currencies
 *CurrencyInfoApi* | [**InfoCurrenciesOut**](docs/CurrencyInfoApi.md#infocurrenciesout) | **GET** /info/currencies/out | Getting a list of possible output currencies
-*DocumentsApi* | [**DeleteDocument**](docs/DocumentsApi.md#deletedocument) | **DELETE** /documents/{Document ID} | Deleting a document
 *DocumentsApi* | [**GetDocument**](docs/DocumentsApi.md#getdocument) | **GET** /documents/{Document ID} | Fetching a document
 *DocumentsApi* | [**GetDocuments**](docs/DocumentsApi.md#getdocuments) | **GET** /documents | Getting a list of documents
 *DocumentsApi* | [**PostDocuments**](docs/DocumentsApi.md#postdocuments) | **POST** /documents | Creating a document

@@ -5,7 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SenderId** | **Guid?** |  | [optional] 
 **Upload** | **string** | Base64 encoded data uri of an image/pdf file or a fully qualified url | 
 **UploadFileName** | **string** | Name of the upload | 
 **Metadata** | [**Object**](.md) | Metadata of document | [optional] 
@@ -16,6 +15,7 @@ Name | Type | Description | Notes
 **DocumentType** | **string** | This is a brief description of the document type | [optional] 
 **IssuingCountry** | **string** | Issuing country of ID in 2-character alpha ISO 3166-2 country format | [optional] 
 **Id** | **Guid?** |  | [optional] 
+**State** | **string** | The state of the document. Can be one of the following:  - &#x60;initial&#x60;: When a document is created and has not been through any checks (the default state) - &#x60;verified&#x60;: A document has passed compliance checks - &#x60;rejected&#x60;: The document has failed compliance checks | [optional] 
 **Errors** | **Dictionary&lt;string, List&lt;ValidationErrorDescription&gt;&gt;** | The fields that have some problems and don&#39;t pass validation | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

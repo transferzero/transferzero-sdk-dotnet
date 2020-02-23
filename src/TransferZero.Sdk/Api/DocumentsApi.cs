@@ -25,29 +25,6 @@ namespace TransferZero.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Deleting a document
-        /// </summary>
-        /// <remarks>
-        /// Deletes a single document by the Document ID
-        /// </remarks>
-        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="documentID">ID of the document to delete.  Example: &#x60;/v1/document/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60;</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
-        /// <returns>DocumentResponse</returns>
-        DocumentResponse DeleteDocument (Guid? documentID, string senderId = null);
-
-        /// <summary>
-        /// Deleting a document
-        /// </summary>
-        /// <remarks>
-        /// Deletes a single document by the Document ID
-        /// </remarks>
-        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="documentID">ID of the document to delete.  Example: &#x60;/v1/document/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60;</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
-        /// <returns>ApiResponse of DocumentResponse</returns>
-        ApiResponse<DocumentResponse> DeleteDocumentWithHttpInfo (Guid? documentID, string senderId = null);
-        /// <summary>
         /// Fetching a document
         /// </summary>
         /// <remarks>
@@ -55,9 +32,8 @@ namespace TransferZero.Sdk.Api
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="documentID">ID of the document to get.  Example: &#x60;/v1/documents/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60;</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>DocumentResponse</returns>
-        DocumentResponse GetDocument (Guid? documentID, string senderId = null);
+        DocumentResponse GetDocument (Guid? documentID);
 
         /// <summary>
         /// Fetching a document
@@ -67,9 +43,8 @@ namespace TransferZero.Sdk.Api
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="documentID">ID of the document to get.  Example: &#x60;/v1/documents/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60;</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>ApiResponse of DocumentResponse</returns>
-        ApiResponse<DocumentResponse> GetDocumentWithHttpInfo (Guid? documentID, string senderId = null);
+        ApiResponse<DocumentResponse> GetDocumentWithHttpInfo (Guid? documentID);
         /// <summary>
         /// Getting a list of documents
         /// </summary>
@@ -79,9 +54,8 @@ namespace TransferZero.Sdk.Api
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">The page number to request (defaults to 1) (optional)</param>
         /// <param name="per">The number of results to load per page (defaults to 10) (optional)</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>DocumentListResponse</returns>
-        DocumentListResponse GetDocuments (int? page = null, int? per = null, string senderId = null);
+        DocumentListResponse GetDocuments (int? page = null, int? per = null);
 
         /// <summary>
         /// Getting a list of documents
@@ -92,9 +66,8 @@ namespace TransferZero.Sdk.Api
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">The page number to request (defaults to 1) (optional)</param>
         /// <param name="per">The number of results to load per page (defaults to 10) (optional)</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>ApiResponse of DocumentListResponse</returns>
-        ApiResponse<DocumentListResponse> GetDocumentsWithHttpInfo (int? page = null, int? per = null, string senderId = null);
+        ApiResponse<DocumentListResponse> GetDocumentsWithHttpInfo (int? page = null, int? per = null);
         /// <summary>
         /// Creating a document
         /// </summary>
@@ -119,29 +92,6 @@ namespace TransferZero.Sdk.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Deleting a document
-        /// </summary>
-        /// <remarks>
-        /// Deletes a single document by the Document ID
-        /// </remarks>
-        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="documentID">ID of the document to delete.  Example: &#x60;/v1/document/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60;</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
-        /// <returns>Task of DocumentResponse</returns>
-        System.Threading.Tasks.Task<DocumentResponse> DeleteDocumentAsync (Guid? documentID, string senderId = null);
-
-        /// <summary>
-        /// Deleting a document
-        /// </summary>
-        /// <remarks>
-        /// Deletes a single document by the Document ID
-        /// </remarks>
-        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="documentID">ID of the document to delete.  Example: &#x60;/v1/document/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60;</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
-        /// <returns>Task of ApiResponse (DocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DocumentResponse>> DeleteDocumentAsyncWithHttpInfo (Guid? documentID, string senderId = null);
-        /// <summary>
         /// Fetching a document
         /// </summary>
         /// <remarks>
@@ -149,9 +99,8 @@ namespace TransferZero.Sdk.Api
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="documentID">ID of the document to get.  Example: &#x60;/v1/documents/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60;</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>Task of DocumentResponse</returns>
-        System.Threading.Tasks.Task<DocumentResponse> GetDocumentAsync (Guid? documentID, string senderId = null);
+        System.Threading.Tasks.Task<DocumentResponse> GetDocumentAsync (Guid? documentID);
 
         /// <summary>
         /// Fetching a document
@@ -161,9 +110,8 @@ namespace TransferZero.Sdk.Api
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="documentID">ID of the document to get.  Example: &#x60;/v1/documents/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60;</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>Task of ApiResponse (DocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DocumentResponse>> GetDocumentAsyncWithHttpInfo (Guid? documentID, string senderId = null);
+        System.Threading.Tasks.Task<ApiResponse<DocumentResponse>> GetDocumentAsyncWithHttpInfo (Guid? documentID);
         /// <summary>
         /// Getting a list of documents
         /// </summary>
@@ -173,9 +121,8 @@ namespace TransferZero.Sdk.Api
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">The page number to request (defaults to 1) (optional)</param>
         /// <param name="per">The number of results to load per page (defaults to 10) (optional)</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>Task of DocumentListResponse</returns>
-        System.Threading.Tasks.Task<DocumentListResponse> GetDocumentsAsync (int? page = null, int? per = null, string senderId = null);
+        System.Threading.Tasks.Task<DocumentListResponse> GetDocumentsAsync (int? page = null, int? per = null);
 
         /// <summary>
         /// Getting a list of documents
@@ -186,9 +133,8 @@ namespace TransferZero.Sdk.Api
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">The page number to request (defaults to 1) (optional)</param>
         /// <param name="per">The number of results to load per page (defaults to 10) (optional)</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>Task of ApiResponse (DocumentListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DocumentListResponse>> GetDocumentsAsyncWithHttpInfo (int? page = null, int? per = null, string senderId = null);
+        System.Threading.Tasks.Task<ApiResponse<DocumentListResponse>> GetDocumentsAsyncWithHttpInfo (int? page = null, int? per = null);
         /// <summary>
         /// Creating a document
         /// </summary>
@@ -322,188 +268,14 @@ namespace TransferZero.Sdk.Api
         }
 
         /// <summary>
-        /// Deleting a document Deletes a single document by the Document ID
-        /// </summary>
-        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="documentID">ID of the document to delete.  Example: &#x60;/v1/document/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60;</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
-        /// <returns>DocumentResponse</returns>
-        public DocumentResponse DeleteDocument (Guid? documentID, string senderId = null)
-        {
-             ApiResponse<DocumentResponse> localVarResponse = DeleteDocumentWithHttpInfo(documentID, senderId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Deleting a document Deletes a single document by the Document ID
-        /// </summary>
-        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="documentID">ID of the document to delete.  Example: &#x60;/v1/document/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60;</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
-        /// <returns>ApiResponse of DocumentResponse</returns>
-        public ApiResponse< DocumentResponse > DeleteDocumentWithHttpInfo (Guid? documentID, string senderId = null)
-        {
-            // verify the required parameter 'documentID' is set
-            if (documentID == null)
-                throw new ApiException(400, "Missing required parameter 'documentID' when calling DocumentsApi->DeleteDocument");
-
-            var localVarPath = "/documents/{Document ID}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (documentID != null) localVarPathParams.Add("Document ID", this.Configuration.ApiClient.ParameterToString(documentID)); // path parameter
-            if (senderId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sender_id", senderId)); // query parameter
-
-            var request = new RestRequest(localVarPath, Method.DELETE);
-
-            // add path and query parameter, if any
-            foreach (var param in localVarPathParams)
-                request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
-
-            foreach (var param in localVarQueryParams)
-                request.AddQueryParameter(param.Key, param.Value);
-
-            // generate full URL
-            string fullUri = this.Configuration.ApiClient.RestClient.BuildUri(request).AbsoluteUri;
-
-			string nonce = System.Guid.NewGuid().ToString();
-            string authSignature = this.Configuration.GetSignature(nonce, fullUri, "DELETE", localVarPostBody == null ? "" : localVarPostBody.ToString());
-			localVarHeaderParams.Add("Authorization-Key", this.Configuration.ApiKey);
-            localVarHeaderParams.Add("Authorization-Nonce", nonce);
-			localVarHeaderParams.Add("Authorization-Signature", authSignature);
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("DeleteDocument", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<DocumentResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (DocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DocumentResponse)));
-        }
-
-        /// <summary>
-        /// Deleting a document Deletes a single document by the Document ID
-        /// </summary>
-        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="documentID">ID of the document to delete.  Example: &#x60;/v1/document/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60;</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
-        /// <returns>Task of DocumentResponse</returns>
-        public async System.Threading.Tasks.Task<DocumentResponse> DeleteDocumentAsync (Guid? documentID, string senderId = null)
-        {
-             ApiResponse<DocumentResponse> localVarResponse = await DeleteDocumentAsyncWithHttpInfo(documentID, senderId);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Deleting a document Deletes a single document by the Document ID
-        /// </summary>
-        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="documentID">ID of the document to delete.  Example: &#x60;/v1/document/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60;</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
-        /// <returns>Task of ApiResponse (DocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DocumentResponse>> DeleteDocumentAsyncWithHttpInfo (Guid? documentID, string senderId = null)
-        {
-            // verify the required parameter 'documentID' is set
-            if (documentID == null)
-                throw new ApiException(400, "Missing required parameter 'documentID' when calling DocumentsApi->DeleteDocument");
-
-            var localVarPath = "/documents/{Document ID}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (documentID != null) localVarPathParams.Add("Document ID", this.Configuration.ApiClient.ParameterToString(documentID)); // path parameter
-            if (senderId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sender_id", senderId)); // query parameter
-
-            var request = new RestRequest(localVarPath, Method.DELETE);
-
-            // add path parameter, if any
-            foreach (var param in localVarPathParams)
-                request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
-
-            foreach (var param in localVarQueryParams)
-                request.AddQueryParameter(param.Key, param.Value);
-
-            // generate full URL
-            string fullUri = this.Configuration.ApiClient.RestClient.BuildUri(request).AbsoluteUri;
-
-			string nonce = System.Guid.NewGuid().ToString();
-            string authSignature = this.Configuration.GetSignature(nonce, fullUri, "DELETE", localVarPostBody == null ? "" : localVarPostBody.ToString());
-			localVarHeaderParams.Add("Authorization-Key", this.Configuration.ApiKey);
-            localVarHeaderParams.Add("Authorization-Nonce", nonce);
-			localVarHeaderParams.Add("Authorization-Signature", authSignature);
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("DeleteDocument", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<DocumentResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (DocumentResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(DocumentResponse)));
-        }
-
-        /// <summary>
         /// Fetching a document Returns a single document by the Documents ID
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="documentID">ID of the document to get.  Example: &#x60;/v1/documents/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60;</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>DocumentResponse</returns>
-        public DocumentResponse GetDocument (Guid? documentID, string senderId = null)
+        public DocumentResponse GetDocument (Guid? documentID)
         {
-             ApiResponse<DocumentResponse> localVarResponse = GetDocumentWithHttpInfo(documentID, senderId);
+             ApiResponse<DocumentResponse> localVarResponse = GetDocumentWithHttpInfo(documentID);
              return localVarResponse.Data;
         }
 
@@ -512,9 +284,8 @@ namespace TransferZero.Sdk.Api
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="documentID">ID of the document to get.  Example: &#x60;/v1/documents/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60;</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>ApiResponse of DocumentResponse</returns>
-        public ApiResponse< DocumentResponse > GetDocumentWithHttpInfo (Guid? documentID, string senderId = null)
+        public ApiResponse< DocumentResponse > GetDocumentWithHttpInfo (Guid? documentID)
         {
             // verify the required parameter 'documentID' is set
             if (documentID == null)
@@ -542,7 +313,6 @@ namespace TransferZero.Sdk.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (documentID != null) localVarPathParams.Add("Document ID", this.Configuration.ApiClient.ParameterToString(documentID)); // path parameter
-            if (senderId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sender_id", senderId)); // query parameter
 
             var request = new RestRequest(localVarPath, Method.GET);
 
@@ -585,11 +355,10 @@ namespace TransferZero.Sdk.Api
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="documentID">ID of the document to get.  Example: &#x60;/v1/documents/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60;</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>Task of DocumentResponse</returns>
-        public async System.Threading.Tasks.Task<DocumentResponse> GetDocumentAsync (Guid? documentID, string senderId = null)
+        public async System.Threading.Tasks.Task<DocumentResponse> GetDocumentAsync (Guid? documentID)
         {
-             ApiResponse<DocumentResponse> localVarResponse = await GetDocumentAsyncWithHttpInfo(documentID, senderId);
+             ApiResponse<DocumentResponse> localVarResponse = await GetDocumentAsyncWithHttpInfo(documentID);
              return localVarResponse.Data;
 
         }
@@ -599,9 +368,8 @@ namespace TransferZero.Sdk.Api
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="documentID">ID of the document to get.  Example: &#x60;/v1/documents/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60;</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>Task of ApiResponse (DocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DocumentResponse>> GetDocumentAsyncWithHttpInfo (Guid? documentID, string senderId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<DocumentResponse>> GetDocumentAsyncWithHttpInfo (Guid? documentID)
         {
             // verify the required parameter 'documentID' is set
             if (documentID == null)
@@ -629,7 +397,6 @@ namespace TransferZero.Sdk.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (documentID != null) localVarPathParams.Add("Document ID", this.Configuration.ApiClient.ParameterToString(documentID)); // path parameter
-            if (senderId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sender_id", senderId)); // query parameter
 
             var request = new RestRequest(localVarPath, Method.GET);
 
@@ -673,11 +440,10 @@ namespace TransferZero.Sdk.Api
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">The page number to request (defaults to 1) (optional)</param>
         /// <param name="per">The number of results to load per page (defaults to 10) (optional)</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>DocumentListResponse</returns>
-        public DocumentListResponse GetDocuments (int? page = null, int? per = null, string senderId = null)
+        public DocumentListResponse GetDocuments (int? page = null, int? per = null)
         {
-             ApiResponse<DocumentListResponse> localVarResponse = GetDocumentsWithHttpInfo(page, per, senderId);
+             ApiResponse<DocumentListResponse> localVarResponse = GetDocumentsWithHttpInfo(page, per);
              return localVarResponse.Data;
         }
 
@@ -687,9 +453,8 @@ namespace TransferZero.Sdk.Api
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">The page number to request (defaults to 1) (optional)</param>
         /// <param name="per">The number of results to load per page (defaults to 10) (optional)</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>ApiResponse of DocumentListResponse</returns>
-        public ApiResponse< DocumentListResponse > GetDocumentsWithHttpInfo (int? page = null, int? per = null, string senderId = null)
+        public ApiResponse< DocumentListResponse > GetDocumentsWithHttpInfo (int? page = null, int? per = null)
         {
 
             var localVarPath = "/documents";
@@ -715,7 +480,6 @@ namespace TransferZero.Sdk.Api
 
             if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
             if (per != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "per", per)); // query parameter
-            if (senderId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sender_id", senderId)); // query parameter
 
             var request = new RestRequest(localVarPath, Method.GET);
 
@@ -759,11 +523,10 @@ namespace TransferZero.Sdk.Api
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">The page number to request (defaults to 1) (optional)</param>
         /// <param name="per">The number of results to load per page (defaults to 10) (optional)</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>Task of DocumentListResponse</returns>
-        public async System.Threading.Tasks.Task<DocumentListResponse> GetDocumentsAsync (int? page = null, int? per = null, string senderId = null)
+        public async System.Threading.Tasks.Task<DocumentListResponse> GetDocumentsAsync (int? page = null, int? per = null)
         {
-             ApiResponse<DocumentListResponse> localVarResponse = await GetDocumentsAsyncWithHttpInfo(page, per, senderId);
+             ApiResponse<DocumentListResponse> localVarResponse = await GetDocumentsAsyncWithHttpInfo(page, per);
              return localVarResponse.Data;
 
         }
@@ -774,9 +537,8 @@ namespace TransferZero.Sdk.Api
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="page">The page number to request (defaults to 1) (optional)</param>
         /// <param name="per">The number of results to load per page (defaults to 10) (optional)</param>
-        /// <param name="senderId">Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; (optional)</param>
         /// <returns>Task of ApiResponse (DocumentListResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DocumentListResponse>> GetDocumentsAsyncWithHttpInfo (int? page = null, int? per = null, string senderId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<DocumentListResponse>> GetDocumentsAsyncWithHttpInfo (int? page = null, int? per = null)
         {
 
             var localVarPath = "/documents";
@@ -802,7 +564,6 @@ namespace TransferZero.Sdk.Api
 
             if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
             if (per != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "per", per)); // query parameter
-            if (senderId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sender_id", senderId)); // query parameter
 
             var request = new RestRequest(localVarPath, Method.GET);
 
