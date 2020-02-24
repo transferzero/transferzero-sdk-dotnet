@@ -220,12 +220,14 @@ namespace TransferZero.Sdk.Model
         /// <param name="contactPersonEmail">The contact&#39;s email address (used only with a Business sender).</param>
         /// <param name="tradingCountry">The Business trading country (used only with a Business sender).</param>
         /// <param name="tradingAddress">The Business trading address (used only with a Business sender).</param>
+        /// <param name="numberMonthlyTransactions">The estimated number of monthly transactions (used only with a Business sender).</param>
+        /// <param name="amountMonthlyTransactions">The estimated amount for all transactions each month in USD (used only with a Business sender).</param>
         /// <param name="documents">Needed for KYC checks. Required to approve the sender unless KYC is waived for your account. Please send us an empty list of documents: &#x60;\&quot;documents\&quot;: [ ]&#x60; in the request if KYC has been waived.  If the documents already exist, please send the Document ID eg. &#x60;&#x60;&#x60;JSON \&quot;documents\&quot;: [   {     \&quot;id\&quot;: \&quot;b6648ba3-1c7b-4f59-8580-684899c84a07\&quot;   } ] &#x60;&#x60;&#x60; (required).</param>
         /// <param name="metadata">Metadata of sender. You can store any detail specific to your integration here (for example the local ID of the sender on your end). When requesting sender details you will receive the sent metadata back. Also when sending sender related webhooks you will receive the details stored here as well..</param>
         /// <param name="onboardingStatus">The onboarding status of the sender.</param>
         /// <param name="politicallyExposedPeople">An optional list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country, for example heads of state or heads of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: &#x60;&#x60;&#x60;json   {     \&quot;politically_exposed_person\&quot;: {       \&quot;name\&quot;: \&quot;Ronald Reagan\&quot;,       \&quot;position\&quot;: \&quot;President of the United States\&quot;,       \&quot;started_date\&quot;: \&quot;1981-01-20T00:00:00.000Z\&quot;,       \&quot;ended_date\&quot;: \&quot;1989-01-20T00:00:00.000Z\&quot;,       \&quot;sender_id\&quot;: \&quot;344fb668-196d-43db-9d94-b34b7e6c7e0b\&quot;     }   } &#x60;&#x60;&#x60;.</param>
         /// <param name="externalId">Optional ID that is supplied by partner linking it to the partner&#39;s own Sender ID. Note: if present we will validate whether the sent ID is a duplicate in our system or not..</param>
-        public Sender(Guid? id = default(Guid?), TypeEnum? type = default(TypeEnum?), SenderState state = default(SenderState), string country = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string phoneCountry = default(string), string phoneNumber = default(string), string email = default(string), string ip = default(string), string addressDescription = default(string), string identificationNumber = default(string), IdentificationTypeEnum? identificationType = default(IdentificationTypeEnum?), string name = default(string), string firstName = default(string), string middleName = default(string), string lastName = default(string), DateTime? birthDate = default(DateTime?), string occupation = default(string), string nationality = default(string), LegalEntityTypeEnum? legalEntityType = default(LegalEntityTypeEnum?), string registrationDate = default(string), string registrationNumber = default(string), string natureOfBusiness = default(string), string sourceOfFunds = default(string), string coreBusinessActivities = default(string), string purposeOfOpeningAccount = default(string), string officePhone = default(string), string vatRegistrationNumber = default(string), string financialRegulator = default(string), string regulatoryLicenceNumber = default(string), string contactPersonEmail = default(string), string tradingCountry = default(string), string tradingAddress = default(string), List<Document> documents = default(List<Document>), Object metadata = default(Object), string onboardingStatus = default(string), List<PoliticallyExposedPerson> politicallyExposedPeople = default(List<PoliticallyExposedPerson>), string externalId = default(string))
+        public Sender(Guid? id = default(Guid?), TypeEnum? type = default(TypeEnum?), SenderState state = default(SenderState), string country = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string phoneCountry = default(string), string phoneNumber = default(string), string email = default(string), string ip = default(string), string addressDescription = default(string), string identificationNumber = default(string), IdentificationTypeEnum? identificationType = default(IdentificationTypeEnum?), string name = default(string), string firstName = default(string), string middleName = default(string), string lastName = default(string), DateTime? birthDate = default(DateTime?), string occupation = default(string), string nationality = default(string), LegalEntityTypeEnum? legalEntityType = default(LegalEntityTypeEnum?), string registrationDate = default(string), string registrationNumber = default(string), string natureOfBusiness = default(string), string sourceOfFunds = default(string), string coreBusinessActivities = default(string), string purposeOfOpeningAccount = default(string), string officePhone = default(string), string vatRegistrationNumber = default(string), string financialRegulator = default(string), string regulatoryLicenceNumber = default(string), string contactPersonEmail = default(string), string tradingCountry = default(string), string tradingAddress = default(string), string numberMonthlyTransactions = default(string), string amountMonthlyTransactions = default(string), List<Document> documents = default(List<Document>), Object metadata = default(Object), string onboardingStatus = default(string), List<PoliticallyExposedPerson> politicallyExposedPeople = default(List<PoliticallyExposedPerson>), string externalId = default(string))
         {
             this.Country = country;
             this.Street = street;
@@ -263,6 +265,8 @@ namespace TransferZero.Sdk.Model
             this.ContactPersonEmail = contactPersonEmail;
             this.TradingCountry = tradingCountry;
             this.TradingAddress = tradingAddress;
+            this.NumberMonthlyTransactions = numberMonthlyTransactions;
+            this.AmountMonthlyTransactions = amountMonthlyTransactions;
             this.Metadata = metadata;
             this.OnboardingStatus = onboardingStatus;
             this.PoliticallyExposedPeople = politicallyExposedPeople;
@@ -496,6 +500,20 @@ namespace TransferZero.Sdk.Model
         public string TradingAddress { get; set; }
 
         /// <summary>
+        /// The estimated number of monthly transactions (used only with a Business sender)
+        /// </summary>
+        /// <value>The estimated number of monthly transactions (used only with a Business sender)</value>
+        [DataMember(Name="number_monthly_transactions", EmitDefaultValue=false)]
+        public string NumberMonthlyTransactions { get; set; }
+
+        /// <summary>
+        /// The estimated amount for all transactions each month in USD (used only with a Business sender)
+        /// </summary>
+        /// <value>The estimated amount for all transactions each month in USD (used only with a Business sender)</value>
+        [DataMember(Name="amount_monthly_transactions", EmitDefaultValue=false)]
+        public string AmountMonthlyTransactions { get; set; }
+
+        /// <summary>
         /// Needed for KYC checks. Required to approve the sender unless KYC is waived for your account. Please send us an empty list of documents: &#x60;\&quot;documents\&quot;: [ ]&#x60; in the request if KYC has been waived.  If the documents already exist, please send the Document ID eg. &#x60;&#x60;&#x60;JSON \&quot;documents\&quot;: [   {     \&quot;id\&quot;: \&quot;b6648ba3-1c7b-4f59-8580-684899c84a07\&quot;   } ] &#x60;&#x60;&#x60;
         /// </summary>
         /// <value>Needed for KYC checks. Required to approve the sender unless KYC is waived for your account. Please send us an empty list of documents: &#x60;\&quot;documents\&quot;: [ ]&#x60; in the request if KYC has been waived.  If the documents already exist, please send the Document ID eg. &#x60;&#x60;&#x60;JSON \&quot;documents\&quot;: [   {     \&quot;id\&quot;: \&quot;b6648ba3-1c7b-4f59-8580-684899c84a07\&quot;   } ] &#x60;&#x60;&#x60;</value>
@@ -580,6 +598,8 @@ namespace TransferZero.Sdk.Model
             sb.Append("  ContactPersonEmail: ").Append(ContactPersonEmail).Append("\n");
             sb.Append("  TradingCountry: ").Append(TradingCountry).Append("\n");
             sb.Append("  TradingAddress: ").Append(TradingAddress).Append("\n");
+            sb.Append("  NumberMonthlyTransactions: ").Append(NumberMonthlyTransactions).Append("\n");
+            sb.Append("  AmountMonthlyTransactions: ").Append(AmountMonthlyTransactions).Append("\n");
             sb.Append("  Documents: ").Append(Documents).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Errors: ").Append(Errors).Append("\n");
@@ -796,6 +816,16 @@ namespace TransferZero.Sdk.Model
                     this.TradingAddress.Equals(input.TradingAddress))
                 ) && 
                 (
+                    this.NumberMonthlyTransactions == input.NumberMonthlyTransactions ||
+                    (this.NumberMonthlyTransactions != null &&
+                    this.NumberMonthlyTransactions.Equals(input.NumberMonthlyTransactions))
+                ) && 
+                (
+                    this.AmountMonthlyTransactions == input.AmountMonthlyTransactions ||
+                    (this.AmountMonthlyTransactions != null &&
+                    this.AmountMonthlyTransactions.Equals(input.AmountMonthlyTransactions))
+                ) && 
+                (
                     this.Documents == input.Documents ||
                     this.Documents != null &&
                     this.Documents.SequenceEqual(input.Documents)
@@ -906,6 +936,10 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.TradingCountry.GetHashCode();
                 if (this.TradingAddress != null)
                     hashCode = hashCode * 59 + this.TradingAddress.GetHashCode();
+                if (this.NumberMonthlyTransactions != null)
+                    hashCode = hashCode * 59 + this.NumberMonthlyTransactions.GetHashCode();
+                if (this.AmountMonthlyTransactions != null)
+                    hashCode = hashCode * 59 + this.AmountMonthlyTransactions.GetHashCode();
                 if (this.Documents != null)
                     hashCode = hashCode * 59 + this.Documents.GetHashCode();
                 if (this.Metadata != null)

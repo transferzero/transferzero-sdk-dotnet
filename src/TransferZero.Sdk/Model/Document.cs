@@ -137,13 +137,6 @@ namespace TransferZero.Sdk.Model
         public Guid? Id { get; private set; }
 
         /// <summary>
-        /// The state of the document. Can be one of the following:  - &#x60;initial&#x60;: When a document is created and has not been through any checks (the default state) - &#x60;verified&#x60;: A document has passed compliance checks - &#x60;rejected&#x60;: The document has failed compliance checks
-        /// </summary>
-        /// <value>The state of the document. Can be one of the following:  - &#x60;initial&#x60;: When a document is created and has not been through any checks (the default state) - &#x60;verified&#x60;: A document has passed compliance checks - &#x60;rejected&#x60;: The document has failed compliance checks</value>
-        [DataMember(Name="state", EmitDefaultValue=false)]
-        public string State { get; private set; }
-
-        /// <summary>
         /// The fields that have some problems and don&#39;t pass validation
         /// </summary>
         /// <value>The fields that have some problems and don&#39;t pass validation</value>
@@ -168,7 +161,6 @@ namespace TransferZero.Sdk.Model
             sb.Append("  DocumentType: ").Append(DocumentType).Append("\n");
             sb.Append("  IssuingCountry: ").Append(IssuingCountry).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -255,11 +247,6 @@ namespace TransferZero.Sdk.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.State == input.State ||
-                    (this.State != null &&
-                    this.State.Equals(input.State))
-                ) && 
-                (
                     this.Errors == input.Errors ||
                     this.Errors != null &&
                     this.Errors.SequenceEqual(input.Errors)
@@ -295,8 +282,6 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.IssuingCountry.GetHashCode();
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.State != null)
-                    hashCode = hashCode * 59 + this.State.GetHashCode();
                 if (this.Errors != null)
                     hashCode = hashCode * 59 + this.Errors.GetHashCode();
                 return hashCode;
