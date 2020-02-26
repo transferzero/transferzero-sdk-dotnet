@@ -68,11 +68,17 @@ namespace TransferZero.Sdk.Model
         /// <param name="upload">Base64 encoded data uri of an image/pdf file or a fully qualified url (required).</param>
         /// <param name="uploadFileName">Name of the upload (required).</param>
         /// <param name="metadata">Metadata of document.</param>
-        public Document(string upload = default(string), string uploadFileName = default(string), Object metadata = default(Object))
+        /// <param name="uploadContentType">uploadContentType.</param>
+        /// <param name="uploadFileSize">uploadFileSize.</param>
+        /// <param name="documentType">This is a brief description of the document type.</param>
+        public Document(string upload = default(string), string uploadFileName = default(string), Object metadata = default(Object), string uploadContentType = default(string), int? uploadFileSize = default(int?), string documentType = default(string))
         {
             this.Upload = upload;
             this.UploadFileName = uploadFileName;
             this.Metadata = metadata;
+            this.UploadContentType = uploadContentType;
+            this.UploadFileSize = uploadFileSize;
+            this.DocumentType = documentType;
         }
         
         /// <summary>
@@ -100,13 +106,13 @@ namespace TransferZero.Sdk.Model
         /// Gets or Sets UploadContentType
         /// </summary>
         [DataMember(Name="upload_content_type", EmitDefaultValue=false)]
-        public string UploadContentType { get; private set; }
+        public string UploadContentType { get; set; }
 
         /// <summary>
         /// Gets or Sets UploadFileSize
         /// </summary>
         [DataMember(Name="upload_file_size", EmitDefaultValue=false)]
-        public int? UploadFileSize { get; private set; }
+        public int? UploadFileSize { get; set; }
 
         /// <summary>
         /// uncategorised
@@ -121,7 +127,7 @@ namespace TransferZero.Sdk.Model
         /// </summary>
         /// <value>This is a brief description of the document type</value>
         [DataMember(Name="document_type", EmitDefaultValue=false)]
-        public string DocumentType { get; private set; }
+        public string DocumentType { get; set; }
 
         /// <summary>
         /// Issuing country of ID in 2-character alpha ISO 3166-2 country format
