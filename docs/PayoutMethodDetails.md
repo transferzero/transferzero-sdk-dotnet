@@ -25,6 +25,8 @@ Name | Type | Description | Notes
 **IdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | [optional] 
 **IdentityCardId** | **string** |  | [optional] 
 **Reference** | **string** |  | [optional] 
+**Name** | **string** |  | 
+**Address** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

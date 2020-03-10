@@ -42,12 +42,14 @@ namespace TransferZero.Sdk.Model
         /// <param name="redirectUrl">This is where the user should be redirected back when the payment has been finished.</param>
         /// <param name="phoneNumber">The phone number where the funds should be collected from (required).</param>
         /// <param name="sendInstructions">States whether to send out the instructions to the phone number on how to pay the funds or not. This shuold always be set to true, otherwise the sender might not receive a prompt for payment..</param>
-        public PayinMethodDetails(string paymentMethod = default(string), string redirectUrl = default(string), string phoneNumber = default(string), bool? sendInstructions = default(bool?))
+        /// <param name="refundAddress">Please make sure the refund_address is a valid BTC address belonging to the sender, as that is going to be used in case the transaction has to be refunded..</param>
+        public PayinMethodDetails(string paymentMethod = default(string), string redirectUrl = default(string), string phoneNumber = default(string), bool? sendInstructions = default(bool?), string refundAddress = default(string))
         {
             this.PhoneNumber = phoneNumber;
             this.PaymentMethod = paymentMethod;
             this.RedirectUrl = redirectUrl;
             this.SendInstructions = sendInstructions;
+            this.RefundAddress = refundAddress;
         }
         
         /// <summary>
@@ -79,6 +81,13 @@ namespace TransferZero.Sdk.Model
         public bool? SendInstructions { get; set; }
 
         /// <summary>
+        /// Please make sure the refund_address is a valid BTC address belonging to the sender, as that is going to be used in case the transaction has to be refunded.
+        /// </summary>
+        /// <value>Please make sure the refund_address is a valid BTC address belonging to the sender, as that is going to be used in case the transaction has to be refunded.</value>
+        [DataMember(Name="refund_address", EmitDefaultValue=false)]
+        public string RefundAddress { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -90,6 +99,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  RedirectUrl: ").Append(RedirectUrl).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  SendInstructions: ").Append(SendInstructions).Append("\n");
+            sb.Append("  RefundAddress: ").Append(RefundAddress).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -143,6 +153,11 @@ namespace TransferZero.Sdk.Model
                     this.SendInstructions == input.SendInstructions ||
                     (this.SendInstructions != null &&
                     this.SendInstructions.Equals(input.SendInstructions))
+                ) && 
+                (
+                    this.RefundAddress == input.RefundAddress ||
+                    (this.RefundAddress != null &&
+                    this.RefundAddress.Equals(input.RefundAddress))
                 );
         }
 
@@ -163,6 +178,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
                 if (this.SendInstructions != null)
                     hashCode = hashCode * 59 + this.SendInstructions.GetHashCode();
+                if (this.RefundAddress != null)
+                    hashCode = hashCode * 59 + this.RefundAddress.GetHashCode();
                 return hashCode;
             }
         }
