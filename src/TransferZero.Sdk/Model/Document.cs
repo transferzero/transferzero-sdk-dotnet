@@ -66,15 +66,17 @@ namespace TransferZero.Sdk.Model
         /// Initializes a new instance of the <see cref="Document" /> class.
         /// </summary>
         /// <param name="upload">Base64 encoded data uri of an image/pdf file or a fully qualified url (required).</param>
+        /// <param name="url">URL of the document location.</param>
         /// <param name="uploadFileName">Name of the upload (required).</param>
         /// <param name="metadata">Metadata of document.</param>
         /// <param name="uploadContentType">uploadContentType.</param>
         /// <param name="uploadFileSize">uploadFileSize.</param>
         /// <param name="documentType">This is a brief description of the document type.</param>
-        public Document(string upload = default(string), string uploadFileName = default(string), Object metadata = default(Object), string uploadContentType = default(string), int? uploadFileSize = default(int?), string documentType = default(string))
+        public Document(string upload = default(string), string url = default(string), string uploadFileName = default(string), Object metadata = default(Object), string uploadContentType = default(string), int? uploadFileSize = default(int?), string documentType = default(string))
         {
             this.Upload = upload;
             this.UploadFileName = uploadFileName;
+            this.Url = url;
             this.Metadata = metadata;
             this.UploadContentType = uploadContentType;
             this.UploadFileSize = uploadFileSize;
@@ -87,6 +89,13 @@ namespace TransferZero.Sdk.Model
         /// <value>Base64 encoded data uri of an image/pdf file or a fully qualified url</value>
         [DataMember(Name="upload", EmitDefaultValue=false)]
         public string Upload { get; set; }
+
+        /// <summary>
+        /// URL of the document location
+        /// </summary>
+        /// <value>URL of the document location</value>
+        [DataMember(Name="url", EmitDefaultValue=false)]
+        public string Url { get; set; }
 
         /// <summary>
         /// Name of the upload
@@ -158,6 +167,7 @@ namespace TransferZero.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class Document {\n");
             sb.Append("  Upload: ").Append(Upload).Append("\n");
+            sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  UploadFileName: ").Append(UploadFileName).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  UploadContentType: ").Append(UploadContentType).Append("\n");
@@ -206,6 +216,11 @@ namespace TransferZero.Sdk.Model
                     this.Upload == input.Upload ||
                     (this.Upload != null &&
                     this.Upload.Equals(input.Upload))
+                ) && 
+                (
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
                 ) && 
                 (
                     this.UploadFileName == input.UploadFileName ||
@@ -270,6 +285,8 @@ namespace TransferZero.Sdk.Model
                 int hashCode = 41;
                 if (this.Upload != null)
                     hashCode = hashCode * 59 + this.Upload.GetHashCode();
+                if (this.Url != null)
+                    hashCode = hashCode * 59 + this.Url.GetHashCode();
                 if (this.UploadFileName != null)
                     hashCode = hashCode * 59 + this.UploadFileName.GetHashCode();
                 if (this.Metadata != null)
