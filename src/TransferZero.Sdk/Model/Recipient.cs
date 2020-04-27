@@ -110,9 +110,9 @@ namespace TransferZero.Sdk.Model
         public decimal? InputUsdAmount { get; private set; }
 
         /// <summary>
-        /// Shows whether the payment can be cancelled using the DELETE /v1/recipients/{id} endpoint or not. The payment can not be cancelled if the payout is pending.
+        /// If true it shows that the payment can be cancelled immediately using the DELETE /v1/recipients/{id} endpoint. If false you can still try to cancel it, however it will only gets cancelled once we have confirmation from our partner that the payment has failed.
         /// </summary>
-        /// <value>Shows whether the payment can be cancelled using the DELETE /v1/recipients/{id} endpoint or not. The payment can not be cancelled if the payout is pending.</value>
+        /// <value>If true it shows that the payment can be cancelled immediately using the DELETE /v1/recipients/{id} endpoint. If false you can still try to cancel it, however it will only gets cancelled once we have confirmation from our partner that the payment has failed.</value>
         [DataMember(Name="may_cancel", EmitDefaultValue=false)]
         public bool? MayCancel { get; private set; }
 

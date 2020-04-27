@@ -28,7 +28,7 @@ namespace TransferZero.Sdk.Api
         /// Cancelling a recipient
         /// </summary>
         /// <remarks>
-        /// Cancels the payment to the recipient specified in the URL path.  Please note only recipients where the &#x60;may_cancel&#x60; attribute is true can be cancelled.
+        /// Cancels the payment to the recipient specified in the URL path.  Please note recipients where the &#x60;may_cancel&#x60; attribute is true will be cancelled immediately. If the &#x60;may_cancel&#x60; attribute is false you can still try to cancel the recipient, however it will only gets cancelled if we will receive a confirmation from our partner that the payment has failed
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recipientID">ID of recipient to cancel.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33&#x60;</param>
@@ -39,7 +39,7 @@ namespace TransferZero.Sdk.Api
         /// Cancelling a recipient
         /// </summary>
         /// <remarks>
-        /// Cancels the payment to the recipient specified in the URL path.  Please note only recipients where the &#x60;may_cancel&#x60; attribute is true can be cancelled.
+        /// Cancels the payment to the recipient specified in the URL path.  Please note recipients where the &#x60;may_cancel&#x60; attribute is true will be cancelled immediately. If the &#x60;may_cancel&#x60; attribute is false you can still try to cancel the recipient, however it will only gets cancelled if we will receive a confirmation from our partner that the payment has failed
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recipientID">ID of recipient to cancel.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33&#x60;</param>
@@ -109,7 +109,7 @@ namespace TransferZero.Sdk.Api
         /// Cancelling a recipient
         /// </summary>
         /// <remarks>
-        /// Cancels the payment to the recipient specified in the URL path.  Please note only recipients where the &#x60;may_cancel&#x60; attribute is true can be cancelled.
+        /// Cancels the payment to the recipient specified in the URL path.  Please note recipients where the &#x60;may_cancel&#x60; attribute is true will be cancelled immediately. If the &#x60;may_cancel&#x60; attribute is false you can still try to cancel the recipient, however it will only gets cancelled if we will receive a confirmation from our partner that the payment has failed
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recipientID">ID of recipient to cancel.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33&#x60;</param>
@@ -120,7 +120,7 @@ namespace TransferZero.Sdk.Api
         /// Cancelling a recipient
         /// </summary>
         /// <remarks>
-        /// Cancels the payment to the recipient specified in the URL path.  Please note only recipients where the &#x60;may_cancel&#x60; attribute is true can be cancelled.
+        /// Cancels the payment to the recipient specified in the URL path.  Please note recipients where the &#x60;may_cancel&#x60; attribute is true will be cancelled immediately. If the &#x60;may_cancel&#x60; attribute is false you can still try to cancel the recipient, however it will only gets cancelled if we will receive a confirmation from our partner that the payment has failed
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recipientID">ID of recipient to cancel.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33&#x60;</param>
@@ -296,7 +296,7 @@ namespace TransferZero.Sdk.Api
         }
 
         /// <summary>
-        /// Cancelling a recipient Cancels the payment to the recipient specified in the URL path.  Please note only recipients where the &#x60;may_cancel&#x60; attribute is true can be cancelled.
+        /// Cancelling a recipient Cancels the payment to the recipient specified in the URL path.  Please note recipients where the &#x60;may_cancel&#x60; attribute is true will be cancelled immediately. If the &#x60;may_cancel&#x60; attribute is false you can still try to cancel the recipient, however it will only gets cancelled if we will receive a confirmation from our partner that the payment has failed
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recipientID">ID of recipient to cancel.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33&#x60;</param>
@@ -308,7 +308,7 @@ namespace TransferZero.Sdk.Api
         }
 
         /// <summary>
-        /// Cancelling a recipient Cancels the payment to the recipient specified in the URL path.  Please note only recipients where the &#x60;may_cancel&#x60; attribute is true can be cancelled.
+        /// Cancelling a recipient Cancels the payment to the recipient specified in the URL path.  Please note recipients where the &#x60;may_cancel&#x60; attribute is true will be cancelled immediately. If the &#x60;may_cancel&#x60; attribute is false you can still try to cancel the recipient, however it will only gets cancelled if we will receive a confirmation from our partner that the payment has failed
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recipientID">ID of recipient to cancel.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33&#x60;</param>
@@ -379,7 +379,7 @@ namespace TransferZero.Sdk.Api
         }
 
         /// <summary>
-        /// Cancelling a recipient Cancels the payment to the recipient specified in the URL path.  Please note only recipients where the &#x60;may_cancel&#x60; attribute is true can be cancelled.
+        /// Cancelling a recipient Cancels the payment to the recipient specified in the URL path.  Please note recipients where the &#x60;may_cancel&#x60; attribute is true will be cancelled immediately. If the &#x60;may_cancel&#x60; attribute is false you can still try to cancel the recipient, however it will only gets cancelled if we will receive a confirmation from our partner that the payment has failed
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recipientID">ID of recipient to cancel.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33&#x60;</param>
@@ -392,7 +392,7 @@ namespace TransferZero.Sdk.Api
         }
 
         /// <summary>
-        /// Cancelling a recipient Cancels the payment to the recipient specified in the URL path.  Please note only recipients where the &#x60;may_cancel&#x60; attribute is true can be cancelled.
+        /// Cancelling a recipient Cancels the payment to the recipient specified in the URL path.  Please note recipients where the &#x60;may_cancel&#x60; attribute is true will be cancelled immediately. If the &#x60;may_cancel&#x60; attribute is false you can still try to cancel the recipient, however it will only gets cancelled if we will receive a confirmation from our partner that the payment has failed
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recipientID">ID of recipient to cancel.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33&#x60;</param>
