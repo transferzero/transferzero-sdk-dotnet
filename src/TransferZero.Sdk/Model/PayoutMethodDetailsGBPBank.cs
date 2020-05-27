@@ -25,30 +25,34 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;bank_name\&quot;: \&quot;Deutsche Bank\&quot;,   \&quot;iban\&quot;: \&quot;DE89370400440532013000\&quot;,   \&quot;bic\&quot;: \&quot;DEUTDEBBXXX\&quot; // Optional } &#x60;&#x60;&#x60;
+    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;bank_name\&quot;: \&quot;Deutsche Bank\&quot;,   \&quot;bank_account\&quot;: \&quot;12345678\&quot;, // Required if IBAN is not present   \&quot;sort_code\&quot;: \&quot;123456\&quot;, // Required if bank_account is present   \&quot;iban\&quot;: \&quot;DE89370400440532013000\&quot;, // Required if no bank_account &amp; sort_code   \&quot;bic\&quot;: \&quot;DEUTDEBBXXX\&quot; // Optional } &#x60;&#x60;&#x60;
     /// </summary>
     [DataContract]
-    public partial class PayoutMethodDetailsIBAN :  IEquatable<PayoutMethodDetailsIBAN>, IValidatableObject
+    public partial class PayoutMethodDetailsGBPBank :  IEquatable<PayoutMethodDetailsGBPBank>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayoutMethodDetailsIBAN" /> class.
+        /// Initializes a new instance of the <see cref="PayoutMethodDetailsGBPBank" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PayoutMethodDetailsIBAN() { }
+        protected PayoutMethodDetailsGBPBank() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayoutMethodDetailsIBAN" /> class.
+        /// Initializes a new instance of the <see cref="PayoutMethodDetailsGBPBank" /> class.
         /// </summary>
         /// <param name="firstName">firstName (required).</param>
         /// <param name="lastName">lastName (required).</param>
         /// <param name="bankName">bankName.</param>
-        /// <param name="iban">iban (required).</param>
+        /// <param name="bankAccount">bankAccount.</param>
+        /// <param name="sortCode">sortCode.</param>
+        /// <param name="iban">iban.</param>
         /// <param name="bic">bic.</param>
-        public PayoutMethodDetailsIBAN(string firstName = default(string), string lastName = default(string), string bankName = default(string), string iban = default(string), string bic = default(string))
+        public PayoutMethodDetailsGBPBank(string firstName = default(string), string lastName = default(string), string bankName = default(string), string bankAccount = default(string), string sortCode = default(string), string iban = default(string), string bic = default(string))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
-            this.Iban = iban;
             this.BankName = bankName;
+            this.BankAccount = bankAccount;
+            this.SortCode = sortCode;
+            this.Iban = iban;
             this.Bic = bic;
         }
         
@@ -71,6 +75,18 @@ namespace TransferZero.Sdk.Model
         public string BankName { get; set; }
 
         /// <summary>
+        /// Gets or Sets BankAccount
+        /// </summary>
+        [DataMember(Name="bank_account", EmitDefaultValue=false)]
+        public string BankAccount { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SortCode
+        /// </summary>
+        [DataMember(Name="sort_code", EmitDefaultValue=false)]
+        public string SortCode { get; set; }
+
+        /// <summary>
         /// Gets or Sets Iban
         /// </summary>
         [DataMember(Name="iban", EmitDefaultValue=false)]
@@ -89,10 +105,12 @@ namespace TransferZero.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PayoutMethodDetailsIBAN {\n");
+            sb.Append("class PayoutMethodDetailsGBPBank {\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  BankName: ").Append(BankName).Append("\n");
+            sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
+            sb.Append("  SortCode: ").Append(SortCode).Append("\n");
             sb.Append("  Iban: ").Append(Iban).Append("\n");
             sb.Append("  Bic: ").Append(Bic).Append("\n");
             sb.Append("}\n");
@@ -115,15 +133,15 @@ namespace TransferZero.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PayoutMethodDetailsIBAN);
+            return this.Equals(input as PayoutMethodDetailsGBPBank);
         }
 
         /// <summary>
-        /// Returns true if PayoutMethodDetailsIBAN instances are equal
+        /// Returns true if PayoutMethodDetailsGBPBank instances are equal
         /// </summary>
-        /// <param name="input">Instance of PayoutMethodDetailsIBAN to be compared</param>
+        /// <param name="input">Instance of PayoutMethodDetailsGBPBank to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PayoutMethodDetailsIBAN input)
+        public bool Equals(PayoutMethodDetailsGBPBank input)
         {
             if (input == null)
                 return false;
@@ -143,6 +161,16 @@ namespace TransferZero.Sdk.Model
                     this.BankName == input.BankName ||
                     (this.BankName != null &&
                     this.BankName.Equals(input.BankName))
+                ) && 
+                (
+                    this.BankAccount == input.BankAccount ||
+                    (this.BankAccount != null &&
+                    this.BankAccount.Equals(input.BankAccount))
+                ) && 
+                (
+                    this.SortCode == input.SortCode ||
+                    (this.SortCode != null &&
+                    this.SortCode.Equals(input.SortCode))
                 ) && 
                 (
                     this.Iban == input.Iban ||
@@ -171,6 +199,10 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.LastName.GetHashCode();
                 if (this.BankName != null)
                     hashCode = hashCode * 59 + this.BankName.GetHashCode();
+                if (this.BankAccount != null)
+                    hashCode = hashCode * 59 + this.BankAccount.GetHashCode();
+                if (this.SortCode != null)
+                    hashCode = hashCode * 59 + this.SortCode.GetHashCode();
                 if (this.Iban != null)
                     hashCode = hashCode * 59 + this.Iban.GetHashCode();
                 if (this.Bic != null)

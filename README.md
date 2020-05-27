@@ -259,6 +259,7 @@ Class | Method | HTTP request | Description
  - [Model.PayoutMethodDetails](docs/PayoutMethodDetails.md)
  - [Model.PayoutMethodDetailsBTC](docs/PayoutMethodDetailsBTC.md)
  - [Model.PayoutMethodDetailsBalance](docs/PayoutMethodDetailsBalance.md)
+ - [Model.PayoutMethodDetailsGBPBank](docs/PayoutMethodDetailsGBPBank.md)
  - [Model.PayoutMethodDetailsGHSBank](docs/PayoutMethodDetailsGHSBank.md)
  - [Model.PayoutMethodDetailsIBAN](docs/PayoutMethodDetailsIBAN.md)
  - [Model.PayoutMethodDetailsMADCash](docs/PayoutMethodDetailsMADCash.md)

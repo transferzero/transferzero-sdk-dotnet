@@ -1,5 +1,5 @@
 
-# TransferZero.Sdk.Model.PayoutMethodDetailsIBAN
+# TransferZero.Sdk.Model.PayoutMethodDetailsGBPBank
 
 ## Properties
 
@@ -8,7 +8,9 @@ Name | Type | Description | Notes
 **FirstName** | **string** |  | 
 **LastName** | **string** |  | 
 **BankName** | **string** |  | [optional] 
-**Iban** | **string** |  | 
+**BankAccount** | **string** |  | [optional] 
+**SortCode** | **string** |  | [optional] 
+**Iban** | **string** |  | [optional] 
 **Bic** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
