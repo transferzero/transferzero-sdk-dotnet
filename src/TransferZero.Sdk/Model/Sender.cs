@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// This contains the details of the sender. The first time a specific sender is used the full details should be provided. Once a sender is created and is used, the next time you MUST only send the ID of the sender. This is so we can match the same sender across multiple transactions for KYC and audit purposes.  Personal Sender Example: &#x60;&#x60;&#x60;json {   \&quot;country\&quot;: \&quot;UG\&quot;,   \&quot;phone_country\&quot;: \&quot;UG\&quot;,   \&quot;phone_number\&quot;: \&quot;752403639\&quot;,   \&quot;email\&quot;: \&quot;example@home.org\&quot;,   \&quot;first_name\&quot;: \&quot;Johnny\&quot;,   \&quot;last_name\&quot;: \&quot;English\&quot;,   \&quot;city\&quot;: \&quot;Kampala\&quot;,   \&quot;street\&quot;: \&quot;Unknown 17-3\&quot;,   \&quot;address_description\&quot;: \&quot;Description of address\&quot;,   \&quot;postal_code\&quot;: \&quot;798983\&quot;,   \&quot;birth_date\&quot;: \&quot;1900-12-31\&quot;,   \&quot;documents\&quot;: [ ],   \&quot;politically_exposed_people\&quot;: [ ],   \&quot;ip\&quot;: \&quot;127.0.0.1\&quot;,   \&quot;identification_number\&quot;: \&quot;AB123456\&quot;,   \&quot;identification_type\&quot;: \&quot;ID\&quot;,   \&quot;external_id\&quot;: \&quot;806ec63a-a5a7-43cc-9d75-1ee74fbcc026\&quot;,   \&quot;created_at\&quot;: \&quot;2018-06-09 15:13:40 UTC\&quot;,   \&quot;metadata\&quot;: { } } &#x60;&#x60;&#x60;  Business Sender Example:  &#x60;&#x60;&#x60;json {   \&quot;type\&quot;: \&quot;business\&quot;,   \&quot;country\&quot;: \&quot;UG\&quot;,   \&quot;phone_country\&quot;: \&quot;UG\&quot;,   \&quot;phone_number\&quot;: \&quot;752403639\&quot;,   \&quot;email\&quot;: \&quot;example@home.org\&quot;,   \&quot;name\&quot;: \&quot;MyCompany\&quot;,   \&quot;city\&quot;: \&quot;Kampala\&quot;,   \&quot;street\&quot;: \&quot;Unknown 17-3\&quot;,   \&quot;postal_code\&quot;: \&quot;798983\&quot;,   \&quot;address_description\&quot;: \&quot;Description of address\&quot;,   \&quot;documents\&quot;: [ ],   \&quot;politically_exposed_people\&quot;: [ ],   \&quot;ip\&quot;: \&quot;127.0.0.1\&quot;,   \&quot;identification_number\&quot;: \&quot;AB123456\&quot;,   \&quot;identification_type\&quot;: \&quot;ID\&quot;,   \&quot;external_id\&quot;: \&quot;806ec63a-a5a7-43cc-9d75-1ee74fbcc026\&quot;,   \&quot;metadata\&quot;: { } } &#x60;&#x60;&#x60;  [Sender in the API documentation](https://docs.transferzero.com/docs/transaction-flow/#sender)
+    /// This contains the details of the sender. The first time a specific sender is used the full details should be provided. Once a sender is created and is used, the next time you MUST only send the ID of the sender. This is so we can match the same sender across multiple transactions for KYC and audit purposes.  Personal Sender Example: &#x60;&#x60;&#x60;json {   \&quot;country\&quot;: \&quot;UG\&quot;,   \&quot;phone_country\&quot;: \&quot;UG\&quot;,   \&quot;phone_number\&quot;: \&quot;752403639\&quot;,   \&quot;email\&quot;: \&quot;example@home.org\&quot;,   \&quot;first_name\&quot;: \&quot;Johnny\&quot;,   \&quot;last_name\&quot;: \&quot;English\&quot;,   \&quot;city\&quot;: \&quot;Kampala\&quot;,   \&quot;street\&quot;: \&quot;Unknown 17-3\&quot;,   \&quot;address_description\&quot;: \&quot;Description of address\&quot;,   \&quot;postal_code\&quot;: \&quot;798983\&quot;,   \&quot;birth_date\&quot;: \&quot;1900-12-31\&quot;,   \&quot;city_of_birth\&quot;: \&quot;London\&quot;,   \&quot;country_of_birth\&quot;: \&quot;GB\&quot;,   \&quot;gender\&quot;: \&quot;M\&quot;,   \&quot;documents\&quot;: [ ],   \&quot;politically_exposed_people\&quot;: [ ],   \&quot;ip\&quot;: \&quot;127.0.0.1\&quot;,   \&quot;identification_number\&quot;: \&quot;AB123456\&quot;,   \&quot;identification_type\&quot;: \&quot;ID\&quot;,   \&quot;external_id\&quot;: \&quot;806ec63a-a5a7-43cc-9d75-1ee74fbcc026\&quot;,   \&quot;created_at\&quot;: \&quot;2018-06-09 15:13:40 UTC\&quot;,   \&quot;metadata\&quot;: { } } &#x60;&#x60;&#x60;  Business Sender Example:  &#x60;&#x60;&#x60;json {   \&quot;type\&quot;: \&quot;business\&quot;,   \&quot;country\&quot;: \&quot;UG\&quot;,   \&quot;phone_country\&quot;: \&quot;UG\&quot;,   \&quot;phone_number\&quot;: \&quot;752403639\&quot;,   \&quot;email\&quot;: \&quot;example@home.org\&quot;,   \&quot;name\&quot;: \&quot;MyCompany\&quot;,   \&quot;city\&quot;: \&quot;Kampala\&quot;,   \&quot;street\&quot;: \&quot;Unknown 17-3\&quot;,   \&quot;postal_code\&quot;: \&quot;798983\&quot;,   \&quot;address_description\&quot;: \&quot;Description of address\&quot;,   \&quot;documents\&quot;: [ ],   \&quot;politically_exposed_people\&quot;: [ ],   \&quot;ip\&quot;: \&quot;127.0.0.1\&quot;,   \&quot;identification_number\&quot;: \&quot;AB123456\&quot;,   \&quot;identification_type\&quot;: \&quot;ID\&quot;,   \&quot;external_id\&quot;: \&quot;806ec63a-a5a7-43cc-9d75-1ee74fbcc026\&quot;,   \&quot;metadata\&quot;: { } } &#x60;&#x60;&#x60;  [Sender in the API documentation](https://docs.transferzero.com/docs/transaction-flow/#sender)
     /// </summary>
     [DataContract]
     public partial class Sender :  IEquatable<Sender>, IValidatableObject
@@ -178,6 +178,39 @@ namespace TransferZero.Sdk.Model
         [DataMember(Name="legal_entity_type", EmitDefaultValue=false)]
         public LegalEntityTypeEnum? LegalEntityType { get; set; }
         /// <summary>
+        /// The gender of the sender:  - &#x60;M&#x60;: Male - &#x60;F&#x60;: Female - &#x60;O&#x60;: Other
+        /// </summary>
+        /// <value>The gender of the sender:  - &#x60;M&#x60;: Male - &#x60;F&#x60;: Female - &#x60;O&#x60;: Other</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum GenderEnum
+        {
+            /// <summary>
+            /// Enum M for value: M
+            /// </summary>
+            [EnumMember(Value = "M")]
+            M = 1,
+
+            /// <summary>
+            /// Enum F for value: F
+            /// </summary>
+            [EnumMember(Value = "F")]
+            F = 2,
+
+            /// <summary>
+            /// Enum O for value: O
+            /// </summary>
+            [EnumMember(Value = "O")]
+            O = 3
+
+        }
+
+        /// <summary>
+        /// The gender of the sender:  - &#x60;M&#x60;: Male - &#x60;F&#x60;: Female - &#x60;O&#x60;: Other
+        /// </summary>
+        /// <value>The gender of the sender:  - &#x60;M&#x60;: Male - &#x60;F&#x60;: Female - &#x60;O&#x60;: Other</value>
+        [DataMember(Name="gender", EmitDefaultValue=false)]
+        public GenderEnum? Gender { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="Sender" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -227,7 +260,10 @@ namespace TransferZero.Sdk.Model
         /// <param name="onboardingStatus">The onboarding status of the sender.</param>
         /// <param name="politicallyExposedPeople">An optional list of politically exposed people, individuals who are or have been entrusted with prominent public functions by a country, for example heads of state or heads of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.  There is a limit of three (3) politically exposed people per Sender.  Politically exposed person example: &#x60;&#x60;&#x60;json   {     \&quot;politically_exposed_person\&quot;: {       \&quot;name\&quot;: \&quot;Ronald Reagan\&quot;,       \&quot;position\&quot;: \&quot;President of the United States\&quot;,       \&quot;started_date\&quot;: \&quot;1981-01-20T00:00:00.000Z\&quot;,       \&quot;ended_date\&quot;: \&quot;1989-01-20T00:00:00.000Z\&quot;,       \&quot;sender_id\&quot;: \&quot;344fb668-196d-43db-9d94-b34b7e6c7e0b\&quot;     }   } &#x60;&#x60;&#x60;.</param>
         /// <param name="externalId">Optional ID that is supplied by partner linking it to the partner&#39;s own Sender ID. Note: if present we will validate whether the sent ID is a duplicate in our system or not..</param>
-        public Sender(Guid? id = default(Guid?), TypeEnum? type = default(TypeEnum?), SenderState state = default(SenderState), string country = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string phoneCountry = default(string), string phoneNumber = default(string), string email = default(string), string ip = default(string), string addressDescription = default(string), string identificationNumber = default(string), IdentificationTypeEnum? identificationType = default(IdentificationTypeEnum?), string name = default(string), string firstName = default(string), string middleName = default(string), string lastName = default(string), DateTime? birthDate = default(DateTime?), string occupation = default(string), string nationality = default(string), LegalEntityTypeEnum? legalEntityType = default(LegalEntityTypeEnum?), string registrationDate = default(string), string registrationNumber = default(string), string natureOfBusiness = default(string), string sourceOfFunds = default(string), string coreBusinessActivities = default(string), string purposeOfOpeningAccount = default(string), string officePhone = default(string), string vatRegistrationNumber = default(string), string financialRegulator = default(string), string regulatoryLicenceNumber = default(string), string contactPersonEmail = default(string), string tradingCountry = default(string), string tradingAddress = default(string), string numberMonthlyTransactions = default(string), string amountMonthlyTransactions = default(string), List<Document> documents = default(List<Document>), Object metadata = default(Object), string onboardingStatus = default(string), List<PoliticallyExposedPerson> politicallyExposedPeople = default(List<PoliticallyExposedPerson>), string externalId = default(string))
+        /// <param name="cityOfBirth">City of birth of sender.</param>
+        /// <param name="countryOfBirth">Country of birth of sender in 2-character alpha ISO 3166-2 country format.</param>
+        /// <param name="gender">The gender of the sender:  - &#x60;M&#x60;: Male - &#x60;F&#x60;: Female - &#x60;O&#x60;: Other.</param>
+        public Sender(Guid? id = default(Guid?), TypeEnum? type = default(TypeEnum?), SenderState state = default(SenderState), string country = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string phoneCountry = default(string), string phoneNumber = default(string), string email = default(string), string ip = default(string), string addressDescription = default(string), string identificationNumber = default(string), IdentificationTypeEnum? identificationType = default(IdentificationTypeEnum?), string name = default(string), string firstName = default(string), string middleName = default(string), string lastName = default(string), DateTime? birthDate = default(DateTime?), string occupation = default(string), string nationality = default(string), LegalEntityTypeEnum? legalEntityType = default(LegalEntityTypeEnum?), string registrationDate = default(string), string registrationNumber = default(string), string natureOfBusiness = default(string), string sourceOfFunds = default(string), string coreBusinessActivities = default(string), string purposeOfOpeningAccount = default(string), string officePhone = default(string), string vatRegistrationNumber = default(string), string financialRegulator = default(string), string regulatoryLicenceNumber = default(string), string contactPersonEmail = default(string), string tradingCountry = default(string), string tradingAddress = default(string), string numberMonthlyTransactions = default(string), string amountMonthlyTransactions = default(string), List<Document> documents = default(List<Document>), Object metadata = default(Object), string onboardingStatus = default(string), List<PoliticallyExposedPerson> politicallyExposedPeople = default(List<PoliticallyExposedPerson>), string externalId = default(string), string cityOfBirth = default(string), string countryOfBirth = default(string), GenderEnum? gender = default(GenderEnum?))
         {
             this.Country = country;
             this.Street = street;
@@ -271,6 +307,9 @@ namespace TransferZero.Sdk.Model
             this.OnboardingStatus = onboardingStatus;
             this.PoliticallyExposedPeople = politicallyExposedPeople;
             this.ExternalId = externalId;
+            this.CityOfBirth = cityOfBirth;
+            this.CountryOfBirth = countryOfBirth;
+            this.Gender = gender;
         }
         
         /// <summary>
@@ -556,6 +595,21 @@ namespace TransferZero.Sdk.Model
         public string ExternalId { get; set; }
 
         /// <summary>
+        /// City of birth of sender
+        /// </summary>
+        /// <value>City of birth of sender</value>
+        [DataMember(Name="city_of_birth", EmitDefaultValue=false)]
+        public string CityOfBirth { get; set; }
+
+        /// <summary>
+        /// Country of birth of sender in 2-character alpha ISO 3166-2 country format
+        /// </summary>
+        /// <value>Country of birth of sender in 2-character alpha ISO 3166-2 country format</value>
+        [DataMember(Name="country_of_birth", EmitDefaultValue=false)]
+        public string CountryOfBirth { get; set; }
+
+
+        /// <summary>
         /// Date and time of sender was created
         /// </summary>
         /// <value>Date and time of sender was created</value>
@@ -613,6 +667,9 @@ namespace TransferZero.Sdk.Model
             sb.Append("  OnboardingStatus: ").Append(OnboardingStatus).Append("\n");
             sb.Append("  PoliticallyExposedPeople: ").Append(PoliticallyExposedPeople).Append("\n");
             sb.Append("  ExternalId: ").Append(ExternalId).Append("\n");
+            sb.Append("  CityOfBirth: ").Append(CityOfBirth).Append("\n");
+            sb.Append("  CountryOfBirth: ").Append(CountryOfBirth).Append("\n");
+            sb.Append("  Gender: ").Append(Gender).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -864,6 +921,21 @@ namespace TransferZero.Sdk.Model
                     this.ExternalId.Equals(input.ExternalId))
                 ) && 
                 (
+                    this.CityOfBirth == input.CityOfBirth ||
+                    (this.CityOfBirth != null &&
+                    this.CityOfBirth.Equals(input.CityOfBirth))
+                ) && 
+                (
+                    this.CountryOfBirth == input.CountryOfBirth ||
+                    (this.CountryOfBirth != null &&
+                    this.CountryOfBirth.Equals(input.CountryOfBirth))
+                ) && 
+                (
+                    this.Gender == input.Gender ||
+                    (this.Gender != null &&
+                    this.Gender.Equals(input.Gender))
+                ) && 
+                (
                     this.CreatedAt == input.CreatedAt ||
                     (this.CreatedAt != null &&
                     this.CreatedAt.Equals(input.CreatedAt))
@@ -965,6 +1037,12 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.PoliticallyExposedPeople.GetHashCode();
                 if (this.ExternalId != null)
                     hashCode = hashCode * 59 + this.ExternalId.GetHashCode();
+                if (this.CityOfBirth != null)
+                    hashCode = hashCode * 59 + this.CityOfBirth.GetHashCode();
+                if (this.CountryOfBirth != null)
+                    hashCode = hashCode * 59 + this.CountryOfBirth.GetHashCode();
+                if (this.Gender != null)
+                    hashCode = hashCode * 59 + this.Gender.GetHashCode();
                 if (this.CreatedAt != null)
                     hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
                 return hashCode;
