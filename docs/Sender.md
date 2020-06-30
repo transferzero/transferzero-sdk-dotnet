@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **RegistrationNumber** | **string** | The registration number (used only with a Business sender) | [optional] 
 **NatureOfBusiness** | **string** | Nature of business options (used only with a Business sender) | [optional] 
 **SourceOfFunds** | **string** | The source of funds | [optional] 
+**CustomSourceOfFunds** | **string** | Custom source of funds | [optional] 
 **CoreBusinessActivities** | **string** | The core activities (used only with a Business sender) | [optional] 
 **PurposeOfOpeningAccount** | **string** | The purpose for opening their account (used only with a Business sender) | [optional] 
 **OfficePhone** | **string** | The official phone number (used only with a Business sender) | [optional] 
