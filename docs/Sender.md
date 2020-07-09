@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 **NatureOfBusiness** | **string** | Nature of business options (used only with a Business sender) | [optional] 
 **SourceOfFunds** | **string** | The source of funds | [optional] 
 **CustomSourceOfFunds** | **string** | Custom source of funds | [optional] 
-**CoreBusinessActivities** | **string** | The core activities (used only with a Business sender) | [optional] 
+**CoreBusinessActivity** | **string** | The core activity (used only with a Business sender) | [optional] 
 **PurposeOfOpeningAccount** | **string** | The purpose for opening their account (used only with a Business sender) | [optional] 
 **OfficePhone** | **string** | The official phone number (used only with a Business sender) | [optional] 
 **VatRegistrationNumber** | **string** | The VAT registration number (used only with a Business sender) | [optional] 

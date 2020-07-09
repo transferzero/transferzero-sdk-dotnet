@@ -245,7 +245,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="natureOfBusiness">Nature of business options (used only with a Business sender).</param>
         /// <param name="sourceOfFunds">The source of funds.</param>
         /// <param name="customSourceOfFunds">Custom source of funds.</param>
-        /// <param name="coreBusinessActivities">The core activities (used only with a Business sender).</param>
+        /// <param name="coreBusinessActivity">The core activity (used only with a Business sender).</param>
         /// <param name="purposeOfOpeningAccount">The purpose for opening their account (used only with a Business sender).</param>
         /// <param name="officePhone">The official phone number (used only with a Business sender).</param>
         /// <param name="vatRegistrationNumber">The VAT registration number (used only with a Business sender).</param>
@@ -264,7 +264,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="cityOfBirth">City of birth of sender.</param>
         /// <param name="countryOfBirth">Country of birth of sender in 2-character alpha ISO 3166-2 country format.</param>
         /// <param name="gender">The gender of the sender:  - &#x60;M&#x60;: Male - &#x60;F&#x60;: Female - &#x60;O&#x60;: Other.</param>
-        public Sender(Guid? id = default(Guid?), TypeEnum? type = default(TypeEnum?), SenderState state = default(SenderState), string country = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string phoneCountry = default(string), string phoneNumber = default(string), string email = default(string), string ip = default(string), string addressDescription = default(string), string identificationNumber = default(string), IdentificationTypeEnum? identificationType = default(IdentificationTypeEnum?), string name = default(string), string firstName = default(string), string middleName = default(string), string lastName = default(string), DateTime? birthDate = default(DateTime?), string occupation = default(string), string nationality = default(string), LegalEntityTypeEnum? legalEntityType = default(LegalEntityTypeEnum?), string registrationDate = default(string), string registrationNumber = default(string), string natureOfBusiness = default(string), string sourceOfFunds = default(string), string customSourceOfFunds = default(string), string coreBusinessActivities = default(string), string purposeOfOpeningAccount = default(string), string officePhone = default(string), string vatRegistrationNumber = default(string), string financialRegulator = default(string), string regulatoryLicenceNumber = default(string), string contactPersonEmail = default(string), string tradingCountry = default(string), string tradingAddress = default(string), string numberMonthlyTransactions = default(string), string amountMonthlyTransactions = default(string), List<Document> documents = default(List<Document>), Object metadata = default(Object), string onboardingStatus = default(string), List<PoliticallyExposedPerson> politicallyExposedPeople = default(List<PoliticallyExposedPerson>), string externalId = default(string), string cityOfBirth = default(string), string countryOfBirth = default(string), GenderEnum? gender = default(GenderEnum?))
+        public Sender(Guid? id = default(Guid?), TypeEnum? type = default(TypeEnum?), SenderState state = default(SenderState), string country = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string phoneCountry = default(string), string phoneNumber = default(string), string email = default(string), string ip = default(string), string addressDescription = default(string), string identificationNumber = default(string), IdentificationTypeEnum? identificationType = default(IdentificationTypeEnum?), string name = default(string), string firstName = default(string), string middleName = default(string), string lastName = default(string), DateTime? birthDate = default(DateTime?), string occupation = default(string), string nationality = default(string), LegalEntityTypeEnum? legalEntityType = default(LegalEntityTypeEnum?), string registrationDate = default(string), string registrationNumber = default(string), string natureOfBusiness = default(string), string sourceOfFunds = default(string), string customSourceOfFunds = default(string), string coreBusinessActivity = default(string), string purposeOfOpeningAccount = default(string), string officePhone = default(string), string vatRegistrationNumber = default(string), string financialRegulator = default(string), string regulatoryLicenceNumber = default(string), string contactPersonEmail = default(string), string tradingCountry = default(string), string tradingAddress = default(string), string numberMonthlyTransactions = default(string), string amountMonthlyTransactions = default(string), List<Document> documents = default(List<Document>), Object metadata = default(Object), string onboardingStatus = default(string), List<PoliticallyExposedPerson> politicallyExposedPeople = default(List<PoliticallyExposedPerson>), string externalId = default(string), string cityOfBirth = default(string), string countryOfBirth = default(string), GenderEnum? gender = default(GenderEnum?))
         {
             this.Country = country;
             this.Street = street;
@@ -294,7 +294,7 @@ namespace TransferZero.Sdk.Model
             this.NatureOfBusiness = natureOfBusiness;
             this.SourceOfFunds = sourceOfFunds;
             this.CustomSourceOfFunds = customSourceOfFunds;
-            this.CoreBusinessActivities = coreBusinessActivities;
+            this.CoreBusinessActivity = coreBusinessActivity;
             this.PurposeOfOpeningAccount = purposeOfOpeningAccount;
             this.OfficePhone = officePhone;
             this.VatRegistrationNumber = vatRegistrationNumber;
@@ -485,11 +485,11 @@ namespace TransferZero.Sdk.Model
         public string CustomSourceOfFunds { get; set; }
 
         /// <summary>
-        /// The core activities (used only with a Business sender)
+        /// The core activity (used only with a Business sender)
         /// </summary>
-        /// <value>The core activities (used only with a Business sender)</value>
-        [DataMember(Name="core_business_activities", EmitDefaultValue=false)]
-        public string CoreBusinessActivities { get; set; }
+        /// <value>The core activity (used only with a Business sender)</value>
+        [DataMember(Name="core_business_activity", EmitDefaultValue=false)]
+        public string CoreBusinessActivity { get; set; }
 
         /// <summary>
         /// The purpose for opening their account (used only with a Business sender)
@@ -660,7 +660,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  NatureOfBusiness: ").Append(NatureOfBusiness).Append("\n");
             sb.Append("  SourceOfFunds: ").Append(SourceOfFunds).Append("\n");
             sb.Append("  CustomSourceOfFunds: ").Append(CustomSourceOfFunds).Append("\n");
-            sb.Append("  CoreBusinessActivities: ").Append(CoreBusinessActivities).Append("\n");
+            sb.Append("  CoreBusinessActivity: ").Append(CoreBusinessActivity).Append("\n");
             sb.Append("  PurposeOfOpeningAccount: ").Append(PurposeOfOpeningAccount).Append("\n");
             sb.Append("  OfficePhone: ").Append(OfficePhone).Append("\n");
             sb.Append("  VatRegistrationNumber: ").Append(VatRegistrationNumber).Append("\n");
@@ -851,9 +851,9 @@ namespace TransferZero.Sdk.Model
                     this.CustomSourceOfFunds.Equals(input.CustomSourceOfFunds))
                 ) && 
                 (
-                    this.CoreBusinessActivities == input.CoreBusinessActivities ||
-                    (this.CoreBusinessActivities != null &&
-                    this.CoreBusinessActivities.Equals(input.CoreBusinessActivities))
+                    this.CoreBusinessActivity == input.CoreBusinessActivity ||
+                    (this.CoreBusinessActivity != null &&
+                    this.CoreBusinessActivity.Equals(input.CoreBusinessActivity))
                 ) && 
                 (
                     this.PurposeOfOpeningAccount == input.PurposeOfOpeningAccount ||
@@ -1020,8 +1020,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.SourceOfFunds.GetHashCode();
                 if (this.CustomSourceOfFunds != null)
                     hashCode = hashCode * 59 + this.CustomSourceOfFunds.GetHashCode();
-                if (this.CoreBusinessActivities != null)
-                    hashCode = hashCode * 59 + this.CoreBusinessActivities.GetHashCode();
+                if (this.CoreBusinessActivity != null)
+                    hashCode = hashCode * 59 + this.CoreBusinessActivity.GetHashCode();
                 if (this.PurposeOfOpeningAccount != null)
                     hashCode = hashCode * 59 + this.PurposeOfOpeningAccount.GetHashCode();
                 if (this.OfficePhone != null)
