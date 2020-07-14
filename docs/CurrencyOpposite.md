@@ -13,10 +13,10 @@ Name | Type | Description | Notes
 **Primary** | **bool?** | Is this a primary currency? | [optional] 
 **Min** | **string** | The minimum amount allowed in a transaction | [optional] 
 **Max** | **string** | The maximum amount allowed in a transaction | [optional] 
+**Margin** | **string** | The margin set for transactions in this currency | [optional] 
 **UsdEquivalent** | **string** | The equivalent of the currency to 1 USD | [optional] 
 **Rate** | **decimal?** | The rate of this particular currency with the base one | [optional] 
 **MtmRate** | **decimal?** | Mark to market rate of this particular currency against the base one with the margin factored in | [optional] 
-**Margin** | **string** | The margin set for transactions of this particular currency with the base one | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
