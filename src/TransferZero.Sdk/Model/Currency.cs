@@ -95,6 +95,13 @@ namespace TransferZero.Sdk.Model
         public string Max { get; private set; }
 
         /// <summary>
+        /// The margin set for transactions in this currency
+        /// </summary>
+        /// <value>The margin set for transactions in this currency</value>
+        [DataMember(Name="margin", EmitDefaultValue=false)]
+        public string Margin { get; private set; }
+
+        /// <summary>
         /// The equivalent of the currency to 1 USD
         /// </summary>
         /// <value>The equivalent of the currency to 1 USD</value>
@@ -117,6 +124,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  Primary: ").Append(Primary).Append("\n");
             sb.Append("  Min: ").Append(Min).Append("\n");
             sb.Append("  Max: ").Append(Max).Append("\n");
+            sb.Append("  Margin: ").Append(Margin).Append("\n");
             sb.Append("  UsdEquivalent: ").Append(UsdEquivalent).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -193,6 +201,11 @@ namespace TransferZero.Sdk.Model
                     this.Max.Equals(input.Max))
                 ) && 
                 (
+                    this.Margin == input.Margin ||
+                    (this.Margin != null &&
+                    this.Margin.Equals(input.Margin))
+                ) && 
+                (
                     this.UsdEquivalent == input.UsdEquivalent ||
                     (this.UsdEquivalent != null &&
                     this.UsdEquivalent.Equals(input.UsdEquivalent))
@@ -224,6 +237,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.Min.GetHashCode();
                 if (this.Max != null)
                     hashCode = hashCode * 59 + this.Max.GetHashCode();
+                if (this.Margin != null)
+                    hashCode = hashCode * 59 + this.Margin.GetHashCode();
                 if (this.UsdEquivalent != null)
                     hashCode = hashCode * 59 + this.UsdEquivalent.GetHashCode();
                 return hashCode;

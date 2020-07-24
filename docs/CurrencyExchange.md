@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Primary** | **bool?** | Is this a primary currency? | [optional] 
 **Min** | **string** | The minimum amount allowed in a transaction | [optional] 
 **Max** | **string** | The maximum amount allowed in a transaction | [optional] 
+**Margin** | **string** | The margin set for transactions in this currency | [optional] 
 **UsdEquivalent** | **string** | The equivalent of the currency to 1 USD | [optional] 
 **Opposites** | [**List&lt;CurrencyOpposite&gt;**](CurrencyOpposite.md) | Lists the currencies where you can exchange from this one | [optional] 
 
