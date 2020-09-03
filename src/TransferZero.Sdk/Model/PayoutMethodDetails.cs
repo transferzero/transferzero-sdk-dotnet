@@ -61,7 +61,11 @@ namespace TransferZero.Sdk.Model
         /// <param name="reference">reference.</param>
         /// <param name="name">name (required).</param>
         /// <param name="address">address (required).</param>
-        public PayoutMethodDetails(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), string iban = default(string), string bankName = default(string), string bankCountry = default(string), string sortCode = default(string), string bic = default(string), PayoutMethodIdentityCardTypeEnum senderIdentityCardType = default(PayoutMethodIdentityCardTypeEnum), string senderIdentityCardId = default(string), string senderCityOfBirth = default(string), string senderCountryOfBirth = default(string), PayoutMethodGenderEnum senderGender = default(PayoutMethodGenderEnum), string reason = default(string), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), string reference = default(string), string name = default(string), string address = default(string))
+        /// <param name="street">street (required).</param>
+        /// <param name="postalCode">postalCode (required).</param>
+        /// <param name="city">city (required).</param>
+        /// <param name="transferReasonCode">transferReasonCode.</param>
+        public PayoutMethodDetails(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), string iban = default(string), string bankName = default(string), string bankCountry = default(string), string sortCode = default(string), string bic = default(string), PayoutMethodIdentityCardTypeEnum senderIdentityCardType = default(PayoutMethodIdentityCardTypeEnum), string senderIdentityCardId = default(string), string senderCityOfBirth = default(string), string senderCountryOfBirth = default(string), PayoutMethodGenderEnum senderGender = default(PayoutMethodGenderEnum), string reason = default(string), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), string reference = default(string), string name = default(string), string address = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string transferReasonCode = default(string))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -79,6 +83,9 @@ namespace TransferZero.Sdk.Model
             this.SenderGender = senderGender;
             this.Name = name;
             this.Address = address;
+            this.Street = street;
+            this.PostalCode = postalCode;
+            this.City = city;
             this.BankAccountType = bankAccountType;
             this.SortCode = sortCode;
             this.Bic = bic;
@@ -86,6 +93,7 @@ namespace TransferZero.Sdk.Model
             this.IdentityCardType = identityCardType;
             this.IdentityCardId = identityCardId;
             this.Reference = reference;
+            this.TransferReasonCode = transferReasonCode;
         }
         
         /// <summary>
@@ -227,6 +235,30 @@ namespace TransferZero.Sdk.Model
         public string Address { get; set; }
 
         /// <summary>
+        /// Gets or Sets Street
+        /// </summary>
+        [DataMember(Name="street", EmitDefaultValue=false)]
+        public string Street { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PostalCode
+        /// </summary>
+        [DataMember(Name="postal_code", EmitDefaultValue=false)]
+        public string PostalCode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets City
+        /// </summary>
+        [DataMember(Name="city", EmitDefaultValue=false)]
+        public string City { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TransferReasonCode
+        /// </summary>
+        [DataMember(Name="transfer_reason_code", EmitDefaultValue=false)]
+        public string TransferReasonCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -257,6 +289,10 @@ namespace TransferZero.Sdk.Model
             sb.Append("  Reference: ").Append(Reference).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Address: ").Append(Address).Append("\n");
+            sb.Append("  Street: ").Append(Street).Append("\n");
+            sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
+            sb.Append("  City: ").Append(City).Append("\n");
+            sb.Append("  TransferReasonCode: ").Append(TransferReasonCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -405,6 +441,26 @@ namespace TransferZero.Sdk.Model
                     this.Address == input.Address ||
                     (this.Address != null &&
                     this.Address.Equals(input.Address))
+                ) && 
+                (
+                    this.Street == input.Street ||
+                    (this.Street != null &&
+                    this.Street.Equals(input.Street))
+                ) && 
+                (
+                    this.PostalCode == input.PostalCode ||
+                    (this.PostalCode != null &&
+                    this.PostalCode.Equals(input.PostalCode))
+                ) && 
+                (
+                    this.City == input.City ||
+                    (this.City != null &&
+                    this.City.Equals(input.City))
+                ) && 
+                (
+                    this.TransferReasonCode == input.TransferReasonCode ||
+                    (this.TransferReasonCode != null &&
+                    this.TransferReasonCode.Equals(input.TransferReasonCode))
                 );
         }
 
@@ -463,6 +519,14 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Address != null)
                     hashCode = hashCode * 59 + this.Address.GetHashCode();
+                if (this.Street != null)
+                    hashCode = hashCode * 59 + this.Street.GetHashCode();
+                if (this.PostalCode != null)
+                    hashCode = hashCode * 59 + this.PostalCode.GetHashCode();
+                if (this.City != null)
+                    hashCode = hashCode * 59 + this.City.GetHashCode();
+                if (this.TransferReasonCode != null)
+                    hashCode = hashCode * 59 + this.TransferReasonCode.GetHashCode();
                 return hashCode;
             }
         }
