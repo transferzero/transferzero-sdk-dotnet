@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;street\&quot;: \&quot;Main Street\&quot;,     \&quot;postal_code\&quot;: \&quot;AB0001\&quot;,     \&quot;city\&quot;: \&quot;Cape Town\&quot;,     \&quot;bank_code\&quot;: \&quot;334810\&quot;,     \&quot;bank_account\&quot;: \&quot;12345678\&quot;,     \&quot;phone_number\&quot;: \&quot;+27119785313\&quot;,     \&quot;transfer_reason_code\&quot;: \&quot;185\&quot;   } &#x60;&#x60;&#x60;  See [ZAR Bank](https://docs.transferzero.com/docs/payout-details/#zarbank) documentation for the bank_code and transfer_reason_code lists
+    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;street\&quot;: \&quot;Main Street\&quot;,     \&quot;postal_code\&quot;: \&quot;AB0001\&quot;,     \&quot;city\&quot;: \&quot;Cape Town\&quot;,     \&quot;email\&quot;: \&quot;recipient@email.com\&quot;,     \&quot;bank_code\&quot;: \&quot;334810\&quot;,     \&quot;bank_account\&quot;: \&quot;12345678\&quot;,     \&quot;phone_number\&quot;: \&quot;+27119785313\&quot;,     \&quot;transfer_reason_code\&quot;: \&quot;185\&quot;   } &#x60;&#x60;&#x60;  See [ZAR Bank](https://docs.transferzero.com/docs/payout-details/#zarbank) documentation for the bank_code and transfer_reason_code lists
     /// </summary>
     [DataContract]
     public partial class PayoutMethodDetailsZARBank :  IEquatable<PayoutMethodDetailsZARBank>, IValidatableObject
@@ -43,11 +43,12 @@ namespace TransferZero.Sdk.Model
         /// <param name="street">street (required).</param>
         /// <param name="postalCode">postalCode (required).</param>
         /// <param name="city">city (required).</param>
+        /// <param name="email">email.</param>
         /// <param name="bankCode">bankCode (required).</param>
         /// <param name="bankAccount">bankAccount (required).</param>
         /// <param name="phoneNumber">phoneNumber (required).</param>
         /// <param name="transferReasonCode">transferReasonCode.</param>
-        public PayoutMethodDetailsZARBank(string firstName = default(string), string lastName = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string bankCode = default(string), string bankAccount = default(string), string phoneNumber = default(string), string transferReasonCode = default(string))
+        public PayoutMethodDetailsZARBank(string firstName = default(string), string lastName = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string email = default(string), string bankCode = default(string), string bankAccount = default(string), string phoneNumber = default(string), string transferReasonCode = default(string))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -57,6 +58,7 @@ namespace TransferZero.Sdk.Model
             this.BankCode = bankCode;
             this.BankAccount = bankAccount;
             this.PhoneNumber = phoneNumber;
+            this.Email = email;
             this.TransferReasonCode = transferReasonCode;
         }
         
@@ -89,6 +91,12 @@ namespace TransferZero.Sdk.Model
         /// </summary>
         [DataMember(Name="city", EmitDefaultValue=false)]
         public string City { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Email
+        /// </summary>
+        [DataMember(Name="email", EmitDefaultValue=false)]
+        public string Email { get; set; }
 
         /// <summary>
         /// Gets or Sets BankCode
@@ -127,6 +135,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  Street: ").Append(Street).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("  City: ").Append(City).Append("\n");
+            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  BankCode: ").Append(BankCode).Append("\n");
             sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
@@ -191,6 +200,11 @@ namespace TransferZero.Sdk.Model
                     this.City.Equals(input.City))
                 ) && 
                 (
+                    this.Email == input.Email ||
+                    (this.Email != null &&
+                    this.Email.Equals(input.Email))
+                ) && 
+                (
                     this.BankCode == input.BankCode ||
                     (this.BankCode != null &&
                     this.BankCode.Equals(input.BankCode))
@@ -231,6 +245,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.PostalCode.GetHashCode();
                 if (this.City != null)
                     hashCode = hashCode * 59 + this.City.GetHashCode();
+                if (this.Email != null)
+                    hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.BankCode != null)
                     hashCode = hashCode * 59 + this.BankCode.GetHashCode();
                 if (this.BankAccount != null)

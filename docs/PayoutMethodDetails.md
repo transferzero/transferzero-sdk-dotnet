@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **Street** | **string** |  | 
 **PostalCode** | **string** |  | 
 **City** | **string** |  | 
+**Email** | **string** |  | [optional] 
 **TransferReasonCode** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

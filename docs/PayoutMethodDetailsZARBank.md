@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Street** | **string** |  | 
 **PostalCode** | **string** |  | 
 **City** | **string** |  | 
+**Email** | **string** |  | [optional] 
 **BankCode** | **string** |  | 
 **BankAccount** | **string** |  | 
 **PhoneNumber** | **string** |  | 
