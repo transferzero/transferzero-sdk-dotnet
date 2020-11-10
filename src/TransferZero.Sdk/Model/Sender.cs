@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// This contains the details of the sender. The first time a specific sender is used the full details should be provided. Once a sender is created and is used, the next time you MUST only send the ID of the sender. This is so we can match the same sender across multiple transactions for KYC and audit purposes.  Personal Sender Example: &#x60;&#x60;&#x60;json {   \&quot;country\&quot;: \&quot;UG\&quot;,   \&quot;phone_country\&quot;: \&quot;UG\&quot;,   \&quot;phone_number\&quot;: \&quot;752403639\&quot;,   \&quot;email\&quot;: \&quot;example@home.org\&quot;,   \&quot;first_name\&quot;: \&quot;Johnny\&quot;,   \&quot;last_name\&quot;: \&quot;English\&quot;,   \&quot;city\&quot;: \&quot;Kampala\&quot;,   \&quot;street\&quot;: \&quot;Unknown 17-3\&quot;,   \&quot;address_description\&quot;: \&quot;Description of address\&quot;,   \&quot;postal_code\&quot;: \&quot;798983\&quot;,   \&quot;birth_date\&quot;: \&quot;1900-12-31\&quot;,   \&quot;city_of_birth\&quot;: \&quot;London\&quot;,   \&quot;country_of_birth\&quot;: \&quot;GB\&quot;,   \&quot;gender\&quot;: \&quot;M\&quot;,   \&quot;documents\&quot;: [ ],   \&quot;politically_exposed_people\&quot;: [ ],   \&quot;ip\&quot;: \&quot;127.0.0.1\&quot;,   \&quot;identification_number\&quot;: \&quot;AB123456\&quot;,   \&quot;identification_type\&quot;: \&quot;ID\&quot;,   \&quot;external_id\&quot;: \&quot;806ec63a-a5a7-43cc-9d75-1ee74fbcc026\&quot;,   \&quot;created_at\&quot;: \&quot;2018-06-09 15:13:40 UTC\&quot;,   \&quot;metadata\&quot;: { } } &#x60;&#x60;&#x60;  Business Sender Example:  &#x60;&#x60;&#x60;json {   \&quot;type\&quot;: \&quot;business\&quot;,   \&quot;country\&quot;: \&quot;UG\&quot;,   \&quot;phone_country\&quot;: \&quot;UG\&quot;,   \&quot;phone_number\&quot;: \&quot;752403639\&quot;,   \&quot;email\&quot;: \&quot;example@home.org\&quot;,   \&quot;name\&quot;: \&quot;MyCompany\&quot;,   \&quot;city\&quot;: \&quot;Kampala\&quot;,   \&quot;street\&quot;: \&quot;Unknown 17-3\&quot;,   \&quot;postal_code\&quot;: \&quot;798983\&quot;,   \&quot;address_description\&quot;: \&quot;Description of address\&quot;,   \&quot;documents\&quot;: [ ],   \&quot;politically_exposed_people\&quot;: [ ],   \&quot;ip\&quot;: \&quot;127.0.0.1\&quot;,   \&quot;identification_number\&quot;: \&quot;AB123456\&quot;,   \&quot;identification_type\&quot;: \&quot;ID\&quot;,   \&quot;external_id\&quot;: \&quot;806ec63a-a5a7-43cc-9d75-1ee74fbcc026\&quot;,   \&quot;metadata\&quot;: { } } &#x60;&#x60;&#x60;  [Sender in the API documentation](https://docs.transferzero.com/docs/transaction-flow/#sender)
+    /// This contains the details of the sender. The first time a specific sender is used the full details should be provided. Once a sender is created and is used, the next time you MUST only send the ID of the sender. This is so we can match the same sender across multiple transactions for KYC and audit purposes.  Personal Sender Example: &#x60;&#x60;&#x60;json {   // name   \&quot;first_name\&quot;: \&quot;Jane\&quot;,   \&quot;last_name\&quot;: \&quot;Doe\&quot;,    // address   \&quot;country\&quot;: \&quot;US\&quot;,   \&quot;city\&quot;: \&quot;New York\&quot;,   \&quot;street\&quot;: \&quot;20 W 34th St\&quot;,   \&quot;postal_code\&quot;: \&quot;10001\&quot;,   \&quot;address_description\&quot;: \&quot;\&quot;,    // DOB   \&quot;birth_date\&quot;: \&quot;1974-12-24\&quot;,    // Contact Details; You can usually use your company&#39;s contact details here   \&quot;phone_country\&quot;: \&quot;US\&quot;,   \&quot;phone_number\&quot;: \&quot;5555551234\&quot;,   \&quot;email\&quot;: \&quot;info@transferzero.com\&quot;,    // ID of the sender in your system   \&quot;external_id\&quot;: \&quot;Sender:US:234523\&quot;,    // these fields are mandatory, but you can usually leave them with the following default values:   \&quot;documents\&quot;: [ ],   \&quot;ip\&quot;: \&quot;127.0.0.1\&quot;,   \&quot;metadata\&quot;: {} } &#x60;&#x60;&#x60;  Business Sender Example:  &#x60;&#x60;&#x60;json {   \&quot;type\&quot;: \&quot;business\&quot;,   \&quot;name\&quot;: \&quot;Company name\&quot;,    // Country of Incorporation   \&quot;country\&quot;: \&quot;US\&quot;,    // Trading address of the company   \&quot;trading_country\&quot;: \&quot;US\&quot;,   \&quot;city\&quot;: \&quot;New York\&quot;,   \&quot;street\&quot;: \&quot;20 W 34th St\&quot;,   \&quot;postal_code\&quot;: \&quot;10001\&quot;,   \&quot;address_description\&quot;: \&quot;\&quot;,    // Company Details   \&quot;legal_entity_type\&quot;: \&quot;privately_owned_company\&quot;,   \&quot;registration_date\&quot;: \&quot;2012-01-25\&quot;,   \&quot;registration_number\&quot;: \&quot;VAT1234567\&quot;,   \&quot;nature_of_business\&quot;: \&quot;retail_trade\&quot;,    // Contact Details   \&quot;phone_country\&quot;: \&quot;US\&quot;,   \&quot;phone_number\&quot;: \&quot;5555551234\&quot;,   \&quot;email\&quot;: \&quot;example@home.org\&quot;,    // ID of the sender in your system   \&quot;external_id\&quot;: \&quot;Sender:Business:US:234523\&quot;,    // these fields are mandatory, but you can usually leave them with the following default values:   \&quot;documents\&quot;: [ ],   \&quot;ip\&quot;: \&quot;127.0.0.1\&quot;,   \&quot;metadata\&quot;: {} } &#x60;&#x60;&#x60;  [Sender in the API documentation](https://docs.transferzero.com/docs/transaction-flow/#sender)
     /// </summary>
     [DataContract]
     public partial class Sender :  IEquatable<Sender>, IValidatableObject
@@ -97,9 +97,9 @@ namespace TransferZero.Sdk.Model
         [DataMember(Name="identification_type", EmitDefaultValue=false)]
         public IdentificationTypeEnum? IdentificationType { get; set; }
         /// <summary>
-        /// Legal entity type (used only with a Business sender)
+        /// Legal entity type (used only with a Business sender)  Available values:   - sole_proprietorship: Sole Proprietorship   - partnership: Partnership   - privately_owned_company: Privately Owned Company (Limited Company)   - publicly_owned_company: Publicly Listed Company (PLC)   - government_owned_entity: Government Owned Entity Trusts   - trust: Foundations &amp; Similar Entities   - ngo: Non-Government Organisations / Charities inc Religious bodies and place of worship   - club_and_society: Clubs and Societies   - go: GO (Majority Owned Subsidiary of State-Owned Company)   - financial_institution: Financial Institution  Please note not all values are acceptable for some our corridors. Please reach out to our sales teams for more information.  Note that if you select &#x60;financial_institution&#x60; then the fields &#x60;vat_registration_number&#x60;, &#x60;financial_regulator&#x60; and &#x60;regulatory_licence_number&#x60; will be mandatory as well.
         /// </summary>
-        /// <value>Legal entity type (used only with a Business sender)</value>
+        /// <value>Legal entity type (used only with a Business sender)  Available values:   - sole_proprietorship: Sole Proprietorship   - partnership: Partnership   - privately_owned_company: Privately Owned Company (Limited Company)   - publicly_owned_company: Publicly Listed Company (PLC)   - government_owned_entity: Government Owned Entity Trusts   - trust: Foundations &amp; Similar Entities   - ngo: Non-Government Organisations / Charities inc Religious bodies and place of worship   - club_and_society: Clubs and Societies   - go: GO (Majority Owned Subsidiary of State-Owned Company)   - financial_institution: Financial Institution  Please note not all values are acceptable for some our corridors. Please reach out to our sales teams for more information.  Note that if you select &#x60;financial_institution&#x60; then the fields &#x60;vat_registration_number&#x60;, &#x60;financial_regulator&#x60; and &#x60;regulatory_licence_number&#x60; will be mandatory as well.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum LegalEntityTypeEnum
         {
@@ -172,11 +172,242 @@ namespace TransferZero.Sdk.Model
         }
 
         /// <summary>
-        /// Legal entity type (used only with a Business sender)
+        /// Legal entity type (used only with a Business sender)  Available values:   - sole_proprietorship: Sole Proprietorship   - partnership: Partnership   - privately_owned_company: Privately Owned Company (Limited Company)   - publicly_owned_company: Publicly Listed Company (PLC)   - government_owned_entity: Government Owned Entity Trusts   - trust: Foundations &amp; Similar Entities   - ngo: Non-Government Organisations / Charities inc Religious bodies and place of worship   - club_and_society: Clubs and Societies   - go: GO (Majority Owned Subsidiary of State-Owned Company)   - financial_institution: Financial Institution  Please note not all values are acceptable for some our corridors. Please reach out to our sales teams for more information.  Note that if you select &#x60;financial_institution&#x60; then the fields &#x60;vat_registration_number&#x60;, &#x60;financial_regulator&#x60; and &#x60;regulatory_licence_number&#x60; will be mandatory as well.
         /// </summary>
-        /// <value>Legal entity type (used only with a Business sender)</value>
+        /// <value>Legal entity type (used only with a Business sender)  Available values:   - sole_proprietorship: Sole Proprietorship   - partnership: Partnership   - privately_owned_company: Privately Owned Company (Limited Company)   - publicly_owned_company: Publicly Listed Company (PLC)   - government_owned_entity: Government Owned Entity Trusts   - trust: Foundations &amp; Similar Entities   - ngo: Non-Government Organisations / Charities inc Religious bodies and place of worship   - club_and_society: Clubs and Societies   - go: GO (Majority Owned Subsidiary of State-Owned Company)   - financial_institution: Financial Institution  Please note not all values are acceptable for some our corridors. Please reach out to our sales teams for more information.  Note that if you select &#x60;financial_institution&#x60; then the fields &#x60;vat_registration_number&#x60;, &#x60;financial_regulator&#x60; and &#x60;regulatory_licence_number&#x60; will be mandatory as well.</value>
         [DataMember(Name="legal_entity_type", EmitDefaultValue=false)]
         public LegalEntityTypeEnum? LegalEntityType { get; set; }
+        /// <summary>
+        /// Nature of business options (used only with a Business sender)  Available values:   - personal: Personal   - agriculture_and_hunting: Agriculture and Hunting   - forestry: Forestry   - fishing: Fishing   - agricultural_by_products: Agricultural By-Products   - coal_mining: Coal Mining   - oil_mining: Oil Mining   - iron_ore_mining: Iron Ore Mining   - other_metal_and_diamond_mining: Other Metal and Diamond Mining   - other_mineral_mining: Other Mineral Mining   - manufacturing_of_food_drink_tobacco: Manufacture of Food/Drink/Tobacco   - manufacturing_of_textiles_leather_fur_furniture: Manufacture of Textiles/Leather/Fur/Furniture   - manufacture_of_wooden_products_furniture: Manufacture of Wooden Products/Furniture   - manufacture_of_paper_pulp_allied_products: Manufacture of Paper/Pulp/Allied Products   - manufacture_of_chemicals_medical_petroleum_rubber_plastic_products: Manufacture Of Chemicals Medical Petroleum Rubber Plastic Products   - manufacture_of_pottery_china_glass_stone: Manufacture Of Pottery China Glass Stone   - manufacture_of_iron_steel_non_ferrous_metals_basic_industries: Manufacture Of Iron Steel Non-Ferrous Metals Basic Industries   - manufacture_of_metal_products_electrical_and_scientific_engineering: Manufacture Of Metal Products Electrical And Scientific Engineering   - manufacture_of_jewelry_musical_instruments_toys: Manufacture Of Jewelry Musical Instruments Toys   - electricity_gas_and_water: Electricity, Gas And Water   - construction: Construction   - wholesale_trade: Wholesale Trade   - retail_trade: Retail Trade   - catering_incl_hotels: Catering Incl. Hotels   - transport_storage: Transport Storage   - communications: Communications   - finance_and_holding_companies: Finance And Holding Companies   - insurance: Insurance   - business_services: Business Services   - real_estate_development_investment: Real Estate Development Investment   - central_state_governments: Central State Governments   - community_services_defence_police_prisons_etc: Community Services Defence Police Prisons Etc   - social_services_education_health_care: Social Services Education Health Care   - personal_services_leisure_services: Personal Services - Leisure Services   - personal_services_domestic_laundry_repairs: Personal Services - Domestic Laundry Repairs   - personal_services_embassies_international_organisations: Personal Services - Embassies
+        /// </summary>
+        /// <value>Nature of business options (used only with a Business sender)  Available values:   - personal: Personal   - agriculture_and_hunting: Agriculture and Hunting   - forestry: Forestry   - fishing: Fishing   - agricultural_by_products: Agricultural By-Products   - coal_mining: Coal Mining   - oil_mining: Oil Mining   - iron_ore_mining: Iron Ore Mining   - other_metal_and_diamond_mining: Other Metal and Diamond Mining   - other_mineral_mining: Other Mineral Mining   - manufacturing_of_food_drink_tobacco: Manufacture of Food/Drink/Tobacco   - manufacturing_of_textiles_leather_fur_furniture: Manufacture of Textiles/Leather/Fur/Furniture   - manufacture_of_wooden_products_furniture: Manufacture of Wooden Products/Furniture   - manufacture_of_paper_pulp_allied_products: Manufacture of Paper/Pulp/Allied Products   - manufacture_of_chemicals_medical_petroleum_rubber_plastic_products: Manufacture Of Chemicals Medical Petroleum Rubber Plastic Products   - manufacture_of_pottery_china_glass_stone: Manufacture Of Pottery China Glass Stone   - manufacture_of_iron_steel_non_ferrous_metals_basic_industries: Manufacture Of Iron Steel Non-Ferrous Metals Basic Industries   - manufacture_of_metal_products_electrical_and_scientific_engineering: Manufacture Of Metal Products Electrical And Scientific Engineering   - manufacture_of_jewelry_musical_instruments_toys: Manufacture Of Jewelry Musical Instruments Toys   - electricity_gas_and_water: Electricity, Gas And Water   - construction: Construction   - wholesale_trade: Wholesale Trade   - retail_trade: Retail Trade   - catering_incl_hotels: Catering Incl. Hotels   - transport_storage: Transport Storage   - communications: Communications   - finance_and_holding_companies: Finance And Holding Companies   - insurance: Insurance   - business_services: Business Services   - real_estate_development_investment: Real Estate Development Investment   - central_state_governments: Central State Governments   - community_services_defence_police_prisons_etc: Community Services Defence Police Prisons Etc   - social_services_education_health_care: Social Services Education Health Care   - personal_services_leisure_services: Personal Services - Leisure Services   - personal_services_domestic_laundry_repairs: Personal Services - Domestic Laundry Repairs   - personal_services_embassies_international_organisations: Personal Services - Embassies</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum NatureOfBusinessEnum
+        {
+            /// <summary>
+            /// Enum Personal for value: personal
+            /// </summary>
+            [EnumMember(Value = "personal")]
+            Personal = 1,
+
+            /// <summary>
+            /// Enum Agricultureandhunting for value: agriculture_and_hunting
+            /// </summary>
+            [EnumMember(Value = "agriculture_and_hunting")]
+            Agricultureandhunting = 2,
+
+            /// <summary>
+            /// Enum Forestry for value: forestry
+            /// </summary>
+            [EnumMember(Value = "forestry")]
+            Forestry = 3,
+
+            /// <summary>
+            /// Enum Fishing for value: fishing
+            /// </summary>
+            [EnumMember(Value = "fishing")]
+            Fishing = 4,
+
+            /// <summary>
+            /// Enum Agriculturalbyproducts for value: agricultural_by_products
+            /// </summary>
+            [EnumMember(Value = "agricultural_by_products")]
+            Agriculturalbyproducts = 5,
+
+            /// <summary>
+            /// Enum Coalmining for value: coal_mining
+            /// </summary>
+            [EnumMember(Value = "coal_mining")]
+            Coalmining = 6,
+
+            /// <summary>
+            /// Enum Oilmining for value: oil_mining
+            /// </summary>
+            [EnumMember(Value = "oil_mining")]
+            Oilmining = 7,
+
+            /// <summary>
+            /// Enum Ironoremining for value: iron_ore_mining
+            /// </summary>
+            [EnumMember(Value = "iron_ore_mining")]
+            Ironoremining = 8,
+
+            /// <summary>
+            /// Enum Othermetalanddiamondmining for value: other_metal_and_diamond_mining
+            /// </summary>
+            [EnumMember(Value = "other_metal_and_diamond_mining")]
+            Othermetalanddiamondmining = 9,
+
+            /// <summary>
+            /// Enum Othermineralmining for value: other_mineral_mining
+            /// </summary>
+            [EnumMember(Value = "other_mineral_mining")]
+            Othermineralmining = 10,
+
+            /// <summary>
+            /// Enum Manufacturingoffooddrinktobacco for value: manufacturing_of_food_drink_tobacco
+            /// </summary>
+            [EnumMember(Value = "manufacturing_of_food_drink_tobacco")]
+            Manufacturingoffooddrinktobacco = 11,
+
+            /// <summary>
+            /// Enum Manufacturingoftextilesleatherfurfurniture for value: manufacturing_of_textiles_leather_fur_furniture
+            /// </summary>
+            [EnumMember(Value = "manufacturing_of_textiles_leather_fur_furniture")]
+            Manufacturingoftextilesleatherfurfurniture = 12,
+
+            /// <summary>
+            /// Enum Manufactureofwoodenproductsfurniture for value: manufacture_of_wooden_products_furniture
+            /// </summary>
+            [EnumMember(Value = "manufacture_of_wooden_products_furniture")]
+            Manufactureofwoodenproductsfurniture = 13,
+
+            /// <summary>
+            /// Enum Manufactureofpaperpulpalliedproducts for value: manufacture_of_paper_pulp_allied_products
+            /// </summary>
+            [EnumMember(Value = "manufacture_of_paper_pulp_allied_products")]
+            Manufactureofpaperpulpalliedproducts = 14,
+
+            /// <summary>
+            /// Enum Manufactureofchemicalsmedicalpetroleumrubberplasticproducts for value: manufacture_of_chemicals_medical_petroleum_rubber_plastic_products
+            /// </summary>
+            [EnumMember(Value = "manufacture_of_chemicals_medical_petroleum_rubber_plastic_products")]
+            Manufactureofchemicalsmedicalpetroleumrubberplasticproducts = 15,
+
+            /// <summary>
+            /// Enum Manufactureofpotterychinaglassstone for value: manufacture_of_pottery_china_glass_stone
+            /// </summary>
+            [EnumMember(Value = "manufacture_of_pottery_china_glass_stone")]
+            Manufactureofpotterychinaglassstone = 16,
+
+            /// <summary>
+            /// Enum Manufactureofironsteelnonferrousmetalsbasicindustries for value: manufacture_of_iron_steel_non_ferrous_metals_basic_industries
+            /// </summary>
+            [EnumMember(Value = "manufacture_of_iron_steel_non_ferrous_metals_basic_industries")]
+            Manufactureofironsteelnonferrousmetalsbasicindustries = 17,
+
+            /// <summary>
+            /// Enum Manufactureofmetalproductselectricalandscientificengineering for value: manufacture_of_metal_products_electrical_and_scientific_engineering
+            /// </summary>
+            [EnumMember(Value = "manufacture_of_metal_products_electrical_and_scientific_engineering")]
+            Manufactureofmetalproductselectricalandscientificengineering = 18,
+
+            /// <summary>
+            /// Enum Manufactureofjewelrymusicalinstrumentstoys for value: manufacture_of_jewelry_musical_instruments_toys
+            /// </summary>
+            [EnumMember(Value = "manufacture_of_jewelry_musical_instruments_toys")]
+            Manufactureofjewelrymusicalinstrumentstoys = 19,
+
+            /// <summary>
+            /// Enum Electricitygasandwater for value: electricity_gas_and_water
+            /// </summary>
+            [EnumMember(Value = "electricity_gas_and_water")]
+            Electricitygasandwater = 20,
+
+            /// <summary>
+            /// Enum Construction for value: construction
+            /// </summary>
+            [EnumMember(Value = "construction")]
+            Construction = 21,
+
+            /// <summary>
+            /// Enum Wholesaletrade for value: wholesale_trade
+            /// </summary>
+            [EnumMember(Value = "wholesale_trade")]
+            Wholesaletrade = 22,
+
+            /// <summary>
+            /// Enum Retailtrade for value: retail_trade
+            /// </summary>
+            [EnumMember(Value = "retail_trade")]
+            Retailtrade = 23,
+
+            /// <summary>
+            /// Enum Cateringinclhotels for value: catering_incl_hotels
+            /// </summary>
+            [EnumMember(Value = "catering_incl_hotels")]
+            Cateringinclhotels = 24,
+
+            /// <summary>
+            /// Enum Transportstorage for value: transport_storage
+            /// </summary>
+            [EnumMember(Value = "transport_storage")]
+            Transportstorage = 25,
+
+            /// <summary>
+            /// Enum Communications for value: communications
+            /// </summary>
+            [EnumMember(Value = "communications")]
+            Communications = 26,
+
+            /// <summary>
+            /// Enum Financeandholdingcompanies for value: finance_and_holding_companies
+            /// </summary>
+            [EnumMember(Value = "finance_and_holding_companies")]
+            Financeandholdingcompanies = 27,
+
+            /// <summary>
+            /// Enum Insurance for value: insurance
+            /// </summary>
+            [EnumMember(Value = "insurance")]
+            Insurance = 28,
+
+            /// <summary>
+            /// Enum Businessservices for value: business_services
+            /// </summary>
+            [EnumMember(Value = "business_services")]
+            Businessservices = 29,
+
+            /// <summary>
+            /// Enum Realestatedevelopmentinvestment for value: real_estate_development_investment
+            /// </summary>
+            [EnumMember(Value = "real_estate_development_investment")]
+            Realestatedevelopmentinvestment = 30,
+
+            /// <summary>
+            /// Enum Centralstategovernments for value: central_state_governments
+            /// </summary>
+            [EnumMember(Value = "central_state_governments")]
+            Centralstategovernments = 31,
+
+            /// <summary>
+            /// Enum Communityservicesdefencepoliceprisonsetc for value: community_services_defence_police_prisons_etc
+            /// </summary>
+            [EnumMember(Value = "community_services_defence_police_prisons_etc")]
+            Communityservicesdefencepoliceprisonsetc = 32,
+
+            /// <summary>
+            /// Enum Socialserviceseducationhealthcare for value: social_services_education_health_care
+            /// </summary>
+            [EnumMember(Value = "social_services_education_health_care")]
+            Socialserviceseducationhealthcare = 33,
+
+            /// <summary>
+            /// Enum Personalservicesleisureservices for value: personal_services_leisure_services
+            /// </summary>
+            [EnumMember(Value = "personal_services_leisure_services")]
+            Personalservicesleisureservices = 34,
+
+            /// <summary>
+            /// Enum Personalservicesdomesticlaundryrepairs for value: personal_services_domestic_laundry_repairs
+            /// </summary>
+            [EnumMember(Value = "personal_services_domestic_laundry_repairs")]
+            Personalservicesdomesticlaundryrepairs = 35,
+
+            /// <summary>
+            /// Enum Personalservicesembassiesinternationalorganisations for value: personal_services_embassies_international_organisations
+            /// </summary>
+            [EnumMember(Value = "personal_services_embassies_international_organisations")]
+            Personalservicesembassiesinternationalorganisations = 36
+
+        }
+
+        /// <summary>
+        /// Nature of business options (used only with a Business sender)  Available values:   - personal: Personal   - agriculture_and_hunting: Agriculture and Hunting   - forestry: Forestry   - fishing: Fishing   - agricultural_by_products: Agricultural By-Products   - coal_mining: Coal Mining   - oil_mining: Oil Mining   - iron_ore_mining: Iron Ore Mining   - other_metal_and_diamond_mining: Other Metal and Diamond Mining   - other_mineral_mining: Other Mineral Mining   - manufacturing_of_food_drink_tobacco: Manufacture of Food/Drink/Tobacco   - manufacturing_of_textiles_leather_fur_furniture: Manufacture of Textiles/Leather/Fur/Furniture   - manufacture_of_wooden_products_furniture: Manufacture of Wooden Products/Furniture   - manufacture_of_paper_pulp_allied_products: Manufacture of Paper/Pulp/Allied Products   - manufacture_of_chemicals_medical_petroleum_rubber_plastic_products: Manufacture Of Chemicals Medical Petroleum Rubber Plastic Products   - manufacture_of_pottery_china_glass_stone: Manufacture Of Pottery China Glass Stone   - manufacture_of_iron_steel_non_ferrous_metals_basic_industries: Manufacture Of Iron Steel Non-Ferrous Metals Basic Industries   - manufacture_of_metal_products_electrical_and_scientific_engineering: Manufacture Of Metal Products Electrical And Scientific Engineering   - manufacture_of_jewelry_musical_instruments_toys: Manufacture Of Jewelry Musical Instruments Toys   - electricity_gas_and_water: Electricity, Gas And Water   - construction: Construction   - wholesale_trade: Wholesale Trade   - retail_trade: Retail Trade   - catering_incl_hotels: Catering Incl. Hotels   - transport_storage: Transport Storage   - communications: Communications   - finance_and_holding_companies: Finance And Holding Companies   - insurance: Insurance   - business_services: Business Services   - real_estate_development_investment: Real Estate Development Investment   - central_state_governments: Central State Governments   - community_services_defence_police_prisons_etc: Community Services Defence Police Prisons Etc   - social_services_education_health_care: Social Services Education Health Care   - personal_services_leisure_services: Personal Services - Leisure Services   - personal_services_domestic_laundry_repairs: Personal Services - Domestic Laundry Repairs   - personal_services_embassies_international_organisations: Personal Services - Embassies
+        /// </summary>
+        /// <value>Nature of business options (used only with a Business sender)  Available values:   - personal: Personal   - agriculture_and_hunting: Agriculture and Hunting   - forestry: Forestry   - fishing: Fishing   - agricultural_by_products: Agricultural By-Products   - coal_mining: Coal Mining   - oil_mining: Oil Mining   - iron_ore_mining: Iron Ore Mining   - other_metal_and_diamond_mining: Other Metal and Diamond Mining   - other_mineral_mining: Other Mineral Mining   - manufacturing_of_food_drink_tobacco: Manufacture of Food/Drink/Tobacco   - manufacturing_of_textiles_leather_fur_furniture: Manufacture of Textiles/Leather/Fur/Furniture   - manufacture_of_wooden_products_furniture: Manufacture of Wooden Products/Furniture   - manufacture_of_paper_pulp_allied_products: Manufacture of Paper/Pulp/Allied Products   - manufacture_of_chemicals_medical_petroleum_rubber_plastic_products: Manufacture Of Chemicals Medical Petroleum Rubber Plastic Products   - manufacture_of_pottery_china_glass_stone: Manufacture Of Pottery China Glass Stone   - manufacture_of_iron_steel_non_ferrous_metals_basic_industries: Manufacture Of Iron Steel Non-Ferrous Metals Basic Industries   - manufacture_of_metal_products_electrical_and_scientific_engineering: Manufacture Of Metal Products Electrical And Scientific Engineering   - manufacture_of_jewelry_musical_instruments_toys: Manufacture Of Jewelry Musical Instruments Toys   - electricity_gas_and_water: Electricity, Gas And Water   - construction: Construction   - wholesale_trade: Wholesale Trade   - retail_trade: Retail Trade   - catering_incl_hotels: Catering Incl. Hotels   - transport_storage: Transport Storage   - communications: Communications   - finance_and_holding_companies: Finance And Holding Companies   - insurance: Insurance   - business_services: Business Services   - real_estate_development_investment: Real Estate Development Investment   - central_state_governments: Central State Governments   - community_services_defence_police_prisons_etc: Community Services Defence Police Prisons Etc   - social_services_education_health_care: Social Services Education Health Care   - personal_services_leisure_services: Personal Services - Leisure Services   - personal_services_domestic_laundry_repairs: Personal Services - Domestic Laundry Repairs   - personal_services_embassies_international_organisations: Personal Services - Embassies</value>
+        [DataMember(Name="nature_of_business", EmitDefaultValue=false)]
+        public NatureOfBusinessEnum? NatureOfBusiness { get; set; }
         /// <summary>
         /// The gender of the sender:  - &#x60;M&#x60;: Male - &#x60;F&#x60;: Female - &#x60;O&#x60;: Other
         /// </summary>
@@ -221,7 +452,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="id">id.</param>
         /// <param name="type">Type of sender to create - either person or business (defaults to person) .</param>
         /// <param name="state">state.</param>
-        /// <param name="country">Country of sender in 2-character alpha ISO 3166-2 country format (required).</param>
+        /// <param name="country">Country of sender in 2-character alpha ISO 3166-2 country format. This is the residential country for personal senders and the country of incorporation for business senders. (required).</param>
         /// <param name="street">Sender&#39;s street (required).</param>
         /// <param name="postalCode">Zip code of sender (required).</param>
         /// <param name="city">Sender&#39;s city (required).</param>
@@ -239,10 +470,10 @@ namespace TransferZero.Sdk.Model
         /// <param name="birthDate">Date of birth of sender (used only with a Personal sender).</param>
         /// <param name="occupation">Occupation of sender (used only with a Personal sender).</param>
         /// <param name="nationality">The nationality of the sender (used only with a Personal sender).</param>
-        /// <param name="legalEntityType">Legal entity type (used only with a Business sender).</param>
+        /// <param name="legalEntityType">Legal entity type (used only with a Business sender)  Available values:   - sole_proprietorship: Sole Proprietorship   - partnership: Partnership   - privately_owned_company: Privately Owned Company (Limited Company)   - publicly_owned_company: Publicly Listed Company (PLC)   - government_owned_entity: Government Owned Entity Trusts   - trust: Foundations &amp; Similar Entities   - ngo: Non-Government Organisations / Charities inc Religious bodies and place of worship   - club_and_society: Clubs and Societies   - go: GO (Majority Owned Subsidiary of State-Owned Company)   - financial_institution: Financial Institution  Please note not all values are acceptable for some our corridors. Please reach out to our sales teams for more information.  Note that if you select &#x60;financial_institution&#x60; then the fields &#x60;vat_registration_number&#x60;, &#x60;financial_regulator&#x60; and &#x60;regulatory_licence_number&#x60; will be mandatory as well..</param>
         /// <param name="registrationDate">The registration date (used only with a Business sender).</param>
         /// <param name="registrationNumber">The registration number (used only with a Business sender).</param>
-        /// <param name="natureOfBusiness">Nature of business options (used only with a Business sender).</param>
+        /// <param name="natureOfBusiness">Nature of business options (used only with a Business sender)  Available values:   - personal: Personal   - agriculture_and_hunting: Agriculture and Hunting   - forestry: Forestry   - fishing: Fishing   - agricultural_by_products: Agricultural By-Products   - coal_mining: Coal Mining   - oil_mining: Oil Mining   - iron_ore_mining: Iron Ore Mining   - other_metal_and_diamond_mining: Other Metal and Diamond Mining   - other_mineral_mining: Other Mineral Mining   - manufacturing_of_food_drink_tobacco: Manufacture of Food/Drink/Tobacco   - manufacturing_of_textiles_leather_fur_furniture: Manufacture of Textiles/Leather/Fur/Furniture   - manufacture_of_wooden_products_furniture: Manufacture of Wooden Products/Furniture   - manufacture_of_paper_pulp_allied_products: Manufacture of Paper/Pulp/Allied Products   - manufacture_of_chemicals_medical_petroleum_rubber_plastic_products: Manufacture Of Chemicals Medical Petroleum Rubber Plastic Products   - manufacture_of_pottery_china_glass_stone: Manufacture Of Pottery China Glass Stone   - manufacture_of_iron_steel_non_ferrous_metals_basic_industries: Manufacture Of Iron Steel Non-Ferrous Metals Basic Industries   - manufacture_of_metal_products_electrical_and_scientific_engineering: Manufacture Of Metal Products Electrical And Scientific Engineering   - manufacture_of_jewelry_musical_instruments_toys: Manufacture Of Jewelry Musical Instruments Toys   - electricity_gas_and_water: Electricity, Gas And Water   - construction: Construction   - wholesale_trade: Wholesale Trade   - retail_trade: Retail Trade   - catering_incl_hotels: Catering Incl. Hotels   - transport_storage: Transport Storage   - communications: Communications   - finance_and_holding_companies: Finance And Holding Companies   - insurance: Insurance   - business_services: Business Services   - real_estate_development_investment: Real Estate Development Investment   - central_state_governments: Central State Governments   - community_services_defence_police_prisons_etc: Community Services Defence Police Prisons Etc   - social_services_education_health_care: Social Services Education Health Care   - personal_services_leisure_services: Personal Services - Leisure Services   - personal_services_domestic_laundry_repairs: Personal Services - Domestic Laundry Repairs   - personal_services_embassies_international_organisations: Personal Services - Embassies.</param>
         /// <param name="sourceOfFunds">The source of funds.</param>
         /// <param name="customSourceOfFunds">Custom source of funds.</param>
         /// <param name="coreBusinessActivity">The core activity (used only with a Business sender).</param>
@@ -264,7 +495,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="cityOfBirth">City of birth of sender.</param>
         /// <param name="countryOfBirth">Country of birth of sender in 2-character alpha ISO 3166-2 country format.</param>
         /// <param name="gender">The gender of the sender:  - &#x60;M&#x60;: Male - &#x60;F&#x60;: Female - &#x60;O&#x60;: Other.</param>
-        public Sender(Guid? id = default(Guid?), TypeEnum? type = default(TypeEnum?), SenderState state = default(SenderState), string country = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string phoneCountry = default(string), string phoneNumber = default(string), string email = default(string), string ip = default(string), string addressDescription = default(string), string identificationNumber = default(string), IdentificationTypeEnum? identificationType = default(IdentificationTypeEnum?), string name = default(string), string firstName = default(string), string middleName = default(string), string lastName = default(string), DateTime? birthDate = default(DateTime?), string occupation = default(string), string nationality = default(string), LegalEntityTypeEnum? legalEntityType = default(LegalEntityTypeEnum?), string registrationDate = default(string), string registrationNumber = default(string), string natureOfBusiness = default(string), string sourceOfFunds = default(string), string customSourceOfFunds = default(string), string coreBusinessActivity = default(string), string purposeOfOpeningAccount = default(string), string officePhone = default(string), string vatRegistrationNumber = default(string), string financialRegulator = default(string), string regulatoryLicenceNumber = default(string), string contactPersonEmail = default(string), string tradingCountry = default(string), string tradingAddress = default(string), string numberMonthlyTransactions = default(string), string amountMonthlyTransactions = default(string), List<Document> documents = default(List<Document>), Object metadata = default(Object), string onboardingStatus = default(string), List<PoliticallyExposedPerson> politicallyExposedPeople = default(List<PoliticallyExposedPerson>), string externalId = default(string), string cityOfBirth = default(string), string countryOfBirth = default(string), GenderEnum? gender = default(GenderEnum?))
+        public Sender(Guid? id = default(Guid?), TypeEnum? type = default(TypeEnum?), SenderState state = default(SenderState), string country = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string phoneCountry = default(string), string phoneNumber = default(string), string email = default(string), string ip = default(string), string addressDescription = default(string), string identificationNumber = default(string), IdentificationTypeEnum? identificationType = default(IdentificationTypeEnum?), string name = default(string), string firstName = default(string), string middleName = default(string), string lastName = default(string), DateTime? birthDate = default(DateTime?), string occupation = default(string), string nationality = default(string), LegalEntityTypeEnum? legalEntityType = default(LegalEntityTypeEnum?), DateTime? registrationDate = default(DateTime?), string registrationNumber = default(string), NatureOfBusinessEnum? natureOfBusiness = default(NatureOfBusinessEnum?), string sourceOfFunds = default(string), string customSourceOfFunds = default(string), string coreBusinessActivity = default(string), string purposeOfOpeningAccount = default(string), string officePhone = default(string), string vatRegistrationNumber = default(string), string financialRegulator = default(string), string regulatoryLicenceNumber = default(string), string contactPersonEmail = default(string), string tradingCountry = default(string), string tradingAddress = default(string), string numberMonthlyTransactions = default(string), string amountMonthlyTransactions = default(string), List<Document> documents = default(List<Document>), Object metadata = default(Object), string onboardingStatus = default(string), List<PoliticallyExposedPerson> politicallyExposedPeople = default(List<PoliticallyExposedPerson>), string externalId = default(string), string cityOfBirth = default(string), string countryOfBirth = default(string), GenderEnum? gender = default(GenderEnum?))
         {
             this.Country = country;
             this.Street = street;
@@ -328,9 +559,9 @@ namespace TransferZero.Sdk.Model
         public SenderState State { get; set; }
 
         /// <summary>
-        /// Country of sender in 2-character alpha ISO 3166-2 country format
+        /// Country of sender in 2-character alpha ISO 3166-2 country format. This is the residential country for personal senders and the country of incorporation for business senders.
         /// </summary>
-        /// <value>Country of sender in 2-character alpha ISO 3166-2 country format</value>
+        /// <value>Country of sender in 2-character alpha ISO 3166-2 country format. This is the residential country for personal senders and the country of incorporation for business senders.</value>
         [DataMember(Name="country", EmitDefaultValue=false)]
         public string Country { get; set; }
 
@@ -454,7 +685,8 @@ namespace TransferZero.Sdk.Model
         /// </summary>
         /// <value>The registration date (used only with a Business sender)</value>
         [DataMember(Name="registration_date", EmitDefaultValue=false)]
-        public string RegistrationDate { get; set; }
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime? RegistrationDate { get; set; }
 
         /// <summary>
         /// The registration number (used only with a Business sender)
@@ -463,12 +695,6 @@ namespace TransferZero.Sdk.Model
         [DataMember(Name="registration_number", EmitDefaultValue=false)]
         public string RegistrationNumber { get; set; }
 
-        /// <summary>
-        /// Nature of business options (used only with a Business sender)
-        /// </summary>
-        /// <value>Nature of business options (used only with a Business sender)</value>
-        [DataMember(Name="nature_of_business", EmitDefaultValue=false)]
-        public string NatureOfBusiness { get; set; }
 
         /// <summary>
         /// The source of funds
