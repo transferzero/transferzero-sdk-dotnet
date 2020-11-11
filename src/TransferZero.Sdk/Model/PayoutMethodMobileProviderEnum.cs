@@ -25,9 +25,9 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// The movile provider of the recipient:  - &#x60;orange&#x60;: Orange - &#x60;tigo&#x60;: Tigo
+    /// The movile provider of the recipient:  For XOF valid options are: - &#x60;orange&#x60;: Orange - &#x60;tigo&#x60;: Tigo  For GHS valid options are: - &#x60;mtn&#x60;: MTN - &#x60;airtel&#x60;: Airtel - &#x60;tigo&#x60;: Tigo - &#x60;vodafone&#x60;: Vodafone
     /// </summary>
-    /// <value>The movile provider of the recipient:  - &#x60;orange&#x60;: Orange - &#x60;tigo&#x60;: Tigo</value>
+    /// <value>The movile provider of the recipient:  For XOF valid options are: - &#x60;orange&#x60;: Orange - &#x60;tigo&#x60;: Tigo  For GHS valid options are: - &#x60;mtn&#x60;: MTN - &#x60;airtel&#x60;: Airtel - &#x60;tigo&#x60;: Tigo - &#x60;vodafone&#x60;: Vodafone</value>
     
     [JsonConverter(typeof(StringEnumConverter))]
     
@@ -43,7 +43,25 @@ namespace TransferZero.Sdk.Model
         /// Enum Tigo for value: tigo
         /// </summary>
         [EnumMember(Value = "tigo")]
-        Tigo = 2
+        Tigo = 2,
+
+        /// <summary>
+        /// Enum Mtn for value: mtn
+        /// </summary>
+        [EnumMember(Value = "mtn")]
+        Mtn = 3,
+
+        /// <summary>
+        /// Enum Airtel for value: airtel
+        /// </summary>
+        [EnumMember(Value = "airtel")]
+        Airtel = 4,
+
+        /// <summary>
+        /// Enum Vodafone for value: vodafone
+        /// </summary>
+        [EnumMember(Value = "vodafone")]
+        Vodafone = 5
 
     }
 

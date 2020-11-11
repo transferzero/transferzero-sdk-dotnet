@@ -41,11 +41,13 @@ namespace TransferZero.Sdk.Model
         /// <param name="firstName">firstName (required).</param>
         /// <param name="lastName">lastName (required).</param>
         /// <param name="phoneNumber">phoneNumber (required).</param>
-        public PayoutMethodDetailsMobile(string firstName = default(string), string lastName = default(string), string phoneNumber = default(string))
+        /// <param name="mobileProvider">mobileProvider.</param>
+        public PayoutMethodDetailsMobile(string firstName = default(string), string lastName = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.PhoneNumber = phoneNumber;
+            this.MobileProvider = mobileProvider;
         }
         
         /// <summary>
@@ -67,6 +69,12 @@ namespace TransferZero.Sdk.Model
         public string PhoneNumber { get; set; }
 
         /// <summary>
+        /// Gets or Sets MobileProvider
+        /// </summary>
+        [DataMember(Name="mobile_provider", EmitDefaultValue=false)]
+        public PayoutMethodMobileProviderEnum MobileProvider { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -77,6 +85,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            sb.Append("  MobileProvider: ").Append(MobileProvider).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,6 +134,11 @@ namespace TransferZero.Sdk.Model
                     this.PhoneNumber == input.PhoneNumber ||
                     (this.PhoneNumber != null &&
                     this.PhoneNumber.Equals(input.PhoneNumber))
+                ) && 
+                (
+                    this.MobileProvider == input.MobileProvider ||
+                    (this.MobileProvider != null &&
+                    this.MobileProvider.Equals(input.MobileProvider))
                 );
         }
 
@@ -143,6 +157,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.LastName.GetHashCode();
                 if (this.PhoneNumber != null)
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
+                if (this.MobileProvider != null)
+                    hashCode = hashCode * 59 + this.MobileProvider.GetHashCode();
                 return hashCode;
             }
         }
