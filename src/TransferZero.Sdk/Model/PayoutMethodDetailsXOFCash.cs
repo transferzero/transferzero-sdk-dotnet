@@ -25,29 +25,33 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;774044436\&quot;     # local or international Senegalese format   \&quot;mobile_provider\&quot;: \&quot;orange\&quot;, # \&quot;orange\&quot; or \&quot;tigo\&quot; } &#x60;&#x60;&#x60;
+    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;774044436\&quot;, # local or international Senegalese format   \&quot;identity_card_id\&quot;: \&quot;2231324232\&quot;, # optional   \&quot;identity_card_type\&quot;: \&quot;PP\&quot;, # optional   \&quot;cash_provider\&quot;: \&quot;wizall\&quot; # optional } &#x60;&#x60;&#x60;  Please note when sending XOF::Cash payments you should subscribe to the recipient.pending webhook, as that will broadcast the payment reference ID the customer need to use to obtain the funds. Example webhook response excerpt -  &#x60;&#x60;&#x60;JSON {   (...)   \&quot;state\&quot;:\&quot;pending\&quot;,   \&quot;metadata\&quot;: {     \&quot;payment_reference\&quot;:\&quot;9M5GJRJUBCY\&quot;   },   (...) } &#x60;&#x60;&#x60;
     /// </summary>
     [DataContract]
-    public partial class PayoutMethodDetailsXOFMobile :  IEquatable<PayoutMethodDetailsXOFMobile>, IValidatableObject
+    public partial class PayoutMethodDetailsXOFCash :  IEquatable<PayoutMethodDetailsXOFCash>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayoutMethodDetailsXOFMobile" /> class.
+        /// Initializes a new instance of the <see cref="PayoutMethodDetailsXOFCash" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PayoutMethodDetailsXOFMobile() { }
+        protected PayoutMethodDetailsXOFCash() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayoutMethodDetailsXOFMobile" /> class.
+        /// Initializes a new instance of the <see cref="PayoutMethodDetailsXOFCash" /> class.
         /// </summary>
         /// <param name="firstName">firstName (required).</param>
         /// <param name="lastName">lastName (required).</param>
+        /// <param name="identityCardId">identityCardId.</param>
+        /// <param name="identityCardType">identityCardType.</param>
         /// <param name="phoneNumber">phoneNumber (required).</param>
-        /// <param name="mobileProvider">mobileProvider (required).</param>
-        public PayoutMethodDetailsXOFMobile(string firstName = default(string), string lastName = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum))
+        /// <param name="cashProvider">cashProvider.</param>
+        public PayoutMethodDetailsXOFCash(string firstName = default(string), string lastName = default(string), string identityCardId = default(string), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string phoneNumber = default(string), PayoutMethodCashProviderEnum cashProvider = default(PayoutMethodCashProviderEnum))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.PhoneNumber = phoneNumber;
-            this.MobileProvider = mobileProvider;
+            this.IdentityCardId = identityCardId;
+            this.IdentityCardType = identityCardType;
+            this.CashProvider = cashProvider;
         }
         
         /// <summary>
@@ -63,16 +67,28 @@ namespace TransferZero.Sdk.Model
         public string LastName { get; set; }
 
         /// <summary>
+        /// Gets or Sets IdentityCardId
+        /// </summary>
+        [DataMember(Name="identity_card_id", EmitDefaultValue=false)]
+        public string IdentityCardId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IdentityCardType
+        /// </summary>
+        [DataMember(Name="identity_card_type", EmitDefaultValue=false)]
+        public PayoutMethodIdentityCardTypeEnum IdentityCardType { get; set; }
+
+        /// <summary>
         /// Gets or Sets PhoneNumber
         /// </summary>
         [DataMember(Name="phone_number", EmitDefaultValue=false)]
         public string PhoneNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets MobileProvider
+        /// Gets or Sets CashProvider
         /// </summary>
-        [DataMember(Name="mobile_provider", EmitDefaultValue=false)]
-        public PayoutMethodMobileProviderEnum MobileProvider { get; set; }
+        [DataMember(Name="cash_provider", EmitDefaultValue=false)]
+        public PayoutMethodCashProviderEnum CashProvider { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -81,11 +97,13 @@ namespace TransferZero.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PayoutMethodDetailsXOFMobile {\n");
+            sb.Append("class PayoutMethodDetailsXOFCash {\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
+            sb.Append("  IdentityCardId: ").Append(IdentityCardId).Append("\n");
+            sb.Append("  IdentityCardType: ").Append(IdentityCardType).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
-            sb.Append("  MobileProvider: ").Append(MobileProvider).Append("\n");
+            sb.Append("  CashProvider: ").Append(CashProvider).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,15 +124,15 @@ namespace TransferZero.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PayoutMethodDetailsXOFMobile);
+            return this.Equals(input as PayoutMethodDetailsXOFCash);
         }
 
         /// <summary>
-        /// Returns true if PayoutMethodDetailsXOFMobile instances are equal
+        /// Returns true if PayoutMethodDetailsXOFCash instances are equal
         /// </summary>
-        /// <param name="input">Instance of PayoutMethodDetailsXOFMobile to be compared</param>
+        /// <param name="input">Instance of PayoutMethodDetailsXOFCash to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PayoutMethodDetailsXOFMobile input)
+        public bool Equals(PayoutMethodDetailsXOFCash input)
         {
             if (input == null)
                 return false;
@@ -131,14 +149,24 @@ namespace TransferZero.Sdk.Model
                     this.LastName.Equals(input.LastName))
                 ) && 
                 (
+                    this.IdentityCardId == input.IdentityCardId ||
+                    (this.IdentityCardId != null &&
+                    this.IdentityCardId.Equals(input.IdentityCardId))
+                ) && 
+                (
+                    this.IdentityCardType == input.IdentityCardType ||
+                    (this.IdentityCardType != null &&
+                    this.IdentityCardType.Equals(input.IdentityCardType))
+                ) && 
+                (
                     this.PhoneNumber == input.PhoneNumber ||
                     (this.PhoneNumber != null &&
                     this.PhoneNumber.Equals(input.PhoneNumber))
                 ) && 
                 (
-                    this.MobileProvider == input.MobileProvider ||
-                    (this.MobileProvider != null &&
-                    this.MobileProvider.Equals(input.MobileProvider))
+                    this.CashProvider == input.CashProvider ||
+                    (this.CashProvider != null &&
+                    this.CashProvider.Equals(input.CashProvider))
                 );
         }
 
@@ -155,10 +183,14 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.FirstName.GetHashCode();
                 if (this.LastName != null)
                     hashCode = hashCode * 59 + this.LastName.GetHashCode();
+                if (this.IdentityCardId != null)
+                    hashCode = hashCode * 59 + this.IdentityCardId.GetHashCode();
+                if (this.IdentityCardType != null)
+                    hashCode = hashCode * 59 + this.IdentityCardType.GetHashCode();
                 if (this.PhoneNumber != null)
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
-                if (this.MobileProvider != null)
-                    hashCode = hashCode * 59 + this.MobileProvider.GetHashCode();
+                if (this.CashProvider != null)
+                    hashCode = hashCode * 59 + this.CashProvider.GetHashCode();
                 return hashCode;
             }
         }
