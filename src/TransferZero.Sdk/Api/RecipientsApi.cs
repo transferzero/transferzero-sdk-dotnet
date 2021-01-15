@@ -103,6 +103,27 @@ namespace TransferZero.Sdk.Api
         /// <param name="recipientRequest"></param>
         /// <returns>ApiResponse of RecipientResponse</returns>
         ApiResponse<RecipientResponse> PatchRecipientWithHttpInfo (Guid? recipientID, RecipientRequest recipientRequest);
+        /// <summary>
+        /// Returns list of proof of payments
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of uploaded proof of payment files for a transaction recipient
+        /// </remarks>
+        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recipientID">ID of the recipient for whom the proof of payments will be returned.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments&#x60;</param>
+        /// <returns>ProofOfPaymentListResponse</returns>
+        ProofOfPaymentListResponse ProofOfPayments (Guid? recipientID);
+
+        /// <summary>
+        /// Returns list of proof of payments
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of uploaded proof of payment files for a transaction recipient
+        /// </remarks>
+        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recipientID">ID of the recipient for whom the proof of payments will be returned.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments&#x60;</param>
+        /// <returns>ApiResponse of ProofOfPaymentListResponse</returns>
+        ApiResponse<ProofOfPaymentListResponse> ProofOfPaymentsWithHttpInfo (Guid? recipientID);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -184,6 +205,27 @@ namespace TransferZero.Sdk.Api
         /// <param name="recipientRequest"></param>
         /// <returns>Task of ApiResponse (RecipientResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<RecipientResponse>> PatchRecipientAsyncWithHttpInfo (Guid? recipientID, RecipientRequest recipientRequest);
+        /// <summary>
+        /// Returns list of proof of payments
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of uploaded proof of payment files for a transaction recipient
+        /// </remarks>
+        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recipientID">ID of the recipient for whom the proof of payments will be returned.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments&#x60;</param>
+        /// <returns>Task of ProofOfPaymentListResponse</returns>
+        System.Threading.Tasks.Task<ProofOfPaymentListResponse> ProofOfPaymentsAsync (Guid? recipientID);
+
+        /// <summary>
+        /// Returns list of proof of payments
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of uploaded proof of payment files for a transaction recipient
+        /// </remarks>
+        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recipientID">ID of the recipient for whom the proof of payments will be returned.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments&#x60;</param>
+        /// <returns>Task of ApiResponse (ProofOfPaymentListResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ProofOfPaymentListResponse>> ProofOfPaymentsAsyncWithHttpInfo (Guid? recipientID);
         #endregion Asynchronous Operations
     }
 
@@ -858,6 +900,173 @@ namespace TransferZero.Sdk.Api
             return new ApiResponse<RecipientResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (RecipientResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RecipientResponse)));
+        }
+
+        /// <summary>
+        /// Returns list of proof of payments Returns a list of uploaded proof of payment files for a transaction recipient
+        /// </summary>
+        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recipientID">ID of the recipient for whom the proof of payments will be returned.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments&#x60;</param>
+        /// <returns>ProofOfPaymentListResponse</returns>
+        public ProofOfPaymentListResponse ProofOfPayments (Guid? recipientID)
+        {
+             ApiResponse<ProofOfPaymentListResponse> localVarResponse = ProofOfPaymentsWithHttpInfo(recipientID);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Returns list of proof of payments Returns a list of uploaded proof of payment files for a transaction recipient
+        /// </summary>
+        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recipientID">ID of the recipient for whom the proof of payments will be returned.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments&#x60;</param>
+        /// <returns>ApiResponse of ProofOfPaymentListResponse</returns>
+        public ApiResponse< ProofOfPaymentListResponse > ProofOfPaymentsWithHttpInfo (Guid? recipientID)
+        {
+            // verify the required parameter 'recipientID' is set
+            if (recipientID == null)
+                throw new ApiException(400, "Missing required parameter 'recipientID' when calling RecipientsApi->ProofOfPayments");
+
+            var localVarPath = "/recipients/{Recipient ID}/proof_of_payments";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (recipientID != null) localVarPathParams.Add("Recipient ID", this.Configuration.ApiClient.ParameterToString(recipientID)); // path parameter
+
+            var request = new RestRequest(localVarPath, Method.GET);
+
+            // add path and query parameter, if any
+            foreach (var param in localVarPathParams)
+                request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
+
+            foreach (var param in localVarQueryParams)
+                request.AddQueryParameter(param.Key, param.Value);
+
+            // generate full URL
+            string fullUri = this.Configuration.ApiClient.RestClient.BuildUri(request).AbsoluteUri;
+
+			string nonce = System.Guid.NewGuid().ToString();
+            string authSignature = this.Configuration.GetSignature(nonce, fullUri, "GET", localVarPostBody == null ? "" : localVarPostBody.ToString());
+			localVarHeaderParams.Add("Authorization-Key", this.Configuration.ApiKey);
+            localVarHeaderParams.Add("Authorization-Nonce", nonce);
+			localVarHeaderParams.Add("Authorization-Signature", authSignature);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ProofOfPayments", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ProofOfPaymentListResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ProofOfPaymentListResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProofOfPaymentListResponse)));
+        }
+
+        /// <summary>
+        /// Returns list of proof of payments Returns a list of uploaded proof of payment files for a transaction recipient
+        /// </summary>
+        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recipientID">ID of the recipient for whom the proof of payments will be returned.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments&#x60;</param>
+        /// <returns>Task of ProofOfPaymentListResponse</returns>
+        public async System.Threading.Tasks.Task<ProofOfPaymentListResponse> ProofOfPaymentsAsync (Guid? recipientID)
+        {
+             ApiResponse<ProofOfPaymentListResponse> localVarResponse = await ProofOfPaymentsAsyncWithHttpInfo(recipientID);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Returns list of proof of payments Returns a list of uploaded proof of payment files for a transaction recipient
+        /// </summary>
+        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recipientID">ID of the recipient for whom the proof of payments will be returned.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments&#x60;</param>
+        /// <returns>Task of ApiResponse (ProofOfPaymentListResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ProofOfPaymentListResponse>> ProofOfPaymentsAsyncWithHttpInfo (Guid? recipientID)
+        {
+            // verify the required parameter 'recipientID' is set
+            if (recipientID == null)
+                throw new ApiException(400, "Missing required parameter 'recipientID' when calling RecipientsApi->ProofOfPayments");
+
+            var localVarPath = "/recipients/{Recipient ID}/proof_of_payments";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (recipientID != null) localVarPathParams.Add("Recipient ID", this.Configuration.ApiClient.ParameterToString(recipientID)); // path parameter
+
+            var request = new RestRequest(localVarPath, Method.GET);
+
+            // add path parameter, if any
+            foreach (var param in localVarPathParams)
+                request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
+
+            foreach (var param in localVarQueryParams)
+                request.AddQueryParameter(param.Key, param.Value);
+
+            // generate full URL
+            string fullUri = this.Configuration.ApiClient.RestClient.BuildUri(request).AbsoluteUri;
+
+			string nonce = System.Guid.NewGuid().ToString();
+            string authSignature = this.Configuration.GetSignature(nonce, fullUri, "GET", localVarPostBody == null ? "" : localVarPostBody.ToString());
+			localVarHeaderParams.Add("Authorization-Key", this.Configuration.ApiKey);
+            localVarHeaderParams.Add("Authorization-Nonce", nonce);
+			localVarHeaderParams.Add("Authorization-Signature", authSignature);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ProofOfPayments", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ProofOfPaymentListResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ProofOfPaymentListResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProofOfPaymentListResponse)));
         }
 
     }

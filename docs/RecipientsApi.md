@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**DeleteRecipient**](RecipientsApi.md#deleterecipient) | **DELETE** /recipients/{Recipient ID} | Cancelling a recipient
 [**GetRecipients**](RecipientsApi.md#getrecipients) | **GET** /recipients | Getting a list of recipients with filtering
 [**PatchRecipient**](RecipientsApi.md#patchrecipient) | **PATCH** /recipients/{Recipient ID} | Updating a recipient
+[**ProofOfPayments**](RecipientsApi.md#proofofpayments) | **GET** /recipients/{Recipient ID}/proof_of_payments | Returns list of proof of payments
 
 
 <a name="deleterecipient"></a>
@@ -368,6 +369,119 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="proofofpayments"></a>
+# **ProofOfPayments**
+> ProofOfPaymentListResponse ProofOfPayments (Guid? recipientID)
+
+Returns list of proof of payments
+
+Returns a list of uploaded proof of payment files for a transaction recipient
+
+### Example
+
+#### C#
+
+```csharp
+using System;
+using System.Diagnostics;
+using TransferZero.Sdk.Api;
+using TransferZero.Sdk.Client;
+using TransferZero.Sdk.Model;
+
+namespace Example
+{
+    public class ProofOfPaymentsExample
+    {
+        public void main()
+        {
+            Configuration configuration = new Configuration();
+            configuration.ApiKey = "<key>";
+            configuration.ApiSecret = "<secret>";
+            configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
+
+            var apiInstance = new RecipientsApi(configuration);
+            var recipientID = new Guid?(); // Guid? | ID of the recipient for whom the proof of payments will be returned.  Example: `/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments`
+
+            try {
+                // Returns list of proof of payments
+                ProofOfPaymentListResponse result = apiInstance.ProofOfPayments(recipientID);
+                Debug.WriteLine(result);
+            } catch (ApiException e)
+            {
+                if (e.IsValidationError) {
+                    // In case there was a validation error, obtain the object
+                    ProofOfPaymentListResponse result = e.ParseObject<ProofOfPaymentListResponse>();
+                    Debug.WriteLing("There was a validation error while processing!");
+                    Debug.WriteLine(result);
+                } else {
+                    Debug.Print("Exception when calling RecipientsApi.ProofOfPayments: " + e.Message );
+                }
+            }
+        }
+    }
+}
+```
+
+#### VB.NET
+
+```vbnet
+Imports TransferZero.Sdk.Api;
+Imports TransferZero.Sdk.Client;
+Imports TransferZero.Sdk.Model;
+Imports System
+Imports System.Collections.Generic
+Imports System.Linq
+Imports System.Text
+Imports System.Threading.Tasks
+
+Module Example
+    Sub Main(ByVal args As String())
+        Dim configuration As Configuration = New Configuration()
+        configuration.ApiKey = "KEY"
+        configuration.ApiSecret = "SECRET"
+        configuration.BasePath = "https://api-sandbox.transferzero.com/v1"
+
+        Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
+
+        Dim apiInstance = new RecipientsApi(configuration)
+        Dim recipientID = new Guid?() REM Guid? | ID of the recipient for whom the proof of payments will be returned.  Example: `/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments`
+
+
+        Try
+            REM Returns list of proof of payments
+            Dim result As ProofOfPaymentListResponse = apiInstance.ProofOfPayments(recipientID)
+            Debug.WriteLine(result)
+        Catch e as ApiException
+            If e.IsValidationError Then
+                REM In case there was a validation error, obtain the object
+                Dim result as ProofOfPaymentListResponse = e.ParseObject(Of ProofOfPaymentListResponse)()
+                Debug.WriteLine("There was a validation error while processing!")
+                Debug.WriteLine(result)
+            Else
+                Debug.Print("Exception when calling RecipientsApi.ProofOfPayments: " + e.Message )
+            End If
+        End Try
+    End Sub
+End Module
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **recipientID** | [**Guid?**](Guid?.md)| ID of the recipient for whom the proof of payments will be returned.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments&#x60; | 
+
+### Return type
+
+[**ProofOfPaymentListResponse**](ProofOfPaymentListResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
