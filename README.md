@@ -286,6 +286,7 @@ Class | Method | HTTP request | Description
  - [Model.RecipientRequest](docs/RecipientRequest.md)
  - [Model.RecipientResponse](docs/RecipientResponse.md)
  - [Model.RecipientState](docs/RecipientState.md)
+ - [Model.RecipientStateReasonDetails](docs/RecipientStateReasonDetails.md)
  - [Model.RecipientWebhook](docs/RecipientWebhook.md)
  - [Model.Sender](docs/Sender.md)
  - [Model.SenderListResponse](docs/SenderListResponse.md)

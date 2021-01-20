@@ -42,14 +42,16 @@ namespace TransferZero.Sdk.Model
         /// <param name="requestedCurrency">the currency of the amount in 3-character alpha ISO 4217 currency format (required).</param>
         /// <param name="payoutMethod">payoutMethod (required).</param>
         /// <param name="metadata">Additional metadata that can be added to a recipient. These values will be returned on request.</param>
+        /// <param name="stateReasonDetails">stateReasonDetails.</param>
         /// <param name="state">state.</param>
         /// <param name="transactionState">transactionState.</param>
-        public Recipient(decimal? requestedAmount = default(decimal?), string requestedCurrency = default(string), PayoutMethod payoutMethod = default(PayoutMethod), Object metadata = default(Object), RecipientState state = default(RecipientState), TransactionState transactionState = default(TransactionState))
+        public Recipient(decimal? requestedAmount = default(decimal?), string requestedCurrency = default(string), PayoutMethod payoutMethod = default(PayoutMethod), Object metadata = default(Object), RecipientStateReasonDetails stateReasonDetails = default(RecipientStateReasonDetails), RecipientState state = default(RecipientState), TransactionState transactionState = default(TransactionState))
         {
             this.RequestedAmount = requestedAmount;
             this.RequestedCurrency = requestedCurrency;
             this.PayoutMethod = payoutMethod;
             this.Metadata = metadata;
+            this.StateReasonDetails = stateReasonDetails;
             this.State = state;
             this.TransactionState = transactionState;
         }
@@ -122,6 +124,12 @@ namespace TransferZero.Sdk.Model
         /// <value>In case the payment is unsuccessful it holds the error message associated with the last unsuccessful payout.</value>
         [DataMember(Name="state_reason", EmitDefaultValue=false)]
         public string StateReason { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets StateReasonDetails
+        /// </summary>
+        [DataMember(Name="state_reason_details", EmitDefaultValue=false)]
+        public RecipientStateReasonDetails StateReasonDetails { get; set; }
 
         /// <summary>
         /// Gets or Sets State
@@ -215,6 +223,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  InputUsdAmount: ").Append(InputUsdAmount).Append("\n");
             sb.Append("  MayCancel: ").Append(MayCancel).Append("\n");
             sb.Append("  StateReason: ").Append(StateReason).Append("\n");
+            sb.Append("  StateReasonDetails: ").Append(StateReasonDetails).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
             sb.Append("  TransactionState: ").Append(TransactionState).Append("\n");
@@ -311,6 +320,11 @@ namespace TransferZero.Sdk.Model
                     this.StateReason.Equals(input.StateReason))
                 ) && 
                 (
+                    this.StateReasonDetails == input.StateReasonDetails ||
+                    (this.StateReasonDetails != null &&
+                    this.StateReasonDetails.Equals(input.StateReasonDetails))
+                ) && 
+                (
                     this.State == input.State ||
                     (this.State != null &&
                     this.State.Equals(input.State))
@@ -396,6 +410,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.MayCancel.GetHashCode();
                 if (this.StateReason != null)
                     hashCode = hashCode * 59 + this.StateReason.GetHashCode();
+                if (this.StateReasonDetails != null)
+                    hashCode = hashCode * 59 + this.StateReasonDetails.GetHashCode();
                 if (this.State != null)
                     hashCode = hashCode * 59 + this.State.GetHashCode();
                 if (this.TransactionId != null)
