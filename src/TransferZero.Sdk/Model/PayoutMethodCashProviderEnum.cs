@@ -25,9 +25,9 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// The cash provider for the pickup:  For XOF valid options are: - &#x60;wari&#x60;: Wari - &#x60;wizall&#x60;: Wizall
+    /// The cash provider for the pickup: For XOF valid options are: - &#x60;wari&#x60;: Wari - &#x60;wizall&#x60;: Wizall
     /// </summary>
-    /// <value>The cash provider for the pickup:  For XOF valid options are: - &#x60;wari&#x60;: Wari - &#x60;wizall&#x60;: Wizall</value>
+    /// <value>The cash provider for the pickup: For XOF valid options are: - &#x60;wari&#x60;: Wari - &#x60;wizall&#x60;: Wizall</value>
     
     [JsonConverter(typeof(StringEnumConverter))]
     
