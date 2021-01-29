@@ -44,8 +44,9 @@ namespace TransferZero.Sdk.Model
         /// <param name="metadata">Additional metadata that can be added to a recipient. These values will be returned on request.</param>
         /// <param name="stateReasonDetails">stateReasonDetails.</param>
         /// <param name="state">state.</param>
+        /// <param name="transactionExternalId">Optional ID that is supplied by partner linking it to the partner&#39;s own Transaction ID..</param>
         /// <param name="transactionState">transactionState.</param>
-        public Recipient(decimal? requestedAmount = default(decimal?), string requestedCurrency = default(string), PayoutMethod payoutMethod = default(PayoutMethod), Object metadata = default(Object), RecipientStateReasonDetails stateReasonDetails = default(RecipientStateReasonDetails), RecipientState state = default(RecipientState), TransactionState transactionState = default(TransactionState))
+        public Recipient(decimal? requestedAmount = default(decimal?), string requestedCurrency = default(string), PayoutMethod payoutMethod = default(PayoutMethod), Object metadata = default(Object), RecipientStateReasonDetails stateReasonDetails = default(RecipientStateReasonDetails), RecipientState state = default(RecipientState), string transactionExternalId = default(string), TransactionState transactionState = default(TransactionState))
         {
             this.RequestedAmount = requestedAmount;
             this.RequestedCurrency = requestedCurrency;
@@ -53,6 +54,7 @@ namespace TransferZero.Sdk.Model
             this.Metadata = metadata;
             this.StateReasonDetails = stateReasonDetails;
             this.State = state;
+            this.TransactionExternalId = transactionExternalId;
             this.TransactionState = transactionState;
         }
         
@@ -145,6 +147,13 @@ namespace TransferZero.Sdk.Model
         public string TransactionId { get; private set; }
 
         /// <summary>
+        /// Optional ID that is supplied by partner linking it to the partner&#39;s own Transaction ID.
+        /// </summary>
+        /// <value>Optional ID that is supplied by partner linking it to the partner&#39;s own Transaction ID.</value>
+        [DataMember(Name="transaction_external_id", EmitDefaultValue=false)]
+        public string TransactionExternalId { get; set; }
+
+        /// <summary>
         /// Gets or Sets TransactionState
         /// </summary>
         [DataMember(Name="transaction_state", EmitDefaultValue=false)]
@@ -226,6 +235,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  StateReasonDetails: ").Append(StateReasonDetails).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
+            sb.Append("  TransactionExternalId: ").Append(TransactionExternalId).Append("\n");
             sb.Append("  TransactionState: ").Append(TransactionState).Append("\n");
             sb.Append("  ExchangeRate: ").Append(ExchangeRate).Append("\n");
             sb.Append("  FeeFractional: ").Append(FeeFractional).Append("\n");
@@ -335,6 +345,11 @@ namespace TransferZero.Sdk.Model
                     this.TransactionId.Equals(input.TransactionId))
                 ) && 
                 (
+                    this.TransactionExternalId == input.TransactionExternalId ||
+                    (this.TransactionExternalId != null &&
+                    this.TransactionExternalId.Equals(input.TransactionExternalId))
+                ) && 
+                (
                     this.TransactionState == input.TransactionState ||
                     (this.TransactionState != null &&
                     this.TransactionState.Equals(input.TransactionState))
@@ -416,6 +431,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.State.GetHashCode();
                 if (this.TransactionId != null)
                     hashCode = hashCode * 59 + this.TransactionId.GetHashCode();
+                if (this.TransactionExternalId != null)
+                    hashCode = hashCode * 59 + this.TransactionExternalId.GetHashCode();
                 if (this.TransactionState != null)
                     hashCode = hashCode * 59 + this.TransactionState.GetHashCode();
                 if (this.ExchangeRate != null)

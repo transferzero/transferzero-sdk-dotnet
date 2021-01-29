@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **StateReasonDetails** | [**RecipientStateReasonDetails**](RecipientStateReasonDetails.md) |  | [optional] 
 **State** | [**RecipientState**](RecipientState.md) |  | [optional] 
 **TransactionId** | **string** | The ID of the transaction that is related to this recipient | [optional] 
+**TransactionExternalId** | **string** | Optional ID that is supplied by partner linking it to the partner&#39;s own Transaction ID. | [optional] 
 **TransactionState** | [**TransactionState**](TransactionState.md) |  | [optional] 
 **ExchangeRate** | **decimal?** | The exchange rate used in this payment | [optional] 
 **FeeFractional** | **decimal?** | The fee for this payment in fractional units (for example cents for USD transactions) | [optional] 
