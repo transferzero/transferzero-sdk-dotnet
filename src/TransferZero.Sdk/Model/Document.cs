@@ -72,7 +72,9 @@ namespace TransferZero.Sdk.Model
         /// <param name="uploadContentType">uploadContentType.</param>
         /// <param name="uploadFileSize">uploadFileSize.</param>
         /// <param name="documentType">This is a brief description of the document type.</param>
-        public Document(string upload = default(string), string url = default(string), string uploadFileName = default(string), Object metadata = default(Object), string uploadContentType = default(string), int? uploadFileSize = default(int?), string documentType = default(string))
+        /// <param name="documentId">Document ID issued by government.</param>
+        /// <param name="expiryDate">Document expiry date issued by government.</param>
+        public Document(string upload = default(string), string url = default(string), string uploadFileName = default(string), Object metadata = default(Object), string uploadContentType = default(string), int? uploadFileSize = default(int?), string documentType = default(string), string documentId = default(string), DateTime? expiryDate = default(DateTime?))
         {
             this.Upload = upload;
             this.UploadFileName = uploadFileName;
@@ -81,6 +83,8 @@ namespace TransferZero.Sdk.Model
             this.UploadContentType = uploadContentType;
             this.UploadFileSize = uploadFileSize;
             this.DocumentType = documentType;
+            this.DocumentId = documentId;
+            this.ExpiryDate = expiryDate;
         }
         
         /// <summary>
@@ -152,6 +156,21 @@ namespace TransferZero.Sdk.Model
         public Guid? Id { get; private set; }
 
         /// <summary>
+        /// Document ID issued by government
+        /// </summary>
+        /// <value>Document ID issued by government</value>
+        [DataMember(Name="document_id", EmitDefaultValue=false)]
+        public string DocumentId { get; set; }
+
+        /// <summary>
+        /// Document expiry date issued by government
+        /// </summary>
+        /// <value>Document expiry date issued by government</value>
+        [DataMember(Name="expiry_date", EmitDefaultValue=false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime? ExpiryDate { get; set; }
+
+        /// <summary>
         /// The fields that have some problems and don&#39;t pass validation
         /// </summary>
         /// <value>The fields that have some problems and don&#39;t pass validation</value>
@@ -177,6 +196,8 @@ namespace TransferZero.Sdk.Model
             sb.Append("  DocumentType: ").Append(DocumentType).Append("\n");
             sb.Append("  IssuingCountry: ").Append(IssuingCountry).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  DocumentId: ").Append(DocumentId).Append("\n");
+            sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
             sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -268,6 +289,16 @@ namespace TransferZero.Sdk.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
+                    this.DocumentId == input.DocumentId ||
+                    (this.DocumentId != null &&
+                    this.DocumentId.Equals(input.DocumentId))
+                ) && 
+                (
+                    this.ExpiryDate == input.ExpiryDate ||
+                    (this.ExpiryDate != null &&
+                    this.ExpiryDate.Equals(input.ExpiryDate))
+                ) && 
+                (
                     this.Errors == input.Errors ||
                     this.Errors != null &&
                     this.Errors.SequenceEqual(input.Errors)
@@ -305,6 +336,10 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.IssuingCountry.GetHashCode();
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.DocumentId != null)
+                    hashCode = hashCode * 59 + this.DocumentId.GetHashCode();
+                if (this.ExpiryDate != null)
+                    hashCode = hashCode * 59 + this.ExpiryDate.GetHashCode();
                 if (this.Errors != null)
                     hashCode = hashCode * 59 + this.Errors.GetHashCode();
                 return hashCode;

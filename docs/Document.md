@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **DocumentType** | **string** | This is a brief description of the document type | [optional] 
 **IssuingCountry** | **string** | Issuing country of ID in 2-character alpha ISO 3166-2 country format | [optional] 
 **Id** | **Guid?** |  | [optional] 
+**DocumentId** | **string** | Document ID issued by government | [optional] 
+**ExpiryDate** | **DateTime?** | Document expiry date issued by government | [optional] 
 **Errors** | **Dictionary&lt;string, List&lt;ValidationErrorDescription&gt;&gt;** | The fields that have some problems and don&#39;t pass validation | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
