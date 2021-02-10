@@ -15,8 +15,6 @@ Name | Type | Description | Notes
 **Iban** | **string** |  | 
 **BankName** | **string** |  | 
 **BankCountry** | **string** |  | 
-**IdentityCardId** | **string** |  | [optional] 
-**IdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | [optional] 
 **CashProvider** | [**PayoutMethodCashProviderEnum**](PayoutMethodCashProviderEnum.md) |  | [optional] 
 **SortCode** | **string** |  | [optional] 
 **Bic** | **string** |  | [optional] 
@@ -26,6 +24,8 @@ Name | Type | Description | Notes
 **SenderCountryOfBirth** | **string** |  | 
 **SenderGender** | [**PayoutMethodGenderEnum**](PayoutMethodGenderEnum.md) |  | 
 **Reason** | **string** |  | [optional] 
+**IdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | [optional] 
+**IdentityCardId** | **string** |  | [optional] 
 **Reference** | **string** |  | [optional] 
 **Name** | **string** |  | 
 **Address** | **string** |  | 

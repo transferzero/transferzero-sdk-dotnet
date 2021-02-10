@@ -25,9 +25,9 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// The type of the identity card used by the sender or recipient:  - &#x60;PP&#x60;: Passport - &#x60;NI&#x60;: National Identity Card - &#x60;O&#x60;: Other type of identity card  For XOF valid options are: - &#x60;NI&#x60;: National ID - &#x60;PP&#x60;: Passport
+    /// The type of the identity card used by the sender or recipient:  - &#x60;PP&#x60;: Passport - &#x60;NI&#x60;: National Identity Card - &#x60;O&#x60;: Other type of identity card
     /// </summary>
-    /// <value>The type of the identity card used by the sender or recipient:  - &#x60;PP&#x60;: Passport - &#x60;NI&#x60;: National Identity Card - &#x60;O&#x60;: Other type of identity card  For XOF valid options are: - &#x60;NI&#x60;: National ID - &#x60;PP&#x60;: Passport</value>
+    /// <value>The type of the identity card used by the sender or recipient:  - &#x60;PP&#x60;: Passport - &#x60;NI&#x60;: National Identity Card - &#x60;O&#x60;: Other type of identity card</value>
     
     [JsonConverter(typeof(StringEnumConverter))]
     

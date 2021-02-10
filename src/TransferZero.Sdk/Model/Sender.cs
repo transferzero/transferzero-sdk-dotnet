@@ -58,9 +58,9 @@ namespace TransferZero.Sdk.Model
         [DataMember(Name="type", EmitDefaultValue=false)]
         public TypeEnum? Type { get; set; }
         /// <summary>
-        /// Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other
+        /// Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other  Please note for Wizall &#x60;XOF::Cash&#x60; transactions the valid options are: - &#x60;ID&#x60;: National ID - &#x60;PP&#x60;: Passport
         /// </summary>
-        /// <value>Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other</value>
+        /// <value>Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other  Please note for Wizall &#x60;XOF::Cash&#x60; transactions the valid options are: - &#x60;ID&#x60;: National ID - &#x60;PP&#x60;: Passport</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum IdentificationTypeEnum
         {
@@ -91,9 +91,9 @@ namespace TransferZero.Sdk.Model
         }
 
         /// <summary>
-        /// Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other
+        /// Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other  Please note for Wizall &#x60;XOF::Cash&#x60; transactions the valid options are: - &#x60;ID&#x60;: National ID - &#x60;PP&#x60;: Passport
         /// </summary>
-        /// <value>Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other</value>
+        /// <value>Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other  Please note for Wizall &#x60;XOF::Cash&#x60; transactions the valid options are: - &#x60;ID&#x60;: National ID - &#x60;PP&#x60;: Passport</value>
         [DataMember(Name="identification_type", EmitDefaultValue=false)]
         public IdentificationTypeEnum? IdentificationType { get; set; }
         /// <summary>
@@ -462,7 +462,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="ip">IP of sender (required).</param>
         /// <param name="addressDescription">Description of address.</param>
         /// <param name="identificationNumber">Identification number of document used.</param>
-        /// <param name="identificationType">Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other.</param>
+        /// <param name="identificationType">Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other  Please note for Wizall &#x60;XOF::Cash&#x60; transactions the valid options are: - &#x60;ID&#x60;: National ID - &#x60;PP&#x60;: Passport.</param>
         /// <param name="lang">Determines language of the served content. Defaults to English.</param>
         /// <param name="name">Name of sender (used only with a Business sender).</param>
         /// <param name="firstName">First name of sender (used only with a Personal sender).</param>

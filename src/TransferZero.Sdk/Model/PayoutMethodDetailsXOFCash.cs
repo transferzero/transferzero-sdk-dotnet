@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;774044436\&quot;, // local or international Senegalese format   \&quot;identity_card_id\&quot;: \&quot;2231324232\&quot;, // Required if cash_provider value is \&quot;wizall\&quot;   \&quot;identity_card_type\&quot;: \&quot;PP\&quot;, // Required if cash_provider value is \&quot;wizall\&quot;   \&quot;cash_provider\&quot;: \&quot;wizall\&quot; // Optional; Values: \&quot;wari\&quot; or \&quot;wizall; Default value is \&quot;wari\&quot; } &#x60;&#x60;&#x60;  Please note when sending Wari cash pickup requests you should subscribe to the recipient.pending webhook, as that will broadcast the payment reference ID the customer need to use to obtain the funds. Example webhook response excerpt -  &#x60;&#x60;&#x60;JSON {   (...)   \&quot;state\&quot;:\&quot;pending\&quot;,   \&quot;metadata\&quot;: {     \&quot;payment_reference\&quot;:\&quot;9M5GJRJUBCY\&quot;   },   (...) } &#x60;&#x60;&#x60;
+    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;774044436\&quot;, // local or international Senegalese format   \&quot;cash_provider\&quot;: \&quot;wizall\&quot; // Optional; Values: \&quot;wari\&quot; or \&quot;wizall; Default value is \&quot;wari\&quot; } &#x60;&#x60;&#x60;  Please note when sending Wari cash pickup requests you should subscribe to the recipient.pending webhook, as that will broadcast the payment reference ID the customer need to use to obtain the funds. Example webhook response excerpt -  &#x60;&#x60;&#x60;JSON {   (...)   \&quot;state\&quot;:\&quot;pending\&quot;,   \&quot;metadata\&quot;: {     \&quot;payment_reference\&quot;:\&quot;9M5GJRJUBCY\&quot;   },   (...) } &#x60;&#x60;&#x60;  Please note all senders trying to create Wizall cash pickup requests must have &#x60;identity_type&#x60; and &#x60;\&quot;identity_number&#x60; present. The fields above are generally considered optional for senders for other payment corridors. If you wish to use an existing sender who has some of these fields missing you can provide them alongside the &#x60;id&#x60; or &#x60;external_id&#x60; field in the sender details. For example -  &#x60;&#x60;&#x60;JSON {   \&quot;transaction\&quot;: {       \&quot;sender\&quot;: {         \&quot;external_id\&quot;: \&quot;&lt;id of sender&gt;\&quot;,         \&quot;identity_type\&quot;: \&quot;ID\&quot;,         \&quot;identity_number\&quot;: \&quot;AB12345678\&quot;,         (...)       },       (...)     } } &#x60;&#x60;&#x60;
     /// </summary>
     [DataContract]
     public partial class PayoutMethodDetailsXOFCash :  IEquatable<PayoutMethodDetailsXOFCash>, IValidatableObject
@@ -40,17 +40,13 @@ namespace TransferZero.Sdk.Model
         /// </summary>
         /// <param name="firstName">firstName (required).</param>
         /// <param name="lastName">lastName (required).</param>
-        /// <param name="identityCardId">identityCardId.</param>
-        /// <param name="identityCardType">identityCardType.</param>
         /// <param name="phoneNumber">phoneNumber (required).</param>
         /// <param name="cashProvider">cashProvider.</param>
-        public PayoutMethodDetailsXOFCash(string firstName = default(string), string lastName = default(string), string identityCardId = default(string), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string phoneNumber = default(string), PayoutMethodCashProviderEnum cashProvider = default(PayoutMethodCashProviderEnum))
+        public PayoutMethodDetailsXOFCash(string firstName = default(string), string lastName = default(string), string phoneNumber = default(string), PayoutMethodCashProviderEnum cashProvider = default(PayoutMethodCashProviderEnum))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.PhoneNumber = phoneNumber;
-            this.IdentityCardId = identityCardId;
-            this.IdentityCardType = identityCardType;
             this.CashProvider = cashProvider;
         }
         
@@ -65,18 +61,6 @@ namespace TransferZero.Sdk.Model
         /// </summary>
         [DataMember(Name="last_name", EmitDefaultValue=false)]
         public string LastName { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IdentityCardId
-        /// </summary>
-        [DataMember(Name="identity_card_id", EmitDefaultValue=false)]
-        public string IdentityCardId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IdentityCardType
-        /// </summary>
-        [DataMember(Name="identity_card_type", EmitDefaultValue=false)]
-        public PayoutMethodIdentityCardTypeEnum IdentityCardType { get; set; }
 
         /// <summary>
         /// Gets or Sets PhoneNumber
@@ -100,8 +84,6 @@ namespace TransferZero.Sdk.Model
             sb.Append("class PayoutMethodDetailsXOFCash {\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
-            sb.Append("  IdentityCardId: ").Append(IdentityCardId).Append("\n");
-            sb.Append("  IdentityCardType: ").Append(IdentityCardType).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  CashProvider: ").Append(CashProvider).Append("\n");
             sb.Append("}\n");
@@ -149,16 +131,6 @@ namespace TransferZero.Sdk.Model
                     this.LastName.Equals(input.LastName))
                 ) && 
                 (
-                    this.IdentityCardId == input.IdentityCardId ||
-                    (this.IdentityCardId != null &&
-                    this.IdentityCardId.Equals(input.IdentityCardId))
-                ) && 
-                (
-                    this.IdentityCardType == input.IdentityCardType ||
-                    (this.IdentityCardType != null &&
-                    this.IdentityCardType.Equals(input.IdentityCardType))
-                ) && 
-                (
                     this.PhoneNumber == input.PhoneNumber ||
                     (this.PhoneNumber != null &&
                     this.PhoneNumber.Equals(input.PhoneNumber))
@@ -183,10 +155,6 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.FirstName.GetHashCode();
                 if (this.LastName != null)
                     hashCode = hashCode * 59 + this.LastName.GetHashCode();
-                if (this.IdentityCardId != null)
-                    hashCode = hashCode * 59 + this.IdentityCardId.GetHashCode();
-                if (this.IdentityCardType != null)
-                    hashCode = hashCode * 59 + this.IdentityCardType.GetHashCode();
                 if (this.PhoneNumber != null)
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
                 if (this.CashProvider != null)

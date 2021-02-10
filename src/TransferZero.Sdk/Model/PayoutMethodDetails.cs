@@ -48,8 +48,6 @@ namespace TransferZero.Sdk.Model
         /// <param name="iban">iban (required).</param>
         /// <param name="bankName">bankName (required).</param>
         /// <param name="bankCountry">bankCountry (required).</param>
-        /// <param name="identityCardId">identityCardId.</param>
-        /// <param name="identityCardType">identityCardType.</param>
         /// <param name="cashProvider">cashProvider.</param>
         /// <param name="sortCode">sortCode.</param>
         /// <param name="bic">bic.</param>
@@ -59,6 +57,8 @@ namespace TransferZero.Sdk.Model
         /// <param name="senderCountryOfBirth">senderCountryOfBirth (required).</param>
         /// <param name="senderGender">senderGender (required).</param>
         /// <param name="reason">reason.</param>
+        /// <param name="identityCardType">identityCardType.</param>
+        /// <param name="identityCardId">identityCardId.</param>
         /// <param name="reference">reference.</param>
         /// <param name="name">name (required).</param>
         /// <param name="address">address (required).</param>
@@ -67,7 +67,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="city">city (required).</param>
         /// <param name="email">email.</param>
         /// <param name="transferReasonCode">transferReasonCode.</param>
-        public PayoutMethodDetails(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), string iban = default(string), string bankName = default(string), string bankCountry = default(string), string identityCardId = default(string), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), PayoutMethodCashProviderEnum cashProvider = default(PayoutMethodCashProviderEnum), string sortCode = default(string), string bic = default(string), PayoutMethodIdentityCardTypeEnum senderIdentityCardType = default(PayoutMethodIdentityCardTypeEnum), string senderIdentityCardId = default(string), string senderCityOfBirth = default(string), string senderCountryOfBirth = default(string), PayoutMethodGenderEnum senderGender = default(PayoutMethodGenderEnum), string reason = default(string), string reference = default(string), string name = default(string), string address = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string email = default(string), string transferReasonCode = default(string))
+        public PayoutMethodDetails(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), string iban = default(string), string bankName = default(string), string bankCountry = default(string), PayoutMethodCashProviderEnum cashProvider = default(PayoutMethodCashProviderEnum), string sortCode = default(string), string bic = default(string), PayoutMethodIdentityCardTypeEnum senderIdentityCardType = default(PayoutMethodIdentityCardTypeEnum), string senderIdentityCardId = default(string), string senderCityOfBirth = default(string), string senderCountryOfBirth = default(string), PayoutMethodGenderEnum senderGender = default(PayoutMethodGenderEnum), string reason = default(string), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), string reference = default(string), string name = default(string), string address = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string email = default(string), string transferReasonCode = default(string))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -89,12 +89,12 @@ namespace TransferZero.Sdk.Model
             this.PostalCode = postalCode;
             this.City = city;
             this.BankAccountType = bankAccountType;
-            this.IdentityCardId = identityCardId;
-            this.IdentityCardType = identityCardType;
             this.CashProvider = cashProvider;
             this.SortCode = sortCode;
             this.Bic = bic;
             this.Reason = reason;
+            this.IdentityCardType = identityCardType;
+            this.IdentityCardId = identityCardId;
             this.Reference = reference;
             this.Email = email;
             this.TransferReasonCode = transferReasonCode;
@@ -161,18 +161,6 @@ namespace TransferZero.Sdk.Model
         public string BankCountry { get; set; }
 
         /// <summary>
-        /// Gets or Sets IdentityCardId
-        /// </summary>
-        [DataMember(Name="identity_card_id", EmitDefaultValue=false)]
-        public string IdentityCardId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IdentityCardType
-        /// </summary>
-        [DataMember(Name="identity_card_type", EmitDefaultValue=false)]
-        public PayoutMethodIdentityCardTypeEnum IdentityCardType { get; set; }
-
-        /// <summary>
         /// Gets or Sets CashProvider
         /// </summary>
         [DataMember(Name="cash_provider", EmitDefaultValue=false)]
@@ -225,6 +213,18 @@ namespace TransferZero.Sdk.Model
         /// </summary>
         [DataMember(Name="reason", EmitDefaultValue=false)]
         public string Reason { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IdentityCardType
+        /// </summary>
+        [DataMember(Name="identity_card_type", EmitDefaultValue=false)]
+        public PayoutMethodIdentityCardTypeEnum IdentityCardType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IdentityCardId
+        /// </summary>
+        [DataMember(Name="identity_card_id", EmitDefaultValue=false)]
+        public string IdentityCardId { get; set; }
 
         /// <summary>
         /// Gets or Sets Reference
@@ -292,8 +292,6 @@ namespace TransferZero.Sdk.Model
             sb.Append("  Iban: ").Append(Iban).Append("\n");
             sb.Append("  BankName: ").Append(BankName).Append("\n");
             sb.Append("  BankCountry: ").Append(BankCountry).Append("\n");
-            sb.Append("  IdentityCardId: ").Append(IdentityCardId).Append("\n");
-            sb.Append("  IdentityCardType: ").Append(IdentityCardType).Append("\n");
             sb.Append("  CashProvider: ").Append(CashProvider).Append("\n");
             sb.Append("  SortCode: ").Append(SortCode).Append("\n");
             sb.Append("  Bic: ").Append(Bic).Append("\n");
@@ -303,6 +301,8 @@ namespace TransferZero.Sdk.Model
             sb.Append("  SenderCountryOfBirth: ").Append(SenderCountryOfBirth).Append("\n");
             sb.Append("  SenderGender: ").Append(SenderGender).Append("\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
+            sb.Append("  IdentityCardType: ").Append(IdentityCardType).Append("\n");
+            sb.Append("  IdentityCardId: ").Append(IdentityCardId).Append("\n");
             sb.Append("  Reference: ").Append(Reference).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Address: ").Append(Address).Append("\n");
@@ -396,16 +396,6 @@ namespace TransferZero.Sdk.Model
                     this.BankCountry.Equals(input.BankCountry))
                 ) && 
                 (
-                    this.IdentityCardId == input.IdentityCardId ||
-                    (this.IdentityCardId != null &&
-                    this.IdentityCardId.Equals(input.IdentityCardId))
-                ) && 
-                (
-                    this.IdentityCardType == input.IdentityCardType ||
-                    (this.IdentityCardType != null &&
-                    this.IdentityCardType.Equals(input.IdentityCardType))
-                ) && 
-                (
                     this.CashProvider == input.CashProvider ||
                     (this.CashProvider != null &&
                     this.CashProvider.Equals(input.CashProvider))
@@ -449,6 +439,16 @@ namespace TransferZero.Sdk.Model
                     this.Reason == input.Reason ||
                     (this.Reason != null &&
                     this.Reason.Equals(input.Reason))
+                ) && 
+                (
+                    this.IdentityCardType == input.IdentityCardType ||
+                    (this.IdentityCardType != null &&
+                    this.IdentityCardType.Equals(input.IdentityCardType))
+                ) && 
+                (
+                    this.IdentityCardId == input.IdentityCardId ||
+                    (this.IdentityCardId != null &&
+                    this.IdentityCardId.Equals(input.IdentityCardId))
                 ) && 
                 (
                     this.Reference == input.Reference ||
@@ -521,10 +521,6 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.BankName.GetHashCode();
                 if (this.BankCountry != null)
                     hashCode = hashCode * 59 + this.BankCountry.GetHashCode();
-                if (this.IdentityCardId != null)
-                    hashCode = hashCode * 59 + this.IdentityCardId.GetHashCode();
-                if (this.IdentityCardType != null)
-                    hashCode = hashCode * 59 + this.IdentityCardType.GetHashCode();
                 if (this.CashProvider != null)
                     hashCode = hashCode * 59 + this.CashProvider.GetHashCode();
                 if (this.SortCode != null)
@@ -543,6 +539,10 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.SenderGender.GetHashCode();
                 if (this.Reason != null)
                     hashCode = hashCode * 59 + this.Reason.GetHashCode();
+                if (this.IdentityCardType != null)
+                    hashCode = hashCode * 59 + this.IdentityCardType.GetHashCode();
+                if (this.IdentityCardId != null)
+                    hashCode = hashCode * 59 + this.IdentityCardId.GetHashCode();
                 if (this.Reference != null)
                     hashCode = hashCode * 59 + this.Reference.GetHashCode();
                 if (this.Name != null)

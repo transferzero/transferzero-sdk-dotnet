@@ -7,8 +7,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FirstName** | **string** |  | 
 **LastName** | **string** |  | 
-**IdentityCardId** | **string** |  | [optional] 
-**IdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | [optional] 
 **PhoneNumber** | **string** |  | 
 **CashProvider** | [**PayoutMethodCashProviderEnum**](PayoutMethodCashProviderEnum.md) |  | [optional] 
 
