@@ -122,10 +122,11 @@ namespace TransferZero.Sdk.Model
         /// <param name="bankAccount">Account Number to query.</param>
         /// <param name="bankCode">Bank Code to query - same codes are used as for creating the transactions.</param>
         /// <param name="phoneNumber">Phone number to query.</param>
+        /// <param name="mobileProvider">mobileProvider.</param>
         /// <param name="country">Country of account in 2-character alpha ISO 3166-2 country format (required).</param>
         /// <param name="currency">The currency the bank account is in (required).</param>
         /// <param name="method">The method of the payment. Currently bank and mobile are supported (required).</param>
-        public AccountValidationRequest(string bankAccount = default(string), string bankCode = default(string), string phoneNumber = default(string), CountryEnum country = default(CountryEnum), CurrencyEnum currency = default(CurrencyEnum), MethodEnum method = default(MethodEnum))
+        public AccountValidationRequest(string bankAccount = default(string), string bankCode = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), CountryEnum country = default(CountryEnum), CurrencyEnum currency = default(CurrencyEnum), MethodEnum method = default(MethodEnum))
         {
             this.Country = country;
             this.Currency = currency;
@@ -133,6 +134,7 @@ namespace TransferZero.Sdk.Model
             this.BankAccount = bankAccount;
             this.BankCode = bankCode;
             this.PhoneNumber = phoneNumber;
+            this.MobileProvider = mobileProvider;
         }
         
         /// <summary>
@@ -156,6 +158,12 @@ namespace TransferZero.Sdk.Model
         [DataMember(Name="phone_number", EmitDefaultValue=false)]
         public string PhoneNumber { get; set; }
 
+        /// <summary>
+        /// Gets or Sets MobileProvider
+        /// </summary>
+        [DataMember(Name="mobile_provider", EmitDefaultValue=false)]
+        public PayoutMethodMobileProviderEnum MobileProvider { get; set; }
+
 
 
 
@@ -170,6 +178,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
             sb.Append("  BankCode: ").Append(BankCode).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            sb.Append("  MobileProvider: ").Append(MobileProvider).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  Method: ").Append(Method).Append("\n");
@@ -223,6 +232,11 @@ namespace TransferZero.Sdk.Model
                     this.PhoneNumber.Equals(input.PhoneNumber))
                 ) && 
                 (
+                    this.MobileProvider == input.MobileProvider ||
+                    (this.MobileProvider != null &&
+                    this.MobileProvider.Equals(input.MobileProvider))
+                ) && 
+                (
                     this.Country == input.Country ||
                     (this.Country != null &&
                     this.Country.Equals(input.Country))
@@ -254,6 +268,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.BankCode.GetHashCode();
                 if (this.PhoneNumber != null)
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
+                if (this.MobileProvider != null)
+                    hashCode = hashCode * 59 + this.MobileProvider.GetHashCode();
                 if (this.Country != null)
                     hashCode = hashCode * 59 + this.Country.GetHashCode();
                 if (this.Currency != null)
