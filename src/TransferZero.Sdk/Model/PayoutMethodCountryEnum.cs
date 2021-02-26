@@ -49,7 +49,73 @@ namespace TransferZero.Sdk.Model
         /// Enum SN for value: SN
         /// </summary>
         [EnumMember(Value = "SN")]
-        SN = 3
+        SN = 3,
+
+        /// <summary>
+        /// Enum NG for value: NG
+        /// </summary>
+        [EnumMember(Value = "NG")]
+        NG = 4,
+
+        /// <summary>
+        /// Enum MA for value: MA
+        /// </summary>
+        [EnumMember(Value = "MA")]
+        MA = 5,
+
+        /// <summary>
+        /// Enum TZ for value: TZ
+        /// </summary>
+        [EnumMember(Value = "TZ")]
+        TZ = 6,
+
+        /// <summary>
+        /// Enum GH for value: GH
+        /// </summary>
+        [EnumMember(Value = "GH")]
+        GH = 7,
+
+        /// <summary>
+        /// Enum UG for value: UG
+        /// </summary>
+        [EnumMember(Value = "UG")]
+        UG = 8,
+
+        /// <summary>
+        /// Enum KE for value: KE
+        /// </summary>
+        [EnumMember(Value = "KE")]
+        KE = 9,
+
+        /// <summary>
+        /// Enum NJ for value: NJ
+        /// </summary>
+        [EnumMember(Value = "NJ")]
+        NJ = 10,
+
+        /// <summary>
+        /// Enum EU for value: EU
+        /// </summary>
+        [EnumMember(Value = "EU")]
+        EU = 11,
+
+        /// <summary>
+        /// Enum GB for value: GB
+        /// </summary>
+        [EnumMember(Value = "GB")]
+        GB = 12,
+
+        /// <summary>
+        /// Enum ZA for value: ZA
+        /// </summary>
+        [EnumMember(Value = "ZA")]
+        ZA = 13,
+
+        /// <summary>
+        /// Enum EG for value: EG
+        /// </summary>
+        [EnumMember(Value = "EG")]
+        EG = 14
 
     }
 
