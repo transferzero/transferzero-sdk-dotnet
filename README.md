@@ -264,6 +264,7 @@ Class | Method | HTTP request | Description
  - [Model.PayoutMethodDetailsBalance](docs/PayoutMethodDetailsBalance.md)
  - [Model.PayoutMethodDetailsGBPBank](docs/PayoutMethodDetailsGBPBank.md)
  - [Model.PayoutMethodDetailsGHSBank](docs/PayoutMethodDetailsGHSBank.md)
+ - [Model.PayoutMethodDetailsGHSCash](docs/PayoutMethodDetailsGHSCash.md)
  - [Model.PayoutMethodDetailsIBAN](docs/PayoutMethodDetailsIBAN.md)
  - [Model.PayoutMethodDetailsMADCash](docs/PayoutMethodDetailsMADCash.md)
  - [Model.PayoutMethodDetailsMobile](docs/PayoutMethodDetailsMobile.md)
