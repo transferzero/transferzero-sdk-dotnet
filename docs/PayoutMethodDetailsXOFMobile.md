@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **LastName** | **string** |  | 
 **PhoneNumber** | **string** |  | 
 **MobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  | 
+**Country** | [**PayoutMethodCountryEnum**](PayoutMethodCountryEnum.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;774044436\&quot;     # local or international Senegalese format   \&quot;mobile_provider\&quot;: \&quot;orange\&quot;, # \&quot;orange\&quot; or \&quot;tigo\&quot; } &#x60;&#x60;&#x60;
+    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;774044436\&quot;,     # local or international Senegalese or Ivory Coast format   \&quot;mobile_provider\&quot;: \&quot;orange\&quot;, # \&quot;orange\&quot; or \&quot;tigo\&quot; for Senegal; \&quot;orange\&quot;, \&quot;mtn\&quot; or \&quot;moov\&quot; for Ivory Coast   \&quot;country\&quot; # Optional; Values: \&quot;SN\&quot; for Senegal or \&quot;CI\&quot; for Ivory Coast; Default value is \&quot;SN\&quot; } &#x60;&#x60;&#x60;
     /// </summary>
     [DataContract]
     public partial class PayoutMethodDetailsXOFMobile :  IEquatable<PayoutMethodDetailsXOFMobile>, IValidatableObject
@@ -42,12 +42,14 @@ namespace TransferZero.Sdk.Model
         /// <param name="lastName">lastName (required).</param>
         /// <param name="phoneNumber">phoneNumber (required).</param>
         /// <param name="mobileProvider">mobileProvider (required).</param>
-        public PayoutMethodDetailsXOFMobile(string firstName = default(string), string lastName = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum))
+        /// <param name="country">country.</param>
+        public PayoutMethodDetailsXOFMobile(string firstName = default(string), string lastName = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.PhoneNumber = phoneNumber;
             this.MobileProvider = mobileProvider;
+            this.Country = country;
         }
         
         /// <summary>
@@ -75,6 +77,12 @@ namespace TransferZero.Sdk.Model
         public PayoutMethodMobileProviderEnum MobileProvider { get; set; }
 
         /// <summary>
+        /// Gets or Sets Country
+        /// </summary>
+        [DataMember(Name="country", EmitDefaultValue=false)]
+        public PayoutMethodCountryEnum Country { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -86,6 +94,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  MobileProvider: ").Append(MobileProvider).Append("\n");
+            sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -139,6 +148,11 @@ namespace TransferZero.Sdk.Model
                     this.MobileProvider == input.MobileProvider ||
                     (this.MobileProvider != null &&
                     this.MobileProvider.Equals(input.MobileProvider))
+                ) && 
+                (
+                    this.Country == input.Country ||
+                    (this.Country != null &&
+                    this.Country.Equals(input.Country))
                 );
         }
 
@@ -159,6 +173,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
                 if (this.MobileProvider != null)
                     hashCode = hashCode * 59 + this.MobileProvider.GetHashCode();
+                if (this.Country != null)
+                    hashCode = hashCode * 59 + this.Country.GetHashCode();
                 return hashCode;
             }
         }

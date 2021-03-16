@@ -25,9 +25,9 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// The mobile provider of the recipient:  For XOF valid options are: - &#x60;orange&#x60;: Orange - &#x60;tigo&#x60;: Tigo  For GHS valid options are: - &#x60;mtn&#x60;: MTN - &#x60;airtel&#x60;: Airtel - &#x60;tigo&#x60;: Tigo - &#x60;vodafone&#x60;: Vodafone
+    /// The mobile provider of the recipient:  For XOF (Senegal) valid options are: - &#x60;orange&#x60;: Orange - &#x60;tigo&#x60;: Tigo  For XOF (Ivory Coast) valid options are: - &#x60;orange&#x60;: Orange - &#x60;moov&#x60;: Moov - &#x60;mtn&#x60;: MTN  For GHS valid options are: - &#x60;mtn&#x60;: MTN - &#x60;airtel&#x60;: Airtel - &#x60;tigo&#x60;: Tigo - &#x60;vodafone&#x60;: Vodafone
     /// </summary>
-    /// <value>The mobile provider of the recipient:  For XOF valid options are: - &#x60;orange&#x60;: Orange - &#x60;tigo&#x60;: Tigo  For GHS valid options are: - &#x60;mtn&#x60;: MTN - &#x60;airtel&#x60;: Airtel - &#x60;tigo&#x60;: Tigo - &#x60;vodafone&#x60;: Vodafone</value>
+    /// <value>The mobile provider of the recipient:  For XOF (Senegal) valid options are: - &#x60;orange&#x60;: Orange - &#x60;tigo&#x60;: Tigo  For XOF (Ivory Coast) valid options are: - &#x60;orange&#x60;: Orange - &#x60;moov&#x60;: Moov - &#x60;mtn&#x60;: MTN  For GHS valid options are: - &#x60;mtn&#x60;: MTN - &#x60;airtel&#x60;: Airtel - &#x60;tigo&#x60;: Tigo - &#x60;vodafone&#x60;: Vodafone</value>
     
     [JsonConverter(typeof(StringEnumConverter))]
     
@@ -46,22 +46,28 @@ namespace TransferZero.Sdk.Model
         Tigo = 2,
 
         /// <summary>
+        /// Enum Moov for value: moov
+        /// </summary>
+        [EnumMember(Value = "moov")]
+        Moov = 3,
+
+        /// <summary>
         /// Enum Mtn for value: mtn
         /// </summary>
         [EnumMember(Value = "mtn")]
-        Mtn = 3,
+        Mtn = 4,
 
         /// <summary>
         /// Enum Airtel for value: airtel
         /// </summary>
         [EnumMember(Value = "airtel")]
-        Airtel = 4,
+        Airtel = 5,
 
         /// <summary>
         /// Enum Vodafone for value: vodafone
         /// </summary>
         [EnumMember(Value = "vodafone")]
-        Vodafone = 5
+        Vodafone = 6
 
     }
 
