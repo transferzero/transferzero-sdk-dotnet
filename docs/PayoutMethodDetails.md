@@ -21,8 +21,8 @@ Name | Type | Description | Notes
 **Bic** | **string** |  | [optional] 
 **SenderIdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 
 **SenderIdentityCardId** | **string** |  | 
-**SenderCityOfBirth** | **string** |  | 
-**SenderCountryOfBirth** | **string** |  | 
+**SenderCityOfBirth** | **string** |  | [optional] 
+**SenderCountryOfBirth** | **string** |  | [optional] 
 **SenderGender** | [**PayoutMethodGenderEnum**](PayoutMethodGenderEnum.md) |  | 
 **Reason** | **string** |  | [optional] 
 **IdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | [optional] 
