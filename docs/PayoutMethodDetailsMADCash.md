@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **SenderIdentityCardId** | **string** |  | 
 **SenderCityOfBirth** | **string** |  | [optional] 
 **SenderCountryOfBirth** | **string** |  | [optional] 
-**SenderGender** | [**PayoutMethodGenderEnum**](PayoutMethodGenderEnum.md) |  | 
+**SenderGender** | [**PayoutMethodGenderEnum**](PayoutMethodGenderEnum.md) |  | [optional] 
 **Reason** | **string** |  | [optional] 
 **IdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | [optional] 
 **IdentityCardId** | **string** |  | [optional] 
