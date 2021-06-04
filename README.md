@@ -273,6 +273,7 @@ Class | Method | HTTP request | Description
  - [Model.PayoutMethodDetailsXOFCash](docs/PayoutMethodDetailsXOFCash.md)
  - [Model.PayoutMethodDetailsXOFMobile](docs/PayoutMethodDetailsXOFMobile.md)
  - [Model.PayoutMethodDetailsZARBank](docs/PayoutMethodDetailsZARBank.md)
+ - [Model.PayoutMethodEntityTypeEnum](docs/PayoutMethodEntityTypeEnum.md)
  - [Model.PayoutMethodGenderEnum](docs/PayoutMethodGenderEnum.md)
  - [Model.PayoutMethodIdentityCardTypeEnum](docs/PayoutMethodIdentityCardTypeEnum.md)
  - [Model.PayoutMethodListResponse](docs/PayoutMethodListResponse.md)

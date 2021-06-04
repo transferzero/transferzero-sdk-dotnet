@@ -35,6 +35,11 @@ Name | Type | Description | Notes
 **City** | **string** |  | 
 **Email** | **string** |  | [optional] 
 **TransferReasonCode** | **string** |  | [optional] 
+**ContactFirstName** | **string** |  | [optional] 
+**ContactLastName** | **string** |  | [optional] 
+**RegistrationNumber** | **string** |  | [optional] 
+**NatureOfBusiness** | **string** |  | [optional] 
+**EntityType** | [**PayoutMethodEntityTypeEnum**](PayoutMethodEntityTypeEnum.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

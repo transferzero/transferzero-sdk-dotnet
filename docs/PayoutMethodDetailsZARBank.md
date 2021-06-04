@@ -15,6 +15,12 @@ Name | Type | Description | Notes
 **BankAccount** | **string** |  | 
 **PhoneNumber** | **string** |  | 
 **TransferReasonCode** | **string** |  | [optional] 
+**Name** | **string** |  | [optional] 
+**ContactFirstName** | **string** |  | [optional] 
+**ContactLastName** | **string** |  | [optional] 
+**RegistrationNumber** | **string** |  | [optional] 
+**NatureOfBusiness** | **string** |  | [optional] 
+**EntityType** | [**PayoutMethodEntityTypeEnum**](PayoutMethodEntityTypeEnum.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
