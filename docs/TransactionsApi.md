@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
 
 <a name="gettransactions"></a>
 # **GetTransactions**
-> TransactionListResponse GetTransactions (int? page = null, int? per = null, string externalId = null, string senderId = null)
+> TransactionListResponse GetTransactions (int? page = null, int? per = null, string externalId = null, string senderId = null, string transactionsType = null)
 
 Get a list of transactions
 
@@ -388,10 +388,11 @@ namespace Example
             var per = 10;  // int? | The number of results to load per page (defaults to 10) (optional) 
             var externalId = externalId_example;  // string | Allows filtering results by `external_id`.  Example: `/v1/senders?external_id=26ec8517-2f0d-48c0-b74f-0bccb9ab3a87` (optional) 
             var senderId = senderId_example;  // string | Allows filtering results by `sender_id`.  Example: `/v1/transactions?sender_id=b41d3cb7-6c54-4245-85fc-8e30690eb0f7` (optional) 
+            var transactionsType = transactionsType_example;  // string | Allows filtering results by `transactions_type`.  Example: `/v1/transactions?transactions_type=automated` (optional) 
 
             try {
                 // Get a list of transactions
-                TransactionListResponse result = apiInstance.GetTransactions(page, per, externalId, senderId);
+                TransactionListResponse result = apiInstance.GetTransactions(page, per, externalId, senderId, transactionsType);
                 Debug.WriteLine(result);
             } catch (ApiException e)
             {
@@ -435,11 +436,12 @@ Module Example
         Dim per = 10 REM int? | The number of results to load per page (defaults to 10) (optional) 
         Dim externalId = externalId_example REM string | Allows filtering results by `external_id`.  Example: `/v1/senders?external_id=26ec8517-2f0d-48c0-b74f-0bccb9ab3a87` (optional) 
         Dim senderId = senderId_example REM string | Allows filtering results by `sender_id`.  Example: `/v1/transactions?sender_id=b41d3cb7-6c54-4245-85fc-8e30690eb0f7` (optional) 
+        Dim transactionsType = transactionsType_example REM string | Allows filtering results by `transactions_type`.  Example: `/v1/transactions?transactions_type=automated` (optional) 
 
 
         Try
             REM Get a list of transactions
-            Dim result As TransactionListResponse = apiInstance.GetTransactions(page, per, externalId, senderId)
+            Dim result As TransactionListResponse = apiInstance.GetTransactions(page, per, externalId, senderId, transactionsType)
             Debug.WriteLine(result)
         Catch e as ApiException
             If e.IsValidationError Then
@@ -463,6 +465,7 @@ Name | Type | Description  | Notes
  **per** | **int?**| The number of results to load per page (defaults to 10) | [optional] 
  **externalId** | **string**| Allows filtering results by &#x60;external_id&#x60;.  Example: &#x60;/v1/senders?external_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; | [optional] 
  **senderId** | **string**| Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; | [optional] 
+ **transactionsType** | **string**| Allows filtering results by &#x60;transactions_type&#x60;.  Example: &#x60;/v1/transactions?transactions_type&#x3D;automated&#x60; | [optional] 
 
 ### Return type
 
