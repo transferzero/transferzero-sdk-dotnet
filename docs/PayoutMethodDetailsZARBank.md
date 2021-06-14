@@ -19,8 +19,8 @@ Name | Type | Description | Notes
 **ContactFirstName** | **string** |  | [optional] 
 **ContactLastName** | **string** |  | [optional] 
 **RegistrationNumber** | **string** |  | [optional] 
-**NatureOfBusiness** | **string** |  | [optional] 
-**EntityType** | [**PayoutMethodEntityTypeEnum**](PayoutMethodEntityTypeEnum.md) |  | [optional] 
+**NatureOfBusiness** | [**PayoutMethodNatureOfBusinessEnum**](PayoutMethodNatureOfBusinessEnum.md) |  | [optional] 
+**LegalEntityType** | [**PayoutMethodLegalEntityTypeEnum**](PayoutMethodLegalEntityTypeEnum.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

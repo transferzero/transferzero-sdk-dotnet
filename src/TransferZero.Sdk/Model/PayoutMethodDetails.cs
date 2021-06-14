@@ -72,8 +72,8 @@ namespace TransferZero.Sdk.Model
         /// <param name="contactLastName">contactLastName.</param>
         /// <param name="registrationNumber">registrationNumber.</param>
         /// <param name="natureOfBusiness">natureOfBusiness.</param>
-        /// <param name="entityType">entityType.</param>
-        public PayoutMethodDetails(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum), string iban = default(string), string bankName = default(string), string bankCountry = default(string), PayoutMethodCashProviderEnum cashProvider = default(PayoutMethodCashProviderEnum), string sortCode = default(string), string bic = default(string), PayoutMethodIdentityCardTypeEnum senderIdentityCardType = default(PayoutMethodIdentityCardTypeEnum), string senderIdentityCardId = default(string), string senderCityOfBirth = default(string), string senderCountryOfBirth = default(string), PayoutMethodGenderEnum senderGender = default(PayoutMethodGenderEnum), string reason = default(string), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), string reference = default(string), string name = default(string), string address = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string email = default(string), string transferReasonCode = default(string), string contactFirstName = default(string), string contactLastName = default(string), string registrationNumber = default(string), string natureOfBusiness = default(string), PayoutMethodEntityTypeEnum entityType = default(PayoutMethodEntityTypeEnum))
+        /// <param name="legalEntityType">legalEntityType.</param>
+        public PayoutMethodDetails(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum), string iban = default(string), string bankName = default(string), string bankCountry = default(string), PayoutMethodCashProviderEnum cashProvider = default(PayoutMethodCashProviderEnum), string sortCode = default(string), string bic = default(string), PayoutMethodIdentityCardTypeEnum senderIdentityCardType = default(PayoutMethodIdentityCardTypeEnum), string senderIdentityCardId = default(string), string senderCityOfBirth = default(string), string senderCountryOfBirth = default(string), PayoutMethodGenderEnum senderGender = default(PayoutMethodGenderEnum), string reason = default(string), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), string reference = default(string), string name = default(string), string address = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string email = default(string), string transferReasonCode = default(string), string contactFirstName = default(string), string contactLastName = default(string), string registrationNumber = default(string), PayoutMethodNatureOfBusinessEnum natureOfBusiness = default(PayoutMethodNatureOfBusinessEnum), PayoutMethodLegalEntityTypeEnum legalEntityType = default(PayoutMethodLegalEntityTypeEnum))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -109,7 +109,7 @@ namespace TransferZero.Sdk.Model
             this.ContactLastName = contactLastName;
             this.RegistrationNumber = registrationNumber;
             this.NatureOfBusiness = natureOfBusiness;
-            this.EntityType = entityType;
+            this.LegalEntityType = legalEntityType;
         }
         
         /// <summary>
@@ -314,13 +314,13 @@ namespace TransferZero.Sdk.Model
         /// Gets or Sets NatureOfBusiness
         /// </summary>
         [DataMember(Name="nature_of_business", EmitDefaultValue=false)]
-        public string NatureOfBusiness { get; set; }
+        public PayoutMethodNatureOfBusinessEnum NatureOfBusiness { get; set; }
 
         /// <summary>
-        /// Gets or Sets EntityType
+        /// Gets or Sets LegalEntityType
         /// </summary>
-        [DataMember(Name="entity_type", EmitDefaultValue=false)]
-        public PayoutMethodEntityTypeEnum EntityType { get; set; }
+        [DataMember(Name="legal_entity_type", EmitDefaultValue=false)]
+        public PayoutMethodLegalEntityTypeEnum LegalEntityType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -364,7 +364,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  ContactLastName: ").Append(ContactLastName).Append("\n");
             sb.Append("  RegistrationNumber: ").Append(RegistrationNumber).Append("\n");
             sb.Append("  NatureOfBusiness: ").Append(NatureOfBusiness).Append("\n");
-            sb.Append("  EntityType: ").Append(EntityType).Append("\n");
+            sb.Append("  LegalEntityType: ").Append(LegalEntityType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -570,9 +570,9 @@ namespace TransferZero.Sdk.Model
                     this.NatureOfBusiness.Equals(input.NatureOfBusiness))
                 ) && 
                 (
-                    this.EntityType == input.EntityType ||
-                    (this.EntityType != null &&
-                    this.EntityType.Equals(input.EntityType))
+                    this.LegalEntityType == input.LegalEntityType ||
+                    (this.LegalEntityType != null &&
+                    this.LegalEntityType.Equals(input.LegalEntityType))
                 );
         }
 
@@ -653,8 +653,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.RegistrationNumber.GetHashCode();
                 if (this.NatureOfBusiness != null)
                     hashCode = hashCode * 59 + this.NatureOfBusiness.GetHashCode();
-                if (this.EntityType != null)
-                    hashCode = hashCode * 59 + this.EntityType.GetHashCode();
+                if (this.LegalEntityType != null)
+                    hashCode = hashCode * 59 + this.LegalEntityType.GetHashCode();
                 return hashCode;
             }
         }
