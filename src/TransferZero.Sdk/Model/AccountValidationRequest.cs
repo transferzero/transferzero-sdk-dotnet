@@ -47,7 +47,13 @@ namespace TransferZero.Sdk.Model
             /// Enum GH for value: GH
             /// </summary>
             [EnumMember(Value = "GH")]
-            GH = 2
+            GH = 2,
+
+            /// <summary>
+            /// Enum SN for value: SN
+            /// </summary>
+            [EnumMember(Value = "SN")]
+            SN = 3
 
         }
 
@@ -74,7 +80,13 @@ namespace TransferZero.Sdk.Model
             /// Enum GHS for value: GHS
             /// </summary>
             [EnumMember(Value = "GHS")]
-            GHS = 2
+            GHS = 2,
+
+            /// <summary>
+            /// Enum XOF for value: XOF
+            /// </summary>
+            [EnumMember(Value = "XOF")]
+            XOF = 3
 
         }
 
