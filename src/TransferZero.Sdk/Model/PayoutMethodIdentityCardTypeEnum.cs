@@ -25,9 +25,9 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// The type of the identity card used by the sender or recipient:  - &#x60;PP&#x60;: Passport - &#x60;NI&#x60;: National Identity Card - &#x60;O&#x60;: Other type of identity card
+    /// The type of the identity card used by the sender or recipient:  - &#x60;PP&#x60;: Passport - &#x60;ID&#x60;: National Identity Card - &#x60;O&#x60;: Other type of identity card
     /// </summary>
-    /// <value>The type of the identity card used by the sender or recipient:  - &#x60;PP&#x60;: Passport - &#x60;NI&#x60;: National Identity Card - &#x60;O&#x60;: Other type of identity card</value>
+    /// <value>The type of the identity card used by the sender or recipient:  - &#x60;PP&#x60;: Passport - &#x60;ID&#x60;: National Identity Card - &#x60;O&#x60;: Other type of identity card</value>
     
     [JsonConverter(typeof(StringEnumConverter))]
     
@@ -46,10 +46,10 @@ namespace TransferZero.Sdk.Model
         PP = 2,
 
         /// <summary>
-        /// Enum NI for value: NI
+        /// Enum ID for value: ID
         /// </summary>
-        [EnumMember(Value = "NI")]
-        NI = 3
+        [EnumMember(Value = "ID")]
+        ID = 3
 
     }
 
