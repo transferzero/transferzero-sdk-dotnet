@@ -25,8 +25,8 @@ Name | Type | Description | Notes
 **SenderCountryOfBirth** | **string** |  | [optional] 
 **SenderGender** | [**PayoutMethodGenderEnum**](PayoutMethodGenderEnum.md) |  | [optional] 
 **Reason** | **string** |  | [optional] 
-**IdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | [optional] 
-**IdentityCardId** | **string** |  | [optional] 
+**IdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 
+**IdentityCardId** | **string** |  | 
 **Reference** | **string** |  | [optional] 
 **Name** | **string** |  | 
 **Address** | **string** |  | 
@@ -34,12 +34,14 @@ Name | Type | Description | Notes
 **PostalCode** | **string** |  | 
 **City** | **string** |  | 
 **Email** | **string** |  | [optional] 
-**TransferReasonCode** | **string** |  | [optional] 
+**TransferReasonCode** | **string** |  | 
 **ContactFirstName** | **string** |  | [optional] 
 **ContactLastName** | **string** |  | [optional] 
 **RegistrationNumber** | **string** |  | [optional] 
 **NatureOfBusiness** | [**PayoutMethodNatureOfBusinessEnum**](PayoutMethodNatureOfBusinessEnum.md) |  | [optional] 
 **LegalEntityType** | [**PayoutMethodLegalEntityTypeEnum**](PayoutMethodLegalEntityTypeEnum.md) |  | [optional] 
+**BranchCode** | **string** |  | [optional] 
+**SwiftCode** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

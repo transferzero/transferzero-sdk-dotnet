@@ -267,6 +267,8 @@ Class | Method | HTTP request | Description
  - [Model.PayoutMethodDetailsGHSBank](docs/PayoutMethodDetailsGHSBank.md)
  - [Model.PayoutMethodDetailsGHSCash](docs/PayoutMethodDetailsGHSCash.md)
  - [Model.PayoutMethodDetailsIBAN](docs/PayoutMethodDetailsIBAN.md)
+ - [Model.PayoutMethodDetailsKESBank](docs/PayoutMethodDetailsKESBank.md)
+ - [Model.PayoutMethodDetailsKESMobile](docs/PayoutMethodDetailsKESMobile.md)
  - [Model.PayoutMethodDetailsMADCash](docs/PayoutMethodDetailsMADCash.md)
  - [Model.PayoutMethodDetailsMobile](docs/PayoutMethodDetailsMobile.md)
  - [Model.PayoutMethodDetailsNGNBank](docs/PayoutMethodDetailsNGNBank.md)
