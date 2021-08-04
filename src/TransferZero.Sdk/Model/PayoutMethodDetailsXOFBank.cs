@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;iban\&quot;: \&quot;SN08SN0000000000000000000000\&quot;,   \&quot;bank_name\&quot;: \&quot;BRM\&quot;,   \&quot;bank_country\&quot;: \&quot;SN\&quot; # ISO country code for Senegal } &#x60;&#x60;&#x60;
+    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;iban\&quot;: \&quot;BJ0610100100144390000769\&quot;, # BBAN format   \&quot;bank_name\&quot;: \&quot;Bank Of Africa Bénin\&quot;,   \&quot;bank_country\&quot;: \&quot;BJ\&quot;, # ISO country code for Benin   \&quot;bank_code\&quot;: \&quot;BJ061\&quot; } &#x60;&#x60;&#x60;  See [XOF Bank](https://docs.transferzero.com/docs/payout-details/#xofbank) documentation for the bank_code list
     /// </summary>
     [DataContract]
     public partial class PayoutMethodDetailsXOFBank :  IEquatable<PayoutMethodDetailsXOFBank>, IValidatableObject
@@ -41,15 +41,17 @@ namespace TransferZero.Sdk.Model
         /// <param name="firstName">firstName (required).</param>
         /// <param name="lastName">lastName (required).</param>
         /// <param name="iban">iban (required).</param>
-        /// <param name="bankName">bankName (required).</param>
-        /// <param name="bankCountry">bankCountry (required).</param>
-        public PayoutMethodDetailsXOFBank(string firstName = default(string), string lastName = default(string), string iban = default(string), string bankName = default(string), string bankCountry = default(string))
+        /// <param name="bankName">bankName.</param>
+        /// <param name="bankCountry">bankCountry.</param>
+        /// <param name="bankCode">bankCode.</param>
+        public PayoutMethodDetailsXOFBank(string firstName = default(string), string lastName = default(string), string iban = default(string), string bankName = default(string), string bankCountry = default(string), string bankCode = default(string))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Iban = iban;
             this.BankName = bankName;
             this.BankCountry = bankCountry;
+            this.BankCode = bankCode;
         }
         
         /// <summary>
@@ -83,6 +85,12 @@ namespace TransferZero.Sdk.Model
         public string BankCountry { get; set; }
 
         /// <summary>
+        /// Gets or Sets BankCode
+        /// </summary>
+        [DataMember(Name="bank_code", EmitDefaultValue=false)]
+        public string BankCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -95,6 +103,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  Iban: ").Append(Iban).Append("\n");
             sb.Append("  BankName: ").Append(BankName).Append("\n");
             sb.Append("  BankCountry: ").Append(BankCountry).Append("\n");
+            sb.Append("  BankCode: ").Append(BankCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -153,6 +162,11 @@ namespace TransferZero.Sdk.Model
                     this.BankCountry == input.BankCountry ||
                     (this.BankCountry != null &&
                     this.BankCountry.Equals(input.BankCountry))
+                ) && 
+                (
+                    this.BankCode == input.BankCode ||
+                    (this.BankCode != null &&
+                    this.BankCode.Equals(input.BankCode))
                 );
         }
 
@@ -175,6 +189,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.BankName.GetHashCode();
                 if (this.BankCountry != null)
                     hashCode = hashCode * 59 + this.BankCountry.GetHashCode();
+                if (this.BankCode != null)
+                    hashCode = hashCode * 59 + this.BankCode.GetHashCode();
                 return hashCode;
             }
         }

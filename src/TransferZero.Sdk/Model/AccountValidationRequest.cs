@@ -53,7 +53,13 @@ namespace TransferZero.Sdk.Model
             /// Enum SN for value: SN
             /// </summary>
             [EnumMember(Value = "SN")]
-            SN = 3
+            SN = 3,
+
+            /// <summary>
+            /// Enum CI for value: CI
+            /// </summary>
+            [EnumMember(Value = "CI")]
+            CI = 4
 
         }
 
@@ -133,18 +139,20 @@ namespace TransferZero.Sdk.Model
         /// </summary>
         /// <param name="bankAccount">Account Number to query.</param>
         /// <param name="bankCode">Bank Code to query - same codes are used as for creating the transactions.</param>
+        /// <param name="iban">IBAN to query - BBAN format for XOF bank accounts.</param>
         /// <param name="phoneNumber">Phone number to query.</param>
         /// <param name="mobileProvider">mobileProvider.</param>
         /// <param name="country">Country of account in 2-character alpha ISO 3166-2 country format (required).</param>
         /// <param name="currency">The currency the bank account is in (required).</param>
         /// <param name="method">The method of the payment. Currently bank and mobile are supported (required).</param>
-        public AccountValidationRequest(string bankAccount = default(string), string bankCode = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), CountryEnum country = default(CountryEnum), CurrencyEnum currency = default(CurrencyEnum), MethodEnum method = default(MethodEnum))
+        public AccountValidationRequest(string bankAccount = default(string), string bankCode = default(string), string iban = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), CountryEnum country = default(CountryEnum), CurrencyEnum currency = default(CurrencyEnum), MethodEnum method = default(MethodEnum))
         {
             this.Country = country;
             this.Currency = currency;
             this.Method = method;
             this.BankAccount = bankAccount;
             this.BankCode = bankCode;
+            this.Iban = iban;
             this.PhoneNumber = phoneNumber;
             this.MobileProvider = mobileProvider;
         }
@@ -162,6 +170,13 @@ namespace TransferZero.Sdk.Model
         /// <value>Bank Code to query - same codes are used as for creating the transactions</value>
         [DataMember(Name="bank_code", EmitDefaultValue=false)]
         public string BankCode { get; set; }
+
+        /// <summary>
+        /// IBAN to query - BBAN format for XOF bank accounts
+        /// </summary>
+        /// <value>IBAN to query - BBAN format for XOF bank accounts</value>
+        [DataMember(Name="iban", EmitDefaultValue=false)]
+        public string Iban { get; set; }
 
         /// <summary>
         /// Phone number to query
@@ -189,6 +204,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("class AccountValidationRequest {\n");
             sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
             sb.Append("  BankCode: ").Append(BankCode).Append("\n");
+            sb.Append("  Iban: ").Append(Iban).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  MobileProvider: ").Append(MobileProvider).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
@@ -239,6 +255,11 @@ namespace TransferZero.Sdk.Model
                     this.BankCode.Equals(input.BankCode))
                 ) && 
                 (
+                    this.Iban == input.Iban ||
+                    (this.Iban != null &&
+                    this.Iban.Equals(input.Iban))
+                ) && 
+                (
                     this.PhoneNumber == input.PhoneNumber ||
                     (this.PhoneNumber != null &&
                     this.PhoneNumber.Equals(input.PhoneNumber))
@@ -278,6 +299,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.BankAccount.GetHashCode();
                 if (this.BankCode != null)
                     hashCode = hashCode * 59 + this.BankCode.GetHashCode();
+                if (this.Iban != null)
+                    hashCode = hashCode * 59 + this.Iban.GetHashCode();
                 if (this.PhoneNumber != null)
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
                 if (this.MobileProvider != null)

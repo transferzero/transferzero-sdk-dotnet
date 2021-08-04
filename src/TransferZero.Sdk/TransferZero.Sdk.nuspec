@@ -6,7 +6,7 @@
         <title>TransferZero .NET SDK</title>
 
         <!-- The package version number that is used when resolving dependencies -->
-        <version>1.15.0</version>
+        <version>1.15.1</version>
 
         <!-- Authors contain text that appears directly on the gallery -->
         <authors>TransferZero</authors>
