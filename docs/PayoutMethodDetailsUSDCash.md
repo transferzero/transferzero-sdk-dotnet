@@ -1,5 +1,5 @@
 
-# TransferZero.Sdk.Model.PayoutMethodDetailsUSDBank
+# TransferZero.Sdk.Model.PayoutMethodDetailsUSDCash
 
 ## Properties
 
@@ -8,8 +8,6 @@ Name | Type | Description | Notes
 **FirstName** | **string** |  | 
 **LastName** | **string** |  | 
 **PhoneNumber** | **string** |  | 
-**BankCode** | **string** |  | 
-**BankAccount** | **string** |  | 
 **Country** | [**PayoutMethodCountryEnum**](PayoutMethodCountryEnum.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)

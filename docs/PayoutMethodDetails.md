@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **BankAccountType** | [**PayoutMethodBankAccountTypeEnum**](PayoutMethodBankAccountTypeEnum.md) |  | [optional] 
 **PhoneNumber** | **string** |  | 
 **MobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  | 
-**Country** | [**PayoutMethodCountryEnumUSDBank**](PayoutMethodCountryEnumUSDBank.md) |  | 
+**Country** | [**PayoutMethodCountryEnum**](PayoutMethodCountryEnum.md) |  | 
 **Iban** | **string** |  | 
 **BankName** | **string** |  | 
 **BankCountry** | **string** |  | [optional] 

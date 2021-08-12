@@ -25,32 +25,28 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;Jane\&quot;,     \&quot;last_name\&quot;: \&quot;Doe\&quot;,     \&quot;phone_number\&quot;: \&quot;+2341234567\&quot;,     \&quot;bank_code\&quot;: \&quot;057\&quot;,     \&quot;bank_account\&quot;: \&quot;1234567890\&quot;,     \&quot;country\&quot;: \&quot;NG\&quot;   } &#x60;&#x60;&#x60; See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank) documentation for the bank_code and country lists
+    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;Jane\&quot;,     \&quot;last_name\&quot;: \&quot;Doe\&quot;,     \&quot;phone_number\&quot;: \&quot;+2341234567\&quot;,     \&quot;country\&quot;: \&quot;NG\&quot;   } &#x60;&#x60;&#x60; See [USD Cash](https://docs.transferzero.com/docs/payout-details/#usdcash) documentation for the country list
     /// </summary>
     [DataContract]
-    public partial class PayoutMethodDetailsUSDBank :  IEquatable<PayoutMethodDetailsUSDBank>, IValidatableObject
+    public partial class PayoutMethodDetailsUSDCash :  IEquatable<PayoutMethodDetailsUSDCash>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayoutMethodDetailsUSDBank" /> class.
+        /// Initializes a new instance of the <see cref="PayoutMethodDetailsUSDCash" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PayoutMethodDetailsUSDBank() { }
+        protected PayoutMethodDetailsUSDCash() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayoutMethodDetailsUSDBank" /> class.
+        /// Initializes a new instance of the <see cref="PayoutMethodDetailsUSDCash" /> class.
         /// </summary>
         /// <param name="firstName">firstName (required).</param>
         /// <param name="lastName">lastName (required).</param>
         /// <param name="phoneNumber">phoneNumber (required).</param>
-        /// <param name="bankCode">bankCode (required).</param>
-        /// <param name="bankAccount">bankAccount (required).</param>
         /// <param name="country">country (required).</param>
-        public PayoutMethodDetailsUSDBank(string firstName = default(string), string lastName = default(string), string phoneNumber = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum))
+        public PayoutMethodDetailsUSDCash(string firstName = default(string), string lastName = default(string), string phoneNumber = default(string), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.PhoneNumber = phoneNumber;
-            this.BankCode = bankCode;
-            this.BankAccount = bankAccount;
             this.Country = country;
         }
         
@@ -73,18 +69,6 @@ namespace TransferZero.Sdk.Model
         public string PhoneNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets BankCode
-        /// </summary>
-        [DataMember(Name="bank_code", EmitDefaultValue=false)]
-        public string BankCode { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BankAccount
-        /// </summary>
-        [DataMember(Name="bank_account", EmitDefaultValue=false)]
-        public string BankAccount { get; set; }
-
-        /// <summary>
         /// Gets or Sets Country
         /// </summary>
         [DataMember(Name="country", EmitDefaultValue=false)]
@@ -97,12 +81,10 @@ namespace TransferZero.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PayoutMethodDetailsUSDBank {\n");
+            sb.Append("class PayoutMethodDetailsUSDCash {\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
-            sb.Append("  BankCode: ").Append(BankCode).Append("\n");
-            sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -124,15 +106,15 @@ namespace TransferZero.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PayoutMethodDetailsUSDBank);
+            return this.Equals(input as PayoutMethodDetailsUSDCash);
         }
 
         /// <summary>
-        /// Returns true if PayoutMethodDetailsUSDBank instances are equal
+        /// Returns true if PayoutMethodDetailsUSDCash instances are equal
         /// </summary>
-        /// <param name="input">Instance of PayoutMethodDetailsUSDBank to be compared</param>
+        /// <param name="input">Instance of PayoutMethodDetailsUSDCash to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PayoutMethodDetailsUSDBank input)
+        public bool Equals(PayoutMethodDetailsUSDCash input)
         {
             if (input == null)
                 return false;
@@ -152,16 +134,6 @@ namespace TransferZero.Sdk.Model
                     this.PhoneNumber == input.PhoneNumber ||
                     (this.PhoneNumber != null &&
                     this.PhoneNumber.Equals(input.PhoneNumber))
-                ) && 
-                (
-                    this.BankCode == input.BankCode ||
-                    (this.BankCode != null &&
-                    this.BankCode.Equals(input.BankCode))
-                ) && 
-                (
-                    this.BankAccount == input.BankAccount ||
-                    (this.BankAccount != null &&
-                    this.BankAccount.Equals(input.BankAccount))
                 ) && 
                 (
                     this.Country == input.Country ||
@@ -185,10 +157,6 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.LastName.GetHashCode();
                 if (this.PhoneNumber != null)
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
-                if (this.BankCode != null)
-                    hashCode = hashCode * 59 + this.BankCode.GetHashCode();
-                if (this.BankAccount != null)
-                    hashCode = hashCode * 59 + this.BankAccount.GetHashCode();
                 if (this.Country != null)
                     hashCode = hashCode * 59 + this.Country.GetHashCode();
                 return hashCode;

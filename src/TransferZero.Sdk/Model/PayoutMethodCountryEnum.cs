@@ -25,9 +25,9 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// The country for the pickup or mobile payout.  For XOF cash pickup, valid options are: - &#x60;CI&#x60;: Ivory Coast - &#x60;ML&#x60;: Mali - &#x60;SN&#x60;: Senegal  For XOF mobile payout, valid options are: - &#x60;CI&#x60;: Ivory Coast - &#x60;SN&#x60;: Senegal
+    /// The country for the pickup or mobile payout.  For USD cash pickup in Nigeria, valid options are: - &#x60;NG&#x60;: Nigeria  For XOF cash pickup, valid options are: - &#x60;CI&#x60;: Ivory Coast - &#x60;ML&#x60;: Mali - &#x60;SN&#x60;: Senegal  For XOF mobile payout, valid options are: - &#x60;CI&#x60;: Ivory Coast - &#x60;SN&#x60;: Senegal
     /// </summary>
-    /// <value>The country for the pickup or mobile payout.  For XOF cash pickup, valid options are: - &#x60;CI&#x60;: Ivory Coast - &#x60;ML&#x60;: Mali - &#x60;SN&#x60;: Senegal  For XOF mobile payout, valid options are: - &#x60;CI&#x60;: Ivory Coast - &#x60;SN&#x60;: Senegal</value>
+    /// <value>The country for the pickup or mobile payout.  For USD cash pickup in Nigeria, valid options are: - &#x60;NG&#x60;: Nigeria  For XOF cash pickup, valid options are: - &#x60;CI&#x60;: Ivory Coast - &#x60;ML&#x60;: Mali - &#x60;SN&#x60;: Senegal  For XOF mobile payout, valid options are: - &#x60;CI&#x60;: Ivory Coast - &#x60;SN&#x60;: Senegal</value>
     
     [JsonConverter(typeof(StringEnumConverter))]
     
