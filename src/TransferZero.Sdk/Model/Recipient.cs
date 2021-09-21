@@ -31,33 +31,6 @@ namespace TransferZero.Sdk.Model
     public partial class Recipient :  IEquatable<Recipient>, IValidatableObject
     {
         /// <summary>
-        /// Type of recipient to create - either person or business (defaults to person) 
-        /// </summary>
-        /// <value>Type of recipient to create - either person or business (defaults to person) </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum TypeEnum
-        {
-            /// <summary>
-            /// Enum Person for value: person
-            /// </summary>
-            [EnumMember(Value = "person")]
-            Person = 1,
-
-            /// <summary>
-            /// Enum Business for value: business
-            /// </summary>
-            [EnumMember(Value = "business")]
-            Business = 2
-
-        }
-
-        /// <summary>
-        /// Type of recipient to create - either person or business (defaults to person) 
-        /// </summary>
-        /// <value>Type of recipient to create - either person or business (defaults to person) </value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public TypeEnum? Type { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="Recipient" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -73,8 +46,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="state">state.</param>
         /// <param name="transactionExternalId">Optional ID that is supplied by partner linking it to the partner&#39;s own Transaction ID..</param>
         /// <param name="transactionState">transactionState.</param>
-        /// <param name="type">Type of recipient to create - either person or business (defaults to person) .</param>
-        public Recipient(decimal? requestedAmount = default(decimal?), string requestedCurrency = default(string), PayoutMethod payoutMethod = default(PayoutMethod), Object metadata = default(Object), RecipientStateReasonDetails stateReasonDetails = default(RecipientStateReasonDetails), RecipientState state = default(RecipientState), string transactionExternalId = default(string), TransactionState transactionState = default(TransactionState), TypeEnum? type = default(TypeEnum?))
+        public Recipient(decimal? requestedAmount = default(decimal?), string requestedCurrency = default(string), PayoutMethod payoutMethod = default(PayoutMethod), Object metadata = default(Object), RecipientStateReasonDetails stateReasonDetails = default(RecipientStateReasonDetails), RecipientState state = default(RecipientState), string transactionExternalId = default(string), TransactionState transactionState = default(TransactionState))
         {
             this.RequestedAmount = requestedAmount;
             this.RequestedCurrency = requestedCurrency;
@@ -84,7 +56,6 @@ namespace TransferZero.Sdk.Model
             this.State = state;
             this.TransactionExternalId = transactionExternalId;
             this.TransactionState = transactionState;
-            this.Type = type;
         }
         
         /// <summary>
@@ -236,7 +207,6 @@ namespace TransferZero.Sdk.Model
         [DataMember(Name="id", EmitDefaultValue=false)]
         public Guid? Id { get; private set; }
 
-
         /// <summary>
         /// The fields that have some problems and don&#39;t pass validation
         /// </summary>
@@ -274,7 +244,6 @@ namespace TransferZero.Sdk.Model
             sb.Append("  OutputAmount: ").Append(OutputAmount).Append("\n");
             sb.Append("  OutputCurrency: ").Append(OutputCurrency).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -421,11 +390,6 @@ namespace TransferZero.Sdk.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                ) && 
-                (
                     this.Errors == input.Errors ||
                     this.Errors != null &&
                     this.Errors.SequenceEqual(input.Errors)
@@ -485,8 +449,6 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.OutputCurrency.GetHashCode();
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Errors != null)
                     hashCode = hashCode * 59 + this.Errors.GetHashCode();
                 return hashCode;

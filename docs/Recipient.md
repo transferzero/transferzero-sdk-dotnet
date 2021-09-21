@@ -27,7 +27,6 @@ Name | Type | Description | Notes
 **OutputAmount** | **decimal?** | The amount that will be paid to the recipient | [optional] 
 **OutputCurrency** | **string** | The currency the payment will be delivered in | [optional] 
 **Id** | **Guid?** |  | [optional] 
-**Type** | **string** | Type of recipient to create - either person or business (defaults to person)  | [optional] 
 **Errors** | **Dictionary&lt;string, List&lt;ValidationErrorDescription&gt;&gt;** | The fields that have some problems and don&#39;t pass validation | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
