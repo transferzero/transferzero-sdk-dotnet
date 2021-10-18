@@ -10,7 +10,8 @@ Name | Type | Description | Notes
 **Street** | **string** |  | 
 **PhoneNumber** | **string** |  | 
 **MobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  | 
-**TransferReasonCode** | **string** |  | 
+**TransferReasonCode** | **string** |  | [optional] 
+**TransferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  | [optional] 
 **IdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 
 **IdentityCardId** | **string** |  | 
 

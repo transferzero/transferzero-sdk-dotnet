@@ -13,7 +13,8 @@ Name | Type | Description | Notes
 **BankName** | **string** |  | 
 **BranchCode** | **string** |  | [optional] 
 **SwiftCode** | **string** |  | 
-**TransferReasonCode** | **string** |  | 
+**TransferReasonCode** | **string** |  | [optional] 
+**TransferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  | [optional] 
 **IdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 
 **IdentityCardId** | **string** |  | 
 

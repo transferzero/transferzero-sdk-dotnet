@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **BankAccount** | **string** |  | 
 **PhoneNumber** | **string** |  | 
 **TransferReasonCode** | **string** |  | [optional] 
+**TransferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  | [optional] 
 **Name** | **string** |  | [optional] 
 **ContactFirstName** | **string** |  | [optional] 
 **ContactLastName** | **string** |  | [optional] 

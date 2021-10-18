@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **BankName** | **string** |  | [optional] 
 **BankCountry** | **string** |  | [optional] 
 **BankCode** | **string** |  | [optional] 
+**TransferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

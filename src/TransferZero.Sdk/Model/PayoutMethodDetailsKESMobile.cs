@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;street\&quot;: \&quot;Main Street\&quot;,     \&quot;phone_number\&quot;: \&quot;+254997853134\&quot;,     \&quot;mobile_provider\&quot;: \&quot;mpesa\&quot;,     \&quot;transfer_reason_code\&quot;: \&quot;185\&quot;,     \&quot;identity_card_type\&quot;: \&quot;ID\&quot;,     \&quot;identity_card_id\&quot;: \&quot;AB12345678\&quot;   } &#x60;&#x60;&#x60;  See [KES Mobile](https://docs.transferzero.com/docs/payout-details/#kesmobile) documentation for transfer_reason_code lists
+    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;street\&quot;: \&quot;Main Street\&quot;,     \&quot;phone_number\&quot;: \&quot;+254997853134\&quot;,     \&quot;mobile_provider\&quot;: \&quot;mpesa\&quot;,     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;, // New transfer reason field     \&quot;identity_card_type\&quot;: \&quot;ID\&quot;,     \&quot;identity_card_id\&quot;: \&quot;AB12345678\&quot;   } &#x60;&#x60;&#x60;  See [KES Mobile](https://docs.transferzero.com/docs/payout-details/#kesmobile) documentation for transfer_reason lists
     /// </summary>
     [DataContract]
     public partial class PayoutMethodDetailsKESMobile :  IEquatable<PayoutMethodDetailsKESMobile>, IValidatableObject
@@ -43,19 +43,21 @@ namespace TransferZero.Sdk.Model
         /// <param name="street">street (required).</param>
         /// <param name="phoneNumber">phoneNumber (required).</param>
         /// <param name="mobileProvider">mobileProvider (required).</param>
-        /// <param name="transferReasonCode">transferReasonCode (required).</param>
+        /// <param name="transferReasonCode">transferReasonCode.</param>
+        /// <param name="transferReason">transferReason.</param>
         /// <param name="identityCardType">identityCardType (required).</param>
         /// <param name="identityCardId">identityCardId (required).</param>
-        public PayoutMethodDetailsKESMobile(string firstName = default(string), string lastName = default(string), string street = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), string transferReasonCode = default(string), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string))
+        public PayoutMethodDetailsKESMobile(string firstName = default(string), string lastName = default(string), string street = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), string transferReasonCode = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Street = street;
             this.PhoneNumber = phoneNumber;
             this.MobileProvider = mobileProvider;
-            this.TransferReasonCode = transferReasonCode;
             this.IdentityCardType = identityCardType;
             this.IdentityCardId = identityCardId;
+            this.TransferReasonCode = transferReasonCode;
+            this.TransferReason = transferReason;
         }
         
         /// <summary>
@@ -95,6 +97,12 @@ namespace TransferZero.Sdk.Model
         public string TransferReasonCode { get; set; }
 
         /// <summary>
+        /// Gets or Sets TransferReason
+        /// </summary>
+        [DataMember(Name="transfer_reason", EmitDefaultValue=false)]
+        public PayoutMethodTransferReasonEnum TransferReason { get; set; }
+
+        /// <summary>
         /// Gets or Sets IdentityCardType
         /// </summary>
         [DataMember(Name="identity_card_type", EmitDefaultValue=false)]
@@ -120,6 +128,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  MobileProvider: ").Append(MobileProvider).Append("\n");
             sb.Append("  TransferReasonCode: ").Append(TransferReasonCode).Append("\n");
+            sb.Append("  TransferReason: ").Append(TransferReason).Append("\n");
             sb.Append("  IdentityCardType: ").Append(IdentityCardType).Append("\n");
             sb.Append("  IdentityCardId: ").Append(IdentityCardId).Append("\n");
             sb.Append("}\n");
@@ -187,6 +196,11 @@ namespace TransferZero.Sdk.Model
                     this.TransferReasonCode.Equals(input.TransferReasonCode))
                 ) && 
                 (
+                    this.TransferReason == input.TransferReason ||
+                    (this.TransferReason != null &&
+                    this.TransferReason.Equals(input.TransferReason))
+                ) && 
+                (
                     this.IdentityCardType == input.IdentityCardType ||
                     (this.IdentityCardType != null &&
                     this.IdentityCardType.Equals(input.IdentityCardType))
@@ -219,6 +233,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.MobileProvider.GetHashCode();
                 if (this.TransferReasonCode != null)
                     hashCode = hashCode * 59 + this.TransferReasonCode.GetHashCode();
+                if (this.TransferReason != null)
+                    hashCode = hashCode * 59 + this.TransferReason.GetHashCode();
                 if (this.IdentityCardType != null)
                     hashCode = hashCode * 59 + this.IdentityCardType.GetHashCode();
                 if (this.IdentityCardId != null)
