@@ -53,6 +53,7 @@ Name | Type | Description | Notes
 **CityOfBirth** | **string** | City of birth of sender | [optional] 
 **CountryOfBirth** | **string** | Country of birth of sender in 2-character alpha ISO 3166-2 country format | [optional] 
 **Gender** | **string** | The gender of the sender:  - &#x60;M&#x60;: Male - &#x60;F&#x60;: Female - &#x60;O&#x60;: Other | [optional] 
+**SalesLeadId** | **string** | Sales Lead ID for tracking (optional) | [optional] 
 **CreatedAt** | **string** | Date and time of sender was created | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
