@@ -25,9 +25,9 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// The country for the pickup or mobile payout.  For USD cash pickup in Nigeria, valid options are: - &#x60;NG&#x60;: Nigeria  For XOF cash pickup, valid options are: - &#x60;CI&#x60;: Ivory Coast - &#x60;ML&#x60;: Mali - &#x60;SN&#x60;: Senegal  For XOF mobile payout, valid options are: - &#x60;CI&#x60;: Ivory Coast - &#x60;SN&#x60;: Senegal
+    /// The country for the pickup or mobile payout.  For USD cash pickup in Nigeria, valid options are: - &#x60;NG&#x60;: Nigeria  For XOF cash pickup, valid options are: - &#x60;CI&#x60;: Ivory Coast - &#x60;ML&#x60;: Mali - &#x60;SN&#x60;: Senegal  For XOF mobile payout, valid options are: - &#x60;CI&#x60;: Ivory Coast - &#x60;SN&#x60;: Senegal - &#x60;BF&#x60;: Burkina Faso - &#x60;ML&#x60;: Mali  For XAF mobile payout, valid options are: - &#x60;CM&#x60;: Cameroon
     /// </summary>
-    /// <value>The country for the pickup or mobile payout.  For USD cash pickup in Nigeria, valid options are: - &#x60;NG&#x60;: Nigeria  For XOF cash pickup, valid options are: - &#x60;CI&#x60;: Ivory Coast - &#x60;ML&#x60;: Mali - &#x60;SN&#x60;: Senegal  For XOF mobile payout, valid options are: - &#x60;CI&#x60;: Ivory Coast - &#x60;SN&#x60;: Senegal</value>
+    /// <value>The country for the pickup or mobile payout.  For USD cash pickup in Nigeria, valid options are: - &#x60;NG&#x60;: Nigeria  For XOF cash pickup, valid options are: - &#x60;CI&#x60;: Ivory Coast - &#x60;ML&#x60;: Mali - &#x60;SN&#x60;: Senegal  For XOF mobile payout, valid options are: - &#x60;CI&#x60;: Ivory Coast - &#x60;SN&#x60;: Senegal - &#x60;BF&#x60;: Burkina Faso - &#x60;ML&#x60;: Mali  For XAF mobile payout, valid options are: - &#x60;CM&#x60;: Cameroon</value>
     
     [JsonConverter(typeof(StringEnumConverter))]
     

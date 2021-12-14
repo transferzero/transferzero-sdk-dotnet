@@ -13,10 +13,10 @@ Name | Type | Description | Notes
 **PhoneNumber** | **string** |  | 
 **MobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  | 
 **Country** | [**PayoutMethodCountryEnum**](PayoutMethodCountryEnum.md) |  | 
+**TransferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  | [optional] 
 **Iban** | **string** |  | 
 **BankName** | **string** |  | 
 **BankCountry** | **string** |  | [optional] 
-**TransferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  | [optional] 
 **CashProvider** | [**PayoutMethodCashProviderEnum**](PayoutMethodCashProviderEnum.md) |  | [optional] 
 **SortCode** | **string** |  | [optional] 
 **Bic** | **string** |  | [optional] 

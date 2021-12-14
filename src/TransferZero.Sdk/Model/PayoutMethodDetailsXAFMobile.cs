@@ -25,33 +25,31 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;774044436\&quot;, // local or international Senegalese or Ivory Coast format   \&quot;mobile_provider\&quot;: \&quot;orange\&quot;, // \&quot;orange\&quot; or \&quot;tigo\&quot; for Senegal; \&quot;orange\&quot;, \&quot;mtn\&quot; or \&quot;moov\&quot; for Ivory Coast; \&quot;orange\&quot; or \&quot;mobicash\&quot; for Burkina Faso and Mali   \&quot;country\&quot; // Optional; Values: \&quot;SN\&quot; for Senegal; \&quot;CI\&quot; for Ivory Coast; \&quot;ML\&quot; for Mali; \&quot;BF\&quot; for Burkina Faso; Default value is \&quot;SN\&quot;   \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot; // mandatory for Mali payouts, optional otherwise } &#x60;&#x60;&#x60;
+    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;674044436\&quot;, // local or international cameroon format   \&quot;mobile_provider\&quot;: \&quot;orange\&quot;, // or mtn\&quot;   \&quot;country\&quot; // Optional; Values: \&quot;CM\&quot; } &#x60;&#x60;&#x60;
     /// </summary>
     [DataContract]
-    public partial class PayoutMethodDetailsXOFMobile :  IEquatable<PayoutMethodDetailsXOFMobile>, IValidatableObject
+    public partial class PayoutMethodDetailsXAFMobile :  IEquatable<PayoutMethodDetailsXAFMobile>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayoutMethodDetailsXOFMobile" /> class.
+        /// Initializes a new instance of the <see cref="PayoutMethodDetailsXAFMobile" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PayoutMethodDetailsXOFMobile() { }
+        protected PayoutMethodDetailsXAFMobile() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayoutMethodDetailsXOFMobile" /> class.
+        /// Initializes a new instance of the <see cref="PayoutMethodDetailsXAFMobile" /> class.
         /// </summary>
         /// <param name="firstName">firstName (required).</param>
         /// <param name="lastName">lastName (required).</param>
         /// <param name="phoneNumber">phoneNumber (required).</param>
         /// <param name="mobileProvider">mobileProvider (required).</param>
         /// <param name="country">country.</param>
-        /// <param name="transferReason">transferReason.</param>
-        public PayoutMethodDetailsXOFMobile(string firstName = default(string), string lastName = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum))
+        public PayoutMethodDetailsXAFMobile(string firstName = default(string), string lastName = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.PhoneNumber = phoneNumber;
             this.MobileProvider = mobileProvider;
             this.Country = country;
-            this.TransferReason = transferReason;
         }
         
         /// <summary>
@@ -85,25 +83,18 @@ namespace TransferZero.Sdk.Model
         public PayoutMethodCountryEnum Country { get; set; }
 
         /// <summary>
-        /// Gets or Sets TransferReason
-        /// </summary>
-        [DataMember(Name="transfer_reason", EmitDefaultValue=false)]
-        public PayoutMethodTransferReasonEnum TransferReason { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PayoutMethodDetailsXOFMobile {\n");
+            sb.Append("class PayoutMethodDetailsXAFMobile {\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  MobileProvider: ").Append(MobileProvider).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
-            sb.Append("  TransferReason: ").Append(TransferReason).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -124,15 +115,15 @@ namespace TransferZero.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PayoutMethodDetailsXOFMobile);
+            return this.Equals(input as PayoutMethodDetailsXAFMobile);
         }
 
         /// <summary>
-        /// Returns true if PayoutMethodDetailsXOFMobile instances are equal
+        /// Returns true if PayoutMethodDetailsXAFMobile instances are equal
         /// </summary>
-        /// <param name="input">Instance of PayoutMethodDetailsXOFMobile to be compared</param>
+        /// <param name="input">Instance of PayoutMethodDetailsXAFMobile to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PayoutMethodDetailsXOFMobile input)
+        public bool Equals(PayoutMethodDetailsXAFMobile input)
         {
             if (input == null)
                 return false;
@@ -162,11 +153,6 @@ namespace TransferZero.Sdk.Model
                     this.Country == input.Country ||
                     (this.Country != null &&
                     this.Country.Equals(input.Country))
-                ) && 
-                (
-                    this.TransferReason == input.TransferReason ||
-                    (this.TransferReason != null &&
-                    this.TransferReason.Equals(input.TransferReason))
                 );
         }
 
@@ -189,8 +175,6 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.MobileProvider.GetHashCode();
                 if (this.Country != null)
                     hashCode = hashCode * 59 + this.Country.GetHashCode();
-                if (this.TransferReason != null)
-                    hashCode = hashCode * 59 + this.TransferReason.GetHashCode();
                 return hashCode;
             }
         }
