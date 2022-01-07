@@ -486,6 +486,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="contactPersonEmail">The contact&#39;s email address (used only with a Business sender).</param>
         /// <param name="tradingCountry">The Business trading country (used only with a Business sender).</param>
         /// <param name="tradingAddress">The Business trading address (used only with a Business sender).</param>
+        /// <param name="tradingName">The Business trading name (used only with a Business sender).</param>
         /// <param name="numberMonthlyTransactions">The estimated number of monthly transactions (used only with a Business sender).</param>
         /// <param name="amountMonthlyTransactions">The estimated amount for all transactions each month in USD (used only with a Business sender).</param>
         /// <param name="documents">Needed for KYC checks. Required to approve the sender unless KYC is waived for your account. Please send us an empty list of documents: &#x60;\&quot;documents\&quot;: [ ]&#x60; in the request if KYC has been waived.  If the documents already exist, please send the Document ID eg. &#x60;&#x60;&#x60;JSON \&quot;documents\&quot;: [   {     \&quot;id\&quot;: \&quot;b6648ba3-1c7b-4f59-8580-684899c84a07\&quot;   } ] &#x60;&#x60;&#x60; (required).</param>
@@ -497,7 +498,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="countryOfBirth">Country of birth of sender in 2-character alpha ISO 3166-2 country format.</param>
         /// <param name="gender">The gender of the sender:  - &#x60;M&#x60;: Male - &#x60;F&#x60;: Female - &#x60;O&#x60;: Other.</param>
         /// <param name="salesLeadId">Sales Lead ID for tracking (optional).</param>
-        public Sender(Guid? id = default(Guid?), TypeEnum? type = default(TypeEnum?), SenderState state = default(SenderState), string country = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string phoneCountry = default(string), string phoneNumber = default(string), string email = default(string), string ip = default(string), string addressDescription = default(string), string identificationNumber = default(string), IdentificationTypeEnum? identificationType = default(IdentificationTypeEnum?), string lang = default(string), string name = default(string), string firstName = default(string), string middleName = default(string), string lastName = default(string), DateTime? birthDate = default(DateTime?), string occupation = default(string), string nationality = default(string), LegalEntityTypeEnum? legalEntityType = default(LegalEntityTypeEnum?), DateTime? registrationDate = default(DateTime?), string registrationNumber = default(string), NatureOfBusinessEnum? natureOfBusiness = default(NatureOfBusinessEnum?), string sourceOfFunds = default(string), string customSourceOfFunds = default(string), string coreBusinessActivity = default(string), string purposeOfOpeningAccount = default(string), string officePhone = default(string), string vatRegistrationNumber = default(string), string financialRegulator = default(string), string regulatoryLicenceNumber = default(string), string contactPersonEmail = default(string), string tradingCountry = default(string), string tradingAddress = default(string), string numberMonthlyTransactions = default(string), string amountMonthlyTransactions = default(string), List<Document> documents = default(List<Document>), Object metadata = default(Object), string onboardingStatus = default(string), List<PoliticallyExposedPerson> politicallyExposedPeople = default(List<PoliticallyExposedPerson>), string externalId = default(string), string cityOfBirth = default(string), string countryOfBirth = default(string), GenderEnum? gender = default(GenderEnum?), string salesLeadId = default(string))
+        public Sender(Guid? id = default(Guid?), TypeEnum? type = default(TypeEnum?), SenderState state = default(SenderState), string country = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string phoneCountry = default(string), string phoneNumber = default(string), string email = default(string), string ip = default(string), string addressDescription = default(string), string identificationNumber = default(string), IdentificationTypeEnum? identificationType = default(IdentificationTypeEnum?), string lang = default(string), string name = default(string), string firstName = default(string), string middleName = default(string), string lastName = default(string), DateTime? birthDate = default(DateTime?), string occupation = default(string), string nationality = default(string), LegalEntityTypeEnum? legalEntityType = default(LegalEntityTypeEnum?), DateTime? registrationDate = default(DateTime?), string registrationNumber = default(string), NatureOfBusinessEnum? natureOfBusiness = default(NatureOfBusinessEnum?), string sourceOfFunds = default(string), string customSourceOfFunds = default(string), string coreBusinessActivity = default(string), string purposeOfOpeningAccount = default(string), string officePhone = default(string), string vatRegistrationNumber = default(string), string financialRegulator = default(string), string regulatoryLicenceNumber = default(string), string contactPersonEmail = default(string), string tradingCountry = default(string), string tradingAddress = default(string), string tradingName = default(string), string numberMonthlyTransactions = default(string), string amountMonthlyTransactions = default(string), List<Document> documents = default(List<Document>), Object metadata = default(Object), string onboardingStatus = default(string), List<PoliticallyExposedPerson> politicallyExposedPeople = default(List<PoliticallyExposedPerson>), string externalId = default(string), string cityOfBirth = default(string), string countryOfBirth = default(string), GenderEnum? gender = default(GenderEnum?), string salesLeadId = default(string))
         {
             this.Country = country;
             this.Street = street;
@@ -537,6 +538,7 @@ namespace TransferZero.Sdk.Model
             this.ContactPersonEmail = contactPersonEmail;
             this.TradingCountry = tradingCountry;
             this.TradingAddress = tradingAddress;
+            this.TradingName = tradingName;
             this.NumberMonthlyTransactions = numberMonthlyTransactions;
             this.AmountMonthlyTransactions = amountMonthlyTransactions;
             this.Metadata = metadata;
@@ -785,6 +787,13 @@ namespace TransferZero.Sdk.Model
         public string TradingAddress { get; set; }
 
         /// <summary>
+        /// The Business trading name (used only with a Business sender)
+        /// </summary>
+        /// <value>The Business trading name (used only with a Business sender)</value>
+        [DataMember(Name="trading_name", EmitDefaultValue=false)]
+        public string TradingName { get; set; }
+
+        /// <summary>
         /// The estimated number of monthly transactions (used only with a Business sender)
         /// </summary>
         /// <value>The estimated number of monthly transactions (used only with a Business sender)</value>
@@ -914,6 +923,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  ContactPersonEmail: ").Append(ContactPersonEmail).Append("\n");
             sb.Append("  TradingCountry: ").Append(TradingCountry).Append("\n");
             sb.Append("  TradingAddress: ").Append(TradingAddress).Append("\n");
+            sb.Append("  TradingName: ").Append(TradingName).Append("\n");
             sb.Append("  NumberMonthlyTransactions: ").Append(NumberMonthlyTransactions).Append("\n");
             sb.Append("  AmountMonthlyTransactions: ").Append(AmountMonthlyTransactions).Append("\n");
             sb.Append("  Documents: ").Append(Documents).Append("\n");
@@ -1147,6 +1157,11 @@ namespace TransferZero.Sdk.Model
                     this.TradingAddress.Equals(input.TradingAddress))
                 ) && 
                 (
+                    this.TradingName == input.TradingName ||
+                    (this.TradingName != null &&
+                    this.TradingName.Equals(input.TradingName))
+                ) && 
+                (
                     this.NumberMonthlyTransactions == input.NumberMonthlyTransactions ||
                     (this.NumberMonthlyTransactions != null &&
                     this.NumberMonthlyTransactions.Equals(input.NumberMonthlyTransactions))
@@ -1296,6 +1311,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.TradingCountry.GetHashCode();
                 if (this.TradingAddress != null)
                     hashCode = hashCode * 59 + this.TradingAddress.GetHashCode();
+                if (this.TradingName != null)
+                    hashCode = hashCode * 59 + this.TradingName.GetHashCode();
                 if (this.NumberMonthlyTransactions != null)
                     hashCode = hashCode * 59 + this.NumberMonthlyTransactions.GetHashCode();
                 if (this.AmountMonthlyTransactions != null)
