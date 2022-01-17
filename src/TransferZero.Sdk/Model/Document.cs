@@ -74,7 +74,8 @@ namespace TransferZero.Sdk.Model
         /// <param name="documentType">This is a brief description of the document type.</param>
         /// <param name="documentId">Document ID issued by government.</param>
         /// <param name="expiryDate">Document expiry date issued by government.</param>
-        public Document(string upload = default(string), string url = default(string), string uploadFileName = default(string), Object metadata = default(Object), string uploadContentType = default(string), int? uploadFileSize = default(int?), string documentType = default(string), string documentId = default(string), DateTime? expiryDate = default(DateTime?))
+        /// <param name="source">Determines the document&#39;s source. Default value \&quot;Manual\&quot;.</param>
+        public Document(string upload = default(string), string url = default(string), string uploadFileName = default(string), Object metadata = default(Object), string uploadContentType = default(string), int? uploadFileSize = default(int?), string documentType = default(string), string documentId = default(string), DateTime? expiryDate = default(DateTime?), string source = default(string))
         {
             this.Upload = upload;
             this.UploadFileName = uploadFileName;
@@ -85,6 +86,7 @@ namespace TransferZero.Sdk.Model
             this.DocumentType = documentType;
             this.DocumentId = documentId;
             this.ExpiryDate = expiryDate;
+            this.Source = source;
         }
         
         /// <summary>
@@ -171,6 +173,13 @@ namespace TransferZero.Sdk.Model
         public DateTime? ExpiryDate { get; set; }
 
         /// <summary>
+        /// Determines the document&#39;s source. Default value \&quot;Manual\&quot;
+        /// </summary>
+        /// <value>Determines the document&#39;s source. Default value \&quot;Manual\&quot;</value>
+        [DataMember(Name="source", EmitDefaultValue=false)]
+        public string Source { get; set; }
+
+        /// <summary>
         /// The fields that have some problems and don&#39;t pass validation
         /// </summary>
         /// <value>The fields that have some problems and don&#39;t pass validation</value>
@@ -198,6 +207,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  DocumentId: ").Append(DocumentId).Append("\n");
             sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -299,6 +309,11 @@ namespace TransferZero.Sdk.Model
                     this.ExpiryDate.Equals(input.ExpiryDate))
                 ) && 
                 (
+                    this.Source == input.Source ||
+                    (this.Source != null &&
+                    this.Source.Equals(input.Source))
+                ) && 
+                (
                     this.Errors == input.Errors ||
                     this.Errors != null &&
                     this.Errors.SequenceEqual(input.Errors)
@@ -340,6 +355,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.DocumentId.GetHashCode();
                 if (this.ExpiryDate != null)
                     hashCode = hashCode * 59 + this.ExpiryDate.GetHashCode();
+                if (this.Source != null)
+                    hashCode = hashCode * 59 + this.Source.GetHashCode();
                 if (this.Errors != null)
                     hashCode = hashCode * 59 + this.Errors.GetHashCode();
                 return hashCode;

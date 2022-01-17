@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **Id** | **Guid?** |  | [optional] 
 **DocumentId** | **string** | Document ID issued by government | [optional] 
 **ExpiryDate** | **DateTime?** | Document expiry date issued by government | [optional] 
+**Source** | **string** | Determines the document&#39;s source. Default value \&quot;Manual\&quot; | [optional] 
 **Errors** | **Dictionary&lt;string, List&lt;ValidationErrorDescription&gt;&gt;** | The fields that have some problems and don&#39;t pass validation | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
