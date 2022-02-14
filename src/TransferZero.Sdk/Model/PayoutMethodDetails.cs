@@ -50,7 +50,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="iban">iban (required).</param>
         /// <param name="bankName">bankName (required).</param>
         /// <param name="bankCountry">bankCountry.</param>
-        /// <param name="cashProvider">cashProvider.</param>
+        /// <param name="cashProvider">cashProvider (required).</param>
         /// <param name="sortCode">sortCode.</param>
         /// <param name="bic">bic.</param>
         /// <param name="senderIdentityCardType">senderIdentityCardType (required).</param>
@@ -87,6 +87,7 @@ namespace TransferZero.Sdk.Model
             this.Country = country;
             this.Iban = iban;
             this.BankName = bankName;
+            this.CashProvider = cashProvider;
             this.SenderIdentityCardType = senderIdentityCardType;
             this.SenderIdentityCardId = senderIdentityCardId;
             this.IdentityCardType = identityCardType;
@@ -100,7 +101,6 @@ namespace TransferZero.Sdk.Model
             this.BankAccountType = bankAccountType;
             this.TransferReason = transferReason;
             this.BankCountry = bankCountry;
-            this.CashProvider = cashProvider;
             this.SortCode = sortCode;
             this.Bic = bic;
             this.SenderCityOfBirth = senderCityOfBirth;
