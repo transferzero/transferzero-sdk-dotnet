@@ -39,10 +39,12 @@ namespace TransferZero.Sdk.Model
         /// Initializes a new instance of the <see cref="PayinMethodDetailsMobile" /> class.
         /// </summary>
         /// <param name="phoneNumber">The phone number where the funds should be collected from (required).</param>
+        /// <param name="mobileProvider">mobileProvider.</param>
         /// <param name="sendInstructions">States whether to send out the instructions to the phone number on how to pay the funds or not. This shuold always be set to true, otherwise the sender might not receive a prompt for payment..</param>
-        public PayinMethodDetailsMobile(string phoneNumber = default(string), bool? sendInstructions = default(bool?))
+        public PayinMethodDetailsMobile(string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), bool? sendInstructions = default(bool?))
         {
             this.PhoneNumber = phoneNumber;
+            this.MobileProvider = mobileProvider;
             this.SendInstructions = sendInstructions;
         }
         
@@ -52,6 +54,12 @@ namespace TransferZero.Sdk.Model
         /// <value>The phone number where the funds should be collected from</value>
         [DataMember(Name="phone_number", EmitDefaultValue=false)]
         public string PhoneNumber { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MobileProvider
+        /// </summary>
+        [DataMember(Name="mobile_provider", EmitDefaultValue=false)]
+        public PayoutMethodMobileProviderEnum MobileProvider { get; set; }
 
         /// <summary>
         /// States whether to send out the instructions to the phone number on how to pay the funds or not. This shuold always be set to true, otherwise the sender might not receive a prompt for payment.
@@ -69,6 +77,7 @@ namespace TransferZero.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class PayinMethodDetailsMobile {\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            sb.Append("  MobileProvider: ").Append(MobileProvider).Append("\n");
             sb.Append("  SendInstructions: ").Append(SendInstructions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -110,6 +119,11 @@ namespace TransferZero.Sdk.Model
                     this.PhoneNumber.Equals(input.PhoneNumber))
                 ) && 
                 (
+                    this.MobileProvider == input.MobileProvider ||
+                    (this.MobileProvider != null &&
+                    this.MobileProvider.Equals(input.MobileProvider))
+                ) && 
+                (
                     this.SendInstructions == input.SendInstructions ||
                     (this.SendInstructions != null &&
                     this.SendInstructions.Equals(input.SendInstructions))
@@ -127,6 +141,8 @@ namespace TransferZero.Sdk.Model
                 int hashCode = 41;
                 if (this.PhoneNumber != null)
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
+                if (this.MobileProvider != null)
+                    hashCode = hashCode * 59 + this.MobileProvider.GetHashCode();
                 if (this.SendInstructions != null)
                     hashCode = hashCode * 59 + this.SendInstructions.GetHashCode();
                 return hashCode;

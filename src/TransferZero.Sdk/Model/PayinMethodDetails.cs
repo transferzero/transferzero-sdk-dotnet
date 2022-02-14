@@ -41,13 +41,15 @@ namespace TransferZero.Sdk.Model
         /// <param name="paymentMethod">The payment method which the user will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both..</param>
         /// <param name="redirectUrl">This is where the user should be redirected back when the payment has been finished.</param>
         /// <param name="phoneNumber">The phone number where the funds should be collected from (required).</param>
+        /// <param name="mobileProvider">mobileProvider.</param>
         /// <param name="sendInstructions">States whether to send out the instructions to the phone number on how to pay the funds or not. This shuold always be set to true, otherwise the sender might not receive a prompt for payment..</param>
         /// <param name="refundAddress">Please make sure the refund_address is a valid BTC address belonging to the sender, as that is going to be used in case the transaction has to be refunded..</param>
-        public PayinMethodDetails(string paymentMethod = default(string), string redirectUrl = default(string), string phoneNumber = default(string), bool? sendInstructions = default(bool?), string refundAddress = default(string))
+        public PayinMethodDetails(string paymentMethod = default(string), string redirectUrl = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), bool? sendInstructions = default(bool?), string refundAddress = default(string))
         {
             this.PhoneNumber = phoneNumber;
             this.PaymentMethod = paymentMethod;
             this.RedirectUrl = redirectUrl;
+            this.MobileProvider = mobileProvider;
             this.SendInstructions = sendInstructions;
             this.RefundAddress = refundAddress;
         }
@@ -74,6 +76,12 @@ namespace TransferZero.Sdk.Model
         public string PhoneNumber { get; set; }
 
         /// <summary>
+        /// Gets or Sets MobileProvider
+        /// </summary>
+        [DataMember(Name="mobile_provider", EmitDefaultValue=false)]
+        public PayoutMethodMobileProviderEnum MobileProvider { get; set; }
+
+        /// <summary>
         /// States whether to send out the instructions to the phone number on how to pay the funds or not. This shuold always be set to true, otherwise the sender might not receive a prompt for payment.
         /// </summary>
         /// <value>States whether to send out the instructions to the phone number on how to pay the funds or not. This shuold always be set to true, otherwise the sender might not receive a prompt for payment.</value>
@@ -98,6 +106,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
             sb.Append("  RedirectUrl: ").Append(RedirectUrl).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            sb.Append("  MobileProvider: ").Append(MobileProvider).Append("\n");
             sb.Append("  SendInstructions: ").Append(SendInstructions).Append("\n");
             sb.Append("  RefundAddress: ").Append(RefundAddress).Append("\n");
             sb.Append("}\n");
@@ -150,6 +159,11 @@ namespace TransferZero.Sdk.Model
                     this.PhoneNumber.Equals(input.PhoneNumber))
                 ) && 
                 (
+                    this.MobileProvider == input.MobileProvider ||
+                    (this.MobileProvider != null &&
+                    this.MobileProvider.Equals(input.MobileProvider))
+                ) && 
+                (
                     this.SendInstructions == input.SendInstructions ||
                     (this.SendInstructions != null &&
                     this.SendInstructions.Equals(input.SendInstructions))
@@ -176,6 +190,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.RedirectUrl.GetHashCode();
                 if (this.PhoneNumber != null)
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
+                if (this.MobileProvider != null)
+                    hashCode = hashCode * 59 + this.MobileProvider.GetHashCode();
                 if (this.SendInstructions != null)
                     hashCode = hashCode * 59 + this.SendInstructions.GetHashCode();
                 if (this.RefundAddress != null)

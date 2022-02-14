@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **PaymentMethod** | **string** | The payment method which the user will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both. | [optional] 
 **RedirectUrl** | **string** | This is where the user should be redirected back when the payment has been finished | [optional] 
 **PhoneNumber** | **string** | The phone number where the funds should be collected from | 
+**MobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  | [optional] 
 **SendInstructions** | **bool?** | States whether to send out the instructions to the phone number on how to pay the funds or not. This shuold always be set to true, otherwise the sender might not receive a prompt for payment. | [optional] 
 **RefundAddress** | **string** | Please make sure the refund_address is a valid BTC address belonging to the sender, as that is going to be used in case the transaction has to be refunded. | [optional] 
 
