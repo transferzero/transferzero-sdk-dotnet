@@ -33,38 +33,31 @@ namespace TransferZero.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PayinMethodDetails" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PayinMethodDetails() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PayinMethodDetails" /> class.
-        /// </summary>
-        /// <param name="paymentMethod">The payment method which the user will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both..</param>
-        /// <param name="redirectUrl">This is where the user should be redirected back when the payment has been finished.</param>
-        /// <param name="phoneNumber">The phone number where the funds should be collected from (required).</param>
+        /// <param name="paymentMethod">The payment method which the sender will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both..</param>
+        /// <param name="redirectUrl">This is where the sender should be redirected back when the payment has been finished.</param>
+        /// <param name="phoneNumber">The phone number where the funds should be collected from.</param>
         /// <param name="mobileProvider">mobileProvider.</param>
-        /// <param name="sendInstructions">States whether to send out the instructions to the phone number on how to pay the funds or not. This shuold always be set to true, otherwise the sender might not receive a prompt for payment..</param>
         /// <param name="refundAddress">Please make sure the refund_address is a valid BTC address belonging to the sender, as that is going to be used in case the transaction has to be refunded..</param>
-        public PayinMethodDetails(string paymentMethod = default(string), string redirectUrl = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), bool? sendInstructions = default(bool?), string refundAddress = default(string))
+        public PayinMethodDetails(string paymentMethod = default(string), string redirectUrl = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), string refundAddress = default(string))
         {
-            this.PhoneNumber = phoneNumber;
             this.PaymentMethod = paymentMethod;
             this.RedirectUrl = redirectUrl;
+            this.PhoneNumber = phoneNumber;
             this.MobileProvider = mobileProvider;
-            this.SendInstructions = sendInstructions;
             this.RefundAddress = refundAddress;
         }
         
         /// <summary>
-        /// The payment method which the user will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both.
+        /// The payment method which the sender will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both.
         /// </summary>
-        /// <value>The payment method which the user will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both.</value>
+        /// <value>The payment method which the sender will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both.</value>
         [DataMember(Name="payment_method", EmitDefaultValue=false)]
         public string PaymentMethod { get; set; }
 
         /// <summary>
-        /// This is where the user should be redirected back when the payment has been finished
+        /// This is where the sender should be redirected back when the payment has been finished
         /// </summary>
-        /// <value>This is where the user should be redirected back when the payment has been finished</value>
+        /// <value>This is where the sender should be redirected back when the payment has been finished</value>
         [DataMember(Name="redirect_url", EmitDefaultValue=false)]
         public string RedirectUrl { get; set; }
 
@@ -80,13 +73,6 @@ namespace TransferZero.Sdk.Model
         /// </summary>
         [DataMember(Name="mobile_provider", EmitDefaultValue=false)]
         public PayoutMethodMobileProviderEnum MobileProvider { get; set; }
-
-        /// <summary>
-        /// States whether to send out the instructions to the phone number on how to pay the funds or not. This shuold always be set to true, otherwise the sender might not receive a prompt for payment.
-        /// </summary>
-        /// <value>States whether to send out the instructions to the phone number on how to pay the funds or not. This shuold always be set to true, otherwise the sender might not receive a prompt for payment.</value>
-        [DataMember(Name="send_instructions", EmitDefaultValue=false)]
-        public bool? SendInstructions { get; set; }
 
         /// <summary>
         /// Please make sure the refund_address is a valid BTC address belonging to the sender, as that is going to be used in case the transaction has to be refunded.
@@ -107,7 +93,6 @@ namespace TransferZero.Sdk.Model
             sb.Append("  RedirectUrl: ").Append(RedirectUrl).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  MobileProvider: ").Append(MobileProvider).Append("\n");
-            sb.Append("  SendInstructions: ").Append(SendInstructions).Append("\n");
             sb.Append("  RefundAddress: ").Append(RefundAddress).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -164,11 +149,6 @@ namespace TransferZero.Sdk.Model
                     this.MobileProvider.Equals(input.MobileProvider))
                 ) && 
                 (
-                    this.SendInstructions == input.SendInstructions ||
-                    (this.SendInstructions != null &&
-                    this.SendInstructions.Equals(input.SendInstructions))
-                ) && 
-                (
                     this.RefundAddress == input.RefundAddress ||
                     (this.RefundAddress != null &&
                     this.RefundAddress.Equals(input.RefundAddress))
@@ -192,8 +172,6 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
                 if (this.MobileProvider != null)
                     hashCode = hashCode * 59 + this.MobileProvider.GetHashCode();
-                if (this.SendInstructions != null)
-                    hashCode = hashCode * 59 + this.SendInstructions.GetHashCode();
                 if (this.RefundAddress != null)
                     hashCode = hashCode * 59 + this.RefundAddress.GetHashCode();
                 return hashCode;

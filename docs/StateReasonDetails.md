@@ -1,5 +1,5 @@
 
-# TransferZero.Sdk.Model.RecipientStateReasonDetails
+# TransferZero.Sdk.Model.StateReasonDetails
 
 ## Properties
 

@@ -25,34 +25,25 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;phone_number\&quot;: \&quot;+2569999999\&quot;, } &#x60;&#x60;&#x60;
+    /// PayinMethodResponse
     /// </summary>
     [DataContract]
-    public partial class PayinMethodDetailsMobile :  IEquatable<PayinMethodDetailsMobile>, IValidatableObject
+    public partial class PayinMethodResponse :  IEquatable<PayinMethodResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayinMethodDetailsMobile" /> class.
+        /// Initializes a new instance of the <see cref="PayinMethodResponse" /> class.
         /// </summary>
-        /// <param name="phoneNumber">The phone number where the funds should be collected from.</param>
-        /// <param name="mobileProvider">mobileProvider.</param>
-        public PayinMethodDetailsMobile(string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum))
+        /// <param name="_object">_object.</param>
+        public PayinMethodResponse(PayinMethod _object = default(PayinMethod))
         {
-            this.PhoneNumber = phoneNumber;
-            this.MobileProvider = mobileProvider;
+            this.Object = _object;
         }
         
         /// <summary>
-        /// The phone number where the funds should be collected from
+        /// Gets or Sets Object
         /// </summary>
-        /// <value>The phone number where the funds should be collected from</value>
-        [DataMember(Name="phone_number", EmitDefaultValue=false)]
-        public string PhoneNumber { get; set; }
-
-        /// <summary>
-        /// Gets or Sets MobileProvider
-        /// </summary>
-        [DataMember(Name="mobile_provider", EmitDefaultValue=false)]
-        public PayoutMethodMobileProviderEnum MobileProvider { get; set; }
+        [DataMember(Name="object", EmitDefaultValue=false)]
+        public PayinMethod Object { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,9 +52,8 @@ namespace TransferZero.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PayinMethodDetailsMobile {\n");
-            sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
-            sb.Append("  MobileProvider: ").Append(MobileProvider).Append("\n");
+            sb.Append("class PayinMethodResponse {\n");
+            sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -84,29 +74,24 @@ namespace TransferZero.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PayinMethodDetailsMobile);
+            return this.Equals(input as PayinMethodResponse);
         }
 
         /// <summary>
-        /// Returns true if PayinMethodDetailsMobile instances are equal
+        /// Returns true if PayinMethodResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of PayinMethodDetailsMobile to be compared</param>
+        /// <param name="input">Instance of PayinMethodResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PayinMethodDetailsMobile input)
+        public bool Equals(PayinMethodResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.PhoneNumber == input.PhoneNumber ||
-                    (this.PhoneNumber != null &&
-                    this.PhoneNumber.Equals(input.PhoneNumber))
-                ) && 
-                (
-                    this.MobileProvider == input.MobileProvider ||
-                    (this.MobileProvider != null &&
-                    this.MobileProvider.Equals(input.MobileProvider))
+                    this.Object == input.Object ||
+                    (this.Object != null &&
+                    this.Object.Equals(input.Object))
                 );
         }
 
@@ -119,10 +104,8 @@ namespace TransferZero.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.PhoneNumber != null)
-                    hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
-                if (this.MobileProvider != null)
-                    hashCode = hashCode * 59 + this.MobileProvider.GetHashCode();
+                if (this.Object != null)
+                    hashCode = hashCode * 59 + this.Object.GetHashCode();
                 return hashCode;
             }
         }

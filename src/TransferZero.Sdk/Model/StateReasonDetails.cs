@@ -25,16 +25,16 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// RecipientStateReasonDetails
+    /// StateReasonDetails
     /// </summary>
     [DataContract]
-    public partial class RecipientStateReasonDetails :  IEquatable<RecipientStateReasonDetails>, IValidatableObject
+    public partial class StateReasonDetails :  IEquatable<StateReasonDetails>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="RecipientStateReasonDetails" /> class.
+        /// Initializes a new instance of the <see cref="StateReasonDetails" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public RecipientStateReasonDetails()
+        public StateReasonDetails()
         {
         }
         
@@ -73,7 +73,7 @@ namespace TransferZero.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class RecipientStateReasonDetails {\n");
+            sb.Append("class StateReasonDetails {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("  Messages: ").Append(Messages).Append("\n");
@@ -98,15 +98,15 @@ namespace TransferZero.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as RecipientStateReasonDetails);
+            return this.Equals(input as StateReasonDetails);
         }
 
         /// <summary>
-        /// Returns true if RecipientStateReasonDetails instances are equal
+        /// Returns true if StateReasonDetails instances are equal
         /// </summary>
-        /// <param name="input">Instance of RecipientStateReasonDetails to be compared</param>
+        /// <param name="input">Instance of StateReasonDetails to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RecipientStateReasonDetails input)
+        public bool Equals(StateReasonDetails input)
         {
             if (input == null)
                 return false;

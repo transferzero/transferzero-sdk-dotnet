@@ -33,28 +33,56 @@ namespace TransferZero.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PayinMethod" /> class.
         /// </summary>
-        /// <param name="type">Describes how the payment should be requested from the user.  Possible values: - &#x60;NGN::Bank&#x60;: NGN bank and card collection requests - &#x60;NGN::Mobile&#x60;: NGN mobile collections - &#x60;GHS::Mobile&#x60;: GHS mobile collections - &#x60;TZS::Mobile&#x60;: TZS mobile collections - &#x60;UGX::Mobile&#x60;: UGX mobile collections - &#x60;EUR::Bank&#x60;: EUR IBAN collections - &#x60;GBP::Bank&#x60;: GBP IBAN collections .</param>
+        /// <param name="type">Describes how the payment should be requested from the sender.  Possible values: - &#x60;GHS::Mobile&#x60;: GHS mobile collections - &#x60;UGX::Mobile&#x60;: UGX mobile collections - &#x60;EUR::Bank&#x60;: EUR IBAN collections - &#x60;GBP::Bank&#x60;: GBP IBAN collections .</param>
+        /// <param name="uxFlow">uxFlow.</param>
         /// <param name="inDetails">inDetails.</param>
-        /// <param name="provider">Describes which provider to use for collection. Please see the [Collections Details](https://docs.transferzero.com/docs/collection-details) in the API documentation on the valid values.</param>
-        public PayinMethod(string type = default(string), PayinMethodDetails inDetails = default(PayinMethodDetails), string provider = default(string))
+        /// <param name="state">state.</param>
+        /// <param name="stateReasonDetails">stateReasonDetails.</param>
+        public PayinMethod(string type = default(string), PayinMethodUxFlow uxFlow = default(PayinMethodUxFlow), PayinMethodDetails inDetails = default(PayinMethodDetails), PayinMethodState state = default(PayinMethodState), StateReasonDetails stateReasonDetails = default(StateReasonDetails))
         {
             this.Type = type;
+            this.UxFlow = uxFlow;
             this.InDetails = inDetails;
-            this.Provider = provider;
+            this.State = state;
+            this.StateReasonDetails = stateReasonDetails;
         }
         
         /// <summary>
-        /// Describes how the payment should be requested from the user.  Possible values: - &#x60;NGN::Bank&#x60;: NGN bank and card collection requests - &#x60;NGN::Mobile&#x60;: NGN mobile collections - &#x60;GHS::Mobile&#x60;: GHS mobile collections - &#x60;TZS::Mobile&#x60;: TZS mobile collections - &#x60;UGX::Mobile&#x60;: UGX mobile collections - &#x60;EUR::Bank&#x60;: EUR IBAN collections - &#x60;GBP::Bank&#x60;: GBP IBAN collections 
+        /// Describes how the payment should be requested from the sender.  Possible values: - &#x60;GHS::Mobile&#x60;: GHS mobile collections - &#x60;UGX::Mobile&#x60;: UGX mobile collections - &#x60;EUR::Bank&#x60;: EUR IBAN collections - &#x60;GBP::Bank&#x60;: GBP IBAN collections 
         /// </summary>
-        /// <value>Describes how the payment should be requested from the user.  Possible values: - &#x60;NGN::Bank&#x60;: NGN bank and card collection requests - &#x60;NGN::Mobile&#x60;: NGN mobile collections - &#x60;GHS::Mobile&#x60;: GHS mobile collections - &#x60;TZS::Mobile&#x60;: TZS mobile collections - &#x60;UGX::Mobile&#x60;: UGX mobile collections - &#x60;EUR::Bank&#x60;: EUR IBAN collections - &#x60;GBP::Bank&#x60;: GBP IBAN collections </value>
+        /// <value>Describes how the payment should be requested from the sender.  Possible values: - &#x60;GHS::Mobile&#x60;: GHS mobile collections - &#x60;UGX::Mobile&#x60;: UGX mobile collections - &#x60;EUR::Bank&#x60;: EUR IBAN collections - &#x60;GBP::Bank&#x60;: GBP IBAN collections </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UxFlow
+        /// </summary>
+        [DataMember(Name="ux_flow", EmitDefaultValue=false)]
+        public PayinMethodUxFlow UxFlow { get; set; }
 
         /// <summary>
         /// Gets or Sets InDetails
         /// </summary>
         [DataMember(Name="in_details", EmitDefaultValue=false)]
         public PayinMethodDetails InDetails { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Id
+        /// </summary>
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public Guid? Id { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets State
+        /// </summary>
+        [DataMember(Name="state", EmitDefaultValue=false)]
+        public PayinMethodState State { get; set; }
+
+        /// <summary>
+        /// Gets or Sets StateReasonDetails
+        /// </summary>
+        [DataMember(Name="state_reason_details", EmitDefaultValue=false)]
+        public StateReasonDetails StateReasonDetails { get; set; }
 
         /// <summary>
         /// This will contain the description on where to pay the funds. Please see the [Collections Details](https://docs.transferzero.com/docs/collection-details) in the API documentation on what to expect here.
@@ -71,11 +99,11 @@ namespace TransferZero.Sdk.Model
         public Object Instructions { get; private set; }
 
         /// <summary>
-        /// Describes which provider to use for collection. Please see the [Collections Details](https://docs.transferzero.com/docs/collection-details) in the API documentation on the valid values
+        /// The fields that have some problems and don&#39;t pass validation
         /// </summary>
-        /// <value>Describes which provider to use for collection. Please see the [Collections Details](https://docs.transferzero.com/docs/collection-details) in the API documentation on the valid values</value>
-        [DataMember(Name="provider", EmitDefaultValue=false)]
-        public string Provider { get; set; }
+        /// <value>The fields that have some problems and don&#39;t pass validation</value>
+        [DataMember(Name="errors", EmitDefaultValue=false)]
+        public Dictionary<string, List<ValidationErrorDescription>> Errors { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -86,10 +114,14 @@ namespace TransferZero.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class PayinMethod {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  UxFlow: ").Append(UxFlow).Append("\n");
             sb.Append("  InDetails: ").Append(InDetails).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  State: ").Append(State).Append("\n");
+            sb.Append("  StateReasonDetails: ").Append(StateReasonDetails).Append("\n");
             sb.Append("  OutDetails: ").Append(OutDetails).Append("\n");
             sb.Append("  Instructions: ").Append(Instructions).Append("\n");
-            sb.Append("  Provider: ").Append(Provider).Append("\n");
+            sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -130,9 +162,29 @@ namespace TransferZero.Sdk.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
+                    this.UxFlow == input.UxFlow ||
+                    (this.UxFlow != null &&
+                    this.UxFlow.Equals(input.UxFlow))
+                ) && 
+                (
                     this.InDetails == input.InDetails ||
                     (this.InDetails != null &&
                     this.InDetails.Equals(input.InDetails))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.State == input.State ||
+                    (this.State != null &&
+                    this.State.Equals(input.State))
+                ) && 
+                (
+                    this.StateReasonDetails == input.StateReasonDetails ||
+                    (this.StateReasonDetails != null &&
+                    this.StateReasonDetails.Equals(input.StateReasonDetails))
                 ) && 
                 (
                     this.OutDetails == input.OutDetails ||
@@ -145,9 +197,9 @@ namespace TransferZero.Sdk.Model
                     this.Instructions.Equals(input.Instructions))
                 ) && 
                 (
-                    this.Provider == input.Provider ||
-                    (this.Provider != null &&
-                    this.Provider.Equals(input.Provider))
+                    this.Errors == input.Errors ||
+                    this.Errors != null &&
+                    this.Errors.SequenceEqual(input.Errors)
                 );
         }
 
@@ -162,14 +214,22 @@ namespace TransferZero.Sdk.Model
                 int hashCode = 41;
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.UxFlow != null)
+                    hashCode = hashCode * 59 + this.UxFlow.GetHashCode();
                 if (this.InDetails != null)
                     hashCode = hashCode * 59 + this.InDetails.GetHashCode();
+                if (this.Id != null)
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.State != null)
+                    hashCode = hashCode * 59 + this.State.GetHashCode();
+                if (this.StateReasonDetails != null)
+                    hashCode = hashCode * 59 + this.StateReasonDetails.GetHashCode();
                 if (this.OutDetails != null)
                     hashCode = hashCode * 59 + this.OutDetails.GetHashCode();
                 if (this.Instructions != null)
                     hashCode = hashCode * 59 + this.Instructions.GetHashCode();
-                if (this.Provider != null)
-                    hashCode = hashCode * 59 + this.Provider.GetHashCode();
+                if (this.Errors != null)
+                    hashCode = hashCode * 59 + this.Errors.GetHashCode();
                 return hashCode;
             }
         }

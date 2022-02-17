@@ -33,8 +33,8 @@ namespace TransferZero.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PayinMethodDetailsNGNBank" /> class.
         /// </summary>
-        /// <param name="paymentMethod">The payment method which the user will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both..</param>
-        /// <param name="redirectUrl">This is where the user should be redirected back when the payment has been finished.</param>
+        /// <param name="paymentMethod">The payment method which the sender will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both..</param>
+        /// <param name="redirectUrl">This is where the sender should be redirected back when the payment has been finished.</param>
         public PayinMethodDetailsNGNBank(string paymentMethod = default(string), string redirectUrl = default(string))
         {
             this.PaymentMethod = paymentMethod;
@@ -42,16 +42,16 @@ namespace TransferZero.Sdk.Model
         }
         
         /// <summary>
-        /// The payment method which the user will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both.
+        /// The payment method which the sender will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both.
         /// </summary>
-        /// <value>The payment method which the user will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both.</value>
+        /// <value>The payment method which the sender will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both.</value>
         [DataMember(Name="payment_method", EmitDefaultValue=false)]
         public string PaymentMethod { get; set; }
 
         /// <summary>
-        /// This is where the user should be redirected back when the payment has been finished
+        /// This is where the sender should be redirected back when the payment has been finished
         /// </summary>
-        /// <value>This is where the user should be redirected back when the payment has been finished</value>
+        /// <value>This is where the sender should be redirected back when the payment has been finished</value>
         [DataMember(Name="redirect_url", EmitDefaultValue=false)]
         public string RedirectUrl { get; set; }
 
