@@ -25,9 +25,9 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// Describes the collection experience that will be presented to the sender. Can be one of the following:  * &#x60;ussd_popup&#x60;: Payment prompt is pushed to the sender&#39;s phone. They can approve or decline. Supported for GHS::Mobile, UGX::Mobile * &#x60;bank_transfer&#x60;: For bank collections. Sender should send funds to the bank account details specified in out_details. Supported for EUR::Bank, GBP::Bank
+    /// Describes the collection experience that will be presented to the sender. Can be one of the following:  * &#x60;ussd_popup&#x60;: Payment prompt is pushed to the sender&#39;s phone. They can approve or decline. Supported for GHS::Mobile, UGX::Mobile * &#x60;bank_transfer&#x60;: For bank collections. Sender should send funds to the bank account details specified in out_details. Supported for EUR::Bank, GBP::Bank * &#x60;http_redirect&#x60;: The sender will be redirected to a website where they can fill in their details to initiate the collection.
     /// </summary>
-    /// <value>Describes the collection experience that will be presented to the sender. Can be one of the following:  * &#x60;ussd_popup&#x60;: Payment prompt is pushed to the sender&#39;s phone. They can approve or decline. Supported for GHS::Mobile, UGX::Mobile * &#x60;bank_transfer&#x60;: For bank collections. Sender should send funds to the bank account details specified in out_details. Supported for EUR::Bank, GBP::Bank</value>
+    /// <value>Describes the collection experience that will be presented to the sender. Can be one of the following:  * &#x60;ussd_popup&#x60;: Payment prompt is pushed to the sender&#39;s phone. They can approve or decline. Supported for GHS::Mobile, UGX::Mobile * &#x60;bank_transfer&#x60;: For bank collections. Sender should send funds to the bank account details specified in out_details. Supported for EUR::Bank, GBP::Bank * &#x60;http_redirect&#x60;: The sender will be redirected to a website where they can fill in their details to initiate the collection.</value>
     
     [JsonConverter(typeof(StringEnumConverter))]
     
@@ -43,7 +43,25 @@ namespace TransferZero.Sdk.Model
         /// Enum Banktransfer for value: bank_transfer
         /// </summary>
         [EnumMember(Value = "bank_transfer")]
-        Banktransfer = 2
+        Banktransfer = 2,
+
+        /// <summary>
+        /// Enum Httpredirect for value: http_redirect
+        /// </summary>
+        [EnumMember(Value = "http_redirect")]
+        Httpredirect = 3,
+
+        /// <summary>
+        /// Enum Blockchain for value: blockchain
+        /// </summary>
+        [EnumMember(Value = "blockchain")]
+        Blockchain = 4,
+
+        /// <summary>
+        /// Enum Unknown for value: unknown
+        /// </summary>
+        [EnumMember(Value = "unknown")]
+        Unknown = 5
 
     }
 
