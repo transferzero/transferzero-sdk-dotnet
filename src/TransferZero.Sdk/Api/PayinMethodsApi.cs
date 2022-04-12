@@ -97,8 +97,8 @@ namespace TransferZero.Sdk.Api
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payinMethodID">ID of the payin method whose collection process should be retried  Example: &#x60;/v1/payin_methods/9d4d7b73-a94c-4979-ab57-09074fd55d33/retry&#x60;</param>
-        /// <returns></returns>
-        void RetryPayinMethod (Guid? payinMethodID);
+        /// <returns>PayinMethodResponse</returns>
+        PayinMethodResponse RetryPayinMethod (Guid? payinMethodID);
 
         /// <summary>
         /// Retries PayinMethod
@@ -108,8 +108,8 @@ namespace TransferZero.Sdk.Api
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payinMethodID">ID of the payin method whose collection process should be retried  Example: &#x60;/v1/payin_methods/9d4d7b73-a94c-4979-ab57-09074fd55d33/retry&#x60;</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> RetryPayinMethodWithHttpInfo (Guid? payinMethodID);
+        /// <returns>ApiResponse of PayinMethodResponse</returns>
+        ApiResponse<PayinMethodResponse> RetryPayinMethodWithHttpInfo (Guid? payinMethodID);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -185,8 +185,8 @@ namespace TransferZero.Sdk.Api
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payinMethodID">ID of the payin method whose collection process should be retried  Example: &#x60;/v1/payin_methods/9d4d7b73-a94c-4979-ab57-09074fd55d33/retry&#x60;</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task RetryPayinMethodAsync (Guid? payinMethodID);
+        /// <returns>Task of PayinMethodResponse</returns>
+        System.Threading.Tasks.Task<PayinMethodResponse> RetryPayinMethodAsync (Guid? payinMethodID);
 
         /// <summary>
         /// Retries PayinMethod
@@ -196,8 +196,8 @@ namespace TransferZero.Sdk.Api
         /// </remarks>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payinMethodID">ID of the payin method whose collection process should be retried  Example: &#x60;/v1/payin_methods/9d4d7b73-a94c-4979-ab57-09074fd55d33/retry&#x60;</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> RetryPayinMethodAsyncWithHttpInfo (Guid? payinMethodID);
+        /// <returns>Task of ApiResponse (PayinMethodResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PayinMethodResponse>> RetryPayinMethodAsyncWithHttpInfo (Guid? payinMethodID);
         #endregion Asynchronous Operations
     }
 
@@ -843,10 +843,11 @@ namespace TransferZero.Sdk.Api
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payinMethodID">ID of the payin method whose collection process should be retried  Example: &#x60;/v1/payin_methods/9d4d7b73-a94c-4979-ab57-09074fd55d33/retry&#x60;</param>
-        /// <returns></returns>
-        public void RetryPayinMethod (Guid? payinMethodID)
+        /// <returns>PayinMethodResponse</returns>
+        public PayinMethodResponse RetryPayinMethod (Guid? payinMethodID)
         {
-             RetryPayinMethodWithHttpInfo(payinMethodID);
+             ApiResponse<PayinMethodResponse> localVarResponse = RetryPayinMethodWithHttpInfo(payinMethodID);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -854,8 +855,8 @@ namespace TransferZero.Sdk.Api
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payinMethodID">ID of the payin method whose collection process should be retried  Example: &#x60;/v1/payin_methods/9d4d7b73-a94c-4979-ab57-09074fd55d33/retry&#x60;</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> RetryPayinMethodWithHttpInfo (Guid? payinMethodID)
+        /// <returns>ApiResponse of PayinMethodResponse</returns>
+        public ApiResponse< PayinMethodResponse > RetryPayinMethodWithHttpInfo (Guid? payinMethodID)
         {
             // verify the required parameter 'payinMethodID' is set
             if (payinMethodID == null)
@@ -876,6 +877,7 @@ namespace TransferZero.Sdk.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
             };
             String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -914,9 +916,9 @@ namespace TransferZero.Sdk.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<PayinMethodResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
+                (PayinMethodResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PayinMethodResponse)));
         }
 
         /// <summary>
@@ -924,10 +926,11 @@ namespace TransferZero.Sdk.Api
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payinMethodID">ID of the payin method whose collection process should be retried  Example: &#x60;/v1/payin_methods/9d4d7b73-a94c-4979-ab57-09074fd55d33/retry&#x60;</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task RetryPayinMethodAsync (Guid? payinMethodID)
+        /// <returns>Task of PayinMethodResponse</returns>
+        public async System.Threading.Tasks.Task<PayinMethodResponse> RetryPayinMethodAsync (Guid? payinMethodID)
         {
-             await RetryPayinMethodAsyncWithHttpInfo(payinMethodID);
+             ApiResponse<PayinMethodResponse> localVarResponse = await RetryPayinMethodAsyncWithHttpInfo(payinMethodID);
+             return localVarResponse.Data;
 
         }
 
@@ -936,8 +939,8 @@ namespace TransferZero.Sdk.Api
         /// </summary>
         /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="payinMethodID">ID of the payin method whose collection process should be retried  Example: &#x60;/v1/payin_methods/9d4d7b73-a94c-4979-ab57-09074fd55d33/retry&#x60;</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> RetryPayinMethodAsyncWithHttpInfo (Guid? payinMethodID)
+        /// <returns>Task of ApiResponse (PayinMethodResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PayinMethodResponse>> RetryPayinMethodAsyncWithHttpInfo (Guid? payinMethodID)
         {
             // verify the required parameter 'payinMethodID' is set
             if (payinMethodID == null)
@@ -958,6 +961,7 @@ namespace TransferZero.Sdk.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
             };
             String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -996,9 +1000,9 @@ namespace TransferZero.Sdk.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<PayinMethodResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
+                (PayinMethodResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PayinMethodResponse)));
         }
 
     }

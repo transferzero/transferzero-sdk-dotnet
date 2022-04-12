@@ -35,10 +35,12 @@ namespace TransferZero.Sdk.Model
         /// </summary>
         /// <param name="phoneNumber">The phone number where the funds should be collected from.</param>
         /// <param name="mobileProvider">mobileProvider.</param>
-        public PayinMethodDetailsMobile(string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum))
+        /// <param name="otp">The OTP that the sender received in otp verified ussd popup ux flow..</param>
+        public PayinMethodDetailsMobile(string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), string otp = default(string))
         {
             this.PhoneNumber = phoneNumber;
             this.MobileProvider = mobileProvider;
+            this.Otp = otp;
         }
         
         /// <summary>
@@ -55,6 +57,13 @@ namespace TransferZero.Sdk.Model
         public PayoutMethodMobileProviderEnum MobileProvider { get; set; }
 
         /// <summary>
+        /// The OTP that the sender received in otp verified ussd popup ux flow.
+        /// </summary>
+        /// <value>The OTP that the sender received in otp verified ussd popup ux flow.</value>
+        [DataMember(Name="otp", EmitDefaultValue=false)]
+        public string Otp { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -64,6 +73,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("class PayinMethodDetailsMobile {\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  MobileProvider: ").Append(MobileProvider).Append("\n");
+            sb.Append("  Otp: ").Append(Otp).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,6 +117,11 @@ namespace TransferZero.Sdk.Model
                     this.MobileProvider == input.MobileProvider ||
                     (this.MobileProvider != null &&
                     this.MobileProvider.Equals(input.MobileProvider))
+                ) && 
+                (
+                    this.Otp == input.Otp ||
+                    (this.Otp != null &&
+                    this.Otp.Equals(input.Otp))
                 );
         }
 
@@ -123,6 +138,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
                 if (this.MobileProvider != null)
                     hashCode = hashCode * 59 + this.MobileProvider.GetHashCode();
+                if (this.Otp != null)
+                    hashCode = hashCode * 59 + this.Otp.GetHashCode();
                 return hashCode;
             }
         }

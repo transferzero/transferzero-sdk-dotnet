@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 
 <a name="retrypayinmethod"></a>
 # **RetryPayinMethod**
-> void RetryPayinMethod (Guid? payinMethodID)
+> PayinMethodResponse RetryPayinMethod (Guid? payinMethodID)
 
 Retries PayinMethod
 
@@ -387,10 +387,18 @@ namespace Example
 
             try {
                 // Retries PayinMethod
-                apiInstance.RetryPayinMethod(payinMethodID);
+                PayinMethodResponse result = apiInstance.RetryPayinMethod(payinMethodID);
+                Debug.WriteLine(result);
             } catch (ApiException e)
             {
+                if (e.IsValidationError) {
+                    // In case there was a validation error, obtain the object
+                    PayinMethodResponse result = e.ParseObject<PayinMethodResponse>();
+                    Debug.WriteLing("There was a validation error while processing!");
+                    Debug.WriteLine(result);
+                } else {
                     Debug.Print("Exception when calling PayinMethodsApi.RetryPayinMethod: " + e.Message );
+                }
             }
         }
     }
@@ -424,9 +432,17 @@ Module Example
 
         Try
             REM Retries PayinMethod
-            apiInstance.RetryPayinMethod(payinMethodID)
+            Dim result As PayinMethodResponse = apiInstance.RetryPayinMethod(payinMethodID)
+            Debug.WriteLine(result)
         Catch e as ApiException
-            Debug.Print("Exception when calling PayinMethodsApi.RetryPayinMethod: " + e.Message );
+            If e.IsValidationError Then
+                REM In case there was a validation error, obtain the object
+                Dim result as PayinMethodResponse = e.ParseObject(Of PayinMethodResponse)()
+                Debug.WriteLine("There was a validation error while processing!")
+                Debug.WriteLine(result)
+            Else
+                Debug.Print("Exception when calling PayinMethodsApi.RetryPayinMethod: " + e.Message )
+            End If
         End Try
     End Sub
 End Module
@@ -440,12 +456,12 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**PayinMethodResponse**](PayinMethodResponse.md)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
