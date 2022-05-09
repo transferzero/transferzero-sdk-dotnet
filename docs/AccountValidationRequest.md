@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **BankCode** | **string** | Bank Code to query - same codes are used as for creating the transactions | [optional] 
 **Iban** | **string** | IBAN to query - BBAN format for XOF bank accounts | [optional] 
 **PhoneNumber** | **string** | Phone number to query | [optional] 
-**MobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  | [optional] 
+**MobileProvider** | **PayoutMethodMobileProviderEnum** |  | [optional] 
 **Country** | **string** | Country of account in 2-character alpha ISO 3166-2 country format | 
 **Currency** | **string** | The currency the bank account is in | 
 **Method** | **string** | The method of the payment. Currently bank and mobile are supported | 

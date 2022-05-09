@@ -11,15 +11,15 @@ Name | Type | Description | Notes
 **Sender** | [**Sender**](Sender.md) |  | 
 **Recipients** | [**List&lt;Recipient&gt;**](Recipient.md) | The details of where the payment should go. although transactions can support paying out multiple recipients, usually one is provided.  | 
 **Traits** | [**TransactionTraits**](TransactionTraits.md) |  | [optional] 
-**State** | [**TransactionState**](TransactionState.md) |  | [optional] 
-**InputAmount** | **decimal?** | The amount that was requested in the input currency | [optional] 
+**State** | **TransactionState** |  | [optional] 
+**InputAmount** | **decimal** | The amount that was requested in the input currency | [optional] 
 **PayinReference** | **string** | The reference number that has to be provided in case the transaction is not funded through account balance | [optional] 
-**PaidAmount** | **decimal?** | The amount that was already paid in to the transaction | [optional] 
-**DueAmount** | **decimal?** | The amount needed to be paid in for the transaction to get funded | [optional] 
-**CreatedAt** | **DateTime?** | The time the transaction was created | [optional] 
-**ExpiresAt** | **DateTime?** | The latest time when the transaction has to be funded, otherwise it will be cancelled | [optional] 
+**PaidAmount** | **decimal** | The amount that was already paid in to the transaction | [optional] 
+**DueAmount** | **decimal** | The amount needed to be paid in for the transaction to get funded | [optional] 
+**CreatedAt** | **DateTime** | The time the transaction was created | [optional] 
+**ExpiresAt** | **DateTime** | The latest time when the transaction has to be funded, otherwise it will be cancelled | [optional] 
 **ExternalId** | **string** | Optional ID that is supplied by partner linking it to the partner&#39;s own Transaction ID. Note: if present we will validate whether the sent ID is a duplicate in our system or not. | [optional] 
-**Id** | **Guid?** |  | [optional] 
+**Id** | **Guid** |  | [optional] 
 **Errors** | **Dictionary&lt;string, List&lt;ValidationErrorDescription&gt;&gt;** | The fields that have some problems and don&#39;t pass validation | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

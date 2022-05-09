@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Webhook** | **Guid?** | The ID of the webhook that was used to send out this callback | 
+**Webhook** | **Guid** | The ID of the webhook that was used to send out this callback | 
 **Event** | **string** | The event that triggered this webhook | 
 **Object** | [**Sender**](Sender.md) |  | 
 

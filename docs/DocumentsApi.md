@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getdocument"></a>
 # **GetDocument**
-> DocumentResponse GetDocument (Guid? documentID)
+> DocumentResponse GetDocument (Guid documentID)
 
 Fetching a document
 
@@ -40,7 +40,7 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new DocumentsApi(configuration);
-            var documentID = new Guid?(); // Guid? | ID of the document to get.  Example: `/v1/documents/bf9ff782-e182-45ac-abea-5bce83ad6670`
+            var documentID = new Guid(); // Guid | ID of the document to get.  Example: `/v1/documents/bf9ff782-e182-45ac-abea-5bce83ad6670`
 
             try {
                 // Fetching a document
@@ -84,7 +84,7 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new DocumentsApi(configuration)
-        Dim documentID = new Guid?() REM Guid? | ID of the document to get.  Example: `/v1/documents/bf9ff782-e182-45ac-abea-5bce83ad6670`
+        Dim documentID = new Guid() REM Guid | ID of the document to get.  Example: `/v1/documents/bf9ff782-e182-45ac-abea-5bce83ad6670`
 
 
         Try
@@ -109,7 +109,7 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **documentID** | [**Guid?**](Guid?.md)| ID of the document to get.  Example: &#x60;/v1/documents/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; | 
+ **documentID** | [**Guid**](Guid.md)| ID of the document to get.  Example: &#x60;/v1/documents/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; | 
 
 ### Return type
 
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 <a name="getdocuments"></a>
 # **GetDocuments**
-> DocumentListResponse GetDocuments (int? page = null, int? per = null)
+> DocumentListResponse GetDocuments (int page = null, int per = null)
 
 Getting a list of documents
 
@@ -153,8 +153,8 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new DocumentsApi(configuration);
-            var page = 1;  // int? | The page number to request (defaults to 1) (optional) 
-            var per = 10;  // int? | The number of results to load per page (defaults to 10) (optional) 
+            var page = 1;  // int | The page number to request (defaults to 1) (optional) 
+            var per = 10;  // int | The number of results to load per page (defaults to 10) (optional) 
 
             try {
                 // Getting a list of documents
@@ -198,8 +198,8 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new DocumentsApi(configuration)
-        Dim page = 1 REM int? | The page number to request (defaults to 1) (optional) 
-        Dim per = 10 REM int? | The number of results to load per page (defaults to 10) (optional) 
+        Dim page = 1 REM int | The page number to request (defaults to 1) (optional) 
+        Dim per = 10 REM int | The number of results to load per page (defaults to 10) (optional) 
 
 
         Try
@@ -224,8 +224,8 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int?**| The page number to request (defaults to 1) | [optional] 
- **per** | **int?**| The number of results to load per page (defaults to 10) | [optional] 
+ **page** | **int**| The page number to request (defaults to 1) | [optional] 
+ **per** | **int**| The number of results to load per page (defaults to 10) | [optional] 
 
 ### Return type
 

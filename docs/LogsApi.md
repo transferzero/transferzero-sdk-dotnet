@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="getwebhooklog"></a>
 # **GetWebhookLog**
-> WebhookLogResponse GetWebhookLog (Guid? webhookLogID)
+> WebhookLogResponse GetWebhookLog (Guid webhookLogID)
 
 Fetch an individual webhook log
 
@@ -39,7 +39,7 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new LogsApi(configuration);
-            var webhookLogID = new Guid?(); // Guid? | ID of the webhook log to retrieve  Example: `/v1/logs/9d1ad631-f34a-4cff-9a7e-2c83e3a556df`
+            var webhookLogID = new Guid(); // Guid | ID of the webhook log to retrieve  Example: `/v1/logs/9d1ad631-f34a-4cff-9a7e-2c83e3a556df`
 
             try {
                 // Fetch an individual webhook log
@@ -83,7 +83,7 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new LogsApi(configuration)
-        Dim webhookLogID = new Guid?() REM Guid? | ID of the webhook log to retrieve  Example: `/v1/logs/9d1ad631-f34a-4cff-9a7e-2c83e3a556df`
+        Dim webhookLogID = new Guid() REM Guid | ID of the webhook log to retrieve  Example: `/v1/logs/9d1ad631-f34a-4cff-9a7e-2c83e3a556df`
 
 
         Try
@@ -108,7 +108,7 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhookLogID** | [**Guid?**](Guid?.md)| ID of the webhook log to retrieve  Example: &#x60;/v1/logs/9d1ad631-f34a-4cff-9a7e-2c83e3a556df&#x60; | 
+ **webhookLogID** | [**Guid**](Guid.md)| ID of the webhook log to retrieve  Example: &#x60;/v1/logs/9d1ad631-f34a-4cff-9a7e-2c83e3a556df&#x60; | 
 
 ### Return type
 
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 <a name="getwebhooklogs"></a>
 # **GetWebhookLogs**
-> WebhookLogListResponse GetWebhookLogs (int? page = null, int? per = null, string createdAtFrom = null, string createdAtTo = null)
+> WebhookLogListResponse GetWebhookLogs (int page = null, int per = null, string createdAtFrom = null, string createdAtTo = null)
 
 Fetch a list of webhook logs
 
@@ -152,8 +152,8 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new LogsApi(configuration);
-            var page = 1;  // int? | The page number to request (defaults to 1) (optional) 
-            var per = 10;  // int? | The number of results to load per page (defaults to 10) (optional) 
+            var page = 1;  // int | The page number to request (defaults to 1) (optional) 
+            var per = 10;  // int | The number of results to load per page (defaults to 10) (optional) 
             var createdAtFrom = createdAtFrom_example;  // string | Start date to filter recipients by created_at range Allows filtering results by the specified `created_at` timeframe.  Example: `/v1/recipients?created_at_from=2018-06-06&created_at_to=2018-06-08` (optional) 
             var createdAtTo = createdAtTo_example;  // string | End date to filter recipients by created_at range Allows filtering results by the specified `created_at` timeframe.  Example: `/v1/recipients?created_at_from=2018-06-06&created_at_to=2018-06-08` (optional) 
 
@@ -199,8 +199,8 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new LogsApi(configuration)
-        Dim page = 1 REM int? | The page number to request (defaults to 1) (optional) 
-        Dim per = 10 REM int? | The number of results to load per page (defaults to 10) (optional) 
+        Dim page = 1 REM int | The page number to request (defaults to 1) (optional) 
+        Dim per = 10 REM int | The number of results to load per page (defaults to 10) (optional) 
         Dim createdAtFrom = createdAtFrom_example REM string | Start date to filter recipients by created_at range Allows filtering results by the specified `created_at` timeframe.  Example: `/v1/recipients?created_at_from=2018-06-06&created_at_to=2018-06-08` (optional) 
         Dim createdAtTo = createdAtTo_example REM string | End date to filter recipients by created_at range Allows filtering results by the specified `created_at` timeframe.  Example: `/v1/recipients?created_at_from=2018-06-06&created_at_to=2018-06-08` (optional) 
 
@@ -227,8 +227,8 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int?**| The page number to request (defaults to 1) | [optional] 
- **per** | **int?**| The number of results to load per page (defaults to 10) | [optional] 
+ **page** | **int**| The page number to request (defaults to 1) | [optional] 
+ **per** | **int**| The number of results to load per page (defaults to 10) | [optional] 
  **createdAtFrom** | **string**| Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; | [optional] 
  **createdAtTo** | **string**| End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; | [optional] 
 

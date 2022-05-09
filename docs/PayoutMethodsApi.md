@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="deletepayoutmethod"></a>
 # **DeletePayoutMethod**
-> PayoutMethodResponse DeletePayoutMethod (Guid? payoutMethodID)
+> PayoutMethodResponse DeletePayoutMethod (Guid payoutMethodID)
 
 Deleting a payout method
 
@@ -42,7 +42,7 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new PayoutMethodsApi(configuration);
-            var payoutMethodID = new Guid?(); // Guid? | ID of the payout method to delete.  Example: `/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
+            var payoutMethodID = new Guid(); // Guid | ID of the payout method to delete.  Example: `/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
 
             try {
                 // Deleting a payout method
@@ -86,7 +86,7 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new PayoutMethodsApi(configuration)
-        Dim payoutMethodID = new Guid?() REM Guid? | ID of the payout method to delete.  Example: `/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
+        Dim payoutMethodID = new Guid() REM Guid | ID of the payout method to delete.  Example: `/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
 
 
         Try
@@ -111,7 +111,7 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payoutMethodID** | [**Guid?**](Guid?.md)| ID of the payout method to delete.  Example: &#x60;/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; | 
+ **payoutMethodID** | [**Guid**](Guid.md)| ID of the payout method to delete.  Example: &#x60;/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; | 
 
 ### Return type
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 <a name="getpayoutmethod"></a>
 # **GetPayoutMethod**
-> PayoutMethodResponse GetPayoutMethod (Guid? payoutMethodID)
+> PayoutMethodResponse GetPayoutMethod (Guid payoutMethodID)
 
 Fetching a payout method
 
@@ -155,7 +155,7 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new PayoutMethodsApi(configuration);
-            var payoutMethodID = new Guid?(); // Guid? | ID of the payout method to get.  Example: `/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
+            var payoutMethodID = new Guid(); // Guid | ID of the payout method to get.  Example: `/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
 
             try {
                 // Fetching a payout method
@@ -199,7 +199,7 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new PayoutMethodsApi(configuration)
-        Dim payoutMethodID = new Guid?() REM Guid? | ID of the payout method to get.  Example: `/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
+        Dim payoutMethodID = new Guid() REM Guid | ID of the payout method to get.  Example: `/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
 
 
         Try
@@ -224,7 +224,7 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payoutMethodID** | [**Guid?**](Guid?.md)| ID of the payout method to get.  Example: &#x60;/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; | 
+ **payoutMethodID** | [**Guid**](Guid.md)| ID of the payout method to get.  Example: &#x60;/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; | 
 
 ### Return type
 
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 <a name="getpayoutmethods"></a>
 # **GetPayoutMethods**
-> PayoutMethodListResponse GetPayoutMethods (List<string> state = null, List<string> type = null, string senderId = null, int? page = null, int? per = null, string createdAtFrom = null, string createdAtTo = null)
+> PayoutMethodListResponse GetPayoutMethods (List<string> state = null, List<string> type = null, string senderId = null, int page = null, int per = null, string createdAtFrom = null, string createdAtTo = null)
 
 Listing payout methods
 
@@ -271,8 +271,8 @@ namespace Example
             var state = state_example;  // List<string> | Allows filtering results by `state` of the payout method.  Example: `/v1/payout_methods?state[]=enabled` (optional) 
             var type = new List<string>(); // List<string> | Allows filtering results by the specified type.  Example: `/v1/payout_methods?type[]=NGN::Bank` (optional) 
             var senderId = senderId_example;  // string | Allows filtering results by the specified sender id.  Example: `/v1/payout_methods?sender_id=bf9ff782-e182-45ac-abea-5bce83ad6670` (optional) 
-            var page = 1;  // int? | The page number to request (defaults to 1) (optional) 
-            var per = 10;  // int? | The number of results to load per page (defaults to 10) (optional) 
+            var page = 1;  // int | The page number to request (defaults to 1) (optional) 
+            var per = 10;  // int | The number of results to load per page (defaults to 10) (optional) 
             var createdAtFrom = createdAtFrom_example;  // string | Start date to filter recipients by created_at range Allows filtering results by the specified `created_at` timeframe.  Example: `/v1/recipients?created_at_from=2018-06-06&created_at_to=2018-06-08` (optional) 
             var createdAtTo = createdAtTo_example;  // string | End date to filter recipients by created_at range Allows filtering results by the specified `created_at` timeframe.  Example: `/v1/recipients?created_at_from=2018-06-06&created_at_to=2018-06-08` (optional) 
 
@@ -321,8 +321,8 @@ Module Example
         Dim state = state_example REM List<string> | Allows filtering results by `state` of the payout method.  Example: `/v1/payout_methods?state[]=enabled` (optional) 
         Dim type = new List<string>() REM List<string> | Allows filtering results by the specified type.  Example: `/v1/payout_methods?type[]=NGN::Bank` (optional) 
         Dim senderId = senderId_example REM string | Allows filtering results by the specified sender id.  Example: `/v1/payout_methods?sender_id=bf9ff782-e182-45ac-abea-5bce83ad6670` (optional) 
-        Dim page = 1 REM int? | The page number to request (defaults to 1) (optional) 
-        Dim per = 10 REM int? | The number of results to load per page (defaults to 10) (optional) 
+        Dim page = 1 REM int | The page number to request (defaults to 1) (optional) 
+        Dim per = 10 REM int | The number of results to load per page (defaults to 10) (optional) 
         Dim createdAtFrom = createdAtFrom_example REM string | Start date to filter recipients by created_at range Allows filtering results by the specified `created_at` timeframe.  Example: `/v1/recipients?created_at_from=2018-06-06&created_at_to=2018-06-08` (optional) 
         Dim createdAtTo = createdAtTo_example REM string | End date to filter recipients by created_at range Allows filtering results by the specified `created_at` timeframe.  Example: `/v1/recipients?created_at_from=2018-06-06&created_at_to=2018-06-08` (optional) 
 
@@ -352,8 +352,8 @@ Name | Type | Description  | Notes
  **state** | **List&lt;string&gt;**| Allows filtering results by &#x60;state&#x60; of the payout method.  Example: &#x60;/v1/payout_methods?state[]&#x3D;enabled&#x60; | [optional] 
  **type** | [**List&lt;string&gt;**](string.md)| Allows filtering results by the specified type.  Example: &#x60;/v1/payout_methods?type[]&#x3D;NGN::Bank&#x60; | [optional] 
  **senderId** | **string**| Allows filtering results by the specified sender id.  Example: &#x60;/v1/payout_methods?sender_id&#x3D;bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; | [optional] 
- **page** | **int?**| The page number to request (defaults to 1) | [optional] 
- **per** | **int?**| The number of results to load per page (defaults to 10) | [optional] 
+ **page** | **int**| The page number to request (defaults to 1) | [optional] 
+ **per** | **int**| The number of results to load per page (defaults to 10) | [optional] 
  **createdAtFrom** | **string**| Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; | [optional] 
  **createdAtTo** | **string**| End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; | [optional] 
 
@@ -370,11 +370,11 @@ Name | Type | Description  | Notes
 
 <a name="patchpayoutmethod"></a>
 # **PatchPayoutMethod**
-> PayoutMethodResponse PatchPayoutMethod (Guid? payoutMethodID, PayoutMethod payoutMethod)
+> PayoutMethodResponse PatchPayoutMethod (Guid payoutMethodID, PayoutMethod payoutMethod)
 
 Updating a payout method
 
-Updates the payout method specified in the URL path.
+Updates a single payout method by the Payout Method ID
 
 ### Example
 
@@ -399,7 +399,7 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new PayoutMethodsApi(configuration);
-            var payoutMethodID = new Guid?(); // Guid? | ID of the payout method to get.  Example: `/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
+            var payoutMethodID = new Guid(); // Guid | ID of the payout method to get.  Example: `/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
             var payoutMethod = new PayoutMethod(); // PayoutMethod | 
 
             try {
@@ -444,7 +444,7 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new PayoutMethodsApi(configuration)
-        Dim payoutMethodID = new Guid?() REM Guid? | ID of the payout method to get.  Example: `/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
+        Dim payoutMethodID = new Guid() REM Guid | ID of the payout method to get.  Example: `/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
         Dim payoutMethod = new PayoutMethod() REM PayoutMethod | 
 
 
@@ -470,7 +470,7 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payoutMethodID** | [**Guid?**](Guid?.md)| ID of the payout method to get.  Example: &#x60;/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; | 
+ **payoutMethodID** | [**Guid**](Guid.md)| ID of the payout method to get.  Example: &#x60;/v1/payout_methods/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; | 
  **payoutMethod** | [**PayoutMethod**](PayoutMethod.md)|  | 
 
 ### Return type

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **InstanceId** | **string** | Instance ID of the webhook event | [optional] 
 **InstanceType** | **string** | Type of instance event | [optional] 
 **AttemptId** | **string** | Attempt ID | [optional] 
-**Tries** | **int?** | Number of tries at the point webhook was triggered | [optional] 
+**Tries** | **int** | Number of tries at the point webhook was triggered | [optional] 
 **Request** | [**WebhookLogMetadataRequest**](WebhookLogMetadataRequest.md) |  | [optional] 
 **Response** | [**WebhookLogMetadataResponse**](WebhookLogMetadataResponse.md) |  | [optional] 
 **AppId** | **string** | ID of app on which webhook event was triggered | [optional] 

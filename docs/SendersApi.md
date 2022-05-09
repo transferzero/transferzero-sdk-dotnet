@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="deletesender"></a>
 # **DeleteSender**
-> SenderResponse DeleteSender (Guid? senderID)
+> SenderResponse DeleteSender (Guid senderID)
 
 Deleting a sender
 
@@ -42,7 +42,7 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new SendersApi(configuration);
-            var senderID = new Guid?(); // Guid? | ID of the sender to delete.  Example: `/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670`
+            var senderID = new Guid(); // Guid | ID of the sender to delete.  Example: `/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670`
 
             try {
                 // Deleting a sender
@@ -86,7 +86,7 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new SendersApi(configuration)
-        Dim senderID = new Guid?() REM Guid? | ID of the sender to delete.  Example: `/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670`
+        Dim senderID = new Guid() REM Guid | ID of the sender to delete.  Example: `/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670`
 
 
         Try
@@ -111,7 +111,7 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **senderID** | [**Guid?**](Guid?.md)| ID of the sender to delete.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; | 
+ **senderID** | [**Guid**](Guid.md)| ID of the sender to delete.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; | 
 
 ### Return type
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 <a name="getsender"></a>
 # **GetSender**
-> SenderResponse GetSender (Guid? senderID)
+> SenderResponse GetSender (Guid senderID)
 
 Fetching a sender
 
@@ -155,7 +155,7 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new SendersApi(configuration);
-            var senderID = new Guid?(); // Guid? | ID of the sender to get.  Example: `/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670`
+            var senderID = new Guid(); // Guid | ID of the sender to get.  Example: `/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670`
 
             try {
                 // Fetching a sender
@@ -199,7 +199,7 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new SendersApi(configuration)
-        Dim senderID = new Guid?() REM Guid? | ID of the sender to get.  Example: `/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670`
+        Dim senderID = new Guid() REM Guid | ID of the sender to get.  Example: `/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670`
 
 
         Try
@@ -224,7 +224,7 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **senderID** | [**Guid?**](Guid?.md)| ID of the sender to get.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; | 
+ **senderID** | [**Guid**](Guid.md)| ID of the sender to get.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; | 
 
 ### Return type
 
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 <a name="getsenders"></a>
 # **GetSenders**
-> SenderListResponse GetSenders (int? page = null, int? per = null, string createdAtFrom = null, string createdAtTo = null, string externalId = null)
+> SenderListResponse GetSenders (int page = null, int per = null, string createdAtFrom = null, string createdAtTo = null, string externalId = null)
 
 Listing senders
 
@@ -268,8 +268,8 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new SendersApi(configuration);
-            var page = 1;  // int? | The page number to request (defaults to 1) (optional) 
-            var per = 10;  // int? | The number of results to load per page (defaults to 10) (optional) 
+            var page = 1;  // int | The page number to request (defaults to 1) (optional) 
+            var per = 10;  // int | The number of results to load per page (defaults to 10) (optional) 
             var createdAtFrom = createdAtFrom_example;  // string | Start date to filter recipients by created_at range Allows filtering results by the specified `created_at` timeframe.  Example: `/v1/recipients?created_at_from=2018-06-06&created_at_to=2018-06-08` (optional) 
             var createdAtTo = createdAtTo_example;  // string | End date to filter recipients by created_at range Allows filtering results by the specified `created_at` timeframe.  Example: `/v1/recipients?created_at_from=2018-06-06&created_at_to=2018-06-08` (optional) 
             var externalId = externalId_example;  // string | Allows filtering results by `external_id`.  Example: `/v1/senders?external_id=26ec8517-2f0d-48c0-b74f-0bccb9ab3a87` (optional) 
@@ -316,8 +316,8 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new SendersApi(configuration)
-        Dim page = 1 REM int? | The page number to request (defaults to 1) (optional) 
-        Dim per = 10 REM int? | The number of results to load per page (defaults to 10) (optional) 
+        Dim page = 1 REM int | The page number to request (defaults to 1) (optional) 
+        Dim per = 10 REM int | The number of results to load per page (defaults to 10) (optional) 
         Dim createdAtFrom = createdAtFrom_example REM string | Start date to filter recipients by created_at range Allows filtering results by the specified `created_at` timeframe.  Example: `/v1/recipients?created_at_from=2018-06-06&created_at_to=2018-06-08` (optional) 
         Dim createdAtTo = createdAtTo_example REM string | End date to filter recipients by created_at range Allows filtering results by the specified `created_at` timeframe.  Example: `/v1/recipients?created_at_from=2018-06-06&created_at_to=2018-06-08` (optional) 
         Dim externalId = externalId_example REM string | Allows filtering results by `external_id`.  Example: `/v1/senders?external_id=26ec8517-2f0d-48c0-b74f-0bccb9ab3a87` (optional) 
@@ -345,8 +345,8 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int?**| The page number to request (defaults to 1) | [optional] 
- **per** | **int?**| The number of results to load per page (defaults to 10) | [optional] 
+ **page** | **int**| The page number to request (defaults to 1) | [optional] 
+ **per** | **int**| The number of results to load per page (defaults to 10) | [optional] 
  **createdAtFrom** | **string**| Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; | [optional] 
  **createdAtTo** | **string**| End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; | [optional] 
  **externalId** | **string**| Allows filtering results by &#x60;external_id&#x60;.  Example: &#x60;/v1/senders?external_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; | [optional] 
@@ -364,11 +364,11 @@ Name | Type | Description  | Notes
 
 <a name="patchsender"></a>
 # **PatchSender**
-> SenderResponse PatchSender (Guid? senderID, SenderRequest senderRequest)
+> SenderResponse PatchSender (Guid senderID, SenderRequest senderRequest)
 
 Updating a sender
 
-Updates the sender specified in the URL path.
+Updates a single sender by the Sender ID
 
 ### Example
 
@@ -393,7 +393,7 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new SendersApi(configuration);
-            var senderID = new Guid?(); // Guid? | ID of the sender to get.  Example: `/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670`
+            var senderID = new Guid(); // Guid | ID of the sender to get.  Example: `/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670`
             var senderRequest = new SenderRequest(); // SenderRequest | 
 
             try {
@@ -438,7 +438,7 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new SendersApi(configuration)
-        Dim senderID = new Guid?() REM Guid? | ID of the sender to get.  Example: `/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670`
+        Dim senderID = new Guid() REM Guid | ID of the sender to get.  Example: `/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670`
         Dim senderRequest = new SenderRequest() REM SenderRequest | 
 
 
@@ -464,7 +464,7 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **senderID** | [**Guid?**](Guid?.md)| ID of the sender to get.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; | 
+ **senderID** | [**Guid**](Guid.md)| ID of the sender to get.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; | 
  **senderRequest** | [**SenderRequest**](SenderRequest.md)|  | 
 
 ### Return type
