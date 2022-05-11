@@ -1006,10 +1006,10 @@ namespace TransferZero.Sdk.Model
         MP = 162,
 
         /// <summary>
-        /// Enum False for value: false
+        /// Enum NO for value: NO
         /// </summary>
-        [EnumMember(Value = "false")]
-        False = 163,
+        [EnumMember(Value = "NO")]
+        NO = 163,
 
         /// <summary>
         /// Enum OM for value: OM
