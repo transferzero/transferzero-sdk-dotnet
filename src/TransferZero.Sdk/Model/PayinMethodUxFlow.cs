@@ -25,9 +25,9 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// Describes the collection experience that will be presented to the sender. Can be one of the following:  * &#x60;ussd_popup&#x60;: Payment prompt is pushed to the sender&#39;s phone. They can approve or decline. Supported for GHS::Mobile, UGX::Mobile * &#x60;ussd_menu_approval&#x60;: Sender has to dial a USSD code and navigate to a list of payments to approve. * &#x60;otp_verified_ussd_popup&#x60;: Sender receives and validates an OTP then a payment prompt is pushed if the OTP they submit is valid. * &#x60;bank_transfer&#x60;: For bank collections. Sender should send funds to the bank account details specified in out_details. Supported for EUR::Bank, GBP::Bank * &#x60;http_redirect&#x60;: The sender will be redirected to a website where they can fill in their details to initiate the collection.
+    /// Describes the collection experience that will be presented to the sender. Can be one of the following:  * &#x60;ussd_popup&#x60;: Payment prompt is pushed to the sender&#39;s phone. They can approve or decline. Supported for GHS::Mobile, UGX::Mobile * &#x60;ussd_voucher&#x60;: Sender has to request an authorization code via ussd of the mobile provider and then provide that code to initiate the transaction. Supported for XOF::Mobile(Orange)  * &#x60;ussd_menu_approval&#x60;: Sender has to dial a USSD code and navigate to a list of payments to approve. * &#x60;otp_verified_ussd_popup&#x60;: Sender receives and validates an OTP then a payment prompt is pushed if the OTP they submit is valid. * &#x60;bank_transfer&#x60;: For bank collections. Sender should send funds to the bank account details specified in out_details. Supported for EUR::Bank, GBP::Bank * &#x60;http_redirect&#x60;: The sender will be redirected to a website where they can fill in their details to initiate the collection.
     /// </summary>
-    /// <value>Describes the collection experience that will be presented to the sender. Can be one of the following:  * &#x60;ussd_popup&#x60;: Payment prompt is pushed to the sender&#39;s phone. They can approve or decline. Supported for GHS::Mobile, UGX::Mobile * &#x60;ussd_menu_approval&#x60;: Sender has to dial a USSD code and navigate to a list of payments to approve. * &#x60;otp_verified_ussd_popup&#x60;: Sender receives and validates an OTP then a payment prompt is pushed if the OTP they submit is valid. * &#x60;bank_transfer&#x60;: For bank collections. Sender should send funds to the bank account details specified in out_details. Supported for EUR::Bank, GBP::Bank * &#x60;http_redirect&#x60;: The sender will be redirected to a website where they can fill in their details to initiate the collection.</value>
+    /// <value>Describes the collection experience that will be presented to the sender. Can be one of the following:  * &#x60;ussd_popup&#x60;: Payment prompt is pushed to the sender&#39;s phone. They can approve or decline. Supported for GHS::Mobile, UGX::Mobile * &#x60;ussd_voucher&#x60;: Sender has to request an authorization code via ussd of the mobile provider and then provide that code to initiate the transaction. Supported for XOF::Mobile(Orange)  * &#x60;ussd_menu_approval&#x60;: Sender has to dial a USSD code and navigate to a list of payments to approve. * &#x60;otp_verified_ussd_popup&#x60;: Sender receives and validates an OTP then a payment prompt is pushed if the OTP they submit is valid. * &#x60;bank_transfer&#x60;: For bank collections. Sender should send funds to the bank account details specified in out_details. Supported for EUR::Bank, GBP::Bank * &#x60;http_redirect&#x60;: The sender will be redirected to a website where they can fill in their details to initiate the collection.</value>
     
     [JsonConverter(typeof(StringEnumConverter))]
     
@@ -40,40 +40,46 @@ namespace TransferZero.Sdk.Model
         Ussdpopup = 1,
 
         /// <summary>
+        /// Enum Ussdvoucher for value: ussd_voucher
+        /// </summary>
+        [EnumMember(Value = "ussd_voucher")]
+        Ussdvoucher = 2,
+
+        /// <summary>
         /// Enum Ussdmenuapproval for value: ussd_menu_approval
         /// </summary>
         [EnumMember(Value = "ussd_menu_approval")]
-        Ussdmenuapproval = 2,
+        Ussdmenuapproval = 3,
 
         /// <summary>
         /// Enum Otpverifiedussdpopup for value: otp_verified_ussd_popup
         /// </summary>
         [EnumMember(Value = "otp_verified_ussd_popup")]
-        Otpverifiedussdpopup = 3,
+        Otpverifiedussdpopup = 4,
 
         /// <summary>
         /// Enum Banktransfer for value: bank_transfer
         /// </summary>
         [EnumMember(Value = "bank_transfer")]
-        Banktransfer = 4,
+        Banktransfer = 5,
 
         /// <summary>
         /// Enum Httpredirect for value: http_redirect
         /// </summary>
         [EnumMember(Value = "http_redirect")]
-        Httpredirect = 5,
+        Httpredirect = 6,
 
         /// <summary>
         /// Enum Blockchain for value: blockchain
         /// </summary>
         [EnumMember(Value = "blockchain")]
-        Blockchain = 6,
+        Blockchain = 7,
 
         /// <summary>
         /// Enum Unknown for value: unknown
         /// </summary>
         [EnumMember(Value = "unknown")]
-        Unknown = 7
+        Unknown = 8
 
     }
 
