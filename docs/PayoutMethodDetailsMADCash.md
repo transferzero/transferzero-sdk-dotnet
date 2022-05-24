@@ -8,13 +8,13 @@ Name | Type | Description | Notes
 **FirstName** | **string** |  | 
 **LastName** | **string** |  | 
 **PhoneNumber** | **string** |  | 
-**SenderIdentityCardType** | **PayoutMethodIdentityCardTypeEnum** |  | 
+**SenderIdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 
 **SenderIdentityCardId** | **string** |  | 
 **SenderCityOfBirth** | **string** |  | [optional] 
 **SenderCountryOfBirth** | **string** |  | [optional] 
-**SenderGender** | **PayoutMethodGenderEnum** |  | [optional] 
+**SenderGender** | [**PayoutMethodGenderEnum**](PayoutMethodGenderEnum.md) |  | [optional] 
 **Reason** | **string** |  | [optional] 
-**IdentityCardType** | **PayoutMethodIdentityCardTypeEnum** |  | [optional] 
+**IdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | [optional] 
 **IdentityCardId** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

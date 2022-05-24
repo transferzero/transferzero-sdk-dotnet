@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 
 <a name="gettransaction"></a>
 # **GetTransaction**
-> TransactionResponse GetTransaction (Guid transactionID)
+> TransactionResponse GetTransaction (Guid? transactionID)
 
 Fetch a single transaction
 
@@ -271,7 +271,7 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new TransactionsApi(configuration);
-            var transactionID = new Guid(); // Guid | ID of the transaction.  Example: `/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670`
+            var transactionID = new Guid?(); // Guid? | ID of the transaction.  Example: `/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670`
 
             try {
                 // Fetch a single transaction
@@ -315,7 +315,7 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new TransactionsApi(configuration)
-        Dim transactionID = new Guid() REM Guid | ID of the transaction.  Example: `/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670`
+        Dim transactionID = new Guid?() REM Guid? | ID of the transaction.  Example: `/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670`
 
 
         Try
@@ -340,7 +340,7 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **transactionID** | [**Guid**](Guid.md)| ID of the transaction.  Example: &#x60;/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; | 
+ **transactionID** | [**Guid?**](Guid?.md)| ID of the transaction.  Example: &#x60;/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; | 
 
 ### Return type
 
@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
 
 <a name="gettransactions"></a>
 # **GetTransactions**
-> TransactionListResponse GetTransactions (int page = null, int per = null, string externalId = null, string senderId = null, string transactionsType = null)
+> TransactionListResponse GetTransactions (int? page = null, int? per = null, string externalId = null, string senderId = null, string transactionsType = null)
 
 Get a list of transactions
 
@@ -384,8 +384,8 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new TransactionsApi(configuration);
-            var page = 1;  // int | The page number to request (defaults to 1) (optional) 
-            var per = 10;  // int | The number of results to load per page (defaults to 10) (optional) 
+            var page = 1;  // int? | The page number to request (defaults to 1) (optional) 
+            var per = 10;  // int? | The number of results to load per page (defaults to 10) (optional) 
             var externalId = externalId_example;  // string | Allows filtering results by `external_id`.  Example: `/v1/senders?external_id=26ec8517-2f0d-48c0-b74f-0bccb9ab3a87` (optional) 
             var senderId = senderId_example;  // string | Allows filtering results by `sender_id`.  Example: `/v1/transactions?sender_id=b41d3cb7-6c54-4245-85fc-8e30690eb0f7` (optional) 
             var transactionsType = transactionsType_example;  // string | Allows filtering results by `transactions_type`.  Example: `/v1/transactions?transactions_type=automated` (optional) 
@@ -432,8 +432,8 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new TransactionsApi(configuration)
-        Dim page = 1 REM int | The page number to request (defaults to 1) (optional) 
-        Dim per = 10 REM int | The number of results to load per page (defaults to 10) (optional) 
+        Dim page = 1 REM int? | The page number to request (defaults to 1) (optional) 
+        Dim per = 10 REM int? | The number of results to load per page (defaults to 10) (optional) 
         Dim externalId = externalId_example REM string | Allows filtering results by `external_id`.  Example: `/v1/senders?external_id=26ec8517-2f0d-48c0-b74f-0bccb9ab3a87` (optional) 
         Dim senderId = senderId_example REM string | Allows filtering results by `sender_id`.  Example: `/v1/transactions?sender_id=b41d3cb7-6c54-4245-85fc-8e30690eb0f7` (optional) 
         Dim transactionsType = transactionsType_example REM string | Allows filtering results by `transactions_type`.  Example: `/v1/transactions?transactions_type=automated` (optional) 
@@ -461,8 +461,8 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| The page number to request (defaults to 1) | [optional] 
- **per** | **int**| The number of results to load per page (defaults to 10) | [optional] 
+ **page** | **int?**| The page number to request (defaults to 1) | [optional] 
+ **per** | **int?**| The number of results to load per page (defaults to 10) | [optional] 
  **externalId** | **string**| Allows filtering results by &#x60;external_id&#x60;.  Example: &#x60;/v1/senders?external_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; | [optional] 
  **senderId** | **string**| Allows filtering results by &#x60;sender_id&#x60;.  Example: &#x60;/v1/transactions?sender_id&#x3D;b41d3cb7-6c54-4245-85fc-8e30690eb0f7&#x60; | [optional] 
  **transactionsType** | **string**| Allows filtering results by &#x60;transactions_type&#x60;.  Example: &#x60;/v1/transactions?transactions_type&#x3D;automated&#x60; | [optional] 
@@ -480,7 +480,7 @@ Name | Type | Description  | Notes
 
 <a name="payintransaction"></a>
 # **PayinTransaction**
-> TransactionResponse PayinTransaction (Guid transactionID, PayinMethodRequest payinMethodRequest)
+> TransactionResponse PayinTransaction (Guid? transactionID, PayinMethodRequest payinMethodRequest)
 
 Creates a fake payin for transaction
 
@@ -509,7 +509,7 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new TransactionsApi(configuration);
-            var transactionID = new Guid(); // Guid | ID of the transaction to payin.  Example: `/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670/payin`
+            var transactionID = new Guid?(); // Guid? | ID of the transaction to payin.  Example: `/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670/payin`
             var payinMethodRequest = new PayinMethodRequest(); // PayinMethodRequest | 
 
             try {
@@ -554,7 +554,7 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new TransactionsApi(configuration)
-        Dim transactionID = new Guid() REM Guid | ID of the transaction to payin.  Example: `/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670/payin`
+        Dim transactionID = new Guid?() REM Guid? | ID of the transaction to payin.  Example: `/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670/payin`
         Dim payinMethodRequest = new PayinMethodRequest() REM PayinMethodRequest | 
 
 
@@ -580,7 +580,7 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **transactionID** | [**Guid**](Guid.md)| ID of the transaction to payin.  Example: &#x60;/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670/payin&#x60; | 
+ **transactionID** | [**Guid?**](Guid?.md)| ID of the transaction to payin.  Example: &#x60;/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670/payin&#x60; | 
  **payinMethodRequest** | [**PayinMethodRequest**](PayinMethodRequest.md)|  | 
 
 ### Return type
@@ -596,7 +596,7 @@ Name | Type | Description  | Notes
 
 <a name="payouttransaction"></a>
 # **PayoutTransaction**
-> TransactionResponse PayoutTransaction (Guid transactionID)
+> TransactionResponse PayoutTransaction (Guid? transactionID)
 
 Creates a fake payout for transaction
 
@@ -625,7 +625,7 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new TransactionsApi(configuration);
-            var transactionID = new Guid(); // Guid | ID of the transaction to payout.  Example: `/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670/payout`
+            var transactionID = new Guid?(); // Guid? | ID of the transaction to payout.  Example: `/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670/payout`
 
             try {
                 // Creates a fake payout for transaction
@@ -669,7 +669,7 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new TransactionsApi(configuration)
-        Dim transactionID = new Guid() REM Guid | ID of the transaction to payout.  Example: `/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670/payout`
+        Dim transactionID = new Guid?() REM Guid? | ID of the transaction to payout.  Example: `/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670/payout`
 
 
         Try
@@ -694,7 +694,7 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **transactionID** | [**Guid**](Guid.md)| ID of the transaction to payout.  Example: &#x60;/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670/payout&#x60; | 
+ **transactionID** | [**Guid?**](Guid?.md)| ID of the transaction to payout.  Example: &#x60;/v1/transactions/bf9ff782-e182-45ac-abea-5bce83ad6670/payout&#x60; | 
 
 ### Return type
 

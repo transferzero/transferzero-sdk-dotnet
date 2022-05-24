@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Presence** | **bool** | Describes whether the field is mandatory or not | [optional] 
+**Presence** | **bool?** | Describes whether the field is mandatory or not | [optional] 
 **Inclusion** | [**FieldSelectValidation**](FieldSelectValidation.md) |  | [optional] 
 **Format** | [**Object**](.md) | Contains the regex to use to validate the input field | [optional] 
 

@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 **LastName** | **string** |  | 
 **Street** | **string** |  | 
 **PhoneNumber** | **string** |  | 
-**MobileProvider** | **PayoutMethodMobileProviderEnum** |  | 
+**MobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  | 
 **TransferReasonCode** | **string** |  | [optional] 
-**TransferReason** | **PayoutMethodTransferReasonEnum** |  | [optional] 
-**IdentityCardType** | **PayoutMethodIdentityCardTypeEnum** |  | 
+**TransferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  | [optional] 
+**IdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 
 **IdentityCardId** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)

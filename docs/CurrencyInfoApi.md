@@ -119,7 +119,7 @@ This endpoint does not need any parameter.
 
 <a name="infocurrenciesin"></a>
 # **InfoCurrenciesIn**
-> CurrencyExchangeListResponse InfoCurrenciesIn (Guid senderId = null)
+> CurrencyExchangeListResponse InfoCurrenciesIn (Guid? senderId = null)
 
 Getting a list of possible input currencies
 
@@ -148,7 +148,7 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new CurrencyInfoApi(configuration);
-            var senderId = new Guid(); // Guid | Allows the scoping of the results by `sender_id` (optional).  Example: `/v1/info/currencies/in?sender_id=26ec8517-2f0d-48c0-b74f-0bccb9ab3a87` (optional) 
+            var senderId = new Guid?(); // Guid? | Allows the scoping of the results by `sender_id` (optional).  Example: `/v1/info/currencies/in?sender_id=26ec8517-2f0d-48c0-b74f-0bccb9ab3a87` (optional) 
 
             try {
                 // Getting a list of possible input currencies
@@ -192,7 +192,7 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new CurrencyInfoApi(configuration)
-        Dim senderId = new Guid() REM Guid | Allows the scoping of the results by `sender_id` (optional).  Example: `/v1/info/currencies/in?sender_id=26ec8517-2f0d-48c0-b74f-0bccb9ab3a87` (optional) 
+        Dim senderId = new Guid?() REM Guid? | Allows the scoping of the results by `sender_id` (optional).  Example: `/v1/info/currencies/in?sender_id=26ec8517-2f0d-48c0-b74f-0bccb9ab3a87` (optional) 
 
 
         Try
@@ -217,7 +217,7 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **senderId** | [**Guid**](Guid.md)| Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/in?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; | [optional] 
+ **senderId** | [**Guid?**](Guid?.md)| Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/in?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; | [optional] 
 
 ### Return type
 
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
 
 <a name="infocurrenciesout"></a>
 # **InfoCurrenciesOut**
-> CurrencyExchangeListResponse InfoCurrenciesOut (Guid senderId = null)
+> CurrencyExchangeListResponse InfoCurrenciesOut (Guid? senderId = null)
 
 Getting a list of possible output currencies
 
@@ -261,7 +261,7 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new CurrencyInfoApi(configuration);
-            var senderId = new Guid(); // Guid | Allows the scoping of the results by `sender_id` (optional).  Example: `/v1/info/currencies/out?sender_id=26ec8517-2f0d-48c0-b74f-0bccb9ab3a87` (optional) 
+            var senderId = new Guid?(); // Guid? | Allows the scoping of the results by `sender_id` (optional).  Example: `/v1/info/currencies/out?sender_id=26ec8517-2f0d-48c0-b74f-0bccb9ab3a87` (optional) 
 
             try {
                 // Getting a list of possible output currencies
@@ -305,7 +305,7 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new CurrencyInfoApi(configuration)
-        Dim senderId = new Guid() REM Guid | Allows the scoping of the results by `sender_id` (optional).  Example: `/v1/info/currencies/out?sender_id=26ec8517-2f0d-48c0-b74f-0bccb9ab3a87` (optional) 
+        Dim senderId = new Guid?() REM Guid? | Allows the scoping of the results by `sender_id` (optional).  Example: `/v1/info/currencies/out?sender_id=26ec8517-2f0d-48c0-b74f-0bccb9ab3a87` (optional) 
 
 
         Try
@@ -330,7 +330,7 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **senderId** | [**Guid**](Guid.md)| Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/out?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; | [optional] 
+ **senderId** | [**Guid?**](Guid?.md)| Allows the scoping of the results by &#x60;sender_id&#x60; (optional).  Example: &#x60;/v1/info/currencies/out?sender_id&#x3D;26ec8517-2f0d-48c0-b74f-0bccb9ab3a87&#x60; | [optional] 
 
 ### Return type
 

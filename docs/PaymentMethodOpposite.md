@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** | Details currency and type of payment. | [optional] 
 **Provider** | **string** | Identifies the payment provider. | [optional] 
-**OtcPermitted** | **bool** | Are over the counter transactions permitted? | [optional] 
+**OtcPermitted** | **bool?** | Are over the counter transactions permitted? | [optional] 
 **Details** | **List&lt;string&gt;** | Fields required to make the payment depending on type. | [optional] 
-**Default** | **bool** | Boolean revealing whether this is the default payout method. Only present on payout methods | [optional] 
+**Default** | **bool?** | Boolean revealing whether this is the default payout method. Only present on payout methods | [optional] 
 **Fields** | [**Dictionary&lt;string, FieldDescription&gt;**](FieldDescription.md) | The fields needed for payments with this payment method with details on validation requirements | [optional] 
 **Opposites** | [**List&lt;PaymentMethod&gt;**](PaymentMethod.md) | List of all providers that can be used in conjunction with the main provider | [optional] 
 

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **PhoneNumber** | **string** |  | 
 **BankCode** | **string** |  | 
 **BankAccount** | **string** |  | 
-**Country** | **PayoutMethodCountryEnum** |  | 
+**Country** | [**PayoutMethodCountryEnum**](PayoutMethodCountryEnum.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

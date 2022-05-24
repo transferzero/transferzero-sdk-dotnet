@@ -9,24 +9,24 @@ Name | Type | Description | Notes
 **LastName** | **string** |  | 
 **BankCode** | **string** |  | 
 **BankAccount** | **string** |  | 
-**BankAccountType** | **PayoutMethodBankAccountTypeEnum** |  | [optional] 
+**BankAccountType** | [**PayoutMethodBankAccountTypeEnum**](PayoutMethodBankAccountTypeEnum.md) |  | [optional] 
 **PhoneNumber** | **string** |  | 
-**MobileProvider** | **PayoutMethodMobileProviderEnum** |  | 
-**Country** | **PayoutMethodCountryEnum** |  | 
-**TransferReason** | **PayoutMethodTransferReasonEnum** |  | [optional] 
+**MobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  | 
+**Country** | [**PayoutMethodCountryEnum**](PayoutMethodCountryEnum.md) |  | 
+**TransferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  | [optional] 
 **Iban** | **string** |  | 
 **BankName** | **string** |  | 
 **BankCountry** | **string** |  | [optional] 
-**CashProvider** | **PayoutMethodCashProviderEnum** |  | 
+**CashProvider** | [**PayoutMethodCashProviderEnum**](PayoutMethodCashProviderEnum.md) |  | 
 **SortCode** | **string** |  | [optional] 
 **Bic** | **string** |  | [optional] 
-**SenderIdentityCardType** | **PayoutMethodIdentityCardTypeEnum** |  | 
+**SenderIdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 
 **SenderIdentityCardId** | **string** |  | 
 **SenderCityOfBirth** | **string** |  | [optional] 
 **SenderCountryOfBirth** | **string** |  | [optional] 
-**SenderGender** | **PayoutMethodGenderEnum** |  | [optional] 
+**SenderGender** | [**PayoutMethodGenderEnum**](PayoutMethodGenderEnum.md) |  | [optional] 
 **Reason** | **string** |  | [optional] 
-**IdentityCardType** | **PayoutMethodIdentityCardTypeEnum** |  | 
+**IdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 
 **IdentityCardId** | **string** |  | 
 **Reference** | **string** |  | [optional] 
 **Name** | **string** |  | 
@@ -39,8 +39,8 @@ Name | Type | Description | Notes
 **ContactFirstName** | **string** |  | [optional] 
 **ContactLastName** | **string** |  | [optional] 
 **RegistrationNumber** | **string** |  | [optional] 
-**NatureOfBusiness** | **PayoutMethodNatureOfBusinessEnum** |  | [optional] 
-**LegalEntityType** | **PayoutMethodLegalEntityTypeEnum** |  | [optional] 
+**NatureOfBusiness** | [**PayoutMethodNatureOfBusinessEnum**](PayoutMethodNatureOfBusinessEnum.md) |  | [optional] 
+**LegalEntityType** | [**PayoutMethodLegalEntityTypeEnum**](PayoutMethodLegalEntityTypeEnum.md) |  | [optional] 
 **BranchCode** | **string** |  | [optional] 
 **SwiftCode** | **string** |  | 
 

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="deleterecipient"></a>
 # **DeleteRecipient**
-> RecipientResponse DeleteRecipient (Guid recipientID)
+> RecipientResponse DeleteRecipient (Guid? recipientID)
 
 Cancelling a recipient
 
@@ -41,7 +41,7 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new RecipientsApi(configuration);
-            var recipientID = new Guid(); // Guid | ID of recipient to cancel.  Example: `/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33`
+            var recipientID = new Guid?(); // Guid? | ID of recipient to cancel.  Example: `/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33`
 
             try {
                 // Cancelling a recipient
@@ -85,7 +85,7 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new RecipientsApi(configuration)
-        Dim recipientID = new Guid() REM Guid | ID of recipient to cancel.  Example: `/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33`
+        Dim recipientID = new Guid?() REM Guid? | ID of recipient to cancel.  Example: `/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33`
 
 
         Try
@@ -110,7 +110,7 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **recipientID** | [**Guid**](Guid.md)| ID of recipient to cancel.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33&#x60; | 
+ **recipientID** | [**Guid?**](Guid?.md)| ID of recipient to cancel.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33&#x60; | 
 
 ### Return type
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 <a name="getrecipients"></a>
 # **GetRecipients**
-> RecipientListResponse GetRecipients (int page = null, int per = null, string createdAtFrom = null, string createdAtTo = null, string amountFrom = null, string amountTo = null, List<string> state = null, List<string> currency = null)
+> RecipientListResponse GetRecipients (int? page = null, int? per = null, string createdAtFrom = null, string createdAtTo = null, string amountFrom = null, string amountTo = null, List<string> state = null, List<string> currency = null)
 
 Getting a list of recipients with filtering
 
@@ -154,8 +154,8 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new RecipientsApi(configuration);
-            var page = 1;  // int | The page number to request (defaults to 1) (optional) 
-            var per = 10;  // int | The number of results to load per page (defaults to 10) (optional) 
+            var page = 1;  // int? | The page number to request (defaults to 1) (optional) 
+            var per = 10;  // int? | The number of results to load per page (defaults to 10) (optional) 
             var createdAtFrom = createdAtFrom_example;  // string | Start date to filter recipients by created_at range Allows filtering results by the specified `created_at` timeframe.  Example: `/v1/recipients?created_at_from=2018-06-06&created_at_to=2018-06-08` (optional) 
             var createdAtTo = createdAtTo_example;  // string | End date to filter recipients by created_at range Allows filtering results by the specified `created_at` timeframe.  Example: `/v1/recipients?created_at_from=2018-06-06&created_at_to=2018-06-08` (optional) 
             var amountFrom = amountFrom_example;  // string | Minimum amount to filter recipients by amount range.  Allows filtering results by the specified `amount` range. When using this filter, the `currency` should also be specified.  Example: `/v1/recipients?currency=NGN&amount_from=83.76672339&amount_to=83.76672339` (optional) 
@@ -205,8 +205,8 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new RecipientsApi(configuration)
-        Dim page = 1 REM int | The page number to request (defaults to 1) (optional) 
-        Dim per = 10 REM int | The number of results to load per page (defaults to 10) (optional) 
+        Dim page = 1 REM int? | The page number to request (defaults to 1) (optional) 
+        Dim per = 10 REM int? | The number of results to load per page (defaults to 10) (optional) 
         Dim createdAtFrom = createdAtFrom_example REM string | Start date to filter recipients by created_at range Allows filtering results by the specified `created_at` timeframe.  Example: `/v1/recipients?created_at_from=2018-06-06&created_at_to=2018-06-08` (optional) 
         Dim createdAtTo = createdAtTo_example REM string | End date to filter recipients by created_at range Allows filtering results by the specified `created_at` timeframe.  Example: `/v1/recipients?created_at_from=2018-06-06&created_at_to=2018-06-08` (optional) 
         Dim amountFrom = amountFrom_example REM string | Minimum amount to filter recipients by amount range.  Allows filtering results by the specified `amount` range. When using this filter, the `currency` should also be specified.  Example: `/v1/recipients?currency=NGN&amount_from=83.76672339&amount_to=83.76672339` (optional) 
@@ -237,8 +237,8 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| The page number to request (defaults to 1) | [optional] 
- **per** | **int**| The number of results to load per page (defaults to 10) | [optional] 
+ **page** | **int?**| The page number to request (defaults to 1) | [optional] 
+ **per** | **int?**| The number of results to load per page (defaults to 10) | [optional] 
  **createdAtFrom** | **string**| Start date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; | [optional] 
  **createdAtTo** | **string**| End date to filter recipients by created_at range Allows filtering results by the specified &#x60;created_at&#x60; timeframe.  Example: &#x60;/v1/recipients?created_at_from&#x3D;2018-06-06&amp;created_at_to&#x3D;2018-06-08&#x60; | [optional] 
  **amountFrom** | **string**| Minimum amount to filter recipients by amount range.  Allows filtering results by the specified &#x60;amount&#x60; range. When using this filter, the &#x60;currency&#x60; should also be specified.  Example: &#x60;/v1/recipients?currency&#x3D;NGN&amp;amount_from&#x3D;83.76672339&amp;amount_to&#x3D;83.76672339&#x60; | [optional] 
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 
 <a name="patchrecipient"></a>
 # **PatchRecipient**
-> RecipientResponse PatchRecipient (Guid recipientID, RecipientRequest recipientRequest)
+> RecipientResponse PatchRecipient (Guid? recipientID, RecipientRequest recipientRequest)
 
 Updating a recipient
 
@@ -288,7 +288,7 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new RecipientsApi(configuration);
-            var recipientID = new Guid(); // Guid | ID of recipient to update.  Example: `/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33`
+            var recipientID = new Guid?(); // Guid? | ID of recipient to update.  Example: `/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33`
             var recipientRequest = new RecipientRequest(); // RecipientRequest | 
 
             try {
@@ -333,7 +333,7 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new RecipientsApi(configuration)
-        Dim recipientID = new Guid() REM Guid | ID of recipient to update.  Example: `/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33`
+        Dim recipientID = new Guid?() REM Guid? | ID of recipient to update.  Example: `/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33`
         Dim recipientRequest = new RecipientRequest() REM RecipientRequest | 
 
 
@@ -359,7 +359,7 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **recipientID** | [**Guid**](Guid.md)| ID of recipient to update.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33&#x60; | 
+ **recipientID** | [**Guid?**](Guid?.md)| ID of recipient to update.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33&#x60; | 
  **recipientRequest** | [**RecipientRequest**](RecipientRequest.md)|  | 
 
 ### Return type
@@ -375,7 +375,7 @@ Name | Type | Description  | Notes
 
 <a name="proofofpayments"></a>
 # **ProofOfPayments**
-> ProofOfPaymentListResponse ProofOfPayments (Guid recipientID)
+> ProofOfPaymentListResponse ProofOfPayments (Guid? recipientID)
 
 Returns list of proof of payments
 
@@ -404,7 +404,7 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new RecipientsApi(configuration);
-            var recipientID = new Guid(); // Guid | ID of the recipient for whom the proof of payments will be returned.  Example: `/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments`
+            var recipientID = new Guid?(); // Guid? | ID of the recipient for whom the proof of payments will be returned.  Example: `/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments`
 
             try {
                 // Returns list of proof of payments
@@ -448,7 +448,7 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new RecipientsApi(configuration)
-        Dim recipientID = new Guid() REM Guid | ID of the recipient for whom the proof of payments will be returned.  Example: `/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments`
+        Dim recipientID = new Guid?() REM Guid? | ID of the recipient for whom the proof of payments will be returned.  Example: `/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments`
 
 
         Try
@@ -473,7 +473,7 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **recipientID** | [**Guid**](Guid.md)| ID of the recipient for whom the proof of payments will be returned.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments&#x60; | 
+ **recipientID** | [**Guid?**](Guid?.md)| ID of the recipient for whom the proof of payments will be returned.  Example: &#x60;/v1/recipients/9d4d7b73-a94c-4979-ab57-09074fd55d33/proof_of_payments&#x60; | 
 
 ### Return type
 

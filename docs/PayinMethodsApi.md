@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="deletepayinmethod"></a>
 # **DeletePayinMethod**
-> PayinMethodResponse DeletePayinMethod (Guid payinMethodID)
+> PayinMethodResponse DeletePayinMethod (Guid? payinMethodID)
 
 Deleting a payin method
 
@@ -41,7 +41,7 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new PayinMethodsApi(configuration);
-            var payinMethodID = new Guid(); // Guid | ID of the payin method to delete.  Example: `/v1/payin_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
+            var payinMethodID = new Guid?(); // Guid? | ID of the payin method to delete.  Example: `/v1/payin_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
 
             try {
                 // Deleting a payin method
@@ -85,7 +85,7 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new PayinMethodsApi(configuration)
-        Dim payinMethodID = new Guid() REM Guid | ID of the payin method to delete.  Example: `/v1/payin_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
+        Dim payinMethodID = new Guid?() REM Guid? | ID of the payin method to delete.  Example: `/v1/payin_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
 
 
         Try
@@ -110,7 +110,7 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payinMethodID** | [**Guid**](Guid.md)| ID of the payin method to delete.  Example: &#x60;/v1/payin_methods/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; | 
+ **payinMethodID** | [**Guid?**](Guid?.md)| ID of the payin method to delete.  Example: &#x60;/v1/payin_methods/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; | 
 
 ### Return type
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 <a name="getpayinmethod"></a>
 # **GetPayinMethod**
-> PayinMethodResponse GetPayinMethod (Guid payinMethodID)
+> PayinMethodResponse GetPayinMethod (Guid? payinMethodID)
 
 Fetching a payin method
 
@@ -154,7 +154,7 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new PayinMethodsApi(configuration);
-            var payinMethodID = new Guid(); // Guid | ID of the payin method to get.  Example: `/v1/payin_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
+            var payinMethodID = new Guid?(); // Guid? | ID of the payin method to get.  Example: `/v1/payin_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
 
             try {
                 // Fetching a payin method
@@ -198,7 +198,7 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new PayinMethodsApi(configuration)
-        Dim payinMethodID = new Guid() REM Guid | ID of the payin method to get.  Example: `/v1/payin_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
+        Dim payinMethodID = new Guid?() REM Guid? | ID of the payin method to get.  Example: `/v1/payin_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
 
 
         Try
@@ -223,7 +223,7 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payinMethodID** | [**Guid**](Guid.md)| ID of the payin method to get.  Example: &#x60;/v1/payin_methods/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; | 
+ **payinMethodID** | [**Guid?**](Guid?.md)| ID of the payin method to get.  Example: &#x60;/v1/payin_methods/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; | 
 
 ### Return type
 
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 
 <a name="patchpayinmethod"></a>
 # **PatchPayinMethod**
-> PayinMethodResponse PatchPayinMethod (Guid payinMethodID, PayinMethod payinMethod)
+> PayinMethodResponse PatchPayinMethod (Guid? payinMethodID, PayinMethod payinMethod)
 
 Updating a payin method
 
@@ -267,7 +267,7 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new PayinMethodsApi(configuration);
-            var payinMethodID = new Guid(); // Guid | ID of the payin method to get.  Example: `/v1/payin_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
+            var payinMethodID = new Guid?(); // Guid? | ID of the payin method to get.  Example: `/v1/payin_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
             var payinMethod = new PayinMethod(); // PayinMethod | 
 
             try {
@@ -312,7 +312,7 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new PayinMethodsApi(configuration)
-        Dim payinMethodID = new Guid() REM Guid | ID of the payin method to get.  Example: `/v1/payin_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
+        Dim payinMethodID = new Guid?() REM Guid? | ID of the payin method to get.  Example: `/v1/payin_methods/bf9ff782-e182-45ac-abea-5bce83ad6670`
         Dim payinMethod = new PayinMethod() REM PayinMethod | 
 
 
@@ -338,7 +338,7 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payinMethodID** | [**Guid**](Guid.md)| ID of the payin method to get.  Example: &#x60;/v1/payin_methods/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; | 
+ **payinMethodID** | [**Guid?**](Guid?.md)| ID of the payin method to get.  Example: &#x60;/v1/payin_methods/bf9ff782-e182-45ac-abea-5bce83ad6670&#x60; | 
  **payinMethod** | [**PayinMethod**](PayinMethod.md)|  | 
 
 ### Return type
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 
 <a name="retrypayinmethod"></a>
 # **RetryPayinMethod**
-> PayinMethodResponse RetryPayinMethod (Guid payinMethodID)
+> PayinMethodResponse RetryPayinMethod (Guid? payinMethodID)
 
 Retries PayinMethod
 
@@ -383,7 +383,7 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new PayinMethodsApi(configuration);
-            var payinMethodID = new Guid(); // Guid | ID of the payin method whose collection process should be retried  Example: `/v1/payin_methods/9d4d7b73-a94c-4979-ab57-09074fd55d33/retry`
+            var payinMethodID = new Guid?(); // Guid? | ID of the payin method whose collection process should be retried  Example: `/v1/payin_methods/9d4d7b73-a94c-4979-ab57-09074fd55d33/retry`
 
             try {
                 // Retries PayinMethod
@@ -427,7 +427,7 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new PayinMethodsApi(configuration)
-        Dim payinMethodID = new Guid() REM Guid | ID of the payin method whose collection process should be retried  Example: `/v1/payin_methods/9d4d7b73-a94c-4979-ab57-09074fd55d33/retry`
+        Dim payinMethodID = new Guid?() REM Guid? | ID of the payin method whose collection process should be retried  Example: `/v1/payin_methods/9d4d7b73-a94c-4979-ab57-09074fd55d33/retry`
 
 
         Try
@@ -452,7 +452,7 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payinMethodID** | [**Guid**](Guid.md)| ID of the payin method whose collection process should be retried  Example: &#x60;/v1/payin_methods/9d4d7b73-a94c-4979-ab57-09074fd55d33/retry&#x60; | 
+ **payinMethodID** | [**Guid?**](Guid?.md)| ID of the payin method whose collection process should be retried  Example: &#x60;/v1/payin_methods/9d4d7b73-a94c-4979-ab57-09074fd55d33/retry&#x60; | 
 
 ### Return type
 

@@ -15,13 +15,13 @@ Name | Type | Description | Notes
 **BankAccount** | **string** |  | 
 **PhoneNumber** | **string** |  | 
 **TransferReasonCode** | **string** |  | [optional] 
-**TransferReason** | **PayoutMethodTransferReasonEnum** |  | [optional] 
+**TransferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  | [optional] 
 **Name** | **string** |  | [optional] 
 **ContactFirstName** | **string** |  | [optional] 
 **ContactLastName** | **string** |  | [optional] 
 **RegistrationNumber** | **string** |  | [optional] 
-**NatureOfBusiness** | **PayoutMethodNatureOfBusinessEnum** |  | [optional] 
-**LegalEntityType** | **PayoutMethodLegalEntityTypeEnum** |  | [optional] 
+**NatureOfBusiness** | [**PayoutMethodNatureOfBusinessEnum**](PayoutMethodNatureOfBusinessEnum.md) |  | [optional] 
+**LegalEntityType** | [**PayoutMethodLegalEntityTypeEnum**](PayoutMethodLegalEntityTypeEnum.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

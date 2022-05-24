@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Guid** | ID of the API log | [optional] 
+**Id** | **Guid?** | ID of the API log | [optional] 
 **RequestMethod** | **string** | Initial HTTP request method | [optional] 
 **RequestUrl** | **string** | URL to which initial request was sent | [optional] 
 **RequestBody** | **string** | Body sent with initial request returned as a string | [optional] 

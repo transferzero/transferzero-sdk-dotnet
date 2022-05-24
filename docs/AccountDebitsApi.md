@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getaccountsdebit"></a>
 # **GetAccountsDebit**
-> DebitResponse GetAccountsDebit (Guid accountDebitID)
+> DebitResponse GetAccountsDebit (Guid? accountDebitID)
 
 Fetching an account debit
 
@@ -40,7 +40,7 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new AccountDebitsApi(configuration);
-            var accountDebitID = new Guid(); // Guid | ID of the account debit to get.  Example: `/v1/accounts/debits/9170c890-1a45-46bd-9b79-3deeb8b4ff3d`
+            var accountDebitID = new Guid?(); // Guid? | ID of the account debit to get.  Example: `/v1/accounts/debits/9170c890-1a45-46bd-9b79-3deeb8b4ff3d`
 
             try {
                 // Fetching an account debit
@@ -84,7 +84,7 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new AccountDebitsApi(configuration)
-        Dim accountDebitID = new Guid() REM Guid | ID of the account debit to get.  Example: `/v1/accounts/debits/9170c890-1a45-46bd-9b79-3deeb8b4ff3d`
+        Dim accountDebitID = new Guid?() REM Guid? | ID of the account debit to get.  Example: `/v1/accounts/debits/9170c890-1a45-46bd-9b79-3deeb8b4ff3d`
 
 
         Try
@@ -109,7 +109,7 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountDebitID** | [**Guid**](Guid.md)| ID of the account debit to get.  Example: &#x60;/v1/accounts/debits/9170c890-1a45-46bd-9b79-3deeb8b4ff3d&#x60; | 
+ **accountDebitID** | [**Guid?**](Guid?.md)| ID of the account debit to get.  Example: &#x60;/v1/accounts/debits/9170c890-1a45-46bd-9b79-3deeb8b4ff3d&#x60; | 
 
 ### Return type
 
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 <a name="getaccountsdebits"></a>
 # **GetAccountsDebits**
-> DebitListResponse GetAccountsDebits (int page = null, int per = null)
+> DebitListResponse GetAccountsDebits (int? page = null, int? per = null)
 
 Listing Accounts debits
 
@@ -153,8 +153,8 @@ namespace Example
             configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
 
             var apiInstance = new AccountDebitsApi(configuration);
-            var page = 1;  // int | The page number to request (defaults to 1) (optional) 
-            var per = 10;  // int | The number of results to load per page (defaults to 10) (optional) 
+            var page = 1;  // int? | The page number to request (defaults to 1) (optional) 
+            var per = 10;  // int? | The number of results to load per page (defaults to 10) (optional) 
 
             try {
                 // Listing Accounts debits
@@ -198,8 +198,8 @@ Module Example
         Dim debitsApi As AccountDebitsApi = New AccountDebitsApi(configuration)
 
         Dim apiInstance = new AccountDebitsApi(configuration)
-        Dim page = 1 REM int | The page number to request (defaults to 1) (optional) 
-        Dim per = 10 REM int | The number of results to load per page (defaults to 10) (optional) 
+        Dim page = 1 REM int? | The page number to request (defaults to 1) (optional) 
+        Dim per = 10 REM int? | The number of results to load per page (defaults to 10) (optional) 
 
 
         Try
@@ -224,8 +224,8 @@ End Module
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **int**| The page number to request (defaults to 1) | [optional] 
- **per** | **int**| The number of results to load per page (defaults to 10) | [optional] 
+ **page** | **int?**| The page number to request (defaults to 1) | [optional] 
+ **per** | **int?**| The number of results to load per page (defaults to 10) | [optional] 
 
 ### Return type
 

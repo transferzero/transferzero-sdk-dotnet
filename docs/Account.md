@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Amount** | **decimal** | The account balance for the given currency | [optional] 
+**Amount** | **decimal?** | The account balance for the given currency | [optional] 
 **Currency** | **string** | The currency of this balance | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
