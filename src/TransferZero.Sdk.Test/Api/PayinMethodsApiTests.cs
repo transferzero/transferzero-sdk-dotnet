@@ -109,8 +109,8 @@ namespace TransferZero.Sdk.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //Guid? payinMethodID = null;
-            //instance.RetryPayinMethod(payinMethodID);
-            
+            //var response = instance.RetryPayinMethod(payinMethodID);
+            //Assert.IsInstanceOf<PayinMethodResponse> (response, "response is PayinMethodResponse");
         }
         
     }

@@ -147,6 +147,14 @@ namespace TransferZero.Sdk.Test
             // TODO unit test for the property 'StateReason'
         }
         /// <summary>
+        /// Test the property 'StateReasonDetails'
+        /// </summary>
+        [Test]
+        public void StateReasonDetailsTest()
+        {
+            // TODO unit test for the property 'StateReasonDetails'
+        }
+        /// <summary>
         /// Test the property 'State'
         /// </summary>
         [Test]
@@ -161,6 +169,14 @@ namespace TransferZero.Sdk.Test
         public void TransactionIdTest()
         {
             // TODO unit test for the property 'TransactionId'
+        }
+        /// <summary>
+        /// Test the property 'TransactionExternalId'
+        /// </summary>
+        [Test]
+        public void TransactionExternalIdTest()
+        {
+            // TODO unit test for the property 'TransactionExternalId'
         }
         /// <summary>
         /// Test the property 'TransactionState'
@@ -225,6 +241,14 @@ namespace TransferZero.Sdk.Test
         public void IdTest()
         {
             // TODO unit test for the property 'Id'
+        }
+        /// <summary>
+        /// Test the property 'Type'
+        /// </summary>
+        [Test]
+        public void TypeTest()
+        {
+            // TODO unit test for the property 'Type'
         }
         /// <summary>
         /// Test the property 'Errors'

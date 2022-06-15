@@ -131,14 +131,6 @@ namespace TransferZero.Sdk.Test
             // TODO unit test for the property 'Max'
         }
         /// <summary>
-        /// Test the property 'Margin'
-        /// </summary>
-        [Test]
-        public void MarginTest()
-        {
-            // TODO unit test for the property 'Margin'
-        }
-        /// <summary>
         /// Test the property 'UsdEquivalent'
         /// </summary>
         [Test]
@@ -161,6 +153,14 @@ namespace TransferZero.Sdk.Test
         public void MtmRateTest()
         {
             // TODO unit test for the property 'MtmRate'
+        }
+        /// <summary>
+        /// Test the property 'Margin'
+        /// </summary>
+        [Test]
+        public void MarginTest()
+        {
+            // TODO unit test for the property 'Margin'
         }
 
     }

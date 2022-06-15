@@ -111,7 +111,8 @@ namespace TransferZero.Sdk.Test
             //int? per = null;
             //string externalId = null;
             //string senderId = null;
-            //var response = instance.GetTransactions(page, per, externalId, senderId);
+            //string transactionsType = null;
+            //var response = instance.GetTransactions(page, per, externalId, senderId, transactionsType);
             //Assert.IsInstanceOf<TransactionListResponse> (response, "response is TransactionListResponse");
         }
         

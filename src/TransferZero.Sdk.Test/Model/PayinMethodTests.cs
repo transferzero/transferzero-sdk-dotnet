@@ -75,12 +75,44 @@ namespace TransferZero.Sdk.Test
             // TODO unit test for the property 'Type'
         }
         /// <summary>
+        /// Test the property 'UxFlow'
+        /// </summary>
+        [Test]
+        public void UxFlowTest()
+        {
+            // TODO unit test for the property 'UxFlow'
+        }
+        /// <summary>
         /// Test the property 'InDetails'
         /// </summary>
         [Test]
         public void InDetailsTest()
         {
             // TODO unit test for the property 'InDetails'
+        }
+        /// <summary>
+        /// Test the property 'Id'
+        /// </summary>
+        [Test]
+        public void IdTest()
+        {
+            // TODO unit test for the property 'Id'
+        }
+        /// <summary>
+        /// Test the property 'State'
+        /// </summary>
+        [Test]
+        public void StateTest()
+        {
+            // TODO unit test for the property 'State'
+        }
+        /// <summary>
+        /// Test the property 'StateReasonDetails'
+        /// </summary>
+        [Test]
+        public void StateReasonDetailsTest()
+        {
+            // TODO unit test for the property 'StateReasonDetails'
         }
         /// <summary>
         /// Test the property 'OutDetails'
@@ -99,12 +131,12 @@ namespace TransferZero.Sdk.Test
             // TODO unit test for the property 'Instructions'
         }
         /// <summary>
-        /// Test the property 'Provider'
+        /// Test the property 'Errors'
         /// </summary>
         [Test]
-        public void ProviderTest()
+        public void ErrorsTest()
         {
-            // TODO unit test for the property 'Provider'
+            // TODO unit test for the property 'Errors'
         }
 
     }

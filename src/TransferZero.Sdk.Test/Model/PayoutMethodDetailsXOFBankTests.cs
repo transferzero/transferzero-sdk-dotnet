@@ -106,6 +106,22 @@ namespace TransferZero.Sdk.Test
         {
             // TODO unit test for the property 'BankCountry'
         }
+        /// <summary>
+        /// Test the property 'BankCode'
+        /// </summary>
+        [Test]
+        public void BankCodeTest()
+        {
+            // TODO unit test for the property 'BankCode'
+        }
+        /// <summary>
+        /// Test the property 'TransferReason'
+        /// </summary>
+        [Test]
+        public void TransferReasonTest()
+        {
+            // TODO unit test for the property 'TransferReason'
+        }
 
     }
 

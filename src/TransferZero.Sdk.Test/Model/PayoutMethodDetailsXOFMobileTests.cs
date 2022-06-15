@@ -98,6 +98,22 @@ namespace TransferZero.Sdk.Test
         {
             // TODO unit test for the property 'MobileProvider'
         }
+        /// <summary>
+        /// Test the property 'Country'
+        /// </summary>
+        [Test]
+        public void CountryTest()
+        {
+            // TODO unit test for the property 'Country'
+        }
+        /// <summary>
+        /// Test the property 'TransferReason'
+        /// </summary>
+        [Test]
+        public void TransferReasonTest()
+        {
+            // TODO unit test for the property 'TransferReason'
+        }
 
     }
 

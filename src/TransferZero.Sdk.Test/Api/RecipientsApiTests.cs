@@ -108,6 +108,18 @@ namespace TransferZero.Sdk.Test
             //Assert.IsInstanceOf<RecipientResponse> (response, "response is RecipientResponse");
         }
         
+        /// <summary>
+        /// Test ProofOfPayments
+        /// </summary>
+        [Test]
+        public void ProofOfPaymentsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //Guid? recipientID = null;
+            //var response = instance.ProofOfPayments(recipientID);
+            //Assert.IsInstanceOf<ProofOfPaymentListResponse> (response, "response is ProofOfPaymentListResponse");
+        }
+        
     }
 
 }

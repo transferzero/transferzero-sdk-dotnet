@@ -123,6 +123,22 @@ namespace TransferZero.Sdk.Test
             // TODO unit test for the property 'MobileProvider'
         }
         /// <summary>
+        /// Test the property 'Country'
+        /// </summary>
+        [Test]
+        public void CountryTest()
+        {
+            // TODO unit test for the property 'Country'
+        }
+        /// <summary>
+        /// Test the property 'TransferReason'
+        /// </summary>
+        [Test]
+        public void TransferReasonTest()
+        {
+            // TODO unit test for the property 'TransferReason'
+        }
+        /// <summary>
         /// Test the property 'Iban'
         /// </summary>
         [Test]
@@ -145,6 +161,22 @@ namespace TransferZero.Sdk.Test
         public void BankCountryTest()
         {
             // TODO unit test for the property 'BankCountry'
+        }
+        /// <summary>
+        /// Test the property 'CashProvider'
+        /// </summary>
+        [Test]
+        public void CashProviderTest()
+        {
+            // TODO unit test for the property 'CashProvider'
+        }
+        /// <summary>
+        /// Test the property 'SortCode'
+        /// </summary>
+        [Test]
+        public void SortCodeTest()
+        {
+            // TODO unit test for the property 'SortCode'
         }
         /// <summary>
         /// Test the property 'Bic'
@@ -225,6 +257,118 @@ namespace TransferZero.Sdk.Test
         public void ReferenceTest()
         {
             // TODO unit test for the property 'Reference'
+        }
+        /// <summary>
+        /// Test the property 'Name'
+        /// </summary>
+        [Test]
+        public void NameTest()
+        {
+            // TODO unit test for the property 'Name'
+        }
+        /// <summary>
+        /// Test the property 'Address'
+        /// </summary>
+        [Test]
+        public void AddressTest()
+        {
+            // TODO unit test for the property 'Address'
+        }
+        /// <summary>
+        /// Test the property 'Street'
+        /// </summary>
+        [Test]
+        public void StreetTest()
+        {
+            // TODO unit test for the property 'Street'
+        }
+        /// <summary>
+        /// Test the property 'PostalCode'
+        /// </summary>
+        [Test]
+        public void PostalCodeTest()
+        {
+            // TODO unit test for the property 'PostalCode'
+        }
+        /// <summary>
+        /// Test the property 'City'
+        /// </summary>
+        [Test]
+        public void CityTest()
+        {
+            // TODO unit test for the property 'City'
+        }
+        /// <summary>
+        /// Test the property 'Email'
+        /// </summary>
+        [Test]
+        public void EmailTest()
+        {
+            // TODO unit test for the property 'Email'
+        }
+        /// <summary>
+        /// Test the property 'TransferReasonCode'
+        /// </summary>
+        [Test]
+        public void TransferReasonCodeTest()
+        {
+            // TODO unit test for the property 'TransferReasonCode'
+        }
+        /// <summary>
+        /// Test the property 'ContactFirstName'
+        /// </summary>
+        [Test]
+        public void ContactFirstNameTest()
+        {
+            // TODO unit test for the property 'ContactFirstName'
+        }
+        /// <summary>
+        /// Test the property 'ContactLastName'
+        /// </summary>
+        [Test]
+        public void ContactLastNameTest()
+        {
+            // TODO unit test for the property 'ContactLastName'
+        }
+        /// <summary>
+        /// Test the property 'RegistrationNumber'
+        /// </summary>
+        [Test]
+        public void RegistrationNumberTest()
+        {
+            // TODO unit test for the property 'RegistrationNumber'
+        }
+        /// <summary>
+        /// Test the property 'NatureOfBusiness'
+        /// </summary>
+        [Test]
+        public void NatureOfBusinessTest()
+        {
+            // TODO unit test for the property 'NatureOfBusiness'
+        }
+        /// <summary>
+        /// Test the property 'LegalEntityType'
+        /// </summary>
+        [Test]
+        public void LegalEntityTypeTest()
+        {
+            // TODO unit test for the property 'LegalEntityType'
+        }
+        /// <summary>
+        /// Test the property 'BranchCode'
+        /// </summary>
+        [Test]
+        public void BranchCodeTest()
+        {
+            // TODO unit test for the property 'BranchCode'
+        }
+        /// <summary>
+        /// Test the property 'SwiftCode'
+        /// </summary>
+        [Test]
+        public void SwiftCodeTest()
+        {
+            // TODO unit test for the property 'SwiftCode'
         }
 
     }

@@ -67,20 +67,20 @@ namespace TransferZero.Sdk.Test
 
 
         /// <summary>
-        /// Test the property 'SenderId'
-        /// </summary>
-        [Test]
-        public void SenderIdTest()
-        {
-            // TODO unit test for the property 'SenderId'
-        }
-        /// <summary>
         /// Test the property 'Upload'
         /// </summary>
         [Test]
         public void UploadTest()
         {
             // TODO unit test for the property 'Upload'
+        }
+        /// <summary>
+        /// Test the property 'Url'
+        /// </summary>
+        [Test]
+        public void UrlTest()
+        {
+            // TODO unit test for the property 'Url'
         }
         /// <summary>
         /// Test the property 'UploadFileName'
@@ -153,6 +153,30 @@ namespace TransferZero.Sdk.Test
         public void IdTest()
         {
             // TODO unit test for the property 'Id'
+        }
+        /// <summary>
+        /// Test the property 'DocumentId'
+        /// </summary>
+        [Test]
+        public void DocumentIdTest()
+        {
+            // TODO unit test for the property 'DocumentId'
+        }
+        /// <summary>
+        /// Test the property 'ExpiryDate'
+        /// </summary>
+        [Test]
+        public void ExpiryDateTest()
+        {
+            // TODO unit test for the property 'ExpiryDate'
+        }
+        /// <summary>
+        /// Test the property 'Source'
+        /// </summary>
+        [Test]
+        public void SourceTest()
+        {
+            // TODO unit test for the property 'Source'
         }
         /// <summary>
         /// Test the property 'Errors'

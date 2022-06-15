@@ -83,12 +83,28 @@ namespace TransferZero.Sdk.Test
             // TODO unit test for the property 'BankCode'
         }
         /// <summary>
+        /// Test the property 'Iban'
+        /// </summary>
+        [Test]
+        public void IbanTest()
+        {
+            // TODO unit test for the property 'Iban'
+        }
+        /// <summary>
         /// Test the property 'PhoneNumber'
         /// </summary>
         [Test]
         public void PhoneNumberTest()
         {
             // TODO unit test for the property 'PhoneNumber'
+        }
+        /// <summary>
+        /// Test the property 'MobileProvider'
+        /// </summary>
+        [Test]
+        public void MobileProviderTest()
+        {
+            // TODO unit test for the property 'MobileProvider'
         }
         /// <summary>
         /// Test the property 'Country'

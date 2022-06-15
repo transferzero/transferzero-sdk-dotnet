@@ -83,22 +83,6 @@ namespace TransferZero.Sdk.Test
             // TODO unit test for the property 'LastName'
         }
         /// <summary>
-        /// Test the property 'IdentityCardId'
-        /// </summary>
-        [Test]
-        public void IdentityCardIdTest()
-        {
-            // TODO unit test for the property 'IdentityCardId'
-        }
-        /// <summary>
-        /// Test the property 'IdentityCardType'
-        /// </summary>
-        [Test]
-        public void IdentityCardTypeTest()
-        {
-            // TODO unit test for the property 'IdentityCardType'
-        }
-        /// <summary>
         /// Test the property 'PhoneNumber'
         /// </summary>
         [Test]
@@ -113,6 +97,14 @@ namespace TransferZero.Sdk.Test
         public void CashProviderTest()
         {
             // TODO unit test for the property 'CashProvider'
+        }
+        /// <summary>
+        /// Test the property 'Country'
+        /// </summary>
+        [Test]
+        public void CountryTest()
+        {
+            // TODO unit test for the property 'Country'
         }
 
     }

@@ -67,6 +67,14 @@ namespace TransferZero.Sdk.Test
 
 
         /// <summary>
+        /// Test the property 'Id'
+        /// </summary>
+        [Test]
+        public void IdTest()
+        {
+            // TODO unit test for the property 'Id'
+        }
+        /// <summary>
         /// Test the property 'Type'
         /// </summary>
         [Test]
@@ -75,12 +83,44 @@ namespace TransferZero.Sdk.Test
             // TODO unit test for the property 'Type'
         }
         /// <summary>
+        /// Test the property 'State'
+        /// </summary>
+        [Test]
+        public void StateTest()
+        {
+            // TODO unit test for the property 'State'
+        }
+        /// <summary>
         /// Test the property 'Country'
         /// </summary>
         [Test]
         public void CountryTest()
         {
             // TODO unit test for the property 'Country'
+        }
+        /// <summary>
+        /// Test the property 'Street'
+        /// </summary>
+        [Test]
+        public void StreetTest()
+        {
+            // TODO unit test for the property 'Street'
+        }
+        /// <summary>
+        /// Test the property 'PostalCode'
+        /// </summary>
+        [Test]
+        public void PostalCodeTest()
+        {
+            // TODO unit test for the property 'PostalCode'
+        }
+        /// <summary>
+        /// Test the property 'City'
+        /// </summary>
+        [Test]
+        public void CityTest()
+        {
+            // TODO unit test for the property 'City'
         }
         /// <summary>
         /// Test the property 'PhoneCountry'
@@ -107,6 +147,54 @@ namespace TransferZero.Sdk.Test
             // TODO unit test for the property 'Email'
         }
         /// <summary>
+        /// Test the property 'Ip'
+        /// </summary>
+        [Test]
+        public void IpTest()
+        {
+            // TODO unit test for the property 'Ip'
+        }
+        /// <summary>
+        /// Test the property 'AddressDescription'
+        /// </summary>
+        [Test]
+        public void AddressDescriptionTest()
+        {
+            // TODO unit test for the property 'AddressDescription'
+        }
+        /// <summary>
+        /// Test the property 'IdentificationNumber'
+        /// </summary>
+        [Test]
+        public void IdentificationNumberTest()
+        {
+            // TODO unit test for the property 'IdentificationNumber'
+        }
+        /// <summary>
+        /// Test the property 'IdentificationType'
+        /// </summary>
+        [Test]
+        public void IdentificationTypeTest()
+        {
+            // TODO unit test for the property 'IdentificationType'
+        }
+        /// <summary>
+        /// Test the property 'Lang'
+        /// </summary>
+        [Test]
+        public void LangTest()
+        {
+            // TODO unit test for the property 'Lang'
+        }
+        /// <summary>
+        /// Test the property 'Name'
+        /// </summary>
+        [Test]
+        public void NameTest()
+        {
+            // TODO unit test for the property 'Name'
+        }
+        /// <summary>
         /// Test the property 'FirstName'
         /// </summary>
         [Test]
@@ -131,6 +219,14 @@ namespace TransferZero.Sdk.Test
             // TODO unit test for the property 'LastName'
         }
         /// <summary>
+        /// Test the property 'BirthDate'
+        /// </summary>
+        [Test]
+        public void BirthDateTest()
+        {
+            // TODO unit test for the property 'BirthDate'
+        }
+        /// <summary>
         /// Test the property 'Occupation'
         /// </summary>
         [Test]
@@ -147,100 +243,148 @@ namespace TransferZero.Sdk.Test
             // TODO unit test for the property 'Nationality'
         }
         /// <summary>
-        /// Test the property 'OnboardingStatus'
+        /// Test the property 'LegalEntityType'
         /// </summary>
         [Test]
-        public void OnboardingStatusTest()
+        public void LegalEntityTypeTest()
         {
-            // TODO unit test for the property 'OnboardingStatus'
+            // TODO unit test for the property 'LegalEntityType'
         }
         /// <summary>
-        /// Test the property 'Address'
+        /// Test the property 'RegistrationDate'
         /// </summary>
         [Test]
-        public void AddressTest()
+        public void RegistrationDateTest()
         {
-            // TODO unit test for the property 'Address'
+            // TODO unit test for the property 'RegistrationDate'
         }
         /// <summary>
-        /// Test the property 'Description'
+        /// Test the property 'RegistrationNumber'
         /// </summary>
         [Test]
-        public void DescriptionTest()
+        public void RegistrationNumberTest()
         {
-            // TODO unit test for the property 'Description'
+            // TODO unit test for the property 'RegistrationNumber'
         }
         /// <summary>
-        /// Test the property 'Name'
+        /// Test the property 'NatureOfBusiness'
         /// </summary>
         [Test]
-        public void NameTest()
+        public void NatureOfBusinessTest()
         {
-            // TODO unit test for the property 'Name'
+            // TODO unit test for the property 'NatureOfBusiness'
         }
         /// <summary>
-        /// Test the property 'City'
+        /// Test the property 'SourceOfFunds'
         /// </summary>
         [Test]
-        public void CityTest()
+        public void SourceOfFundsTest()
         {
-            // TODO unit test for the property 'City'
+            // TODO unit test for the property 'SourceOfFunds'
         }
         /// <summary>
-        /// Test the property 'Street'
+        /// Test the property 'CustomSourceOfFunds'
         /// </summary>
         [Test]
-        public void StreetTest()
+        public void CustomSourceOfFundsTest()
         {
-            // TODO unit test for the property 'Street'
+            // TODO unit test for the property 'CustomSourceOfFunds'
         }
         /// <summary>
-        /// Test the property 'AddressDescription'
+        /// Test the property 'CoreBusinessActivity'
         /// </summary>
         [Test]
-        public void AddressDescriptionTest()
+        public void CoreBusinessActivityTest()
         {
-            // TODO unit test for the property 'AddressDescription'
+            // TODO unit test for the property 'CoreBusinessActivity'
         }
         /// <summary>
-        /// Test the property 'PostalCode'
+        /// Test the property 'PurposeOfOpeningAccount'
         /// </summary>
         [Test]
-        public void PostalCodeTest()
+        public void PurposeOfOpeningAccountTest()
         {
-            // TODO unit test for the property 'PostalCode'
+            // TODO unit test for the property 'PurposeOfOpeningAccount'
         }
         /// <summary>
-        /// Test the property 'BirthDate'
+        /// Test the property 'OfficePhone'
         /// </summary>
         [Test]
-        public void BirthDateTest()
+        public void OfficePhoneTest()
         {
-            // TODO unit test for the property 'BirthDate'
+            // TODO unit test for the property 'OfficePhone'
         }
         /// <summary>
-        /// Test the property 'Ip'
+        /// Test the property 'VatRegistrationNumber'
         /// </summary>
         [Test]
-        public void IpTest()
+        public void VatRegistrationNumberTest()
         {
-            // TODO unit test for the property 'Ip'
+            // TODO unit test for the property 'VatRegistrationNumber'
         }
         /// <summary>
-        /// Test the property 'IdentificationNumber'
+        /// Test the property 'FinancialRegulator'
         /// </summary>
         [Test]
-        public void IdentificationNumberTest()
+        public void FinancialRegulatorTest()
         {
-            // TODO unit test for the property 'IdentificationNumber'
+            // TODO unit test for the property 'FinancialRegulator'
         }
         /// <summary>
-        /// Test the property 'IdentificationType'
+        /// Test the property 'RegulatoryLicenceNumber'
         /// </summary>
         [Test]
-        public void IdentificationTypeTest()
+        public void RegulatoryLicenceNumberTest()
         {
-            // TODO unit test for the property 'IdentificationType'
+            // TODO unit test for the property 'RegulatoryLicenceNumber'
+        }
+        /// <summary>
+        /// Test the property 'ContactPersonEmail'
+        /// </summary>
+        [Test]
+        public void ContactPersonEmailTest()
+        {
+            // TODO unit test for the property 'ContactPersonEmail'
+        }
+        /// <summary>
+        /// Test the property 'TradingCountry'
+        /// </summary>
+        [Test]
+        public void TradingCountryTest()
+        {
+            // TODO unit test for the property 'TradingCountry'
+        }
+        /// <summary>
+        /// Test the property 'TradingAddress'
+        /// </summary>
+        [Test]
+        public void TradingAddressTest()
+        {
+            // TODO unit test for the property 'TradingAddress'
+        }
+        /// <summary>
+        /// Test the property 'TradingName'
+        /// </summary>
+        [Test]
+        public void TradingNameTest()
+        {
+            // TODO unit test for the property 'TradingName'
+        }
+        /// <summary>
+        /// Test the property 'NumberMonthlyTransactions'
+        /// </summary>
+        [Test]
+        public void NumberMonthlyTransactionsTest()
+        {
+            // TODO unit test for the property 'NumberMonthlyTransactions'
+        }
+        /// <summary>
+        /// Test the property 'AmountMonthlyTransactions'
+        /// </summary>
+        [Test]
+        public void AmountMonthlyTransactionsTest()
+        {
+            // TODO unit test for the property 'AmountMonthlyTransactions'
         }
         /// <summary>
         /// Test the property 'Documents'
@@ -259,20 +403,28 @@ namespace TransferZero.Sdk.Test
             // TODO unit test for the property 'Metadata'
         }
         /// <summary>
-        /// Test the property 'State'
+        /// Test the property 'Errors'
         /// </summary>
         [Test]
-        public void StateTest()
+        public void ErrorsTest()
         {
-            // TODO unit test for the property 'State'
+            // TODO unit test for the property 'Errors'
         }
         /// <summary>
-        /// Test the property 'Id'
+        /// Test the property 'OnboardingStatus'
         /// </summary>
         [Test]
-        public void IdTest()
+        public void OnboardingStatusTest()
         {
-            // TODO unit test for the property 'Id'
+            // TODO unit test for the property 'OnboardingStatus'
+        }
+        /// <summary>
+        /// Test the property 'PoliticallyExposedPeople'
+        /// </summary>
+        [Test]
+        public void PoliticallyExposedPeopleTest()
+        {
+            // TODO unit test for the property 'PoliticallyExposedPeople'
         }
         /// <summary>
         /// Test the property 'ExternalId'
@@ -283,12 +435,44 @@ namespace TransferZero.Sdk.Test
             // TODO unit test for the property 'ExternalId'
         }
         /// <summary>
-        /// Test the property 'Errors'
+        /// Test the property 'CityOfBirth'
         /// </summary>
         [Test]
-        public void ErrorsTest()
+        public void CityOfBirthTest()
         {
-            // TODO unit test for the property 'Errors'
+            // TODO unit test for the property 'CityOfBirth'
+        }
+        /// <summary>
+        /// Test the property 'CountryOfBirth'
+        /// </summary>
+        [Test]
+        public void CountryOfBirthTest()
+        {
+            // TODO unit test for the property 'CountryOfBirth'
+        }
+        /// <summary>
+        /// Test the property 'Gender'
+        /// </summary>
+        [Test]
+        public void GenderTest()
+        {
+            // TODO unit test for the property 'Gender'
+        }
+        /// <summary>
+        /// Test the property 'SalesLeadId'
+        /// </summary>
+        [Test]
+        public void SalesLeadIdTest()
+        {
+            // TODO unit test for the property 'SalesLeadId'
+        }
+        /// <summary>
+        /// Test the property 'CreatedAt'
+        /// </summary>
+        [Test]
+        public void CreatedAtTest()
+        {
+            // TODO unit test for the property 'CreatedAt'
         }
 
     }

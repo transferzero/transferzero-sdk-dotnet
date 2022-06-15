@@ -107,6 +107,14 @@ namespace TransferZero.Sdk.Test
             // TODO unit test for the property 'City'
         }
         /// <summary>
+        /// Test the property 'Email'
+        /// </summary>
+        [Test]
+        public void EmailTest()
+        {
+            // TODO unit test for the property 'Email'
+        }
+        /// <summary>
         /// Test the property 'BankCode'
         /// </summary>
         [Test]
@@ -137,6 +145,62 @@ namespace TransferZero.Sdk.Test
         public void TransferReasonCodeTest()
         {
             // TODO unit test for the property 'TransferReasonCode'
+        }
+        /// <summary>
+        /// Test the property 'TransferReason'
+        /// </summary>
+        [Test]
+        public void TransferReasonTest()
+        {
+            // TODO unit test for the property 'TransferReason'
+        }
+        /// <summary>
+        /// Test the property 'Name'
+        /// </summary>
+        [Test]
+        public void NameTest()
+        {
+            // TODO unit test for the property 'Name'
+        }
+        /// <summary>
+        /// Test the property 'ContactFirstName'
+        /// </summary>
+        [Test]
+        public void ContactFirstNameTest()
+        {
+            // TODO unit test for the property 'ContactFirstName'
+        }
+        /// <summary>
+        /// Test the property 'ContactLastName'
+        /// </summary>
+        [Test]
+        public void ContactLastNameTest()
+        {
+            // TODO unit test for the property 'ContactLastName'
+        }
+        /// <summary>
+        /// Test the property 'RegistrationNumber'
+        /// </summary>
+        [Test]
+        public void RegistrationNumberTest()
+        {
+            // TODO unit test for the property 'RegistrationNumber'
+        }
+        /// <summary>
+        /// Test the property 'NatureOfBusiness'
+        /// </summary>
+        [Test]
+        public void NatureOfBusinessTest()
+        {
+            // TODO unit test for the property 'NatureOfBusiness'
+        }
+        /// <summary>
+        /// Test the property 'LegalEntityType'
+        /// </summary>
+        [Test]
+        public void LegalEntityTypeTest()
+        {
+            // TODO unit test for the property 'LegalEntityType'
         }
 
     }

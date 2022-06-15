@@ -115,6 +115,14 @@ namespace TransferZero.Sdk.Test
             // TODO unit test for the property 'TransferReasonCode'
         }
         /// <summary>
+        /// Test the property 'TransferReason'
+        /// </summary>
+        [Test]
+        public void TransferReasonTest()
+        {
+            // TODO unit test for the property 'TransferReason'
+        }
+        /// <summary>
         /// Test the property 'IdentityCardType'
         /// </summary>
         [Test]

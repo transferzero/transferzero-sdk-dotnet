@@ -75,12 +75,20 @@ namespace TransferZero.Sdk.Test
             // TODO unit test for the property 'PhoneNumber'
         }
         /// <summary>
-        /// Test the property 'SendInstructions'
+        /// Test the property 'MobileProvider'
         /// </summary>
         [Test]
-        public void SendInstructionsTest()
+        public void MobileProviderTest()
         {
-            // TODO unit test for the property 'SendInstructions'
+            // TODO unit test for the property 'MobileProvider'
+        }
+        /// <summary>
+        /// Test the property 'Otp'
+        /// </summary>
+        [Test]
+        public void OtpTest()
+        {
+            // TODO unit test for the property 'Otp'
         }
 
     }
