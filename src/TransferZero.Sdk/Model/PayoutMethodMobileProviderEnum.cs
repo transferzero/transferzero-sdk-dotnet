@@ -94,10 +94,22 @@ namespace TransferZero.Sdk.Model
         Mobicash = 10,
 
         /// <summary>
+        /// Enum Emoney for value: emoney
+        /// </summary>
+        [EnumMember(Value = "emoney")]
+        Emoney = 11,
+
+        /// <summary>
+        /// Enum Free for value: free
+        /// </summary>
+        [EnumMember(Value = "free")]
+        Free = 12,
+
+        /// <summary>
         /// Enum Wave for value: wave
         /// </summary>
         [EnumMember(Value = "wave")]
-        Wave = 11
+        Wave = 13
 
     }
 
