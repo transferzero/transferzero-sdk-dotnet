@@ -37,14 +37,16 @@ namespace TransferZero.Sdk.Model
         /// <param name="redirectUrl">This is where the sender should be redirected back when the payment has been finished.</param>
         /// <param name="phoneNumber">The phone number where the funds should be collected from.</param>
         /// <param name="mobileProvider">mobileProvider.</param>
+        /// <param name="country">country.</param>
         /// <param name="otp">The OTP that the sender received in otp verified ussd popup ux flow..</param>
         /// <param name="refundAddress">Please make sure the refund_address is a valid BTC address belonging to the sender, as that is going to be used in case the transaction has to be refunded..</param>
-        public PayinMethodDetails(string paymentMethod = default(string), string redirectUrl = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), string otp = default(string), string refundAddress = default(string))
+        public PayinMethodDetails(string paymentMethod = default(string), string redirectUrl = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum), string otp = default(string), string refundAddress = default(string))
         {
             this.PaymentMethod = paymentMethod;
             this.RedirectUrl = redirectUrl;
             this.PhoneNumber = phoneNumber;
             this.MobileProvider = mobileProvider;
+            this.Country = country;
             this.Otp = otp;
             this.RefundAddress = refundAddress;
         }
@@ -77,6 +79,12 @@ namespace TransferZero.Sdk.Model
         public PayoutMethodMobileProviderEnum MobileProvider { get; set; }
 
         /// <summary>
+        /// Gets or Sets Country
+        /// </summary>
+        [DataMember(Name="country", EmitDefaultValue=false)]
+        public PayoutMethodCountryEnum Country { get; set; }
+
+        /// <summary>
         /// The OTP that the sender received in otp verified ussd popup ux flow.
         /// </summary>
         /// <value>The OTP that the sender received in otp verified ussd popup ux flow.</value>
@@ -102,6 +110,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  RedirectUrl: ").Append(RedirectUrl).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  MobileProvider: ").Append(MobileProvider).Append("\n");
+            sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("  Otp: ").Append(Otp).Append("\n");
             sb.Append("  RefundAddress: ").Append(RefundAddress).Append("\n");
             sb.Append("}\n");
@@ -159,6 +168,11 @@ namespace TransferZero.Sdk.Model
                     this.MobileProvider.Equals(input.MobileProvider))
                 ) && 
                 (
+                    this.Country == input.Country ||
+                    (this.Country != null &&
+                    this.Country.Equals(input.Country))
+                ) && 
+                (
                     this.Otp == input.Otp ||
                     (this.Otp != null &&
                     this.Otp.Equals(input.Otp))
@@ -187,6 +201,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
                 if (this.MobileProvider != null)
                     hashCode = hashCode * 59 + this.MobileProvider.GetHashCode();
+                if (this.Country != null)
+                    hashCode = hashCode * 59 + this.Country.GetHashCode();
                 if (this.Otp != null)
                     hashCode = hashCode * 59 + this.Otp.GetHashCode();
                 if (this.RefundAddress != null)

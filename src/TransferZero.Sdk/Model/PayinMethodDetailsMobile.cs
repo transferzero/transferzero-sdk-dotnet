@@ -35,11 +35,13 @@ namespace TransferZero.Sdk.Model
         /// </summary>
         /// <param name="phoneNumber">The phone number where the funds should be collected from.</param>
         /// <param name="mobileProvider">mobileProvider.</param>
+        /// <param name="country">country.</param>
         /// <param name="otp">The OTP that the sender received in otp verified ussd popup ux flow..</param>
-        public PayinMethodDetailsMobile(string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), string otp = default(string))
+        public PayinMethodDetailsMobile(string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum), string otp = default(string))
         {
             this.PhoneNumber = phoneNumber;
             this.MobileProvider = mobileProvider;
+            this.Country = country;
             this.Otp = otp;
         }
         
@@ -55,6 +57,12 @@ namespace TransferZero.Sdk.Model
         /// </summary>
         [DataMember(Name="mobile_provider", EmitDefaultValue=false)]
         public PayoutMethodMobileProviderEnum MobileProvider { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Country
+        /// </summary>
+        [DataMember(Name="country", EmitDefaultValue=false)]
+        public PayoutMethodCountryEnum Country { get; set; }
 
         /// <summary>
         /// The OTP that the sender received in otp verified ussd popup ux flow.
@@ -73,6 +81,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("class PayinMethodDetailsMobile {\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  MobileProvider: ").Append(MobileProvider).Append("\n");
+            sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("  Otp: ").Append(Otp).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -119,6 +128,11 @@ namespace TransferZero.Sdk.Model
                     this.MobileProvider.Equals(input.MobileProvider))
                 ) && 
                 (
+                    this.Country == input.Country ||
+                    (this.Country != null &&
+                    this.Country.Equals(input.Country))
+                ) && 
+                (
                     this.Otp == input.Otp ||
                     (this.Otp != null &&
                     this.Otp.Equals(input.Otp))
@@ -138,6 +152,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
                 if (this.MobileProvider != null)
                     hashCode = hashCode * 59 + this.MobileProvider.GetHashCode();
+                if (this.Country != null)
+                    hashCode = hashCode * 59 + this.Country.GetHashCode();
                 if (this.Otp != null)
                     hashCode = hashCode * 59 + this.Otp.GetHashCode();
                 return hashCode;
