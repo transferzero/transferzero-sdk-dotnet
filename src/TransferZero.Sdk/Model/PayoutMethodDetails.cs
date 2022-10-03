@@ -42,11 +42,11 @@ namespace TransferZero.Sdk.Model
         /// <param name="lastName">lastName (required).</param>
         /// <param name="bankCode">bankCode (required).</param>
         /// <param name="bankAccount">bankAccount (required).</param>
-        /// <param name="bankAccountType">bankAccountType.</param>
+        /// <param name="bankAccountType">bankAccountType (required).</param>
         /// <param name="phoneNumber">phoneNumber (required).</param>
         /// <param name="mobileProvider">mobileProvider (required).</param>
         /// <param name="country">country (required).</param>
-        /// <param name="transferReason">transferReason.</param>
+        /// <param name="transferReason">transferReason (required).</param>
         /// <param name="iban">iban (required).</param>
         /// <param name="bankName">bankName (required).</param>
         /// <param name="bankCountry">bankCountry.</param>
@@ -74,7 +74,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="registrationNumber">registrationNumber.</param>
         /// <param name="natureOfBusiness">natureOfBusiness.</param>
         /// <param name="legalEntityType">legalEntityType.</param>
-        /// <param name="branchCode">branchCode.</param>
+        /// <param name="branchCode">branchCode (required).</param>
         /// <param name="swiftCode">swiftCode (required).</param>
         public PayoutMethodDetails(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), string iban = default(string), string bankName = default(string), string bankCountry = default(string), PayoutMethodCashProviderEnum cashProvider = default(PayoutMethodCashProviderEnum), string sortCode = default(string), string bic = default(string), PayoutMethodIdentityCardTypeEnum senderIdentityCardType = default(PayoutMethodIdentityCardTypeEnum), string senderIdentityCardId = default(string), string senderCityOfBirth = default(string), string senderCountryOfBirth = default(string), PayoutMethodGenderEnum senderGender = default(PayoutMethodGenderEnum), string reason = default(string), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), string reference = default(string), string name = default(string), string address = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string email = default(string), string transferReasonCode = default(string), string contactFirstName = default(string), string contactLastName = default(string), string registrationNumber = default(string), PayoutMethodNatureOfBusinessEnum natureOfBusiness = default(PayoutMethodNatureOfBusinessEnum), PayoutMethodLegalEntityTypeEnum legalEntityType = default(PayoutMethodLegalEntityTypeEnum), string branchCode = default(string), string swiftCode = default(string))
         {
@@ -82,9 +82,11 @@ namespace TransferZero.Sdk.Model
             this.LastName = lastName;
             this.BankCode = bankCode;
             this.BankAccount = bankAccount;
+            this.BankAccountType = bankAccountType;
             this.PhoneNumber = phoneNumber;
             this.MobileProvider = mobileProvider;
             this.Country = country;
+            this.TransferReason = transferReason;
             this.Iban = iban;
             this.BankName = bankName;
             this.CashProvider = cashProvider;
@@ -97,9 +99,8 @@ namespace TransferZero.Sdk.Model
             this.Street = street;
             this.PostalCode = postalCode;
             this.City = city;
+            this.BranchCode = branchCode;
             this.SwiftCode = swiftCode;
-            this.BankAccountType = bankAccountType;
-            this.TransferReason = transferReason;
             this.BankCountry = bankCountry;
             this.SortCode = sortCode;
             this.Bic = bic;
@@ -115,7 +116,6 @@ namespace TransferZero.Sdk.Model
             this.RegistrationNumber = registrationNumber;
             this.NatureOfBusiness = natureOfBusiness;
             this.LegalEntityType = legalEntityType;
-            this.BranchCode = branchCode;
         }
         
         /// <summary>
