@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;bank_code\&quot;: \&quot;104\&quot;,     \&quot;branch_code\&quot;: \&quot;00001\&quot;,     \&quot;bank_account\&quot;: \&quot;0009795493\&quot;,     \&quot;bank_account_type\&quot;: \&quot;10\&quot;,     \&quot;identity_card_type\&quot;: \&quot;ID\&quot;,     \&quot;identity_card_id\&quot;: \&quot;01234567890\&quot;,     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;   } &#x60;&#x60;&#x60;  See [BRL Bank](https://docs.transferzero.com/docs/payout-details/#brlbank) documentation for the bank_code and transfer_reason lists
+    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;phone_number\&quot;: \&quot;+552112345678\&quot;,     \&quot;bank_code\&quot;: \&quot;104\&quot;,     \&quot;branch_code\&quot;: \&quot;00001\&quot;,     \&quot;bank_account\&quot;: \&quot;0009795493\&quot;,     \&quot;bank_account_type\&quot;: \&quot;10\&quot;,     \&quot;identity_card_type\&quot;: \&quot;ID\&quot;,     \&quot;identity_card_id\&quot;: \&quot;01234567890\&quot;,     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;   } &#x60;&#x60;&#x60;  See [BRL Bank](https://docs.transferzero.com/docs/payout-details/#brlbank) documentation for the bank_code and transfer_reason lists
     /// </summary>
     [DataContract]
     public partial class PayoutMethodDetailsBRLBank :  IEquatable<PayoutMethodDetailsBRLBank>, IValidatableObject
@@ -40,6 +40,7 @@ namespace TransferZero.Sdk.Model
         /// </summary>
         /// <param name="firstName">firstName (required).</param>
         /// <param name="lastName">lastName (required).</param>
+        /// <param name="phoneNumber">phoneNumber.</param>
         /// <param name="bankCode">bankCode (required).</param>
         /// <param name="branchCode">branchCode (required).</param>
         /// <param name="bankAccount">bankAccount (required).</param>
@@ -47,7 +48,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="identityCardType">identityCardType (required).</param>
         /// <param name="identityCardId">identityCardId (required).</param>
         /// <param name="transferReason">transferReason (required).</param>
-        public PayoutMethodDetailsBRLBank(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string branchCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum))
+        public PayoutMethodDetailsBRLBank(string firstName = default(string), string lastName = default(string), string phoneNumber = default(string), string bankCode = default(string), string branchCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -58,6 +59,7 @@ namespace TransferZero.Sdk.Model
             this.IdentityCardType = identityCardType;
             this.IdentityCardId = identityCardId;
             this.TransferReason = transferReason;
+            this.PhoneNumber = phoneNumber;
         }
         
         /// <summary>
@@ -71,6 +73,12 @@ namespace TransferZero.Sdk.Model
         /// </summary>
         [DataMember(Name="last_name", EmitDefaultValue=false)]
         public string LastName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PhoneNumber
+        /// </summary>
+        [DataMember(Name="phone_number", EmitDefaultValue=false)]
+        public string PhoneNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets BankCode
@@ -124,6 +132,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("class PayoutMethodDetailsBRLBank {\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
+            sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  BankCode: ").Append(BankCode).Append("\n");
             sb.Append("  BranchCode: ").Append(BranchCode).Append("\n");
             sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
@@ -176,6 +185,11 @@ namespace TransferZero.Sdk.Model
                     this.LastName.Equals(input.LastName))
                 ) && 
                 (
+                    this.PhoneNumber == input.PhoneNumber ||
+                    (this.PhoneNumber != null &&
+                    this.PhoneNumber.Equals(input.PhoneNumber))
+                ) && 
+                (
                     this.BankCode == input.BankCode ||
                     (this.BankCode != null &&
                     this.BankCode.Equals(input.BankCode))
@@ -225,6 +239,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.FirstName.GetHashCode();
                 if (this.LastName != null)
                     hashCode = hashCode * 59 + this.LastName.GetHashCode();
+                if (this.PhoneNumber != null)
+                    hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
                 if (this.BankCode != null)
                     hashCode = hashCode * 59 + this.BankCode.GetHashCode();
                 if (this.BranchCode != null)
