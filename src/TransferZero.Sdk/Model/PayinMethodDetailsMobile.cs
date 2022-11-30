@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;phone_number\&quot;: \&quot;+2569999999\&quot;, } &#x60;&#x60;&#x60;
+    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;phone_number\&quot;: \&quot;+256129999999\&quot;, } &#x60;&#x60;&#x60;
     /// </summary>
     [DataContract]
     public partial class PayinMethodDetailsMobile :  IEquatable<PayinMethodDetailsMobile>, IValidatableObject

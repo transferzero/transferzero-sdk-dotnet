@@ -140,7 +140,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="bankAccount">Account Number to query.</param>
         /// <param name="bankCode">Bank Code to query - same codes are used as for creating the transactions.</param>
         /// <param name="iban">IBAN to query - BBAN format for XOF bank accounts.</param>
-        /// <param name="phoneNumber">Phone number to query.</param>
+        /// <param name="phoneNumber">Phone number to query in E.164 format.</param>
         /// <param name="mobileProvider">mobileProvider.</param>
         /// <param name="country">Country of account in 2-character alpha ISO 3166-2 country format (required).</param>
         /// <param name="currency">The currency the bank account is in (required).</param>
@@ -179,9 +179,9 @@ namespace TransferZero.Sdk.Model
         public string Iban { get; set; }
 
         /// <summary>
-        /// Phone number to query
+        /// Phone number to query in E.164 format
         /// </summary>
-        /// <value>Phone number to query</value>
+        /// <value>Phone number to query in E.164 format</value>
         [DataMember(Name="phone_number", EmitDefaultValue=false)]
         public string PhoneNumber { get; set; }
 

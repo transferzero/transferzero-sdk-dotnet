@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Street** | **string** | Sender&#39;s street | 
 **PostalCode** | **string** | Zip code of sender | 
 **City** | **string** | Sender&#39;s city | 
-**PhoneCountry** | **string** | Phone country of sender in 2-character alpha ISO 3166-2 country format | 
+**PhoneCountry** | **string** | Phone country of sender in 2-character alpha ISO 3166-2 country format | [optional] 
 **PhoneNumber** | **string** | Phone number of sender (without country callcode) | [optional] 
 **Email** | **string** | Email of sender | 
 **Ip** | **string** | IP of sender | 
