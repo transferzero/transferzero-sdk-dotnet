@@ -8,10 +8,12 @@ Name | Type | Description | Notes
 **FirstName** | **string** |  | 
 **LastName** | **string** |  | 
 **PhoneNumber** | **string** |  | [optional] 
-**BankCode** | **string** |  | 
-**BranchCode** | **string** |  | 
-**BankAccount** | **string** |  | 
-**BankAccountType** | [**PayoutMethodBankAccountTypeEnum**](PayoutMethodBankAccountTypeEnum.md) |  | 
+**BankCode** | **string** |  | [optional] 
+**BranchCode** | **string** |  | [optional] 
+**BankAccount** | **string** |  | [optional] 
+**BankAccountType** | [**PayoutMethodBankAccountTypeEnum**](PayoutMethodBankAccountTypeEnum.md) |  | [optional] 
+**PixKeyType** | [**PayoutMethodPixKeyTypeEnum**](PayoutMethodPixKeyTypeEnum.md) |  | [optional] 
+**PixKeyValue** | **string** |  | [optional] 
 **IdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 
 **IdentityCardId** | **string** |  | 
 **TransferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  | 
