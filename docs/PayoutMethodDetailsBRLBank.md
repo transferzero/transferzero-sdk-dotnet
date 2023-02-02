@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FirstName** | **string** |  | 
 **LastName** | **string** |  | 
+**City** | **string** |  | 
+**PostalCode** | **string** |  | 
 **PhoneNumber** | **string** |  | [optional] 
 **BankCode** | **string** |  | [optional] 
 **BranchCode** | **string** |  | [optional] 
