@@ -275,6 +275,7 @@ Class | Method | HTTP request | Description
  - [Model.PayoutMethodDetailsGHSCash](docs/PayoutMethodDetailsGHSCash.md)
  - [Model.PayoutMethodDetailsGNFMobile](docs/PayoutMethodDetailsGNFMobile.md)
  - [Model.PayoutMethodDetailsIBAN](docs/PayoutMethodDetailsIBAN.md)
+ - [Model.PayoutMethodDetailsINRBank](docs/PayoutMethodDetailsINRBank.md)
  - [Model.PayoutMethodDetailsKESBank](docs/PayoutMethodDetailsKESBank.md)
  - [Model.PayoutMethodDetailsKESMobile](docs/PayoutMethodDetailsKESMobile.md)
  - [Model.PayoutMethodDetailsMADCash](docs/PayoutMethodDetailsMADCash.md)
