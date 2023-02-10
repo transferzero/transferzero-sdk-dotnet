@@ -25,31 +25,31 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;bank_code\&quot;: \&quot;058\&quot;,     \&quot;bank_account\&quot;: \&quot;123456789\&quot;,     \&quot;bank_account_type\&quot;: \&quot;10\&quot;       # 10 for saving       # 20 for current accounts   } &#x60;&#x60;&#x60;  The valid bank_code values are:  - Access Bank: 044 - Citi Bank Group: 023 - Diamond Bank: 063 - EcoBank: 050 - FCMB Bank: 214 - Fidelity Bank: 070 - First Bank of Nigeria: 011 - Guaranty Trust Bank : 058 - Heritage Bank: 030 - Jaiz Bank: 301 - Keystone: 082 - Mainstreet: 014 - Polaris Bank: 076 - Stanbic IBTC Bank: 039 - Sterling bank: 232 - Union Bank: 032 - United Bank for Africa: 033 - Unity Bank: 215 - Wema Bank: 035 - Zenith International: 057
+    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;bank_name\&quot;: \&quot;Banc ABC\&quot;,   \&quot;bank_account\&quot;: \&quot;12345678912345678\&quot;,   \&quot;branch_code\&quot;: \&quot;550067\&quot;, } &#x60;&#x60;&#x60; See [BWP Bank](https://docs.transferzero.com/docs/payout-details/#bwpbank) documentation for the bank_name &amp; branch_code list
     /// </summary>
     [DataContract]
-    public partial class PayoutMethodDetailsNGNBank :  IEquatable<PayoutMethodDetailsNGNBank>, IValidatableObject
+    public partial class PayoutMethodDetailsBWPBank :  IEquatable<PayoutMethodDetailsBWPBank>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayoutMethodDetailsNGNBank" /> class.
+        /// Initializes a new instance of the <see cref="PayoutMethodDetailsBWPBank" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PayoutMethodDetailsNGNBank() { }
+        protected PayoutMethodDetailsBWPBank() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayoutMethodDetailsNGNBank" /> class.
+        /// Initializes a new instance of the <see cref="PayoutMethodDetailsBWPBank" /> class.
         /// </summary>
         /// <param name="firstName">firstName (required).</param>
         /// <param name="lastName">lastName (required).</param>
-        /// <param name="bankCode">bankCode (required).</param>
+        /// <param name="bankName">bankName (required).</param>
         /// <param name="bankAccount">bankAccount (required).</param>
-        /// <param name="bankAccountType">bankAccountType.</param>
-        public PayoutMethodDetailsNGNBank(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum))
+        /// <param name="branchCode">branchCode (required).</param>
+        public PayoutMethodDetailsBWPBank(string firstName = default(string), string lastName = default(string), string bankName = default(string), string bankAccount = default(string), string branchCode = default(string))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
-            this.BankCode = bankCode;
+            this.BankName = bankName;
             this.BankAccount = bankAccount;
-            this.BankAccountType = bankAccountType;
+            this.BranchCode = branchCode;
         }
         
         /// <summary>
@@ -65,10 +65,10 @@ namespace TransferZero.Sdk.Model
         public string LastName { get; set; }
 
         /// <summary>
-        /// Gets or Sets BankCode
+        /// Gets or Sets BankName
         /// </summary>
-        [DataMember(Name="bank_code", EmitDefaultValue=false)]
-        public string BankCode { get; set; }
+        [DataMember(Name="bank_name", EmitDefaultValue=false)]
+        public string BankName { get; set; }
 
         /// <summary>
         /// Gets or Sets BankAccount
@@ -77,10 +77,10 @@ namespace TransferZero.Sdk.Model
         public string BankAccount { get; set; }
 
         /// <summary>
-        /// Gets or Sets BankAccountType
+        /// Gets or Sets BranchCode
         /// </summary>
-        [DataMember(Name="bank_account_type", EmitDefaultValue=false)]
-        public PayoutMethodBankAccountTypeEnum BankAccountType { get; set; }
+        [DataMember(Name="branch_code", EmitDefaultValue=false)]
+        public string BranchCode { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -89,12 +89,12 @@ namespace TransferZero.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PayoutMethodDetailsNGNBank {\n");
+            sb.Append("class PayoutMethodDetailsBWPBank {\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
-            sb.Append("  BankCode: ").Append(BankCode).Append("\n");
+            sb.Append("  BankName: ").Append(BankName).Append("\n");
             sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
-            sb.Append("  BankAccountType: ").Append(BankAccountType).Append("\n");
+            sb.Append("  BranchCode: ").Append(BranchCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,15 +115,15 @@ namespace TransferZero.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PayoutMethodDetailsNGNBank);
+            return this.Equals(input as PayoutMethodDetailsBWPBank);
         }
 
         /// <summary>
-        /// Returns true if PayoutMethodDetailsNGNBank instances are equal
+        /// Returns true if PayoutMethodDetailsBWPBank instances are equal
         /// </summary>
-        /// <param name="input">Instance of PayoutMethodDetailsNGNBank to be compared</param>
+        /// <param name="input">Instance of PayoutMethodDetailsBWPBank to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PayoutMethodDetailsNGNBank input)
+        public bool Equals(PayoutMethodDetailsBWPBank input)
         {
             if (input == null)
                 return false;
@@ -140,9 +140,9 @@ namespace TransferZero.Sdk.Model
                     this.LastName.Equals(input.LastName))
                 ) && 
                 (
-                    this.BankCode == input.BankCode ||
-                    (this.BankCode != null &&
-                    this.BankCode.Equals(input.BankCode))
+                    this.BankName == input.BankName ||
+                    (this.BankName != null &&
+                    this.BankName.Equals(input.BankName))
                 ) && 
                 (
                     this.BankAccount == input.BankAccount ||
@@ -150,9 +150,9 @@ namespace TransferZero.Sdk.Model
                     this.BankAccount.Equals(input.BankAccount))
                 ) && 
                 (
-                    this.BankAccountType == input.BankAccountType ||
-                    (this.BankAccountType != null &&
-                    this.BankAccountType.Equals(input.BankAccountType))
+                    this.BranchCode == input.BranchCode ||
+                    (this.BranchCode != null &&
+                    this.BranchCode.Equals(input.BranchCode))
                 );
         }
 
@@ -169,12 +169,12 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.FirstName.GetHashCode();
                 if (this.LastName != null)
                     hashCode = hashCode * 59 + this.LastName.GetHashCode();
-                if (this.BankCode != null)
-                    hashCode = hashCode * 59 + this.BankCode.GetHashCode();
+                if (this.BankName != null)
+                    hashCode = hashCode * 59 + this.BankName.GetHashCode();
                 if (this.BankAccount != null)
                     hashCode = hashCode * 59 + this.BankAccount.GetHashCode();
-                if (this.BankAccountType != null)
-                    hashCode = hashCode * 59 + this.BankAccountType.GetHashCode();
+                if (this.BranchCode != null)
+                    hashCode = hashCode * 59 + this.BranchCode.GetHashCode();
                 return hashCode;
             }
         }

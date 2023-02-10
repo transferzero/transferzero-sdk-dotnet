@@ -1,7 +1,7 @@
 /* 
- * BitPesa Private API
+ * TransferZero API
  *
- * API specification used for internal BitPesa endpoints
+ * Reference documentation for the TransferZero API V1
  *
  * OpenAPI spec version: 1.0
  * 
@@ -37,7 +37,7 @@ namespace TransferZero.Sdk.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.24.0";
+        public const string Version = "1.25.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -126,8 +126,8 @@ namespace TransferZero.Sdk.Client
         /// </summary>
         public Configuration()
         {
-            UserAgent = "TransferZero-SDK/.NET/1.24.0";
-            BasePath = "https://api-sandbox.bitpesa.co/v1";
+            UserAgent = "TransferZero-SDK/.NET/1.25.0";
+            BasePath = "https://api-sandbox.transferzero.com/v1";
             DefaultHeader = new ConcurrentDictionary<string, string>();
             ApiKey = "KEY";
             ApiSecret = "SECRET";
@@ -143,7 +143,7 @@ namespace TransferZero.Sdk.Client
             IDictionary<string, string> defaultHeader,
             string apiKey,
             string apiSecret,
-            string basePath = "https://api-sandbox.bitpesa.co/v1") : this()
+            string basePath = "https://api-sandbox.transferzero.com/v1") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");
@@ -183,7 +183,7 @@ namespace TransferZero.Sdk.Client
             string tempFolderPath = null,
             string dateTimeFormat = null,
             int timeout = 100000,
-            string userAgent = "TransferZero-SDK/.NET/1.24.0"
+            string userAgent = "TransferZero-SDK/.NET/1.25.0"
             // ReSharper restore UnusedParameter.Local
             )
         {
@@ -390,7 +390,7 @@ namespace TransferZero.Sdk.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.0\n";
-            report += "    SDK Package Version: 1.24.0\n";
+            report += "    SDK Package Version: 1.25.0\n";
 
             return report;
         }
