@@ -1,7 +1,7 @@
 /* 
- * BitPesa Private API
+ * TransferZero API
  *
- * API specification used for internal BitPesa endpoints
+ * Reference documentation for the TransferZero API V1
  *
  * OpenAPI spec version: 1.0
  * 
@@ -53,12 +53,12 @@ namespace TransferZero.Sdk.Client
         public ApiClient()
         {
             Configuration = TransferZero.Sdk.Client.Configuration.Default;
-            RestClient = new RestClient("https://api-sandbox.bitpesa.co/v1");
+            RestClient = new RestClient("https://api-sandbox.transferzero.com/v1");
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default base path (https://api-sandbox.bitpesa.co/v1).
+        /// with default base path (https://api-sandbox.transferzero.com/v1).
         /// </summary>
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config)
@@ -73,7 +73,7 @@ namespace TransferZero.Sdk.Client
         /// with default configuration.
         /// </summary>
         /// <param name="basePath">The base path.</param>
-        public ApiClient(String basePath = "https://api-sandbox.bitpesa.co/v1")
+        public ApiClient(String basePath = "https://api-sandbox.transferzero.com/v1")
         {
            if (String.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");
