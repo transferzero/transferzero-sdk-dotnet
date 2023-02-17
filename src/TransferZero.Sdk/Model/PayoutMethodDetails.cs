@@ -1,7 +1,7 @@
 /* 
- * TransferZero API
+ * BitPesa Private API
  *
- * Reference documentation for the TransferZero API V1
+ * API specification used for internal BitPesa endpoints
  *
  * OpenAPI spec version: 1.0
  * 
@@ -74,7 +74,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="registrationNumber">registrationNumber.</param>
         /// <param name="natureOfBusiness">natureOfBusiness.</param>
         /// <param name="legalEntityType">legalEntityType.</param>
-        /// <param name="branchCode">branchCode (required).</param>
+        /// <param name="branchCode">branchCode.</param>
         /// <param name="swiftCode">swiftCode (required).</param>
         /// <param name="pixKeyType">pixKeyType.</param>
         /// <param name="pixKeyValue">pixKeyValue.</param>
@@ -101,7 +101,6 @@ namespace TransferZero.Sdk.Model
             this.Street = street;
             this.PostalCode = postalCode;
             this.City = city;
-            this.BranchCode = branchCode;
             this.SwiftCode = swiftCode;
             this.IfscCode = ifscCode;
             this.BankAccountType = bankAccountType;
@@ -120,6 +119,7 @@ namespace TransferZero.Sdk.Model
             this.RegistrationNumber = registrationNumber;
             this.NatureOfBusiness = natureOfBusiness;
             this.LegalEntityType = legalEntityType;
+            this.BranchCode = branchCode;
             this.PixKeyType = pixKeyType;
             this.PixKeyValue = pixKeyValue;
         }
