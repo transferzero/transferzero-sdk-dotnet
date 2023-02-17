@@ -1,7 +1,7 @@
 /* 
- * BitPesa Private API
+ * TransferZero API
  *
- * API specification used for internal BitPesa endpoints
+ * Reference documentation for the TransferZero API V1
  *
  * OpenAPI spec version: 1.0
  * 
@@ -24,27 +24,6 @@ namespace TransferZero.Sdk.Api
     public interface ISendersApi : IApiAccessor
     {
         #region Synchronous Operations
-        /// <summary>
-        /// Change sender onboarding state to &#39;profile_completed&#39;
-        /// </summary>
-        /// <remarks>
-        /// Transition sender to the &#39;profile_completed&#39; onboarding state. This will only work if the sender has all the required documents uploaded and profile information present. 
-        /// </remarks>
-        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderID">ID of the sender to get.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670/confirm_verification&#x60;</param>
-        /// <returns>SenderResponse</returns>
-        SenderResponse ConfirmSenderVerification (Guid? senderID);
-
-        /// <summary>
-        /// Change sender onboarding state to &#39;profile_completed&#39;
-        /// </summary>
-        /// <remarks>
-        /// Transition sender to the &#39;profile_completed&#39; onboarding state. This will only work if the sender has all the required documents uploaded and profile information present. 
-        /// </remarks>
-        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderID">ID of the sender to get.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670/confirm_verification&#x60;</param>
-        /// <returns>ApiResponse of SenderResponse</returns>
-        ApiResponse<SenderResponse> ConfirmSenderVerificationWithHttpInfo (Guid? senderID);
         /// <summary>
         /// Deleting a sender
         /// </summary>
@@ -162,27 +141,6 @@ namespace TransferZero.Sdk.Api
         ApiResponse<SenderResponse> PostSendersWithHttpInfo (SenderRequest senderRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
-        /// <summary>
-        /// Change sender onboarding state to &#39;profile_completed&#39;
-        /// </summary>
-        /// <remarks>
-        /// Transition sender to the &#39;profile_completed&#39; onboarding state. This will only work if the sender has all the required documents uploaded and profile information present. 
-        /// </remarks>
-        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderID">ID of the sender to get.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670/confirm_verification&#x60;</param>
-        /// <returns>Task of SenderResponse</returns>
-        System.Threading.Tasks.Task<SenderResponse> ConfirmSenderVerificationAsync (Guid? senderID);
-
-        /// <summary>
-        /// Change sender onboarding state to &#39;profile_completed&#39;
-        /// </summary>
-        /// <remarks>
-        /// Transition sender to the &#39;profile_completed&#39; onboarding state. This will only work if the sender has all the required documents uploaded and profile information present. 
-        /// </remarks>
-        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderID">ID of the sender to get.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670/confirm_verification&#x60;</param>
-        /// <returns>Task of ApiResponse (SenderResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SenderResponse>> ConfirmSenderVerificationAsyncWithHttpInfo (Guid? senderID);
         /// <summary>
         /// Deleting a sender
         /// </summary>
@@ -407,173 +365,6 @@ namespace TransferZero.Sdk.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
-        }
-
-        /// <summary>
-        /// Change sender onboarding state to &#39;profile_completed&#39; Transition sender to the &#39;profile_completed&#39; onboarding state. This will only work if the sender has all the required documents uploaded and profile information present. 
-        /// </summary>
-        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderID">ID of the sender to get.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670/confirm_verification&#x60;</param>
-        /// <returns>SenderResponse</returns>
-        public SenderResponse ConfirmSenderVerification (Guid? senderID)
-        {
-             ApiResponse<SenderResponse> localVarResponse = ConfirmSenderVerificationWithHttpInfo(senderID);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Change sender onboarding state to &#39;profile_completed&#39; Transition sender to the &#39;profile_completed&#39; onboarding state. This will only work if the sender has all the required documents uploaded and profile information present. 
-        /// </summary>
-        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderID">ID of the sender to get.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670/confirm_verification&#x60;</param>
-        /// <returns>ApiResponse of SenderResponse</returns>
-        public ApiResponse< SenderResponse > ConfirmSenderVerificationWithHttpInfo (Guid? senderID)
-        {
-            // verify the required parameter 'senderID' is set
-            if (senderID == null)
-                throw new ApiException(400, "Missing required parameter 'senderID' when calling SendersApi->ConfirmSenderVerification");
-
-            var localVarPath = "/senders/{Sender ID}/confirm_verification";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (senderID != null) localVarPathParams.Add("Sender ID", this.Configuration.ApiClient.ParameterToString(senderID)); // path parameter
-
-            var request = new RestRequest(localVarPath, Method.POST);
-
-            // add path and query parameter, if any
-            foreach (var param in localVarPathParams)
-                request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
-
-            foreach (var param in localVarQueryParams)
-                request.AddQueryParameter(param.Key, param.Value);
-
-            // generate full URL
-            string fullUri = this.Configuration.ApiClient.RestClient.BuildUri(request).AbsoluteUri;
-
-			string nonce = System.Guid.NewGuid().ToString();
-            string authSignature = this.Configuration.GetSignature(nonce, fullUri, "POST", localVarPostBody == null ? "" : localVarPostBody.ToString());
-			localVarHeaderParams.Add("Authorization-Key", this.Configuration.ApiKey);
-            localVarHeaderParams.Add("Authorization-Nonce", nonce);
-			localVarHeaderParams.Add("Authorization-Signature", authSignature);
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ConfirmSenderVerification", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<SenderResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (SenderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SenderResponse)));
-        }
-
-        /// <summary>
-        /// Change sender onboarding state to &#39;profile_completed&#39; Transition sender to the &#39;profile_completed&#39; onboarding state. This will only work if the sender has all the required documents uploaded and profile information present. 
-        /// </summary>
-        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderID">ID of the sender to get.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670/confirm_verification&#x60;</param>
-        /// <returns>Task of SenderResponse</returns>
-        public async System.Threading.Tasks.Task<SenderResponse> ConfirmSenderVerificationAsync (Guid? senderID)
-        {
-             ApiResponse<SenderResponse> localVarResponse = await ConfirmSenderVerificationAsyncWithHttpInfo(senderID);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Change sender onboarding state to &#39;profile_completed&#39; Transition sender to the &#39;profile_completed&#39; onboarding state. This will only work if the sender has all the required documents uploaded and profile information present. 
-        /// </summary>
-        /// <exception cref="TransferZero.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="senderID">ID of the sender to get.  Example: &#x60;/v1/senders/bf9ff782-e182-45ac-abea-5bce83ad6670/confirm_verification&#x60;</param>
-        /// <returns>Task of ApiResponse (SenderResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SenderResponse>> ConfirmSenderVerificationAsyncWithHttpInfo (Guid? senderID)
-        {
-            // verify the required parameter 'senderID' is set
-            if (senderID == null)
-                throw new ApiException(400, "Missing required parameter 'senderID' when calling SendersApi->ConfirmSenderVerification");
-
-            var localVarPath = "/senders/{Sender ID}/confirm_verification";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (senderID != null) localVarPathParams.Add("Sender ID", this.Configuration.ApiClient.ParameterToString(senderID)); // path parameter
-
-            var request = new RestRequest(localVarPath, Method.POST);
-
-            // add path parameter, if any
-            foreach (var param in localVarPathParams)
-                request.AddParameter(param.Key, param.Value, ParameterType.UrlSegment);
-
-            foreach (var param in localVarQueryParams)
-                request.AddQueryParameter(param.Key, param.Value);
-
-            // generate full URL
-            string fullUri = this.Configuration.ApiClient.RestClient.BuildUri(request).AbsoluteUri;
-
-			string nonce = System.Guid.NewGuid().ToString();
-            string authSignature = this.Configuration.GetSignature(nonce, fullUri, "POST", localVarPostBody == null ? "" : localVarPostBody.ToString());
-			localVarHeaderParams.Add("Authorization-Key", this.Configuration.ApiKey);
-            localVarHeaderParams.Add("Authorization-Nonce", nonce);
-			localVarHeaderParams.Add("Authorization-Signature", authSignature);
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ConfirmSenderVerification", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<SenderResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (SenderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SenderResponse)));
         }
 
         /// <summary>
