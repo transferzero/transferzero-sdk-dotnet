@@ -1,7 +1,7 @@
 /* 
- * BitPesa Private API
+ * TransferZero API
  *
- * API specification used for internal BitPesa endpoints
+ * Reference documentation for the TransferZero API V1
  *
  * OpenAPI spec version: 1.0
  * 
@@ -127,7 +127,7 @@ namespace TransferZero.Sdk.Client
         public Configuration()
         {
             UserAgent = "TransferZero-SDK/.NET/1.24.0";
-            BasePath = "https://api-sandbox.bitpesa.co/v1";
+            BasePath = "https://api-sandbox.transferzero.com/v1";
             DefaultHeader = new ConcurrentDictionary<string, string>();
             ApiKey = "KEY";
             ApiSecret = "SECRET";
@@ -143,7 +143,7 @@ namespace TransferZero.Sdk.Client
             IDictionary<string, string> defaultHeader,
             string apiKey,
             string apiSecret,
-            string basePath = "https://api-sandbox.bitpesa.co/v1") : this()
+            string basePath = "https://api-sandbox.transferzero.com/v1") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");
