@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;Jane\&quot;,     \&quot;last_name\&quot;: \&quot;Doe\&quot;,     \&quot;phone_number\&quot;: \&quot;+2341234567\&quot;, // E.164 international format     \&quot;bank_code\&quot;: \&quot;057\&quot;,     \&quot;bank_account\&quot;: \&quot;1234567890\&quot;,     \&quot;country\&quot;: \&quot;NG\&quot;   } &#x60;&#x60;&#x60; See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank) documentation for the bank_code and country lists
+    /// Nigeria: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;Jane\&quot;,     \&quot;last_name\&quot;: \&quot;Doe\&quot;,     \&quot;phone_number\&quot;: \&quot;+2341234567\&quot;, // E.164 international format     \&quot;bank_code\&quot;: \&quot;057\&quot;,     \&quot;bank_account\&quot;: \&quot;1234567890\&quot;,     \&quot;country\&quot;: \&quot;NG\&quot;   } &#x60;&#x60;&#x60; See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank) documentation for the bank_code and country lists  United States: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;Jane\&quot;,     \&quot;last_name\&quot;: \&quot;Doe\&quot;,     \&quot;bank_account\&quot;: \&quot;1234567890\&quot;,     \&quot;bank_account_type\&quot;: \&quot;20\&quot;, // 10 for Savings, 20 for Checking     \&quot;bank_name\&quot;: \&quot;US Bank\&quot;,     \&quot;routing_number\&quot;: \&quot;091000022\&quot;,     \&quot;swift_code\&quot;: \&quot;USBKUS44IMT\&quot;,     \&quot;country\&quot;: \&quot;US\&quot;   } See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank-1) documentation
     /// </summary>
     [DataContract]
     public partial class PayoutMethodDetailsUSDBank :  IEquatable<PayoutMethodDetailsUSDBank>, IValidatableObject
@@ -40,18 +40,26 @@ namespace TransferZero.Sdk.Model
         /// </summary>
         /// <param name="firstName">firstName (required).</param>
         /// <param name="lastName">lastName (required).</param>
-        /// <param name="phoneNumber">phoneNumber (required).</param>
-        /// <param name="bankCode">bankCode (required).</param>
+        /// <param name="phoneNumber">phoneNumber.</param>
+        /// <param name="bankCode">bankCode.</param>
         /// <param name="bankAccount">bankAccount (required).</param>
+        /// <param name="bankAccountType">bankAccountType.</param>
+        /// <param name="bankName">bankName.</param>
+        /// <param name="routingNumber">routingNumber.</param>
+        /// <param name="swiftCode">swiftCode.</param>
         /// <param name="country">country (required).</param>
-        public PayoutMethodDetailsUSDBank(string firstName = default(string), string lastName = default(string), string phoneNumber = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum))
+        public PayoutMethodDetailsUSDBank(string firstName = default(string), string lastName = default(string), string phoneNumber = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), string bankName = default(string), string routingNumber = default(string), string swiftCode = default(string), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
-            this.PhoneNumber = phoneNumber;
-            this.BankCode = bankCode;
             this.BankAccount = bankAccount;
             this.Country = country;
+            this.PhoneNumber = phoneNumber;
+            this.BankCode = bankCode;
+            this.BankAccountType = bankAccountType;
+            this.BankName = bankName;
+            this.RoutingNumber = routingNumber;
+            this.SwiftCode = swiftCode;
         }
         
         /// <summary>
@@ -85,6 +93,30 @@ namespace TransferZero.Sdk.Model
         public string BankAccount { get; set; }
 
         /// <summary>
+        /// Gets or Sets BankAccountType
+        /// </summary>
+        [DataMember(Name="bank_account_type", EmitDefaultValue=false)]
+        public PayoutMethodBankAccountTypeEnum BankAccountType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BankName
+        /// </summary>
+        [DataMember(Name="bank_name", EmitDefaultValue=false)]
+        public string BankName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RoutingNumber
+        /// </summary>
+        [DataMember(Name="routing_number", EmitDefaultValue=false)]
+        public string RoutingNumber { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SwiftCode
+        /// </summary>
+        [DataMember(Name="swift_code", EmitDefaultValue=false)]
+        public string SwiftCode { get; set; }
+
+        /// <summary>
         /// Gets or Sets Country
         /// </summary>
         [DataMember(Name="country", EmitDefaultValue=false)]
@@ -103,6 +135,10 @@ namespace TransferZero.Sdk.Model
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  BankCode: ").Append(BankCode).Append("\n");
             sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
+            sb.Append("  BankAccountType: ").Append(BankAccountType).Append("\n");
+            sb.Append("  BankName: ").Append(BankName).Append("\n");
+            sb.Append("  RoutingNumber: ").Append(RoutingNumber).Append("\n");
+            sb.Append("  SwiftCode: ").Append(SwiftCode).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -164,6 +200,26 @@ namespace TransferZero.Sdk.Model
                     this.BankAccount.Equals(input.BankAccount))
                 ) && 
                 (
+                    this.BankAccountType == input.BankAccountType ||
+                    (this.BankAccountType != null &&
+                    this.BankAccountType.Equals(input.BankAccountType))
+                ) && 
+                (
+                    this.BankName == input.BankName ||
+                    (this.BankName != null &&
+                    this.BankName.Equals(input.BankName))
+                ) && 
+                (
+                    this.RoutingNumber == input.RoutingNumber ||
+                    (this.RoutingNumber != null &&
+                    this.RoutingNumber.Equals(input.RoutingNumber))
+                ) && 
+                (
+                    this.SwiftCode == input.SwiftCode ||
+                    (this.SwiftCode != null &&
+                    this.SwiftCode.Equals(input.SwiftCode))
+                ) && 
+                (
                     this.Country == input.Country ||
                     (this.Country != null &&
                     this.Country.Equals(input.Country))
@@ -189,6 +245,14 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.BankCode.GetHashCode();
                 if (this.BankAccount != null)
                     hashCode = hashCode * 59 + this.BankAccount.GetHashCode();
+                if (this.BankAccountType != null)
+                    hashCode = hashCode * 59 + this.BankAccountType.GetHashCode();
+                if (this.BankName != null)
+                    hashCode = hashCode * 59 + this.BankName.GetHashCode();
+                if (this.RoutingNumber != null)
+                    hashCode = hashCode * 59 + this.RoutingNumber.GetHashCode();
+                if (this.SwiftCode != null)
+                    hashCode = hashCode * 59 + this.SwiftCode.GetHashCode();
                 if (this.Country != null)
                     hashCode = hashCode * 59 + this.Country.GetHashCode();
                 return hashCode;

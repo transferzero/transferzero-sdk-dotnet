@@ -41,8 +41,9 @@ Name | Type | Description | Notes
 **RegistrationNumber** | **string** |  | [optional] 
 **NatureOfBusiness** | [**PayoutMethodNatureOfBusinessEnum**](PayoutMethodNatureOfBusinessEnum.md) |  | [optional] 
 **LegalEntityType** | [**PayoutMethodLegalEntityTypeEnum**](PayoutMethodLegalEntityTypeEnum.md) |  | [optional] 
-**BranchCode** | **string** |  | 
+**RoutingNumber** | **string** |  | [optional] 
 **SwiftCode** | **string** |  | 
+**BranchCode** | **string** |  | 
 **PixKeyType** | [**PayoutMethodPixKeyTypeEnum**](PayoutMethodPixKeyTypeEnum.md) |  | [optional] 
 **PixKeyValue** | **string** |  | [optional] 
 **IfscCode** | **string** |  | 
