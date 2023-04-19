@@ -25,9 +25,9 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// The type of the bank account:  - &#x60;10&#x60;: Savings account - &#x60;20&#x60;: Current account
+    /// The type of the bank account:  - &#x60;10&#x60;: Savings account - &#x60;20&#x60;: Current account - &#x60;30&#x60;: Payment account - &#x60;40&#x60;: Salary account
     /// </summary>
-    /// <value>The type of the bank account:  - &#x60;10&#x60;: Savings account - &#x60;20&#x60;: Current account</value>
+    /// <value>The type of the bank account:  - &#x60;10&#x60;: Savings account - &#x60;20&#x60;: Current account - &#x60;30&#x60;: Payment account - &#x60;40&#x60;: Salary account</value>
     
     [JsonConverter(typeof(StringEnumConverter))]
     
@@ -43,7 +43,19 @@ namespace TransferZero.Sdk.Model
         /// Enum _20 for value: 20
         /// </summary>
         [EnumMember(Value = "20")]
-        _20 = 2
+        _20 = 2,
+
+        /// <summary>
+        /// Enum _30 for value: 30
+        /// </summary>
+        [EnumMember(Value = "30")]
+        _30 = 3,
+
+        /// <summary>
+        /// Enum _40 for value: 40
+        /// </summary>
+        [EnumMember(Value = "40")]
+        _40 = 4
 
     }
 
