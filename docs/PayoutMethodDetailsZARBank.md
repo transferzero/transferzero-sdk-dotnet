@@ -7,11 +7,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FirstName** | **string** |  | 
 **LastName** | **string** |  | 
-**Street** | **string** |  | 
-**PostalCode** | **string** |  | 
-**City** | **string** |  | 
+**Street** | **string** |  | [optional] 
+**PostalCode** | **string** |  | [optional] 
+**City** | **string** |  | [optional] 
 **Email** | **string** |  | [optional] 
-**BankCode** | **string** |  | 
+**BankCode** | **string** |  | [optional] 
+**BranchCode** | **string** |  | [optional] 
 **BankAccount** | **string** |  | 
 **PhoneNumber** | **string** |  | 
 **TransferReasonCode** | **string** |  | [optional] 

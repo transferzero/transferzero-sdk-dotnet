@@ -35,6 +35,7 @@ Name | Type | Description | Notes
 **PostalCode** | **string** |  | 
 **City** | **string** |  | 
 **Email** | **string** |  | [optional] 
+**BranchCode** | **string** |  | 
 **TransferReasonCode** | **string** |  | [optional] 
 **ContactFirstName** | **string** |  | [optional] 
 **ContactLastName** | **string** |  | [optional] 
@@ -43,7 +44,6 @@ Name | Type | Description | Notes
 **LegalEntityType** | [**PayoutMethodLegalEntityTypeEnum**](PayoutMethodLegalEntityTypeEnum.md) |  | [optional] 
 **RoutingNumber** | **string** |  | [optional] 
 **SwiftCode** | **string** |  | 
-**BranchCode** | **string** |  | 
 **PixKeyType** | [**PayoutMethodPixKeyTypeEnum**](PayoutMethodPixKeyTypeEnum.md) |  | [optional] 
 **PixKeyValue** | **string** |  | [optional] 
 **IfscCode** | **string** |  | 
