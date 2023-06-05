@@ -7,18 +7,19 @@ on:
       - BTA-11168-ci-cd
 jobs:
   release-transferzero-dotnet-sdk:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     timeout-minutes: 5
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Setup .NET SDK
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: '5.0.x'
-    - uses: nuget/setup-nuget@v1
-      with:
-        nuget-version: '4.x'
+    - uses: actions/setup-dotnet@v1
+    # - name: Setup .NET SDK
+    #   uses: actions/setup-dotnet@v3
+    #   with:
+    #     dotnet-version: '5.0.x'
+    # - uses: nuget/setup-nuget@v1
+    #   with:
+    #     nuget-version: '4.x'
     - name: Build Release
       run: dotnet build -c Release
     - name: Test the release
