@@ -20,11 +20,13 @@ jobs:
     # - uses: nuget/setup-nuget@v1
     #   with:
     #     nuget-version: '4.x'
-    - name: Build Release
-      run: dotnet build -c Release
-    - name: Test the release
-      run: dotnet test -c Release --no-build
-    - name: Pack nugets
-      run: dotnet pack -c Release --no-build --output .
-    - name: Push to NuGet
-      run: dotnet nuget push "*.nupkg" --api-key ${{secrets.nuget_api_key}} --source https://api.nuget.org/v3/index.json
+    - name: test
+      run: dotnet --info
+    # - name: Build Release
+    #   run: dotnet build -c Release
+    # - name: Test the release
+    #   run: dotnet test -c Release --no-build
+    # - name: Pack nugets
+    #   run: dotnet pack -c Release --no-build --output .
+    # - name: Push to NuGet
+    #   run: dotnet nuget push "*.nupkg" --api-key ${{secrets.nuget_api_key}} --source https://api.nuget.org/v3/index.json
