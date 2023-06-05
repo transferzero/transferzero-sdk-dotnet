@@ -15,7 +15,7 @@ jobs:
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '4.x'
+        dotnet-version: '4.0.x'
     - uses: nuget/setup-nuget@v1
       with:
         nuget-version: '4.x'
