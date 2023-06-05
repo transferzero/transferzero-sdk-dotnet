@@ -7,7 +7,7 @@ on:
       - BTA-11168-ci-cd
 jobs:
   release-transferzero-dotnet-sdk:
-    runs-on: windows-latest
+    runs-on: windows-2022
     timeout-minutes: 5
     steps:
     - name: Checkout
