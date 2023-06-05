@@ -13,7 +13,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Setup .NET SDK
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '5.0.x'
     - uses: nuget/setup-nuget@v1
       with:
         nuget-version: '4.x'
