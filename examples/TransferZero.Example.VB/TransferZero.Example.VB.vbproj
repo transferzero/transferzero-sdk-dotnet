@@ -11,7 +11,7 @@
     <AssemblyName>TransferZero.Example.VB</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Console</MyType>
-    <TargetFrameworkVersion>5.0.408</TargetFrameworkVersion>
+    <TargetFrameworkVersion>7.0</TargetFrameworkVersion>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

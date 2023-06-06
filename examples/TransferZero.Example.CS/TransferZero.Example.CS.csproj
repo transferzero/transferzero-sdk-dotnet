@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>TransferZero.Example.CS</RootNamespace>
     <AssemblyName>TransferZero.Example.CS</AssemblyName>
-    <TargetFrameworkVersion>5.0.408</TargetFrameworkVersion>
+    <TargetFrameworkVersion>7.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>

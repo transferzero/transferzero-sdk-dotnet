@@ -16,7 +16,7 @@ OpenAPI spec version: 1.0
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TransferZero.Sdk.Test</RootNamespace>
     <AssemblyName>TransferZero.Sdk.Test</AssemblyName>
-    <TargetFrameworkVersion>5.0.408</TargetFrameworkVersion>
+    <TargetFrameworkVersion>7.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
