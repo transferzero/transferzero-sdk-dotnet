@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - master
-      - BTA-11168-release
+  workflow_dispatch:
 
 jobs:
   build:
