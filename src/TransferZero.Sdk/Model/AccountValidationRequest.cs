@@ -59,7 +59,13 @@ namespace TransferZero.Sdk.Model
             /// Enum CI for value: CI
             /// </summary>
             [EnumMember(Value = "CI")]
-            CI = 4
+            CI = 4,
+
+            /// <summary>
+            /// Enum UG for value: UG
+            /// </summary>
+            [EnumMember(Value = "UG")]
+            UG = 5
 
         }
 
@@ -92,7 +98,13 @@ namespace TransferZero.Sdk.Model
             /// Enum XOF for value: XOF
             /// </summary>
             [EnumMember(Value = "XOF")]
-            XOF = 3
+            XOF = 3,
+
+            /// <summary>
+            /// Enum UGX for value: UGX
+            /// </summary>
+            [EnumMember(Value = "UGX")]
+            UGX = 4
 
         }
 
