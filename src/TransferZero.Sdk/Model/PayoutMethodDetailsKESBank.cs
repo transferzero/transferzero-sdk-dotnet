@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;street\&quot;: \&quot;Main Street\&quot;,     \&quot;bank_code\&quot;: \&quot;68\&quot;,     \&quot;bank_account\&quot;: \&quot;12345678\&quot;,     \&quot;bank_name\&quot;: \&quot;Equity Bank Ltd\&quot;,     \&quot;branch_code\&quot;: \&quot;404\&quot;,     \&quot;swift_code\&quot; \&quot;ABCLKENA\&quot;,     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;, // New transfer reason field     \&quot;identity_card_type\&quot;: \&quot;ID\&quot;,     \&quot;identity_card_id\&quot;: \&quot;AB12345678\&quot;   } &#x60;&#x60;&#x60;  The valid bank_code values are:  - Habib Bank Limited: 08 - Trans-National Bank Limited: 26 - Housing Finance Co. Kenya: 61 - UBA Kenya Bank Ltd: 76 - Kenya Commercial Bank: 01000 - Standard Chartered Bank: 02000 - Barclays Bank of Kenya: 03000 - Bank of India: 05000 - Bank of Boroda: 06000 - NCBA Bank: 07000 - Prime Bank: 10000 - Co-operative Bank of Kenya: 11000 - National Bank of Kenya: 12000 - M-Oriental Commercial Bank Limited: 14000 - Citibank: 16000 - Habib Bank A.G. Zurich: 17000 - Middle East Bank: 18000 - Bank of Africa Kenya: 19000 - Consolidated Bank of Kenya: 23000 - Credit Bank Ltd: 25000 - Chase Bank: 30000 - Stanbic Bank Kenya: 31000 - African Banking Corporation: 35000 - Giro Bank Limited: 42000 - ECO Bank Kenya: 43000 - Spire Bank Limited: 49000 - Paramount Universal Bank Limited: 50000 - Jamii Bora Bank: 51000 - Guaranty Trust Bank Kenya: 53000 - Victoria Bank Limited: 54000 - Guardian Bank: 55000 - Investments and Mortgages Bank Limited: 57000 - Development Bank of Kenya: 59000 - Fidelity Commercial Bank: 46000 - Diamond Trust Bank: 63000 - Sidian Bank: 66000 - Equity Bank Limited: 68000 - Family Bank: 70000 - Gulf African Bank: 72000 - First Community Bank: 74000 - KWFT Bank: 78000  See [KES Bank](https://docs.transferzero.com/docs/payout-details/#kesbank) documentation for the transfer_reason list
+    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;street\&quot;: \&quot;Main Street\&quot;,     \&quot;city\&quot;: \&quot;Nairobi\&quot;     \&quot;bank_code\&quot;: \&quot;68\&quot;,     \&quot;bank_account\&quot;: \&quot;12345678\&quot;,     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;, // New transfer reason field     \&quot;identity_card_type\&quot;: \&quot;ID\&quot;,     \&quot;identity_card_id\&quot;: \&quot;AB12345678\&quot;,     \&quot;relationship_to_sender\&quot;: \&quot;Relative\&quot;   } &#x60;&#x60;&#x60;  The valid bank_code values are:  - Absa Bank: 03 - African Banking Corporation: 35 - Bank of Africa Kenya: 19 - Citibank: 16 - Co-operative Bank of Kenya: 11 - Consolidated Bank of Kenya: 23 - Credit Bank Ltd: 25 - Diamond Trust Bank: 63 - DIB Bank: 75 - ECO Bank Kenya: 43 - Equity Bank Limited: 68 - Family Bank: 70 - First Community Bank: 74 - Guaranty Trust Bank Kenya: 53 - Guardian Bank: 55 - Gulf African Bank : 72 - Housing Finance Co. Kenya: 61 - I&amp;M Bank: 57 - Kingdom Bank: 51 - Kenya Commercial Bank: 01 - KWFT Bank: 78 - Mayfair Bank: 65 - M-Oriental Commercial Bank Limited: 14 - Middle East Bank: 18 - National Bank of Kenya: 12 - NCBA Bank: 07 - Paramount Universal Bank Limited: 50 - Prime Bank: 10 - Sidian Bank: 66 - Stanbic Bank Kenya: 31 - Standard Chartered Bank: 02 - UBA Kenya Bank Ltd: 76 - Victoria Bank Limited: 54   See [KES Bank](https://docs.transferzero.com/docs/payout-details/#kesbank) documentation for the transfer_reason list
     /// </summary>
     [DataContract]
     public partial class PayoutMethodDetailsKESBank :  IEquatable<PayoutMethodDetailsKESBank>, IValidatableObject
@@ -40,30 +40,26 @@ namespace TransferZero.Sdk.Model
         /// </summary>
         /// <param name="firstName">firstName (required).</param>
         /// <param name="lastName">lastName (required).</param>
-        /// <param name="bankCode">bankCode (required).</param>
         /// <param name="street">street (required).</param>
+        /// <param name="city">city.</param>
+        /// <param name="bankCode">bankCode (required).</param>
         /// <param name="bankAccount">bankAccount (required).</param>
-        /// <param name="bankName">bankName (required).</param>
-        /// <param name="branchCode">branchCode.</param>
-        /// <param name="swiftCode">swiftCode (required).</param>
-        /// <param name="transferReasonCode">transferReasonCode.</param>
-        /// <param name="transferReason">transferReason.</param>
+        /// <param name="transferReason">transferReason (required).</param>
         /// <param name="identityCardType">identityCardType (required).</param>
         /// <param name="identityCardId">identityCardId (required).</param>
-        public PayoutMethodDetailsKESBank(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string street = default(string), string bankAccount = default(string), string bankName = default(string), string branchCode = default(string), string swiftCode = default(string), string transferReasonCode = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string))
+        /// <param name="relationshipToSender">relationshipToSender.</param>
+        public PayoutMethodDetailsKESBank(string firstName = default(string), string lastName = default(string), string street = default(string), string city = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), string relationshipToSender = default(string))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
-            this.BankCode = bankCode;
             this.Street = street;
+            this.BankCode = bankCode;
             this.BankAccount = bankAccount;
-            this.BankName = bankName;
-            this.SwiftCode = swiftCode;
+            this.TransferReason = transferReason;
             this.IdentityCardType = identityCardType;
             this.IdentityCardId = identityCardId;
-            this.BranchCode = branchCode;
-            this.TransferReasonCode = transferReasonCode;
-            this.TransferReason = transferReason;
+            this.City = city;
+            this.RelationshipToSender = relationshipToSender;
         }
         
         /// <summary>
@@ -79,46 +75,28 @@ namespace TransferZero.Sdk.Model
         public string LastName { get; set; }
 
         /// <summary>
-        /// Gets or Sets BankCode
-        /// </summary>
-        [DataMember(Name="bank_code", EmitDefaultValue=false)]
-        public string BankCode { get; set; }
-
-        /// <summary>
         /// Gets or Sets Street
         /// </summary>
         [DataMember(Name="street", EmitDefaultValue=false)]
         public string Street { get; set; }
 
         /// <summary>
+        /// Gets or Sets City
+        /// </summary>
+        [DataMember(Name="city", EmitDefaultValue=false)]
+        public string City { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BankCode
+        /// </summary>
+        [DataMember(Name="bank_code", EmitDefaultValue=false)]
+        public string BankCode { get; set; }
+
+        /// <summary>
         /// Gets or Sets BankAccount
         /// </summary>
         [DataMember(Name="bank_account", EmitDefaultValue=false)]
         public string BankAccount { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BankName
-        /// </summary>
-        [DataMember(Name="bank_name", EmitDefaultValue=false)]
-        public string BankName { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BranchCode
-        /// </summary>
-        [DataMember(Name="branch_code", EmitDefaultValue=false)]
-        public string BranchCode { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SwiftCode
-        /// </summary>
-        [DataMember(Name="swift_code", EmitDefaultValue=false)]
-        public string SwiftCode { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TransferReasonCode
-        /// </summary>
-        [DataMember(Name="transfer_reason_code", EmitDefaultValue=false)]
-        public string TransferReasonCode { get; set; }
 
         /// <summary>
         /// Gets or Sets TransferReason
@@ -139,6 +117,12 @@ namespace TransferZero.Sdk.Model
         public string IdentityCardId { get; set; }
 
         /// <summary>
+        /// Gets or Sets RelationshipToSender
+        /// </summary>
+        [DataMember(Name="relationship_to_sender", EmitDefaultValue=false)]
+        public string RelationshipToSender { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -148,16 +132,14 @@ namespace TransferZero.Sdk.Model
             sb.Append("class PayoutMethodDetailsKESBank {\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
-            sb.Append("  BankCode: ").Append(BankCode).Append("\n");
             sb.Append("  Street: ").Append(Street).Append("\n");
+            sb.Append("  City: ").Append(City).Append("\n");
+            sb.Append("  BankCode: ").Append(BankCode).Append("\n");
             sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
-            sb.Append("  BankName: ").Append(BankName).Append("\n");
-            sb.Append("  BranchCode: ").Append(BranchCode).Append("\n");
-            sb.Append("  SwiftCode: ").Append(SwiftCode).Append("\n");
-            sb.Append("  TransferReasonCode: ").Append(TransferReasonCode).Append("\n");
             sb.Append("  TransferReason: ").Append(TransferReason).Append("\n");
             sb.Append("  IdentityCardType: ").Append(IdentityCardType).Append("\n");
             sb.Append("  IdentityCardId: ").Append(IdentityCardId).Append("\n");
+            sb.Append("  RelationshipToSender: ").Append(RelationshipToSender).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -203,39 +185,24 @@ namespace TransferZero.Sdk.Model
                     this.LastName.Equals(input.LastName))
                 ) && 
                 (
-                    this.BankCode == input.BankCode ||
-                    (this.BankCode != null &&
-                    this.BankCode.Equals(input.BankCode))
-                ) && 
-                (
                     this.Street == input.Street ||
                     (this.Street != null &&
                     this.Street.Equals(input.Street))
                 ) && 
                 (
+                    this.City == input.City ||
+                    (this.City != null &&
+                    this.City.Equals(input.City))
+                ) && 
+                (
+                    this.BankCode == input.BankCode ||
+                    (this.BankCode != null &&
+                    this.BankCode.Equals(input.BankCode))
+                ) && 
+                (
                     this.BankAccount == input.BankAccount ||
                     (this.BankAccount != null &&
                     this.BankAccount.Equals(input.BankAccount))
-                ) && 
-                (
-                    this.BankName == input.BankName ||
-                    (this.BankName != null &&
-                    this.BankName.Equals(input.BankName))
-                ) && 
-                (
-                    this.BranchCode == input.BranchCode ||
-                    (this.BranchCode != null &&
-                    this.BranchCode.Equals(input.BranchCode))
-                ) && 
-                (
-                    this.SwiftCode == input.SwiftCode ||
-                    (this.SwiftCode != null &&
-                    this.SwiftCode.Equals(input.SwiftCode))
-                ) && 
-                (
-                    this.TransferReasonCode == input.TransferReasonCode ||
-                    (this.TransferReasonCode != null &&
-                    this.TransferReasonCode.Equals(input.TransferReasonCode))
                 ) && 
                 (
                     this.TransferReason == input.TransferReason ||
@@ -251,6 +218,11 @@ namespace TransferZero.Sdk.Model
                     this.IdentityCardId == input.IdentityCardId ||
                     (this.IdentityCardId != null &&
                     this.IdentityCardId.Equals(input.IdentityCardId))
+                ) && 
+                (
+                    this.RelationshipToSender == input.RelationshipToSender ||
+                    (this.RelationshipToSender != null &&
+                    this.RelationshipToSender.Equals(input.RelationshipToSender))
                 );
         }
 
@@ -267,26 +239,22 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.FirstName.GetHashCode();
                 if (this.LastName != null)
                     hashCode = hashCode * 59 + this.LastName.GetHashCode();
-                if (this.BankCode != null)
-                    hashCode = hashCode * 59 + this.BankCode.GetHashCode();
                 if (this.Street != null)
                     hashCode = hashCode * 59 + this.Street.GetHashCode();
+                if (this.City != null)
+                    hashCode = hashCode * 59 + this.City.GetHashCode();
+                if (this.BankCode != null)
+                    hashCode = hashCode * 59 + this.BankCode.GetHashCode();
                 if (this.BankAccount != null)
                     hashCode = hashCode * 59 + this.BankAccount.GetHashCode();
-                if (this.BankName != null)
-                    hashCode = hashCode * 59 + this.BankName.GetHashCode();
-                if (this.BranchCode != null)
-                    hashCode = hashCode * 59 + this.BranchCode.GetHashCode();
-                if (this.SwiftCode != null)
-                    hashCode = hashCode * 59 + this.SwiftCode.GetHashCode();
-                if (this.TransferReasonCode != null)
-                    hashCode = hashCode * 59 + this.TransferReasonCode.GetHashCode();
                 if (this.TransferReason != null)
                     hashCode = hashCode * 59 + this.TransferReason.GetHashCode();
                 if (this.IdentityCardType != null)
                     hashCode = hashCode * 59 + this.IdentityCardType.GetHashCode();
                 if (this.IdentityCardId != null)
                     hashCode = hashCode * 59 + this.IdentityCardId.GetHashCode();
+                if (this.RelationshipToSender != null)
+                    hashCode = hashCode * 59 + this.RelationshipToSender.GetHashCode();
                 return hashCode;
             }
         }

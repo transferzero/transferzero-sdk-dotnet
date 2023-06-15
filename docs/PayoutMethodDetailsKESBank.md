@@ -7,16 +7,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FirstName** | **string** |  | 
 **LastName** | **string** |  | 
-**BankCode** | **string** |  | 
 **Street** | **string** |  | 
+**City** | **string** |  | [optional] 
+**BankCode** | **string** |  | 
 **BankAccount** | **string** |  | 
-**BankName** | **string** |  | 
-**BranchCode** | **string** |  | [optional] 
-**SwiftCode** | **string** |  | 
-**TransferReasonCode** | **string** |  | [optional] 
-**TransferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  | [optional] 
+**TransferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  | 
 **IdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 
 **IdentityCardId** | **string** |  | 
+**RelationshipToSender** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
