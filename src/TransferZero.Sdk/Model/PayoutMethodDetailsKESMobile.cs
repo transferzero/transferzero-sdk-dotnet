@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;street\&quot;: \&quot;Main Street\&quot;,     \&quot;phone_number\&quot;: \&quot;+254997853134\&quot;, // E.164 international format     \&quot;mobile_provider\&quot;: \&quot;mpesa\&quot;,     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;, // New transfer reason field     \&quot;identity_card_type\&quot;: \&quot;ID\&quot;,     \&quot;identity_card_id\&quot;: \&quot;AB12345678\&quot;   } &#x60;&#x60;&#x60;  See [KES Mobile](https://docs.transferzero.com/docs/payout-details/#kesmobile) documentation for transfer_reason lists
+    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;street\&quot;: \&quot;1 Linford Street\&quot;,     \&quot;phone_number\&quot;: \&quot;+254123456789\&quot;, // E.164 international format     \&quot;identity_card_type\&quot;: \&quot;ID\&quot;, // refers to the recipient&#39;s ID details; Values: \&quot;PP\&quot;: Passport, \&quot;ID\&quot;: National ID or \&quot;O\&quot;: Other     \&quot;identity_card_id\&quot;: &#39;AB12345678&#39;, // refers to the recipient&#39;s ID details     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;,     \&quot;mobile_provider\&quot;: \&quot;mpesa\&quot;,     \&quot;relationship_to_sender\&quot;: \&quot;Aunt\&quot; // Optional   } &#x60;&#x60;&#x60;  See [KES Mobile](https://docs.transferzero.com/docs/payout-details/#kesmobile) documentation for transfer_reason lists
     /// </summary>
     [DataContract]
     public partial class PayoutMethodDetailsKESMobile :  IEquatable<PayoutMethodDetailsKESMobile>, IValidatableObject
@@ -44,20 +44,22 @@ namespace TransferZero.Sdk.Model
         /// <param name="phoneNumber">phoneNumber (required).</param>
         /// <param name="mobileProvider">mobileProvider (required).</param>
         /// <param name="transferReasonCode">transferReasonCode.</param>
-        /// <param name="transferReason">transferReason.</param>
+        /// <param name="transferReason">transferReason (required).</param>
         /// <param name="identityCardType">identityCardType (required).</param>
         /// <param name="identityCardId">identityCardId (required).</param>
-        public PayoutMethodDetailsKESMobile(string firstName = default(string), string lastName = default(string), string street = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), string transferReasonCode = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string))
+        /// <param name="relationshipToSender">relationshipToSender.</param>
+        public PayoutMethodDetailsKESMobile(string firstName = default(string), string lastName = default(string), string street = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), string transferReasonCode = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), string relationshipToSender = default(string))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Street = street;
             this.PhoneNumber = phoneNumber;
             this.MobileProvider = mobileProvider;
+            this.TransferReason = transferReason;
             this.IdentityCardType = identityCardType;
             this.IdentityCardId = identityCardId;
             this.TransferReasonCode = transferReasonCode;
-            this.TransferReason = transferReason;
+            this.RelationshipToSender = relationshipToSender;
         }
         
         /// <summary>
@@ -115,6 +117,12 @@ namespace TransferZero.Sdk.Model
         public string IdentityCardId { get; set; }
 
         /// <summary>
+        /// Gets or Sets RelationshipToSender
+        /// </summary>
+        [DataMember(Name="relationship_to_sender", EmitDefaultValue=false)]
+        public string RelationshipToSender { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -131,6 +139,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  TransferReason: ").Append(TransferReason).Append("\n");
             sb.Append("  IdentityCardType: ").Append(IdentityCardType).Append("\n");
             sb.Append("  IdentityCardId: ").Append(IdentityCardId).Append("\n");
+            sb.Append("  RelationshipToSender: ").Append(RelationshipToSender).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -209,6 +218,11 @@ namespace TransferZero.Sdk.Model
                     this.IdentityCardId == input.IdentityCardId ||
                     (this.IdentityCardId != null &&
                     this.IdentityCardId.Equals(input.IdentityCardId))
+                ) && 
+                (
+                    this.RelationshipToSender == input.RelationshipToSender ||
+                    (this.RelationshipToSender != null &&
+                    this.RelationshipToSender.Equals(input.RelationshipToSender))
                 );
         }
 
@@ -239,6 +253,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.IdentityCardType.GetHashCode();
                 if (this.IdentityCardId != null)
                     hashCode = hashCode * 59 + this.IdentityCardId.GetHashCode();
+                if (this.RelationshipToSender != null)
+                    hashCode = hashCode * 59 + this.RelationshipToSender.GetHashCode();
                 return hashCode;
             }
         }
