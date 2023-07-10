@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **FirstName** | **string** |  | 
 **LastName** | **string** |  | 
 **Street** | **string** |  | 
+**City** | **string** |  | [optional] 
 **PhoneNumber** | **string** |  | 
 **MobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  | 
 **TransferReasonCode** | **string** |  | [optional] 

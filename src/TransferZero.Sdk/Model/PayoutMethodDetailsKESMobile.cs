@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;street\&quot;: \&quot;1 Linford Street\&quot;,     \&quot;phone_number\&quot;: \&quot;+254123456789\&quot;, // E.164 international format     \&quot;identity_card_type\&quot;: \&quot;ID\&quot;, // refers to the recipient&#39;s ID details; Values: \&quot;PP\&quot;: Passport, \&quot;ID\&quot;: National ID or \&quot;O\&quot;: Other     \&quot;identity_card_id\&quot;: &#39;AB12345678&#39;, // refers to the recipient&#39;s ID details     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;,     \&quot;mobile_provider\&quot;: \&quot;mpesa\&quot;,     \&quot;relationship_to_sender\&quot;: \&quot;Aunt\&quot; // Optional   } &#x60;&#x60;&#x60;  See [KES Mobile](https://docs.transferzero.com/docs/payout-details/#kesmobile) documentation for transfer_reason lists
+    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;street\&quot;: \&quot;1 Linford Street\&quot;,     \&quot;city\&quot;: \&quot;Nairobi\&quot;,     \&quot;phone_number\&quot;: \&quot;+254123456789\&quot;, // E.164 international format     \&quot;identity_card_type\&quot;: \&quot;ID\&quot;, // refers to the recipient&#39;s ID details; Values: \&quot;PP\&quot;: Passport, \&quot;ID\&quot;: National ID or \&quot;O\&quot;: Other     \&quot;identity_card_id\&quot;: &#39;AB12345678&#39;, // refers to the recipient&#39;s ID details     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;,     \&quot;mobile_provider\&quot;: \&quot;mpesa\&quot;,     \&quot;relationship_to_sender\&quot;: \&quot;Aunt\&quot; // Optional   } &#x60;&#x60;&#x60;  See [KES Mobile](https://docs.transferzero.com/docs/payout-details/#kesmobile) documentation for transfer_reason lists
     /// </summary>
     [DataContract]
     public partial class PayoutMethodDetailsKESMobile :  IEquatable<PayoutMethodDetailsKESMobile>, IValidatableObject
@@ -41,6 +41,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="firstName">firstName (required).</param>
         /// <param name="lastName">lastName (required).</param>
         /// <param name="street">street (required).</param>
+        /// <param name="city">city.</param>
         /// <param name="phoneNumber">phoneNumber (required).</param>
         /// <param name="mobileProvider">mobileProvider (required).</param>
         /// <param name="transferReasonCode">transferReasonCode.</param>
@@ -48,7 +49,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="identityCardType">identityCardType (required).</param>
         /// <param name="identityCardId">identityCardId (required).</param>
         /// <param name="relationshipToSender">relationshipToSender.</param>
-        public PayoutMethodDetailsKESMobile(string firstName = default(string), string lastName = default(string), string street = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), string transferReasonCode = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), string relationshipToSender = default(string))
+        public PayoutMethodDetailsKESMobile(string firstName = default(string), string lastName = default(string), string street = default(string), string city = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), string transferReasonCode = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), string relationshipToSender = default(string))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -58,6 +59,7 @@ namespace TransferZero.Sdk.Model
             this.TransferReason = transferReason;
             this.IdentityCardType = identityCardType;
             this.IdentityCardId = identityCardId;
+            this.City = city;
             this.TransferReasonCode = transferReasonCode;
             this.RelationshipToSender = relationshipToSender;
         }
@@ -79,6 +81,12 @@ namespace TransferZero.Sdk.Model
         /// </summary>
         [DataMember(Name="street", EmitDefaultValue=false)]
         public string Street { get; set; }
+
+        /// <summary>
+        /// Gets or Sets City
+        /// </summary>
+        [DataMember(Name="city", EmitDefaultValue=false)]
+        public string City { get; set; }
 
         /// <summary>
         /// Gets or Sets PhoneNumber
@@ -133,6 +141,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  Street: ").Append(Street).Append("\n");
+            sb.Append("  City: ").Append(City).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  MobileProvider: ").Append(MobileProvider).Append("\n");
             sb.Append("  TransferReasonCode: ").Append(TransferReasonCode).Append("\n");
@@ -190,6 +199,11 @@ namespace TransferZero.Sdk.Model
                     this.Street.Equals(input.Street))
                 ) && 
                 (
+                    this.City == input.City ||
+                    (this.City != null &&
+                    this.City.Equals(input.City))
+                ) && 
+                (
                     this.PhoneNumber == input.PhoneNumber ||
                     (this.PhoneNumber != null &&
                     this.PhoneNumber.Equals(input.PhoneNumber))
@@ -241,6 +255,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.LastName.GetHashCode();
                 if (this.Street != null)
                     hashCode = hashCode * 59 + this.Street.GetHashCode();
+                if (this.City != null)
+                    hashCode = hashCode * 59 + this.City.GetHashCode();
                 if (this.PhoneNumber != null)
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
                 if (this.MobileProvider != null)
