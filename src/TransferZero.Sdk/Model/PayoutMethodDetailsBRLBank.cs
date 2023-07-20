@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// PIX Payment: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;city\&quot;: \&quot;Brasilia\&quot;,     \&quot;postal_code\&quot;: \&quot;70070\&quot;,     \&quot;phone_number\&quot;: \&quot;+552112345678\&quot;, // E.164 international format     \&quot;pix_key_type\&quot;: \&quot;email\&quot;,     \&quot;pix_key_value\&quot;: \&quot;person@example.com\&quot;,     \&quot;identity_card_type\&quot;: \&quot;ID\&quot;,     \&quot;identity_card_id\&quot;: \&quot;01234567890\&quot;,     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;   } &#x60;&#x60;&#x60;  TED Payment: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;city\&quot;: \&quot;Brasilia\&quot;,     \&quot;postal_code\&quot;: \&quot;70070\&quot;,     \&quot;phone_number\&quot;: \&quot;+552112345678\&quot;, // E.164 international format     \&quot;bank_code\&quot;: \&quot;104\&quot;,     \&quot;branch_code\&quot;: \&quot;00001\&quot;,     \&quot;bank_account\&quot;: \&quot;0009795493\&quot;,     \&quot;bank_account_type\&quot;: \&quot;10\&quot;,     \&quot;identity_card_type\&quot;: \&quot;ID\&quot;,     \&quot;identity_card_id\&quot;: \&quot;01234567890\&quot;,     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;   } &#x60;&#x60;&#x60;  See [BRL Bank](https://docs.transferzero.com/docs/payout-details/#brlbank) documentation for the bank_code and transfer_reason lists
+    /// PIX Payment: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;city\&quot;: \&quot;Brasilia\&quot;,     \&quot;postal_code\&quot;: \&quot;70070\&quot;,     \&quot;phone_number\&quot;: \&quot;+552112345678\&quot;, // E.164 international format     \&quot;pix_key_type\&quot;: \&quot;email\&quot;,     \&quot;pix_key_value\&quot;: \&quot;person@example.com\&quot;,     \&quot;identity_card_id\&quot;: \&quot;01234567890\&quot;, // CPF or CNPJ     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;   } &#x60;&#x60;&#x60;  TED Payment: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;city\&quot;: \&quot;Brasilia\&quot;,     \&quot;postal_code\&quot;: \&quot;70070\&quot;,     \&quot;phone_number\&quot;: \&quot;+552112345678\&quot;, // E.164 international format     \&quot;bank_code\&quot;: \&quot;104\&quot;,     \&quot;branch_code\&quot;: \&quot;00001\&quot;,     \&quot;bank_account\&quot;: \&quot;0009795493\&quot;,     \&quot;bank_account_type\&quot;: \&quot;10\&quot;,     \&quot;identity_card_id\&quot;: \&quot;01234567890\&quot;, // CPF or CNPJ     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;   } &#x60;&#x60;&#x60;  See [BRL Bank](https://docs.transferzero.com/docs/payout-details/#brlbank) documentation for the bank_code and transfer_reason lists
     /// </summary>
     [DataContract]
     public partial class PayoutMethodDetailsBRLBank :  IEquatable<PayoutMethodDetailsBRLBank>, IValidatableObject
@@ -49,16 +49,14 @@ namespace TransferZero.Sdk.Model
         /// <param name="bankAccountType">bankAccountType.</param>
         /// <param name="pixKeyType">pixKeyType.</param>
         /// <param name="pixKeyValue">pixKeyValue.</param>
-        /// <param name="identityCardType">identityCardType (required).</param>
         /// <param name="identityCardId">identityCardId (required).</param>
         /// <param name="transferReason">transferReason (required).</param>
-        public PayoutMethodDetailsBRLBank(string firstName = default(string), string lastName = default(string), string city = default(string), string postalCode = default(string), string phoneNumber = default(string), string bankCode = default(string), string branchCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), PayoutMethodPixKeyTypeEnum pixKeyType = default(PayoutMethodPixKeyTypeEnum), string pixKeyValue = default(string), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum))
+        public PayoutMethodDetailsBRLBank(string firstName = default(string), string lastName = default(string), string city = default(string), string postalCode = default(string), string phoneNumber = default(string), string bankCode = default(string), string branchCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), PayoutMethodPixKeyTypeEnum pixKeyType = default(PayoutMethodPixKeyTypeEnum), string pixKeyValue = default(string), string identityCardId = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.City = city;
             this.PostalCode = postalCode;
-            this.IdentityCardType = identityCardType;
             this.IdentityCardId = identityCardId;
             this.TransferReason = transferReason;
             this.PhoneNumber = phoneNumber;
@@ -137,12 +135,6 @@ namespace TransferZero.Sdk.Model
         public string PixKeyValue { get; set; }
 
         /// <summary>
-        /// Gets or Sets IdentityCardType
-        /// </summary>
-        [DataMember(Name="identity_card_type", EmitDefaultValue=false)]
-        public PayoutMethodIdentityCardTypeEnum IdentityCardType { get; set; }
-
-        /// <summary>
         /// Gets or Sets IdentityCardId
         /// </summary>
         [DataMember(Name="identity_card_id", EmitDefaultValue=false)]
@@ -173,7 +165,6 @@ namespace TransferZero.Sdk.Model
             sb.Append("  BankAccountType: ").Append(BankAccountType).Append("\n");
             sb.Append("  PixKeyType: ").Append(PixKeyType).Append("\n");
             sb.Append("  PixKeyValue: ").Append(PixKeyValue).Append("\n");
-            sb.Append("  IdentityCardType: ").Append(IdentityCardType).Append("\n");
             sb.Append("  IdentityCardId: ").Append(IdentityCardId).Append("\n");
             sb.Append("  TransferReason: ").Append(TransferReason).Append("\n");
             sb.Append("}\n");
@@ -266,11 +257,6 @@ namespace TransferZero.Sdk.Model
                     this.PixKeyValue.Equals(input.PixKeyValue))
                 ) && 
                 (
-                    this.IdentityCardType == input.IdentityCardType ||
-                    (this.IdentityCardType != null &&
-                    this.IdentityCardType.Equals(input.IdentityCardType))
-                ) && 
-                (
                     this.IdentityCardId == input.IdentityCardId ||
                     (this.IdentityCardId != null &&
                     this.IdentityCardId.Equals(input.IdentityCardId))
@@ -313,8 +299,6 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.PixKeyType.GetHashCode();
                 if (this.PixKeyValue != null)
                     hashCode = hashCode * 59 + this.PixKeyValue.GetHashCode();
-                if (this.IdentityCardType != null)
-                    hashCode = hashCode * 59 + this.IdentityCardType.GetHashCode();
                 if (this.IdentityCardId != null)
                     hashCode = hashCode * 59 + this.IdentityCardId.GetHashCode();
                 if (this.TransferReason != null)
