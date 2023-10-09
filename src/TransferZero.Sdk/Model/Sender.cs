@@ -466,6 +466,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="phoneNumber">Phone number of sender (without country callcode).</param>
         /// <param name="email">Email of sender (required).</param>
         /// <param name="ip">IP of sender (required).</param>
+        /// <param name="fingerprint">Fingerprint of sender.</param>
         /// <param name="addressDescription">Description of address.</param>
         /// <param name="identificationNumber">Identification number of document used.</param>
         /// <param name="identificationType">Document to be identified. The identification type can be one of the following:  - &#x60;DL&#x60;: Driving License - &#x60;PP&#x60;: International Passport - &#x60;ID&#x60;: National ID - &#x60;OT&#x60;: Other  Please note for Wizall &#x60;XOF::Cash&#x60; transactions the valid options are: - &#x60;ID&#x60;: National ID - &#x60;PP&#x60;: Passport.</param>
@@ -514,7 +515,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="listOfCountriesOfOperation">List of countries of operation (used only with a Business sender).</param>
         /// <param name="estimatedAnnualRevenueTurnover">Estimated annual turnover (in USD or equivalent, used only with a Business sender).</param>
         /// <param name="declaration">Declaration that the signatory is authorised (used only with a Business sender).</param>
-        public Sender(Guid? id = default(Guid?), TypeEnum? type = default(TypeEnum?), SenderState state = default(SenderState), string country = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string phoneCountry = default(string), string phoneNumber = default(string), string email = default(string), string ip = default(string), string addressDescription = default(string), string identificationNumber = default(string), IdentificationTypeEnum? identificationType = default(IdentificationTypeEnum?), string lang = default(string), string name = default(string), string firstName = default(string), string middleName = default(string), string lastName = default(string), DateTime? birthDate = default(DateTime?), string occupation = default(string), string nationality = default(string), LegalEntityTypeEnum? legalEntityType = default(LegalEntityTypeEnum?), DateTime? registrationDate = default(DateTime?), string registrationNumber = default(string), NatureOfBusinessEnum? natureOfBusiness = default(NatureOfBusinessEnum?), string sourceOfFunds = default(string), string customSourceOfFunds = default(string), string coreBusinessActivity = default(string), string purposeOfOpeningAccount = default(string), string officePhone = default(string), string vatRegistrationNumber = default(string), string financialRegulator = default(string), string regulatoryLicenceNumber = default(string), string contactPersonEmail = default(string), string tradingCountry = default(string), string tradingAddress = default(string), string tradingName = default(string), string numberMonthlyTransactions = default(string), string amountMonthlyTransactions = default(string), List<Document> documents = default(List<Document>), Object metadata = default(Object), string onboardingStatus = default(string), List<PoliticallyExposedPerson> politicallyExposedPeople = default(List<PoliticallyExposedPerson>), string externalId = default(string), string cityOfBirth = default(string), string countryOfBirth = default(string), GenderEnum? gender = default(GenderEnum?), string salesLeadId = default(string), string companyOfficeNumber = default(string), string companyOfficeNumberCountry = default(string), string amlOfficerEmail = default(string), string amlOfficerPhone = default(string), string amlOfficerPhoneCountry = default(string), string companyWebsiteUrl = default(string), string numberOfEmployeesInCompany = default(string), List<string> listOfCountriesOfOperation = default(List<string>), string estimatedAnnualRevenueTurnover = default(string), string declaration = default(string))
+        public Sender(Guid? id = default(Guid?), TypeEnum? type = default(TypeEnum?), SenderState state = default(SenderState), string country = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string phoneCountry = default(string), string phoneNumber = default(string), string email = default(string), string ip = default(string), string fingerprint = default(string), string addressDescription = default(string), string identificationNumber = default(string), IdentificationTypeEnum? identificationType = default(IdentificationTypeEnum?), string lang = default(string), string name = default(string), string firstName = default(string), string middleName = default(string), string lastName = default(string), DateTime? birthDate = default(DateTime?), string occupation = default(string), string nationality = default(string), LegalEntityTypeEnum? legalEntityType = default(LegalEntityTypeEnum?), DateTime? registrationDate = default(DateTime?), string registrationNumber = default(string), NatureOfBusinessEnum? natureOfBusiness = default(NatureOfBusinessEnum?), string sourceOfFunds = default(string), string customSourceOfFunds = default(string), string coreBusinessActivity = default(string), string purposeOfOpeningAccount = default(string), string officePhone = default(string), string vatRegistrationNumber = default(string), string financialRegulator = default(string), string regulatoryLicenceNumber = default(string), string contactPersonEmail = default(string), string tradingCountry = default(string), string tradingAddress = default(string), string tradingName = default(string), string numberMonthlyTransactions = default(string), string amountMonthlyTransactions = default(string), List<Document> documents = default(List<Document>), Object metadata = default(Object), string onboardingStatus = default(string), List<PoliticallyExposedPerson> politicallyExposedPeople = default(List<PoliticallyExposedPerson>), string externalId = default(string), string cityOfBirth = default(string), string countryOfBirth = default(string), GenderEnum? gender = default(GenderEnum?), string salesLeadId = default(string), string companyOfficeNumber = default(string), string companyOfficeNumberCountry = default(string), string amlOfficerEmail = default(string), string amlOfficerPhone = default(string), string amlOfficerPhoneCountry = default(string), string companyWebsiteUrl = default(string), string numberOfEmployeesInCompany = default(string), List<string> listOfCountriesOfOperation = default(List<string>), string estimatedAnnualRevenueTurnover = default(string), string declaration = default(string))
         {
             this.Country = country;
             this.Street = street;
@@ -528,6 +529,7 @@ namespace TransferZero.Sdk.Model
             this.State = state;
             this.PhoneCountry = phoneCountry;
             this.PhoneNumber = phoneNumber;
+            this.Fingerprint = fingerprint;
             this.AddressDescription = addressDescription;
             this.IdentificationNumber = identificationNumber;
             this.IdentificationType = identificationType;
@@ -645,6 +647,13 @@ namespace TransferZero.Sdk.Model
         /// <value>IP of sender</value>
         [DataMember(Name="ip", EmitDefaultValue=false)]
         public string Ip { get; set; }
+
+        /// <summary>
+        /// Fingerprint of sender
+        /// </summary>
+        /// <value>Fingerprint of sender</value>
+        [DataMember(Name="fingerprint", EmitDefaultValue=false)]
+        public string Fingerprint { get; set; }
 
         /// <summary>
         /// Description of address
@@ -993,6 +1002,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Ip: ").Append(Ip).Append("\n");
+            sb.Append("  Fingerprint: ").Append(Fingerprint).Append("\n");
             sb.Append("  AddressDescription: ").Append(AddressDescription).Append("\n");
             sb.Append("  IdentificationNumber: ").Append(IdentificationNumber).Append("\n");
             sb.Append("  IdentificationType: ").Append(IdentificationType).Append("\n");
@@ -1131,6 +1141,11 @@ namespace TransferZero.Sdk.Model
                     this.Ip == input.Ip ||
                     (this.Ip != null &&
                     this.Ip.Equals(input.Ip))
+                ) && 
+                (
+                    this.Fingerprint == input.Fingerprint ||
+                    (this.Fingerprint != null &&
+                    this.Fingerprint.Equals(input.Fingerprint))
                 ) && 
                 (
                     this.AddressDescription == input.AddressDescription ||
@@ -1415,6 +1430,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.Ip != null)
                     hashCode = hashCode * 59 + this.Ip.GetHashCode();
+                if (this.Fingerprint != null)
+                    hashCode = hashCode * 59 + this.Fingerprint.GetHashCode();
                 if (this.AddressDescription != null)
                     hashCode = hashCode * 59 + this.AddressDescription.GetHashCode();
                 if (this.IdentificationNumber != null)
