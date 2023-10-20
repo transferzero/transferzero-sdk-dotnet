@@ -47,7 +47,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="bankAccount">bankAccount (required).</param>
         /// <param name="branchCode">branchCode (required).</param>
         /// <param name="transferReason">transferReason (required).</param>
-        public PayoutMethodDetailsUGXBank(string firstName = default(string), string lastName = default(string), string street = default(string), string city = default(string), string postalCode = default(string), string identityCardId = default(string), string bankAccount = default(string), string branchCode = default(string), string transferReason = default(string))
+        public PayoutMethodDetailsUGXBank(string firstName = default(string), string lastName = default(string), string street = default(string), string city = default(string), string postalCode = default(string), string identityCardId = default(string), string bankAccount = default(string), string branchCode = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -112,7 +112,7 @@ namespace TransferZero.Sdk.Model
         /// Gets or Sets TransferReason
         /// </summary>
         [DataMember(Name="transfer_reason", EmitDefaultValue=false)]
-        public string TransferReason { get; set; }
+        public PayoutMethodTransferReasonEnum TransferReason { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

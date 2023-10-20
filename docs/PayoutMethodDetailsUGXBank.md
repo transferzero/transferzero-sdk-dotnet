@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **IdentityCardId** | **string** |  | 
 **BankAccount** | **string** |  | 
 **BranchCode** | **string** |  | 
-**TransferReason** | **string** |  | 
+**TransferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
