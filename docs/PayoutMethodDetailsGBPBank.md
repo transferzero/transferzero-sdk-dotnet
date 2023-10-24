@@ -7,11 +7,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FirstName** | **string** |  | 
 **LastName** | **string** |  | 
-**BankName** | **string** |  | [optional] 
+**Iban** | **string** |  | [optional] 
 **BankAccount** | **string** |  | [optional] 
 **SortCode** | **string** |  | [optional] 
-**Iban** | **string** |  | [optional] 
 **Bic** | **string** |  | [optional] 
+**BankName** | **string** |  | [optional] 
+**Narration** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

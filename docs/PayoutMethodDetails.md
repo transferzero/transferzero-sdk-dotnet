@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **CashProvider** | [**PayoutMethodCashProviderEnum**](PayoutMethodCashProviderEnum.md) |  | 
 **SortCode** | **string** |  | [optional] 
 **Bic** | **string** |  | [optional] 
+**Narration** | **string** |  | [optional] 
 **SenderIdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 
 **SenderIdentityCardId** | **string** |  | 
 **SenderCityOfBirth** | **string** |  | [optional] 
