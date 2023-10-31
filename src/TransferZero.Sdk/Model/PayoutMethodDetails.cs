@@ -82,7 +82,8 @@ namespace TransferZero.Sdk.Model
         /// <param name="pixKeyType">pixKeyType.</param>
         /// <param name="pixKeyValue">pixKeyValue.</param>
         /// <param name="ifscCode">ifscCode (required).</param>
-        public PayoutMethodDetails(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), string iban = default(string), string bankName = default(string), string bankCountry = default(string), PayoutMethodCashProviderEnum cashProvider = default(PayoutMethodCashProviderEnum), string sortCode = default(string), string bic = default(string), string narration = default(string), PayoutMethodIdentityCardTypeEnum senderIdentityCardType = default(PayoutMethodIdentityCardTypeEnum), string senderIdentityCardId = default(string), string senderCityOfBirth = default(string), string senderCountryOfBirth = default(string), PayoutMethodGenderEnum senderGender = default(PayoutMethodGenderEnum), string reason = default(string), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), string reference = default(string), string name = default(string), string address = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string email = default(string), string branchCode = default(string), string transferReasonCode = default(string), string contactFirstName = default(string), string contactLastName = default(string), string registrationNumber = default(string), PayoutMethodNatureOfBusinessEnum natureOfBusiness = default(PayoutMethodNatureOfBusinessEnum), PayoutMethodLegalEntityTypeEnum legalEntityType = default(PayoutMethodLegalEntityTypeEnum), string routingNumber = default(string), string swiftCode = default(string), string relationshipToSender = default(string), PayoutMethodPixKeyTypeEnum pixKeyType = default(PayoutMethodPixKeyTypeEnum), string pixKeyValue = default(string), string ifscCode = default(string))
+        /// <param name="middleName">middleName.</param>
+        public PayoutMethodDetails(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), string iban = default(string), string bankName = default(string), string bankCountry = default(string), PayoutMethodCashProviderEnum cashProvider = default(PayoutMethodCashProviderEnum), string sortCode = default(string), string bic = default(string), string narration = default(string), PayoutMethodIdentityCardTypeEnum senderIdentityCardType = default(PayoutMethodIdentityCardTypeEnum), string senderIdentityCardId = default(string), string senderCityOfBirth = default(string), string senderCountryOfBirth = default(string), PayoutMethodGenderEnum senderGender = default(PayoutMethodGenderEnum), string reason = default(string), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), string reference = default(string), string name = default(string), string address = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string email = default(string), string branchCode = default(string), string transferReasonCode = default(string), string contactFirstName = default(string), string contactLastName = default(string), string registrationNumber = default(string), PayoutMethodNatureOfBusinessEnum natureOfBusiness = default(PayoutMethodNatureOfBusinessEnum), PayoutMethodLegalEntityTypeEnum legalEntityType = default(PayoutMethodLegalEntityTypeEnum), string routingNumber = default(string), string swiftCode = default(string), string relationshipToSender = default(string), PayoutMethodPixKeyTypeEnum pixKeyType = default(PayoutMethodPixKeyTypeEnum), string pixKeyValue = default(string), string ifscCode = default(string), string middleName = default(string))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -128,6 +129,7 @@ namespace TransferZero.Sdk.Model
             this.RelationshipToSender = relationshipToSender;
             this.PixKeyType = pixKeyType;
             this.PixKeyValue = pixKeyValue;
+            this.MiddleName = middleName;
         }
         
         /// <summary>
@@ -395,6 +397,12 @@ namespace TransferZero.Sdk.Model
         public string IfscCode { get; set; }
 
         /// <summary>
+        /// Gets or Sets MiddleName
+        /// </summary>
+        [DataMember(Name="middle_name", EmitDefaultValue=false)]
+        public string MiddleName { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -446,6 +454,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  PixKeyType: ").Append(PixKeyType).Append("\n");
             sb.Append("  PixKeyValue: ").Append(PixKeyValue).Append("\n");
             sb.Append("  IfscCode: ").Append(IfscCode).Append("\n");
+            sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -699,6 +708,11 @@ namespace TransferZero.Sdk.Model
                     this.IfscCode == input.IfscCode ||
                     (this.IfscCode != null &&
                     this.IfscCode.Equals(input.IfscCode))
+                ) && 
+                (
+                    this.MiddleName == input.MiddleName ||
+                    (this.MiddleName != null &&
+                    this.MiddleName.Equals(input.MiddleName))
                 );
         }
 
@@ -799,6 +813,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.PixKeyValue.GetHashCode();
                 if (this.IfscCode != null)
                     hashCode = hashCode * 59 + this.IfscCode.GetHashCode();
+                if (this.MiddleName != null)
+                    hashCode = hashCode * 59 + this.MiddleName.GetHashCode();
                 return hashCode;
             }
         }

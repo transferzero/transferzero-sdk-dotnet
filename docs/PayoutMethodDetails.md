@@ -49,6 +49,7 @@ Name | Type | Description | Notes
 **PixKeyType** | [**PayoutMethodPixKeyTypeEnum**](PayoutMethodPixKeyTypeEnum.md) |  | [optional] 
 **PixKeyValue** | **string** |  | [optional] 
 **IfscCode** | **string** |  | 
+**MiddleName** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

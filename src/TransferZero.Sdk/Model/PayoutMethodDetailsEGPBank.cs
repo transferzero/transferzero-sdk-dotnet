@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;street\&quot;: \&quot;1 Main Street\&quot;,   \&quot;phone_number\&quot;: \&quot;+201023456789\&quot;,   \&quot;bank_account\&quot;: \&quot;1234567890\&quot;,   \&quot;bank_code\&quot;: \&quot;0030\&quot;,   \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot; } &#x60;&#x60;&#x60; See [EGP Bank](https://docs.transferzero.com/docs/payout-details/#egpbank) documentation for the bank_code list
+    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;middle_name\&quot;: \&quot;Middle\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;street\&quot;: \&quot;1 Main Street\&quot;,   \&quot;phone_number\&quot;: \&quot;+201023456789\&quot;,   \&quot;bank_account\&quot;: \&quot;1234567890\&quot;,   \&quot;bank_code\&quot;: \&quot;0030\&quot;,   \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot; } &#x60;&#x60;&#x60; See [EGP Bank](https://docs.transferzero.com/docs/payout-details/#egpbank) documentation for the bank_code list
     /// </summary>
     [DataContract]
     public partial class PayoutMethodDetailsEGPBank :  IEquatable<PayoutMethodDetailsEGPBank>, IValidatableObject
@@ -39,13 +39,14 @@ namespace TransferZero.Sdk.Model
         /// Initializes a new instance of the <see cref="PayoutMethodDetailsEGPBank" /> class.
         /// </summary>
         /// <param name="firstName">firstName (required).</param>
+        /// <param name="middleName">middleName.</param>
         /// <param name="lastName">lastName (required).</param>
         /// <param name="street">street (required).</param>
         /// <param name="phoneNumber">phoneNumber (required).</param>
         /// <param name="bankAccount">bankAccount (required).</param>
         /// <param name="bankCode">bankCode (required).</param>
         /// <param name="transferReason">transferReason (required).</param>
-        public PayoutMethodDetailsEGPBank(string firstName = default(string), string lastName = default(string), string street = default(string), string phoneNumber = default(string), string bankAccount = default(string), string bankCode = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum))
+        public PayoutMethodDetailsEGPBank(string firstName = default(string), string middleName = default(string), string lastName = default(string), string street = default(string), string phoneNumber = default(string), string bankAccount = default(string), string bankCode = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -54,6 +55,7 @@ namespace TransferZero.Sdk.Model
             this.BankAccount = bankAccount;
             this.BankCode = bankCode;
             this.TransferReason = transferReason;
+            this.MiddleName = middleName;
         }
         
         /// <summary>
@@ -61,6 +63,12 @@ namespace TransferZero.Sdk.Model
         /// </summary>
         [DataMember(Name="first_name", EmitDefaultValue=false)]
         public string FirstName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MiddleName
+        /// </summary>
+        [DataMember(Name="middle_name", EmitDefaultValue=false)]
+        public string MiddleName { get; set; }
 
         /// <summary>
         /// Gets or Sets LastName
@@ -107,6 +115,7 @@ namespace TransferZero.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class PayoutMethodDetailsEGPBank {\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
+            sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  Street: ").Append(Street).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
@@ -153,6 +162,11 @@ namespace TransferZero.Sdk.Model
                     this.FirstName.Equals(input.FirstName))
                 ) && 
                 (
+                    this.MiddleName == input.MiddleName ||
+                    (this.MiddleName != null &&
+                    this.MiddleName.Equals(input.MiddleName))
+                ) && 
+                (
                     this.LastName == input.LastName ||
                     (this.LastName != null &&
                     this.LastName.Equals(input.LastName))
@@ -195,6 +209,8 @@ namespace TransferZero.Sdk.Model
                 int hashCode = 41;
                 if (this.FirstName != null)
                     hashCode = hashCode * 59 + this.FirstName.GetHashCode();
+                if (this.MiddleName != null)
+                    hashCode = hashCode * 59 + this.MiddleName.GetHashCode();
                 if (this.LastName != null)
                     hashCode = hashCode * 59 + this.LastName.GetHashCode();
                 if (this.Street != null)
