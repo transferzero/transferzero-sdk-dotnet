@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;, //  Mandatory for personal payouts;     \&quot;last_name\&quot;: \&quot;Last\&quot;, //  Mandatory for personal payouts;     \&quot;name\&quot; \&quot;First Ltd\&quot;, // Mandatory for business payouts;     \&quot;contact_first_name\&quot; \&quot;Business\&quot;,     \&quot;contact_last_name\&quot; \&quot;Contact\&quot;,     \&quot;street\&quot;: \&quot;Main Street\&quot;,     \&quot;postal_code\&quot;: \&quot;AB0001\&quot;,     \&quot;city\&quot;: \&quot;Cape Town\&quot;,     \&quot;email\&quot;: \&quot;recipient@email.com\&quot;,     \&quot;bank_name\&quot; &#39;Bank Zero&#39;, // Optional     \&quot;bank_code\&quot;: \&quot;334810\&quot;,  // Optional; Required if branch_code is empty     \&quot;branch_code\&quot;: \&quot;630067\&quot;, // Optional; Required if bank_code is empty     \&quot;bank_account\&quot;: \&quot;12345678\&quot;,     \&quot;phone_number\&quot;: \&quot;+27119785313\&quot;, // E.164 international format     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;, // New transfer reason field     \&quot;legal_entity_type\&quot;: \&quot;sole_proprietorship\&quot;, // Optional; Default value is \&quot;person\&quot;;     \&quot;nature_of_business\&quot;: \&quot;mining\&quot;, // Optional for business payouts;     \&quot;registration_number\&quot;: \&quot;17364BGC\&quot; // Optional for business payouts;   } &#x60;&#x60;&#x60;  See [ZAR Bank](https://docs.transferzero.com/docs/payout-details/#zarbank) documentation for the bank_code and transfer_reason lists
+    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;, //  Mandatory for personal payouts;     \&quot;last_name\&quot;: \&quot;Last\&quot;, //  Mandatory for personal payouts;     \&quot;name\&quot; \&quot;First Ltd\&quot;, // Mandatory for business payouts;     \&quot;contact_first_name\&quot; \&quot;Business\&quot;,     \&quot;contact_last_name\&quot; \&quot;Contact\&quot;,     \&quot;street\&quot;: \&quot;Main Street\&quot;,     \&quot;postal_code\&quot;: \&quot;AB0001\&quot;,     \&quot;city\&quot;: \&quot;Cape Town\&quot;,     \&quot;email\&quot;: \&quot;recipient@email.com\&quot;,     \&quot;bank_name\&quot; &#39;Bank Zero&#39;, // Optional     \&quot;bank_code\&quot;: \&quot;334810\&quot;,  // Optional; Required if branch_code is empty     \&quot;branch_code\&quot;: \&quot;630067\&quot;, // Optional; Required if bank_code is empty     \&quot;bank_account\&quot;: \&quot;12345678\&quot;,     \&quot;phone_number\&quot;: \&quot;+27119785313\&quot;, // E.164 international format     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;, // New transfer reason field     \&quot;narration\&quot;: \&quot;Birthday Gift\&quot;, // Optional     \&quot;legal_entity_type\&quot;: \&quot;sole_proprietorship\&quot;, // Optional; Default value is \&quot;person\&quot;;     \&quot;nature_of_business\&quot;: \&quot;mining\&quot;, // Optional for business payouts;     \&quot;registration_number\&quot;: \&quot;17364BGC\&quot; // Optional for business payouts;   } &#x60;&#x60;&#x60;  See [ZAR Bank](https://docs.transferzero.com/docs/payout-details/#zarbank) documentation for the bank_code and transfer_reason lists
     /// </summary>
     [DataContract]
     public partial class PayoutMethodDetailsZARBank :  IEquatable<PayoutMethodDetailsZARBank>, IValidatableObject
@@ -50,13 +50,14 @@ namespace TransferZero.Sdk.Model
         /// <param name="phoneNumber">phoneNumber (required).</param>
         /// <param name="transferReasonCode">transferReasonCode.</param>
         /// <param name="transferReason">transferReason.</param>
+        /// <param name="narration">narration.</param>
         /// <param name="name">name.</param>
         /// <param name="contactFirstName">contactFirstName.</param>
         /// <param name="contactLastName">contactLastName.</param>
         /// <param name="registrationNumber">registrationNumber.</param>
         /// <param name="natureOfBusiness">natureOfBusiness.</param>
         /// <param name="legalEntityType">legalEntityType.</param>
-        public PayoutMethodDetailsZARBank(string firstName = default(string), string lastName = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string email = default(string), string bankCode = default(string), string branchCode = default(string), string bankAccount = default(string), string phoneNumber = default(string), string transferReasonCode = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), string name = default(string), string contactFirstName = default(string), string contactLastName = default(string), string registrationNumber = default(string), PayoutMethodNatureOfBusinessEnum natureOfBusiness = default(PayoutMethodNatureOfBusinessEnum), PayoutMethodLegalEntityTypeEnum legalEntityType = default(PayoutMethodLegalEntityTypeEnum))
+        public PayoutMethodDetailsZARBank(string firstName = default(string), string lastName = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string email = default(string), string bankCode = default(string), string branchCode = default(string), string bankAccount = default(string), string phoneNumber = default(string), string transferReasonCode = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), string narration = default(string), string name = default(string), string contactFirstName = default(string), string contactLastName = default(string), string registrationNumber = default(string), PayoutMethodNatureOfBusinessEnum natureOfBusiness = default(PayoutMethodNatureOfBusinessEnum), PayoutMethodLegalEntityTypeEnum legalEntityType = default(PayoutMethodLegalEntityTypeEnum))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -70,6 +71,7 @@ namespace TransferZero.Sdk.Model
             this.BranchCode = branchCode;
             this.TransferReasonCode = transferReasonCode;
             this.TransferReason = transferReason;
+            this.Narration = narration;
             this.Name = name;
             this.ContactFirstName = contactFirstName;
             this.ContactLastName = contactLastName;
@@ -151,6 +153,12 @@ namespace TransferZero.Sdk.Model
         public PayoutMethodTransferReasonEnum TransferReason { get; set; }
 
         /// <summary>
+        /// Gets or Sets Narration
+        /// </summary>
+        [DataMember(Name="narration", EmitDefaultValue=false)]
+        public string Narration { get; set; }
+
+        /// <summary>
         /// Gets or Sets Name
         /// </summary>
         [DataMember(Name="name", EmitDefaultValue=false)]
@@ -206,6 +214,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  TransferReasonCode: ").Append(TransferReasonCode).Append("\n");
             sb.Append("  TransferReason: ").Append(TransferReason).Append("\n");
+            sb.Append("  Narration: ").Append(Narration).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  ContactFirstName: ").Append(ContactFirstName).Append("\n");
             sb.Append("  ContactLastName: ").Append(ContactLastName).Append("\n");
@@ -307,6 +316,11 @@ namespace TransferZero.Sdk.Model
                     this.TransferReason.Equals(input.TransferReason))
                 ) && 
                 (
+                    this.Narration == input.Narration ||
+                    (this.Narration != null &&
+                    this.Narration.Equals(input.Narration))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -371,6 +385,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.TransferReasonCode.GetHashCode();
                 if (this.TransferReason != null)
                     hashCode = hashCode * 59 + this.TransferReason.GetHashCode();
+                if (this.Narration != null)
+                    hashCode = hashCode * 59 + this.Narration.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.ContactFirstName != null)
