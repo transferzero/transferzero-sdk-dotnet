@@ -43,13 +43,13 @@ Name | Type | Description | Notes
 **RegistrationNumber** | **string** |  | [optional] 
 **NatureOfBusiness** | [**PayoutMethodNatureOfBusinessEnum**](PayoutMethodNatureOfBusinessEnum.md) |  | [optional] 
 **LegalEntityType** | [**PayoutMethodLegalEntityTypeEnum**](PayoutMethodLegalEntityTypeEnum.md) |  | [optional] 
+**MiddleName** | **string** |  | [optional] 
 **RoutingNumber** | **string** |  | [optional] 
 **SwiftCode** | **string** |  | [optional] 
 **RelationshipToSender** | **string** |  | [optional] 
 **PixKeyType** | [**PayoutMethodPixKeyTypeEnum**](PayoutMethodPixKeyTypeEnum.md) |  | [optional] 
 **PixKeyValue** | **string** |  | [optional] 
 **IfscCode** | **string** |  | 
-**MiddleName** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

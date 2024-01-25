@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// Nigeria: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;Jane\&quot;,     \&quot;last_name\&quot;: \&quot;Doe\&quot;,     \&quot;phone_number\&quot;: \&quot;+2341234567\&quot;, // E.164 international format     \&quot;bank_code\&quot;: \&quot;057\&quot;,     \&quot;bank_account\&quot;: \&quot;1234567890\&quot;,     \&quot;country\&quot;: \&quot;NG\&quot;   } &#x60;&#x60;&#x60; See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank) documentation for the bank_code and country lists  United States: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;Jane\&quot;,     \&quot;last_name\&quot;: \&quot;Doe\&quot;,     \&quot;bank_account\&quot;: \&quot;1234567890\&quot;,     \&quot;bank_account_type\&quot;: \&quot;20\&quot;, // 10 for Savings, 20 for Checking     \&quot;bank_name\&quot;: \&quot;US Bank\&quot;,     \&quot;routing_number\&quot;: \&quot;091000022\&quot;,     \&quot;swift_code\&quot;: \&quot;USBKUS44IMT\&quot;,     \&quot;country\&quot;: \&quot;US\&quot;   } See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank-1) documentation
+    /// Nigeria: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;Jane\&quot;,     \&quot;last_name\&quot;: \&quot;Doe\&quot;,     \&quot;phone_number\&quot;: \&quot;+2341234567\&quot;, // E.164 international format     \&quot;bank_code\&quot;: \&quot;057\&quot;,     \&quot;bank_account\&quot;: \&quot;1234567890\&quot;,     \&quot;country\&quot;: \&quot;NG\&quot;   } &#x60;&#x60;&#x60; See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank) documentation for the bank_code and country lists  United States: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;Jane\&quot;,     \&quot;last_name\&quot;: \&quot;Doe\&quot;,     \&quot;bank_account\&quot;: \&quot;1234567890\&quot;,     \&quot;bank_account_type\&quot;: \&quot;20\&quot;, // 10 for Savings, 20 for Checking     \&quot;bank_name\&quot;: \&quot;US Bank\&quot;,     \&quot;routing_number\&quot;: \&quot;091000022\&quot;,     \&quot;swift_code\&quot;: \&quot;USBKUS44IMT\&quot;,     \&quot;country\&quot;: \&quot;US\&quot;   } See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank-1) documentation  Egypt: &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;Jane\&quot;,     \&quot;middle_name\&quot;: \&quot;Jill\&quot;, // optional     \&quot;last_name\&quot;: \&quot;Doe\&quot;,     \&quot;street\&quot;: \&quot;1 Main Street\&quot;,     \&quot;phone_number\&quot;: \&quot;+201023456789\&quot;,     \&quot;iban\&quot;: \&quot;EG380019000500000000263180002\&quot;,     \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;,   } &#x60;&#x60;&#x60; See [USD Bank](https://docs.transferzero.com/docs/payout-details/#usdbank-2) documentation
     /// </summary>
     [DataContract]
     public partial class PayoutMethodDetailsUSDBank :  IEquatable<PayoutMethodDetailsUSDBank>, IValidatableObject
@@ -39,27 +39,35 @@ namespace TransferZero.Sdk.Model
         /// Initializes a new instance of the <see cref="PayoutMethodDetailsUSDBank" /> class.
         /// </summary>
         /// <param name="firstName">firstName (required).</param>
+        /// <param name="middleName">middleName.</param>
         /// <param name="lastName">lastName (required).</param>
         /// <param name="phoneNumber">phoneNumber.</param>
         /// <param name="bankCode">bankCode.</param>
-        /// <param name="bankAccount">bankAccount (required).</param>
+        /// <param name="bankAccount">bankAccount.</param>
         /// <param name="bankAccountType">bankAccountType.</param>
         /// <param name="bankName">bankName.</param>
         /// <param name="routingNumber">routingNumber.</param>
         /// <param name="swiftCode">swiftCode.</param>
+        /// <param name="iban">iban.</param>
+        /// <param name="street">street.</param>
+        /// <param name="transferReason">transferReason.</param>
         /// <param name="country">country (required).</param>
-        public PayoutMethodDetailsUSDBank(string firstName = default(string), string lastName = default(string), string phoneNumber = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), string bankName = default(string), string routingNumber = default(string), string swiftCode = default(string), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum))
+        public PayoutMethodDetailsUSDBank(string firstName = default(string), string middleName = default(string), string lastName = default(string), string phoneNumber = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), string bankName = default(string), string routingNumber = default(string), string swiftCode = default(string), string iban = default(string), string street = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
-            this.BankAccount = bankAccount;
             this.Country = country;
+            this.MiddleName = middleName;
             this.PhoneNumber = phoneNumber;
             this.BankCode = bankCode;
+            this.BankAccount = bankAccount;
             this.BankAccountType = bankAccountType;
             this.BankName = bankName;
             this.RoutingNumber = routingNumber;
             this.SwiftCode = swiftCode;
+            this.Iban = iban;
+            this.Street = street;
+            this.TransferReason = transferReason;
         }
         
         /// <summary>
@@ -67,6 +75,12 @@ namespace TransferZero.Sdk.Model
         /// </summary>
         [DataMember(Name="first_name", EmitDefaultValue=false)]
         public string FirstName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MiddleName
+        /// </summary>
+        [DataMember(Name="middle_name", EmitDefaultValue=false)]
+        public string MiddleName { get; set; }
 
         /// <summary>
         /// Gets or Sets LastName
@@ -117,6 +131,24 @@ namespace TransferZero.Sdk.Model
         public string SwiftCode { get; set; }
 
         /// <summary>
+        /// Gets or Sets Iban
+        /// </summary>
+        [DataMember(Name="iban", EmitDefaultValue=false)]
+        public string Iban { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Street
+        /// </summary>
+        [DataMember(Name="street", EmitDefaultValue=false)]
+        public string Street { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TransferReason
+        /// </summary>
+        [DataMember(Name="transfer_reason", EmitDefaultValue=false)]
+        public PayoutMethodTransferReasonEnum TransferReason { get; set; }
+
+        /// <summary>
         /// Gets or Sets Country
         /// </summary>
         [DataMember(Name="country", EmitDefaultValue=false)]
@@ -131,6 +163,7 @@ namespace TransferZero.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class PayoutMethodDetailsUSDBank {\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
+            sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  BankCode: ").Append(BankCode).Append("\n");
@@ -139,6 +172,9 @@ namespace TransferZero.Sdk.Model
             sb.Append("  BankName: ").Append(BankName).Append("\n");
             sb.Append("  RoutingNumber: ").Append(RoutingNumber).Append("\n");
             sb.Append("  SwiftCode: ").Append(SwiftCode).Append("\n");
+            sb.Append("  Iban: ").Append(Iban).Append("\n");
+            sb.Append("  Street: ").Append(Street).Append("\n");
+            sb.Append("  TransferReason: ").Append(TransferReason).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -178,6 +214,11 @@ namespace TransferZero.Sdk.Model
                     this.FirstName == input.FirstName ||
                     (this.FirstName != null &&
                     this.FirstName.Equals(input.FirstName))
+                ) && 
+                (
+                    this.MiddleName == input.MiddleName ||
+                    (this.MiddleName != null &&
+                    this.MiddleName.Equals(input.MiddleName))
                 ) && 
                 (
                     this.LastName == input.LastName ||
@@ -220,6 +261,21 @@ namespace TransferZero.Sdk.Model
                     this.SwiftCode.Equals(input.SwiftCode))
                 ) && 
                 (
+                    this.Iban == input.Iban ||
+                    (this.Iban != null &&
+                    this.Iban.Equals(input.Iban))
+                ) && 
+                (
+                    this.Street == input.Street ||
+                    (this.Street != null &&
+                    this.Street.Equals(input.Street))
+                ) && 
+                (
+                    this.TransferReason == input.TransferReason ||
+                    (this.TransferReason != null &&
+                    this.TransferReason.Equals(input.TransferReason))
+                ) && 
+                (
                     this.Country == input.Country ||
                     (this.Country != null &&
                     this.Country.Equals(input.Country))
@@ -237,6 +293,8 @@ namespace TransferZero.Sdk.Model
                 int hashCode = 41;
                 if (this.FirstName != null)
                     hashCode = hashCode * 59 + this.FirstName.GetHashCode();
+                if (this.MiddleName != null)
+                    hashCode = hashCode * 59 + this.MiddleName.GetHashCode();
                 if (this.LastName != null)
                     hashCode = hashCode * 59 + this.LastName.GetHashCode();
                 if (this.PhoneNumber != null)
@@ -253,6 +311,12 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.RoutingNumber.GetHashCode();
                 if (this.SwiftCode != null)
                     hashCode = hashCode * 59 + this.SwiftCode.GetHashCode();
+                if (this.Iban != null)
+                    hashCode = hashCode * 59 + this.Iban.GetHashCode();
+                if (this.Street != null)
+                    hashCode = hashCode * 59 + this.Street.GetHashCode();
+                if (this.TransferReason != null)
+                    hashCode = hashCode * 59 + this.TransferReason.GetHashCode();
                 if (this.Country != null)
                     hashCode = hashCode * 59 + this.Country.GetHashCode();
                 return hashCode;
