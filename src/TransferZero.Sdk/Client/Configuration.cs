@@ -37,7 +37,7 @@ namespace TransferZero.Sdk.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.34.0";
+        public const string Version = "1.34.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -126,7 +126,7 @@ namespace TransferZero.Sdk.Client
         /// </summary>
         public Configuration()
         {
-            UserAgent = "TransferZero-SDK/.NET/1.34.0";
+            UserAgent = "TransferZero-SDK/.NET/1.34.1";
             BasePath = "https://api-sandbox.transferzero.com/v1";
             DefaultHeader = new ConcurrentDictionary<string, string>();
             ApiKey = "KEY";
@@ -183,7 +183,7 @@ namespace TransferZero.Sdk.Client
             string tempFolderPath = null,
             string dateTimeFormat = null,
             int timeout = 100000,
-            string userAgent = "TransferZero-SDK/.NET/1.34.0"
+            string userAgent = "TransferZero-SDK/.NET/1.34.1"
             // ReSharper restore UnusedParameter.Local
             )
         {
@@ -390,7 +390,7 @@ namespace TransferZero.Sdk.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 1.0\n";
-            report += "    SDK Package Version: 1.34.0\n";
+            report += "    SDK Package Version: 1.34.1\n";
 
             return report;
         }
