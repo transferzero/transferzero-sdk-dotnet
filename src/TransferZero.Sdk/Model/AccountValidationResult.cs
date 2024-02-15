@@ -45,6 +45,12 @@ namespace TransferZero.Sdk.Model
         public string AccountName { get; private set; }
 
         /// <summary>
+        /// Gets or Sets MappedMobileProvider
+        /// </summary>
+        [DataMember(Name="mapped_mobile_provider", EmitDefaultValue=false)]
+        public string MappedMobileProvider { get; private set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -53,6 +59,7 @@ namespace TransferZero.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class AccountValidationResult {\n");
             sb.Append("  AccountName: ").Append(AccountName).Append("\n");
+            sb.Append("  MappedMobileProvider: ").Append(MappedMobileProvider).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,6 +98,11 @@ namespace TransferZero.Sdk.Model
                     this.AccountName == input.AccountName ||
                     (this.AccountName != null &&
                     this.AccountName.Equals(input.AccountName))
+                ) && 
+                (
+                    this.MappedMobileProvider == input.MappedMobileProvider ||
+                    (this.MappedMobileProvider != null &&
+                    this.MappedMobileProvider.Equals(input.MappedMobileProvider))
                 );
         }
 
@@ -105,6 +117,8 @@ namespace TransferZero.Sdk.Model
                 int hashCode = 41;
                 if (this.AccountName != null)
                     hashCode = hashCode * 59 + this.AccountName.GetHashCode();
+                if (this.MappedMobileProvider != null)
+                    hashCode = hashCode * 59 + this.MappedMobileProvider.GetHashCode();
                 return hashCode;
             }
         }

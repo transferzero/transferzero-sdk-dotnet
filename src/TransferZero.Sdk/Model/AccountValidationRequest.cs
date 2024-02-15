@@ -38,34 +38,58 @@ namespace TransferZero.Sdk.Model
         public enum CountryEnum
         {
             /// <summary>
+            /// Enum BJ for value: BJ
+            /// </summary>
+            [EnumMember(Value = "BJ")]
+            BJ = 1,
+
+            /// <summary>
+            /// Enum BF for value: BF
+            /// </summary>
+            [EnumMember(Value = "BF")]
+            BF = 2,
+
+            /// <summary>
             /// Enum NG for value: NG
             /// </summary>
             [EnumMember(Value = "NG")]
-            NG = 1,
+            NG = 3,
 
             /// <summary>
             /// Enum GH for value: GH
             /// </summary>
             [EnumMember(Value = "GH")]
-            GH = 2,
+            GH = 4,
 
             /// <summary>
             /// Enum SN for value: SN
             /// </summary>
             [EnumMember(Value = "SN")]
-            SN = 3,
+            SN = 5,
 
             /// <summary>
             /// Enum CI for value: CI
             /// </summary>
             [EnumMember(Value = "CI")]
-            CI = 4,
+            CI = 6,
+
+            /// <summary>
+            /// Enum CM for value: CM
+            /// </summary>
+            [EnumMember(Value = "CM")]
+            CM = 7,
 
             /// <summary>
             /// Enum UG for value: UG
             /// </summary>
             [EnumMember(Value = "UG")]
-            UG = 5
+            UG = 8,
+
+            /// <summary>
+            /// Enum TG for value: TG
+            /// </summary>
+            [EnumMember(Value = "TG")]
+            TG = 9
 
         }
 
@@ -104,7 +128,13 @@ namespace TransferZero.Sdk.Model
             /// Enum UGX for value: UGX
             /// </summary>
             [EnumMember(Value = "UGX")]
-            UGX = 4
+            UGX = 4,
+
+            /// <summary>
+            /// Enum XAF for value: XAF
+            /// </summary>
+            [EnumMember(Value = "XAF")]
+            XAF = 5
 
         }
 
