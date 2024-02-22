@@ -42,7 +42,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="middleName">middleName.</param>
         /// <param name="lastName">lastName (required).</param>
         /// <param name="street">street (required).</param>
-        /// <param name="phoneNumber">phoneNumber (required).</param>
+        /// <param name="phoneNumber">phoneNumber.</param>
         /// <param name="bankAccount">bankAccount (required).</param>
         /// <param name="bankCode">bankCode (required).</param>
         /// <param name="transferReason">transferReason (required).</param>
@@ -51,11 +51,11 @@ namespace TransferZero.Sdk.Model
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Street = street;
-            this.PhoneNumber = phoneNumber;
             this.BankAccount = bankAccount;
             this.BankCode = bankCode;
             this.TransferReason = transferReason;
             this.MiddleName = middleName;
+            this.PhoneNumber = phoneNumber;
         }
         
         /// <summary>
