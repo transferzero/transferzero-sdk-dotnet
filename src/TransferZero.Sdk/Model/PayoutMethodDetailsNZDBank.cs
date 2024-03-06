@@ -42,12 +42,14 @@ namespace TransferZero.Sdk.Model
         /// <param name="lastName">lastName (required).</param>
         /// <param name="bankAccount">bankAccount (required).</param>
         /// <param name="bankName">bankName (required).</param>
-        public PayoutMethodDetailsNZDBank(string firstName = default(string), string lastName = default(string), string bankAccount = default(string), string bankName = default(string))
+        /// <param name="birthDate">Date of birth of recipient.</param>
+        public PayoutMethodDetailsNZDBank(string firstName = default(string), string lastName = default(string), string bankAccount = default(string), string bankName = default(string), DateTime? birthDate = default(DateTime?))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.BankAccount = bankAccount;
             this.BankName = bankName;
+            this.BirthDate = birthDate;
         }
         
         /// <summary>
@@ -75,6 +77,14 @@ namespace TransferZero.Sdk.Model
         public string BankName { get; set; }
 
         /// <summary>
+        /// Date of birth of recipient
+        /// </summary>
+        /// <value>Date of birth of recipient</value>
+        [DataMember(Name="birth_date", EmitDefaultValue=false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime? BirthDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -86,6 +96,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
             sb.Append("  BankName: ").Append(BankName).Append("\n");
+            sb.Append("  BirthDate: ").Append(BirthDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -139,6 +150,11 @@ namespace TransferZero.Sdk.Model
                     this.BankName == input.BankName ||
                     (this.BankName != null &&
                     this.BankName.Equals(input.BankName))
+                ) && 
+                (
+                    this.BirthDate == input.BirthDate ||
+                    (this.BirthDate != null &&
+                    this.BirthDate.Equals(input.BirthDate))
                 );
         }
 
@@ -159,6 +175,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.BankAccount.GetHashCode();
                 if (this.BankName != null)
                     hashCode = hashCode * 59 + this.BankName.GetHashCode();
+                if (this.BirthDate != null)
+                    hashCode = hashCode * 59 + this.BirthDate.GetHashCode();
                 return hashCode;
             }
         }

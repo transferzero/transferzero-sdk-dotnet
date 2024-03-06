@@ -46,7 +46,8 @@ namespace TransferZero.Sdk.Model
         /// <param name="bic">bic.</param>
         /// <param name="bankName">bankName.</param>
         /// <param name="narration">narration.</param>
-        public PayoutMethodDetailsGBPBank(string firstName = default(string), string lastName = default(string), string iban = default(string), string bankAccount = default(string), string sortCode = default(string), string bic = default(string), string bankName = default(string), string narration = default(string))
+        /// <param name="birthDate">Date of birth of recipient.</param>
+        public PayoutMethodDetailsGBPBank(string firstName = default(string), string lastName = default(string), string iban = default(string), string bankAccount = default(string), string sortCode = default(string), string bic = default(string), string bankName = default(string), string narration = default(string), DateTime? birthDate = default(DateTime?))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -56,6 +57,7 @@ namespace TransferZero.Sdk.Model
             this.Bic = bic;
             this.BankName = bankName;
             this.Narration = narration;
+            this.BirthDate = birthDate;
         }
         
         /// <summary>
@@ -107,6 +109,14 @@ namespace TransferZero.Sdk.Model
         public string Narration { get; set; }
 
         /// <summary>
+        /// Date of birth of recipient
+        /// </summary>
+        /// <value>Date of birth of recipient</value>
+        [DataMember(Name="birth_date", EmitDefaultValue=false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime? BirthDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -122,6 +132,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  Bic: ").Append(Bic).Append("\n");
             sb.Append("  BankName: ").Append(BankName).Append("\n");
             sb.Append("  Narration: ").Append(Narration).Append("\n");
+            sb.Append("  BirthDate: ").Append(BirthDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -195,6 +206,11 @@ namespace TransferZero.Sdk.Model
                     this.Narration == input.Narration ||
                     (this.Narration != null &&
                     this.Narration.Equals(input.Narration))
+                ) && 
+                (
+                    this.BirthDate == input.BirthDate ||
+                    (this.BirthDate != null &&
+                    this.BirthDate.Equals(input.BirthDate))
                 );
         }
 
@@ -223,6 +239,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.BankName.GetHashCode();
                 if (this.Narration != null)
                     hashCode = hashCode * 59 + this.Narration.GetHashCode();
+                if (this.BirthDate != null)
+                    hashCode = hashCode * 59 + this.BirthDate.GetHashCode();
                 return hashCode;
             }
         }

@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **IdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 
 **IdentityCardId** | **string** |  | 
 **RelationshipToSender** | **string** |  | [optional] 
+**BirthDate** | **DateTime?** | Date of birth of recipient | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

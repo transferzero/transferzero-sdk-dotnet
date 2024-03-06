@@ -44,7 +44,8 @@ namespace TransferZero.Sdk.Model
         /// <param name="mobileProvider">mobileProvider (required).</param>
         /// <param name="country">country.</param>
         /// <param name="transferReason">transferReason.</param>
-        public PayoutMethodDetailsXOFMobile(string firstName = default(string), string lastName = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum))
+        /// <param name="birthDate">Date of birth of recipient.</param>
+        public PayoutMethodDetailsXOFMobile(string firstName = default(string), string lastName = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), DateTime? birthDate = default(DateTime?))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -52,6 +53,7 @@ namespace TransferZero.Sdk.Model
             this.MobileProvider = mobileProvider;
             this.Country = country;
             this.TransferReason = transferReason;
+            this.BirthDate = birthDate;
         }
         
         /// <summary>
@@ -91,6 +93,14 @@ namespace TransferZero.Sdk.Model
         public PayoutMethodTransferReasonEnum TransferReason { get; set; }
 
         /// <summary>
+        /// Date of birth of recipient
+        /// </summary>
+        /// <value>Date of birth of recipient</value>
+        [DataMember(Name="birth_date", EmitDefaultValue=false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime? BirthDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -104,6 +114,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  MobileProvider: ").Append(MobileProvider).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("  TransferReason: ").Append(TransferReason).Append("\n");
+            sb.Append("  BirthDate: ").Append(BirthDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -167,6 +178,11 @@ namespace TransferZero.Sdk.Model
                     this.TransferReason == input.TransferReason ||
                     (this.TransferReason != null &&
                     this.TransferReason.Equals(input.TransferReason))
+                ) && 
+                (
+                    this.BirthDate == input.BirthDate ||
+                    (this.BirthDate != null &&
+                    this.BirthDate.Equals(input.BirthDate))
                 );
         }
 
@@ -191,6 +207,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.Country.GetHashCode();
                 if (this.TransferReason != null)
                     hashCode = hashCode * 59 + this.TransferReason.GetHashCode();
+                if (this.BirthDate != null)
+                    hashCode = hashCode * 59 + this.BirthDate.GetHashCode();
                 return hashCode;
             }
         }

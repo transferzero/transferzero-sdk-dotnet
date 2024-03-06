@@ -45,7 +45,8 @@ namespace TransferZero.Sdk.Model
         /// <param name="bankCountry">bankCountry.</param>
         /// <param name="bankCode">bankCode.</param>
         /// <param name="transferReason">transferReason.</param>
-        public PayoutMethodDetailsXOFBank(string firstName = default(string), string lastName = default(string), string iban = default(string), string bankName = default(string), string bankCountry = default(string), string bankCode = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum))
+        /// <param name="birthDate">Date of birth of recipient.</param>
+        public PayoutMethodDetailsXOFBank(string firstName = default(string), string lastName = default(string), string iban = default(string), string bankName = default(string), string bankCountry = default(string), string bankCode = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), DateTime? birthDate = default(DateTime?))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -54,6 +55,7 @@ namespace TransferZero.Sdk.Model
             this.BankCountry = bankCountry;
             this.BankCode = bankCode;
             this.TransferReason = transferReason;
+            this.BirthDate = birthDate;
         }
         
         /// <summary>
@@ -99,6 +101,14 @@ namespace TransferZero.Sdk.Model
         public PayoutMethodTransferReasonEnum TransferReason { get; set; }
 
         /// <summary>
+        /// Date of birth of recipient
+        /// </summary>
+        /// <value>Date of birth of recipient</value>
+        [DataMember(Name="birth_date", EmitDefaultValue=false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime? BirthDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -113,6 +123,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  BankCountry: ").Append(BankCountry).Append("\n");
             sb.Append("  BankCode: ").Append(BankCode).Append("\n");
             sb.Append("  TransferReason: ").Append(TransferReason).Append("\n");
+            sb.Append("  BirthDate: ").Append(BirthDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -181,6 +192,11 @@ namespace TransferZero.Sdk.Model
                     this.TransferReason == input.TransferReason ||
                     (this.TransferReason != null &&
                     this.TransferReason.Equals(input.TransferReason))
+                ) && 
+                (
+                    this.BirthDate == input.BirthDate ||
+                    (this.BirthDate != null &&
+                    this.BirthDate.Equals(input.BirthDate))
                 );
         }
 
@@ -207,6 +223,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.BankCode.GetHashCode();
                 if (this.TransferReason != null)
                     hashCode = hashCode * 59 + this.TransferReason.GetHashCode();
+                if (this.BirthDate != null)
+                    hashCode = hashCode * 59 + this.BirthDate.GetHashCode();
                 return hashCode;
             }
         }

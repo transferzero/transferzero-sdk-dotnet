@@ -48,7 +48,8 @@ namespace TransferZero.Sdk.Model
         /// <param name="identityCardType">identityCardType (required).</param>
         /// <param name="identityCardId">identityCardId (required).</param>
         /// <param name="relationshipToSender">relationshipToSender.</param>
-        public PayoutMethodDetailsKESBank(string firstName = default(string), string lastName = default(string), string street = default(string), string city = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), string relationshipToSender = default(string))
+        /// <param name="birthDate">Date of birth of recipient.</param>
+        public PayoutMethodDetailsKESBank(string firstName = default(string), string lastName = default(string), string street = default(string), string city = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), string relationshipToSender = default(string), DateTime? birthDate = default(DateTime?))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -60,6 +61,7 @@ namespace TransferZero.Sdk.Model
             this.IdentityCardId = identityCardId;
             this.City = city;
             this.RelationshipToSender = relationshipToSender;
+            this.BirthDate = birthDate;
         }
         
         /// <summary>
@@ -123,6 +125,14 @@ namespace TransferZero.Sdk.Model
         public string RelationshipToSender { get; set; }
 
         /// <summary>
+        /// Date of birth of recipient
+        /// </summary>
+        /// <value>Date of birth of recipient</value>
+        [DataMember(Name="birth_date", EmitDefaultValue=false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime? BirthDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -140,6 +150,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  IdentityCardType: ").Append(IdentityCardType).Append("\n");
             sb.Append("  IdentityCardId: ").Append(IdentityCardId).Append("\n");
             sb.Append("  RelationshipToSender: ").Append(RelationshipToSender).Append("\n");
+            sb.Append("  BirthDate: ").Append(BirthDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -223,6 +234,11 @@ namespace TransferZero.Sdk.Model
                     this.RelationshipToSender == input.RelationshipToSender ||
                     (this.RelationshipToSender != null &&
                     this.RelationshipToSender.Equals(input.RelationshipToSender))
+                ) && 
+                (
+                    this.BirthDate == input.BirthDate ||
+                    (this.BirthDate != null &&
+                    this.BirthDate.Equals(input.BirthDate))
                 );
         }
 
@@ -255,6 +271,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.IdentityCardId.GetHashCode();
                 if (this.RelationshipToSender != null)
                     hashCode = hashCode * 59 + this.RelationshipToSender.GetHashCode();
+                if (this.BirthDate != null)
+                    hashCode = hashCode * 59 + this.BirthDate.GetHashCode();
                 return hashCode;
             }
         }

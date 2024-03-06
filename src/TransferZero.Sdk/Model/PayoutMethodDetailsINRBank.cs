@@ -47,7 +47,8 @@ namespace TransferZero.Sdk.Model
         /// <param name="bankName">bankName (required).</param>
         /// <param name="bankAccount">bankAccount (required).</param>
         /// <param name="ifscCode">ifscCode (required).</param>
-        public PayoutMethodDetailsINRBank(string firstName = default(string), string lastName = default(string), string city = default(string), string street = default(string), string postalCode = default(string), string phoneNumber = default(string), string bankName = default(string), string bankAccount = default(string), string ifscCode = default(string))
+        /// <param name="birthDate">Date of birth of recipient.</param>
+        public PayoutMethodDetailsINRBank(string firstName = default(string), string lastName = default(string), string city = default(string), string street = default(string), string postalCode = default(string), string phoneNumber = default(string), string bankName = default(string), string bankAccount = default(string), string ifscCode = default(string), DateTime? birthDate = default(DateTime?))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -58,6 +59,7 @@ namespace TransferZero.Sdk.Model
             this.BankName = bankName;
             this.BankAccount = bankAccount;
             this.IfscCode = ifscCode;
+            this.BirthDate = birthDate;
         }
         
         /// <summary>
@@ -115,6 +117,14 @@ namespace TransferZero.Sdk.Model
         public string IfscCode { get; set; }
 
         /// <summary>
+        /// Date of birth of recipient
+        /// </summary>
+        /// <value>Date of birth of recipient</value>
+        [DataMember(Name="birth_date", EmitDefaultValue=false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime? BirthDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -131,6 +141,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  BankName: ").Append(BankName).Append("\n");
             sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
             sb.Append("  IfscCode: ").Append(IfscCode).Append("\n");
+            sb.Append("  BirthDate: ").Append(BirthDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -209,6 +220,11 @@ namespace TransferZero.Sdk.Model
                     this.IfscCode == input.IfscCode ||
                     (this.IfscCode != null &&
                     this.IfscCode.Equals(input.IfscCode))
+                ) && 
+                (
+                    this.BirthDate == input.BirthDate ||
+                    (this.BirthDate != null &&
+                    this.BirthDate.Equals(input.BirthDate))
                 );
         }
 
@@ -239,6 +255,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.BankAccount.GetHashCode();
                 if (this.IfscCode != null)
                     hashCode = hashCode * 59 + this.IfscCode.GetHashCode();
+                if (this.BirthDate != null)
+                    hashCode = hashCode * 59 + this.BirthDate.GetHashCode();
                 return hashCode;
             }
         }
