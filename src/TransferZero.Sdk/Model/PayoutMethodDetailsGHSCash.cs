@@ -41,11 +41,13 @@ namespace TransferZero.Sdk.Model
         /// <param name="firstName">firstName (required).</param>
         /// <param name="lastName">lastName (required).</param>
         /// <param name="phoneNumber">phoneNumber (required).</param>
-        public PayoutMethodDetailsGHSCash(string firstName = default(string), string lastName = default(string), string phoneNumber = default(string))
+        /// <param name="birthDate">Date of birth of recipient.</param>
+        public PayoutMethodDetailsGHSCash(string firstName = default(string), string lastName = default(string), string phoneNumber = default(string), DateTime? birthDate = default(DateTime?))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.PhoneNumber = phoneNumber;
+            this.BirthDate = birthDate;
         }
         
         /// <summary>
@@ -67,6 +69,14 @@ namespace TransferZero.Sdk.Model
         public string PhoneNumber { get; set; }
 
         /// <summary>
+        /// Date of birth of recipient
+        /// </summary>
+        /// <value>Date of birth of recipient</value>
+        [DataMember(Name="birth_date", EmitDefaultValue=false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime? BirthDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -77,6 +87,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            sb.Append("  BirthDate: ").Append(BirthDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,6 +136,11 @@ namespace TransferZero.Sdk.Model
                     this.PhoneNumber == input.PhoneNumber ||
                     (this.PhoneNumber != null &&
                     this.PhoneNumber.Equals(input.PhoneNumber))
+                ) && 
+                (
+                    this.BirthDate == input.BirthDate ||
+                    (this.BirthDate != null &&
+                    this.BirthDate.Equals(input.BirthDate))
                 );
         }
 
@@ -143,6 +159,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.LastName.GetHashCode();
                 if (this.PhoneNumber != null)
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
+                if (this.BirthDate != null)
+                    hashCode = hashCode * 59 + this.BirthDate.GetHashCode();
                 return hashCode;
             }
         }

@@ -52,7 +52,8 @@ namespace TransferZero.Sdk.Model
         /// <param name="street">street.</param>
         /// <param name="transferReason">transferReason.</param>
         /// <param name="country">country (required).</param>
-        public PayoutMethodDetailsUSDBank(string firstName = default(string), string middleName = default(string), string lastName = default(string), string phoneNumber = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), string bankName = default(string), string routingNumber = default(string), string swiftCode = default(string), string iban = default(string), string street = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum))
+        /// <param name="birthDate">Date of birth of recipient.</param>
+        public PayoutMethodDetailsUSDBank(string firstName = default(string), string middleName = default(string), string lastName = default(string), string phoneNumber = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), string bankName = default(string), string routingNumber = default(string), string swiftCode = default(string), string iban = default(string), string street = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum), DateTime? birthDate = default(DateTime?))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -68,6 +69,7 @@ namespace TransferZero.Sdk.Model
             this.Iban = iban;
             this.Street = street;
             this.TransferReason = transferReason;
+            this.BirthDate = birthDate;
         }
         
         /// <summary>
@@ -155,6 +157,14 @@ namespace TransferZero.Sdk.Model
         public PayoutMethodCountryEnum Country { get; set; }
 
         /// <summary>
+        /// Date of birth of recipient
+        /// </summary>
+        /// <value>Date of birth of recipient</value>
+        [DataMember(Name="birth_date", EmitDefaultValue=false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime? BirthDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -176,6 +186,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  Street: ").Append(Street).Append("\n");
             sb.Append("  TransferReason: ").Append(TransferReason).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
+            sb.Append("  BirthDate: ").Append(BirthDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -279,6 +290,11 @@ namespace TransferZero.Sdk.Model
                     this.Country == input.Country ||
                     (this.Country != null &&
                     this.Country.Equals(input.Country))
+                ) && 
+                (
+                    this.BirthDate == input.BirthDate ||
+                    (this.BirthDate != null &&
+                    this.BirthDate.Equals(input.BirthDate))
                 );
         }
 
@@ -319,6 +335,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.TransferReason.GetHashCode();
                 if (this.Country != null)
                     hashCode = hashCode * 59 + this.Country.GetHashCode();
+                if (this.BirthDate != null)
+                    hashCode = hashCode * 59 + this.BirthDate.GetHashCode();
                 return hashCode;
             }
         }

@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **RegistrationNumber** | **string** |  | [optional] 
 **NatureOfBusiness** | [**PayoutMethodNatureOfBusinessEnum**](PayoutMethodNatureOfBusinessEnum.md) |  | [optional] 
 **LegalEntityType** | [**PayoutMethodLegalEntityTypeEnum**](PayoutMethodLegalEntityTypeEnum.md) |  | [optional] 
+**BirthDate** | **DateTime?** | Date of birth of recipient | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

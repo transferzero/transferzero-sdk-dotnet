@@ -49,7 +49,8 @@ namespace TransferZero.Sdk.Model
         /// <param name="reason">reason.</param>
         /// <param name="identityCardType">identityCardType.</param>
         /// <param name="identityCardId">identityCardId.</param>
-        public PayoutMethodDetailsMADCash(string firstName = default(string), string lastName = default(string), string phoneNumber = default(string), PayoutMethodIdentityCardTypeEnum senderIdentityCardType = default(PayoutMethodIdentityCardTypeEnum), string senderIdentityCardId = default(string), string senderCityOfBirth = default(string), string senderCountryOfBirth = default(string), PayoutMethodGenderEnum senderGender = default(PayoutMethodGenderEnum), string reason = default(string), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string))
+        /// <param name="birthDate">Date of birth of recipient.</param>
+        public PayoutMethodDetailsMADCash(string firstName = default(string), string lastName = default(string), string phoneNumber = default(string), PayoutMethodIdentityCardTypeEnum senderIdentityCardType = default(PayoutMethodIdentityCardTypeEnum), string senderIdentityCardId = default(string), string senderCityOfBirth = default(string), string senderCountryOfBirth = default(string), PayoutMethodGenderEnum senderGender = default(PayoutMethodGenderEnum), string reason = default(string), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), DateTime? birthDate = default(DateTime?))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -62,6 +63,7 @@ namespace TransferZero.Sdk.Model
             this.Reason = reason;
             this.IdentityCardType = identityCardType;
             this.IdentityCardId = identityCardId;
+            this.BirthDate = birthDate;
         }
         
         /// <summary>
@@ -131,6 +133,14 @@ namespace TransferZero.Sdk.Model
         public string IdentityCardId { get; set; }
 
         /// <summary>
+        /// Date of birth of recipient
+        /// </summary>
+        /// <value>Date of birth of recipient</value>
+        [DataMember(Name="birth_date", EmitDefaultValue=false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime? BirthDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -149,6 +159,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  IdentityCardType: ").Append(IdentityCardType).Append("\n");
             sb.Append("  IdentityCardId: ").Append(IdentityCardId).Append("\n");
+            sb.Append("  BirthDate: ").Append(BirthDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -237,6 +248,11 @@ namespace TransferZero.Sdk.Model
                     this.IdentityCardId == input.IdentityCardId ||
                     (this.IdentityCardId != null &&
                     this.IdentityCardId.Equals(input.IdentityCardId))
+                ) && 
+                (
+                    this.BirthDate == input.BirthDate ||
+                    (this.BirthDate != null &&
+                    this.BirthDate.Equals(input.BirthDate))
                 );
         }
 
@@ -271,6 +287,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.IdentityCardType.GetHashCode();
                 if (this.IdentityCardId != null)
                     hashCode = hashCode * 59 + this.IdentityCardId.GetHashCode();
+                if (this.BirthDate != null)
+                    hashCode = hashCode * 59 + this.BirthDate.GetHashCode();
                 return hashCode;
             }
         }

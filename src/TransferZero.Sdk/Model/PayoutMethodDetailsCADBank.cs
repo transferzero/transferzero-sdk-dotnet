@@ -43,13 +43,15 @@ namespace TransferZero.Sdk.Model
         /// <param name="bankAccount">bankAccount (required).</param>
         /// <param name="bankCode">bankCode (required).</param>
         /// <param name="branchCode">branchCode (required).</param>
-        public PayoutMethodDetailsCADBank(string firstName = default(string), string lastName = default(string), string bankAccount = default(string), string bankCode = default(string), string branchCode = default(string))
+        /// <param name="birthDate">Date of birth of recipient.</param>
+        public PayoutMethodDetailsCADBank(string firstName = default(string), string lastName = default(string), string bankAccount = default(string), string bankCode = default(string), string branchCode = default(string), DateTime? birthDate = default(DateTime?))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.BankAccount = bankAccount;
             this.BankCode = bankCode;
             this.BranchCode = branchCode;
+            this.BirthDate = birthDate;
         }
         
         /// <summary>
@@ -83,6 +85,14 @@ namespace TransferZero.Sdk.Model
         public string BranchCode { get; set; }
 
         /// <summary>
+        /// Date of birth of recipient
+        /// </summary>
+        /// <value>Date of birth of recipient</value>
+        [DataMember(Name="birth_date", EmitDefaultValue=false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime? BirthDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -95,6 +105,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
             sb.Append("  BankCode: ").Append(BankCode).Append("\n");
             sb.Append("  BranchCode: ").Append(BranchCode).Append("\n");
+            sb.Append("  BirthDate: ").Append(BirthDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -153,6 +164,11 @@ namespace TransferZero.Sdk.Model
                     this.BranchCode == input.BranchCode ||
                     (this.BranchCode != null &&
                     this.BranchCode.Equals(input.BranchCode))
+                ) && 
+                (
+                    this.BirthDate == input.BirthDate ||
+                    (this.BirthDate != null &&
+                    this.BirthDate.Equals(input.BirthDate))
                 );
         }
 
@@ -175,6 +191,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.BankCode.GetHashCode();
                 if (this.BranchCode != null)
                     hashCode = hashCode * 59 + this.BranchCode.GetHashCode();
+                if (this.BirthDate != null)
+                    hashCode = hashCode * 59 + this.BirthDate.GetHashCode();
                 return hashCode;
             }
         }
