@@ -38,58 +38,82 @@ namespace TransferZero.Sdk.Model
         public enum CountryEnum
         {
             /// <summary>
-            /// Enum BJ for value: BJ
-            /// </summary>
-            [EnumMember(Value = "BJ")]
-            BJ = 1,
-
-            /// <summary>
             /// Enum BF for value: BF
             /// </summary>
             [EnumMember(Value = "BF")]
-            BF = 2,
+            BF = 1,
 
             /// <summary>
-            /// Enum NG for value: NG
+            /// Enum BJ for value: BJ
             /// </summary>
-            [EnumMember(Value = "NG")]
-            NG = 3,
+            [EnumMember(Value = "BJ")]
+            BJ = 2,
 
             /// <summary>
-            /// Enum GH for value: GH
+            /// Enum CF for value: CF
             /// </summary>
-            [EnumMember(Value = "GH")]
-            GH = 4,
+            [EnumMember(Value = "CF")]
+            CF = 3,
 
             /// <summary>
-            /// Enum SN for value: SN
+            /// Enum CG for value: CG
             /// </summary>
-            [EnumMember(Value = "SN")]
-            SN = 5,
+            [EnumMember(Value = "CG")]
+            CG = 4,
 
             /// <summary>
             /// Enum CI for value: CI
             /// </summary>
             [EnumMember(Value = "CI")]
-            CI = 6,
+            CI = 5,
 
             /// <summary>
             /// Enum CM for value: CM
             /// </summary>
             [EnumMember(Value = "CM")]
-            CM = 7,
+            CM = 6,
 
             /// <summary>
-            /// Enum UG for value: UG
+            /// Enum GA for value: GA
             /// </summary>
-            [EnumMember(Value = "UG")]
-            UG = 8,
+            [EnumMember(Value = "GA")]
+            GA = 7,
+
+            /// <summary>
+            /// Enum GH for value: GH
+            /// </summary>
+            [EnumMember(Value = "GH")]
+            GH = 8,
+
+            /// <summary>
+            /// Enum NG for value: NG
+            /// </summary>
+            [EnumMember(Value = "NG")]
+            NG = 9,
+
+            /// <summary>
+            /// Enum SN for value: SN
+            /// </summary>
+            [EnumMember(Value = "SN")]
+            SN = 10,
+
+            /// <summary>
+            /// Enum TD for value: TD
+            /// </summary>
+            [EnumMember(Value = "TD")]
+            TD = 11,
 
             /// <summary>
             /// Enum TG for value: TG
             /// </summary>
             [EnumMember(Value = "TG")]
-            TG = 9
+            TG = 12,
+
+            /// <summary>
+            /// Enum UG for value: UG
+            /// </summary>
+            [EnumMember(Value = "UG")]
+            UG = 13
 
         }
 
