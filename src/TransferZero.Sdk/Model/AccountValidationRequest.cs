@@ -50,70 +50,64 @@ namespace TransferZero.Sdk.Model
             BJ = 2,
 
             /// <summary>
-            /// Enum CF for value: CF
-            /// </summary>
-            [EnumMember(Value = "CF")]
-            CF = 3,
-
-            /// <summary>
             /// Enum CG for value: CG
             /// </summary>
             [EnumMember(Value = "CG")]
-            CG = 4,
+            CG = 3,
 
             /// <summary>
             /// Enum CI for value: CI
             /// </summary>
             [EnumMember(Value = "CI")]
-            CI = 5,
+            CI = 4,
 
             /// <summary>
             /// Enum CM for value: CM
             /// </summary>
             [EnumMember(Value = "CM")]
-            CM = 6,
+            CM = 5,
 
             /// <summary>
             /// Enum GA for value: GA
             /// </summary>
             [EnumMember(Value = "GA")]
-            GA = 7,
+            GA = 6,
 
             /// <summary>
             /// Enum GH for value: GH
             /// </summary>
             [EnumMember(Value = "GH")]
-            GH = 8,
+            GH = 7,
 
             /// <summary>
             /// Enum NG for value: NG
             /// </summary>
             [EnumMember(Value = "NG")]
-            NG = 9,
+            NG = 8,
 
             /// <summary>
             /// Enum SN for value: SN
             /// </summary>
             [EnumMember(Value = "SN")]
-            SN = 10,
+            SN = 9,
 
             /// <summary>
             /// Enum TD for value: TD
             /// </summary>
             [EnumMember(Value = "TD")]
-            TD = 11,
+            TD = 10,
 
             /// <summary>
             /// Enum TG for value: TG
             /// </summary>
             [EnumMember(Value = "TG")]
-            TG = 12,
+            TG = 11,
 
             /// <summary>
             /// Enum UG for value: UG
             /// </summary>
             [EnumMember(Value = "UG")]
-            UG = 13
+            UG = 12
 
         }
 
