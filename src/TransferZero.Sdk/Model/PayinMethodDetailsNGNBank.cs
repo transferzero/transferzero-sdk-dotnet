@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;redirect_url\&quot;: \&quot;http://redirect.back.to\&quot;   } &#x60;&#x60;&#x60;
+    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;phone_number\&quot;: \&quot;+2347087661211\&quot;   } &#x60;&#x60;&#x60;
     /// </summary>
     [DataContract]
     public partial class PayinMethodDetailsNGNBank :  IEquatable<PayinMethodDetailsNGNBank>, IValidatableObject
@@ -33,27 +33,18 @@ namespace TransferZero.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PayinMethodDetailsNGNBank" /> class.
         /// </summary>
-        /// <param name="paymentMethod">The payment method which the sender will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both..</param>
-        /// <param name="redirectUrl">This is where the sender should be redirected back when the payment has been finished.</param>
-        public PayinMethodDetailsNGNBank(string paymentMethod = default(string), string redirectUrl = default(string))
+        /// <param name="phoneNumber">Sender&#39;s phone number.</param>
+        public PayinMethodDetailsNGNBank(string phoneNumber = default(string))
         {
-            this.PaymentMethod = paymentMethod;
-            this.RedirectUrl = redirectUrl;
+            this.PhoneNumber = phoneNumber;
         }
         
         /// <summary>
-        /// The payment method which the sender will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both.
+        /// Sender&#39;s phone number
         /// </summary>
-        /// <value>The payment method which the sender will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both.</value>
-        [DataMember(Name="payment_method", EmitDefaultValue=false)]
-        public string PaymentMethod { get; set; }
-
-        /// <summary>
-        /// This is where the sender should be redirected back when the payment has been finished
-        /// </summary>
-        /// <value>This is where the sender should be redirected back when the payment has been finished</value>
-        [DataMember(Name="redirect_url", EmitDefaultValue=false)]
-        public string RedirectUrl { get; set; }
+        /// <value>Sender&#39;s phone number</value>
+        [DataMember(Name="phone_number", EmitDefaultValue=false)]
+        public string PhoneNumber { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -63,8 +54,7 @@ namespace TransferZero.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PayinMethodDetailsNGNBank {\n");
-            sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
-            sb.Append("  RedirectUrl: ").Append(RedirectUrl).Append("\n");
+            sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,14 +90,9 @@ namespace TransferZero.Sdk.Model
 
             return 
                 (
-                    this.PaymentMethod == input.PaymentMethod ||
-                    (this.PaymentMethod != null &&
-                    this.PaymentMethod.Equals(input.PaymentMethod))
-                ) && 
-                (
-                    this.RedirectUrl == input.RedirectUrl ||
-                    (this.RedirectUrl != null &&
-                    this.RedirectUrl.Equals(input.RedirectUrl))
+                    this.PhoneNumber == input.PhoneNumber ||
+                    (this.PhoneNumber != null &&
+                    this.PhoneNumber.Equals(input.PhoneNumber))
                 );
         }
 
@@ -120,10 +105,8 @@ namespace TransferZero.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.PaymentMethod != null)
-                    hashCode = hashCode * 59 + this.PaymentMethod.GetHashCode();
-                if (this.RedirectUrl != null)
-                    hashCode = hashCode * 59 + this.RedirectUrl.GetHashCode();
+                if (this.PhoneNumber != null)
+                    hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
                 return hashCode;
             }
         }

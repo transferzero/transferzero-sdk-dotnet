@@ -33,17 +33,13 @@ namespace TransferZero.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PayinMethodDetails" /> class.
         /// </summary>
-        /// <param name="paymentMethod">The payment method which the sender will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both..</param>
-        /// <param name="redirectUrl">This is where the sender should be redirected back when the payment has been finished.</param>
         /// <param name="phoneNumber">The phone number where the funds should be collected from.</param>
         /// <param name="mobileProvider">mobileProvider.</param>
         /// <param name="country">country.</param>
         /// <param name="otp">The OTP that the sender received in otp verified ussd popup ux flow..</param>
         /// <param name="refundAddress">Please make sure the refund_address is a valid BTC address belonging to the sender, as that is going to be used in case the transaction has to be refunded..</param>
-        public PayinMethodDetails(string paymentMethod = default(string), string redirectUrl = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum), string otp = default(string), string refundAddress = default(string))
+        public PayinMethodDetails(string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum), string otp = default(string), string refundAddress = default(string))
         {
-            this.PaymentMethod = paymentMethod;
-            this.RedirectUrl = redirectUrl;
             this.PhoneNumber = phoneNumber;
             this.MobileProvider = mobileProvider;
             this.Country = country;
@@ -51,20 +47,6 @@ namespace TransferZero.Sdk.Model
             this.RefundAddress = refundAddress;
         }
         
-        /// <summary>
-        /// The payment method which the sender will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both.
-        /// </summary>
-        /// <value>The payment method which the sender will use to make the payments. Options are &#x60;bank&#x60;, &#x60;card&#x60; or you can leave empty to support both.</value>
-        [DataMember(Name="payment_method", EmitDefaultValue=false)]
-        public string PaymentMethod { get; set; }
-
-        /// <summary>
-        /// This is where the sender should be redirected back when the payment has been finished
-        /// </summary>
-        /// <value>This is where the sender should be redirected back when the payment has been finished</value>
-        [DataMember(Name="redirect_url", EmitDefaultValue=false)]
-        public string RedirectUrl { get; set; }
-
         /// <summary>
         /// The phone number where the funds should be collected from
         /// </summary>
@@ -106,8 +88,6 @@ namespace TransferZero.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PayinMethodDetails {\n");
-            sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
-            sb.Append("  RedirectUrl: ").Append(RedirectUrl).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  MobileProvider: ").Append(MobileProvider).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
@@ -148,16 +128,6 @@ namespace TransferZero.Sdk.Model
 
             return 
                 (
-                    this.PaymentMethod == input.PaymentMethod ||
-                    (this.PaymentMethod != null &&
-                    this.PaymentMethod.Equals(input.PaymentMethod))
-                ) && 
-                (
-                    this.RedirectUrl == input.RedirectUrl ||
-                    (this.RedirectUrl != null &&
-                    this.RedirectUrl.Equals(input.RedirectUrl))
-                ) && 
-                (
                     this.PhoneNumber == input.PhoneNumber ||
                     (this.PhoneNumber != null &&
                     this.PhoneNumber.Equals(input.PhoneNumber))
@@ -193,10 +163,6 @@ namespace TransferZero.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.PaymentMethod != null)
-                    hashCode = hashCode * 59 + this.PaymentMethod.GetHashCode();
-                if (this.RedirectUrl != null)
-                    hashCode = hashCode * 59 + this.RedirectUrl.GetHashCode();
                 if (this.PhoneNumber != null)
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
                 if (this.MobileProvider != null)
