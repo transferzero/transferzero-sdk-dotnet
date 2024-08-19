@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;middle_name\&quot;: \&quot;Middle\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;+201023456789\&quot;,   \&quot;street\&quot;: \&quot;1 Main Street\&quot;,   \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot; }
+    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;middle_name\&quot;: \&quot;Middle\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;+201023456789\&quot;,   \&quot;street\&quot;: \&quot;1 Main Street\&quot;,   \&quot;transfer_reason\&quot;: \&quot;personal_account\&quot;,   \&quot;email\&quot;: \&quot;recipient@email.com\&quot;, // Optional   \&quot;reference\&quot;: \&quot;3414006608\&quot; // Optional reference that&#39;ll appear on the recipient pickup notification (if provided must be unique and exactly 10 digits long) }
     /// </summary>
     [DataContract]
     public partial class PayoutMethodDetailsEGPCash :  IEquatable<PayoutMethodDetailsEGPCash>, IValidatableObject
@@ -44,7 +44,9 @@ namespace TransferZero.Sdk.Model
         /// <param name="phoneNumber">phoneNumber (required).</param>
         /// <param name="street">street (required).</param>
         /// <param name="transferReason">transferReason (required).</param>
-        public PayoutMethodDetailsEGPCash(string firstName = default(string), string middleName = default(string), string lastName = default(string), string phoneNumber = default(string), string street = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum))
+        /// <param name="email">email.</param>
+        /// <param name="reference">reference.</param>
+        public PayoutMethodDetailsEGPCash(string firstName = default(string), string middleName = default(string), string lastName = default(string), string phoneNumber = default(string), string street = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), string email = default(string), string reference = default(string))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -52,6 +54,8 @@ namespace TransferZero.Sdk.Model
             this.Street = street;
             this.TransferReason = transferReason;
             this.MiddleName = middleName;
+            this.Email = email;
+            this.Reference = reference;
         }
         
         /// <summary>
@@ -91,6 +95,18 @@ namespace TransferZero.Sdk.Model
         public PayoutMethodTransferReasonEnum TransferReason { get; set; }
 
         /// <summary>
+        /// Gets or Sets Email
+        /// </summary>
+        [DataMember(Name="email", EmitDefaultValue=false)]
+        public string Email { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Reference
+        /// </summary>
+        [DataMember(Name="reference", EmitDefaultValue=false)]
+        public string Reference { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -104,6 +120,8 @@ namespace TransferZero.Sdk.Model
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  Street: ").Append(Street).Append("\n");
             sb.Append("  TransferReason: ").Append(TransferReason).Append("\n");
+            sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("  Reference: ").Append(Reference).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -167,6 +185,16 @@ namespace TransferZero.Sdk.Model
                     this.TransferReason == input.TransferReason ||
                     (this.TransferReason != null &&
                     this.TransferReason.Equals(input.TransferReason))
+                ) && 
+                (
+                    this.Email == input.Email ||
+                    (this.Email != null &&
+                    this.Email.Equals(input.Email))
+                ) && 
+                (
+                    this.Reference == input.Reference ||
+                    (this.Reference != null &&
+                    this.Reference.Equals(input.Reference))
                 );
         }
 
@@ -191,6 +219,10 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.Street.GetHashCode();
                 if (this.TransferReason != null)
                     hashCode = hashCode * 59 + this.TransferReason.GetHashCode();
+                if (this.Email != null)
+                    hashCode = hashCode * 59 + this.Email.GetHashCode();
+                if (this.Reference != null)
+                    hashCode = hashCode * 59 + this.Reference.GetHashCode();
                 return hashCode;
             }
         }
