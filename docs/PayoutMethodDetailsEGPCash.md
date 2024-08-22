@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FirstName** | **string** |  | 
-**MiddleName** | **string** |  | [optional] 
+**MiddleName** | **string** |  | 
 **LastName** | **string** |  | 
 **PhoneNumber** | **string** |  | 
 **Street** | **string** |  | 

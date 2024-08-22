@@ -77,7 +77,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="registrationNumber">registrationNumber.</param>
         /// <param name="natureOfBusiness">natureOfBusiness.</param>
         /// <param name="legalEntityType">legalEntityType.</param>
-        /// <param name="middleName">middleName.</param>
+        /// <param name="middleName">middleName (required).</param>
         /// <param name="routingNumber">routingNumber.</param>
         /// <param name="swiftCode">swiftCode.</param>
         /// <param name="relationshipToSender">relationshipToSender.</param>
@@ -107,6 +107,7 @@ namespace TransferZero.Sdk.Model
             this.PostalCode = postalCode;
             this.City = city;
             this.BranchCode = branchCode;
+            this.MiddleName = middleName;
             this.IfscCode = ifscCode;
             this.BankAccountType = bankAccountType;
             this.BirthDate = birthDate;
@@ -126,7 +127,6 @@ namespace TransferZero.Sdk.Model
             this.RegistrationNumber = registrationNumber;
             this.NatureOfBusiness = natureOfBusiness;
             this.LegalEntityType = legalEntityType;
-            this.MiddleName = middleName;
             this.RoutingNumber = routingNumber;
             this.SwiftCode = swiftCode;
             this.RelationshipToSender = relationshipToSender;

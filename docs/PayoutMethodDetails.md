@@ -44,7 +44,7 @@ Name | Type | Description | Notes
 **RegistrationNumber** | **string** |  | [optional] 
 **NatureOfBusiness** | [**PayoutMethodNatureOfBusinessEnum**](PayoutMethodNatureOfBusinessEnum.md) |  | [optional] 
 **LegalEntityType** | [**PayoutMethodLegalEntityTypeEnum**](PayoutMethodLegalEntityTypeEnum.md) |  | [optional] 
-**MiddleName** | **string** |  | [optional] 
+**MiddleName** | **string** |  | 
 **RoutingNumber** | **string** |  | [optional] 
 **SwiftCode** | **string** |  | [optional] 
 **RelationshipToSender** | **string** |  | [optional] 

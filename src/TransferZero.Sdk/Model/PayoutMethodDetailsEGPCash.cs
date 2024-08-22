@@ -39,7 +39,7 @@ namespace TransferZero.Sdk.Model
         /// Initializes a new instance of the <see cref="PayoutMethodDetailsEGPCash" /> class.
         /// </summary>
         /// <param name="firstName">firstName (required).</param>
-        /// <param name="middleName">middleName.</param>
+        /// <param name="middleName">middleName (required).</param>
         /// <param name="lastName">lastName (required).</param>
         /// <param name="phoneNumber">phoneNumber (required).</param>
         /// <param name="street">street (required).</param>
@@ -49,11 +49,11 @@ namespace TransferZero.Sdk.Model
         public PayoutMethodDetailsEGPCash(string firstName = default(string), string middleName = default(string), string lastName = default(string), string phoneNumber = default(string), string street = default(string), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), string email = default(string), string reference = default(string))
         {
             this.FirstName = firstName;
+            this.MiddleName = middleName;
             this.LastName = lastName;
             this.PhoneNumber = phoneNumber;
             this.Street = street;
             this.TransferReason = transferReason;
-            this.MiddleName = middleName;
             this.Email = email;
             this.Reference = reference;
         }
