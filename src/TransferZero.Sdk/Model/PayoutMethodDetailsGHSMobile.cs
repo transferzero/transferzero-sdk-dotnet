@@ -25,32 +25,30 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;bank_code\&quot;: \&quot;030100\&quot;,   \&quot;bank_account\&quot;: \&quot;123456789\&quot;,   \&quot;transfer_reason\&quot;: \&quot;third_party_person_account\&quot; } &#x60;&#x60;&#x60;  The current banks supported and their bank_codes values are:  - Access Bank: 280100 - Barclays Bank: 030100 - GCB Bank: 040100 - Ecobank: 130100 - First National Bank: 330100 - Heritage Bank: 370100 - Prudential Bank: 180100 - Stanbic Bank: 190100 - Standard Chartered Bank: 020100 - United Bank for Africa: 060100 - Zenith Bank: 120100
+    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;phone_number\&quot;: \&quot;+233302123456\&quot;, // E.164 international format   \&quot;mobile_provider\&quot;: \&quot;vodafone\&quot;,   \&quot;transfer_reason\&quot;: \&quot;third_party_person_account\&quot; } &#x60;&#x60;&#x60;
     /// </summary>
     [DataContract]
-    public partial class PayoutMethodDetailsGHSBank :  IEquatable<PayoutMethodDetailsGHSBank>, IValidatableObject
+    public partial class PayoutMethodDetailsGHSMobile :  IEquatable<PayoutMethodDetailsGHSMobile>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayoutMethodDetailsGHSBank" /> class.
+        /// Initializes a new instance of the <see cref="PayoutMethodDetailsGHSMobile" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PayoutMethodDetailsGHSBank() { }
+        protected PayoutMethodDetailsGHSMobile() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayoutMethodDetailsGHSBank" /> class.
+        /// Initializes a new instance of the <see cref="PayoutMethodDetailsGHSMobile" /> class.
         /// </summary>
         /// <param name="firstName">firstName (required).</param>
         /// <param name="lastName">lastName (required).</param>
-        /// <param name="bankCode">bankCode (required).</param>
-        /// <param name="bankAccount">bankAccount (required).</param>
-        /// <param name="birthDate">Date of birth of recipient.</param>
+        /// <param name="phoneNumber">phoneNumber (required).</param>
+        /// <param name="mobileProvider">mobileProvider.</param>
         /// <param name="transferReason">transferReason.</param>
-        public PayoutMethodDetailsGHSBank(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string), DateTime? birthDate = default(DateTime?), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum))
+        public PayoutMethodDetailsGHSMobile(string firstName = default(string), string lastName = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
-            this.BankCode = bankCode;
-            this.BankAccount = bankAccount;
-            this.BirthDate = birthDate;
+            this.PhoneNumber = phoneNumber;
+            this.MobileProvider = mobileProvider;
             this.TransferReason = transferReason;
         }
         
@@ -67,24 +65,16 @@ namespace TransferZero.Sdk.Model
         public string LastName { get; set; }
 
         /// <summary>
-        /// Gets or Sets BankCode
+        /// Gets or Sets PhoneNumber
         /// </summary>
-        [DataMember(Name="bank_code", EmitDefaultValue=false)]
-        public string BankCode { get; set; }
+        [DataMember(Name="phone_number", EmitDefaultValue=false)]
+        public string PhoneNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets BankAccount
+        /// Gets or Sets MobileProvider
         /// </summary>
-        [DataMember(Name="bank_account", EmitDefaultValue=false)]
-        public string BankAccount { get; set; }
-
-        /// <summary>
-        /// Date of birth of recipient
-        /// </summary>
-        /// <value>Date of birth of recipient</value>
-        [DataMember(Name="birth_date", EmitDefaultValue=false)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime? BirthDate { get; set; }
+        [DataMember(Name="mobile_provider", EmitDefaultValue=false)]
+        public PayoutMethodMobileProviderEnum MobileProvider { get; set; }
 
         /// <summary>
         /// Gets or Sets TransferReason
@@ -99,12 +89,11 @@ namespace TransferZero.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PayoutMethodDetailsGHSBank {\n");
+            sb.Append("class PayoutMethodDetailsGHSMobile {\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
-            sb.Append("  BankCode: ").Append(BankCode).Append("\n");
-            sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
-            sb.Append("  BirthDate: ").Append(BirthDate).Append("\n");
+            sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            sb.Append("  MobileProvider: ").Append(MobileProvider).Append("\n");
             sb.Append("  TransferReason: ").Append(TransferReason).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -126,15 +115,15 @@ namespace TransferZero.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PayoutMethodDetailsGHSBank);
+            return this.Equals(input as PayoutMethodDetailsGHSMobile);
         }
 
         /// <summary>
-        /// Returns true if PayoutMethodDetailsGHSBank instances are equal
+        /// Returns true if PayoutMethodDetailsGHSMobile instances are equal
         /// </summary>
-        /// <param name="input">Instance of PayoutMethodDetailsGHSBank to be compared</param>
+        /// <param name="input">Instance of PayoutMethodDetailsGHSMobile to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PayoutMethodDetailsGHSBank input)
+        public bool Equals(PayoutMethodDetailsGHSMobile input)
         {
             if (input == null)
                 return false;
@@ -151,19 +140,14 @@ namespace TransferZero.Sdk.Model
                     this.LastName.Equals(input.LastName))
                 ) && 
                 (
-                    this.BankCode == input.BankCode ||
-                    (this.BankCode != null &&
-                    this.BankCode.Equals(input.BankCode))
+                    this.PhoneNumber == input.PhoneNumber ||
+                    (this.PhoneNumber != null &&
+                    this.PhoneNumber.Equals(input.PhoneNumber))
                 ) && 
                 (
-                    this.BankAccount == input.BankAccount ||
-                    (this.BankAccount != null &&
-                    this.BankAccount.Equals(input.BankAccount))
-                ) && 
-                (
-                    this.BirthDate == input.BirthDate ||
-                    (this.BirthDate != null &&
-                    this.BirthDate.Equals(input.BirthDate))
+                    this.MobileProvider == input.MobileProvider ||
+                    (this.MobileProvider != null &&
+                    this.MobileProvider.Equals(input.MobileProvider))
                 ) && 
                 (
                     this.TransferReason == input.TransferReason ||
@@ -185,12 +169,10 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.FirstName.GetHashCode();
                 if (this.LastName != null)
                     hashCode = hashCode * 59 + this.LastName.GetHashCode();
-                if (this.BankCode != null)
-                    hashCode = hashCode * 59 + this.BankCode.GetHashCode();
-                if (this.BankAccount != null)
-                    hashCode = hashCode * 59 + this.BankAccount.GetHashCode();
-                if (this.BirthDate != null)
-                    hashCode = hashCode * 59 + this.BirthDate.GetHashCode();
+                if (this.PhoneNumber != null)
+                    hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
+                if (this.MobileProvider != null)
+                    hashCode = hashCode * 59 + this.MobileProvider.GetHashCode();
                 if (this.TransferReason != null)
                     hashCode = hashCode * 59 + this.TransferReason.GetHashCode();
                 return hashCode;

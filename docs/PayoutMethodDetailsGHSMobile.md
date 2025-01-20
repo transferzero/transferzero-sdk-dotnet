@@ -1,5 +1,5 @@
 
-# TransferZero.Sdk.Model.PayoutMethodDetailsGHSBank
+# TransferZero.Sdk.Model.PayoutMethodDetailsGHSMobile
 
 ## Properties
 
@@ -7,9 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FirstName** | **string** |  | 
 **LastName** | **string** |  | 
-**BankCode** | **string** |  | 
-**BankAccount** | **string** |  | 
-**BirthDate** | **DateTime?** | Date of birth of recipient | [optional] 
+**PhoneNumber** | **string** |  | 
+**MobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  | [optional] 
 **TransferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
