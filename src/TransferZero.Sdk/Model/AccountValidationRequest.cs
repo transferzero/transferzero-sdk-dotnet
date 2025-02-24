@@ -80,34 +80,40 @@ namespace TransferZero.Sdk.Model
             GH = 7,
 
             /// <summary>
+            /// Enum KE for value: KE
+            /// </summary>
+            [EnumMember(Value = "KE")]
+            KE = 8,
+
+            /// <summary>
             /// Enum NG for value: NG
             /// </summary>
             [EnumMember(Value = "NG")]
-            NG = 8,
+            NG = 9,
 
             /// <summary>
             /// Enum SN for value: SN
             /// </summary>
             [EnumMember(Value = "SN")]
-            SN = 9,
+            SN = 10,
 
             /// <summary>
             /// Enum TD for value: TD
             /// </summary>
             [EnumMember(Value = "TD")]
-            TD = 10,
+            TD = 11,
 
             /// <summary>
             /// Enum TG for value: TG
             /// </summary>
             [EnumMember(Value = "TG")]
-            TG = 11,
+            TG = 12,
 
             /// <summary>
             /// Enum UG for value: UG
             /// </summary>
             [EnumMember(Value = "UG")]
-            UG = 12
+            UG = 13
 
         }
 
@@ -137,22 +143,28 @@ namespace TransferZero.Sdk.Model
             GHS = 2,
 
             /// <summary>
+            /// Enum KES for value: KES
+            /// </summary>
+            [EnumMember(Value = "KES")]
+            KES = 3,
+
+            /// <summary>
             /// Enum XOF for value: XOF
             /// </summary>
             [EnumMember(Value = "XOF")]
-            XOF = 3,
+            XOF = 4,
 
             /// <summary>
             /// Enum UGX for value: UGX
             /// </summary>
             [EnumMember(Value = "UGX")]
-            UGX = 4,
+            UGX = 5,
 
             /// <summary>
             /// Enum XAF for value: XAF
             /// </summary>
             [EnumMember(Value = "XAF")]
-            XAF = 5
+            XAF = 6
 
         }
 
