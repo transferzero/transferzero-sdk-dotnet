@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;bank_code\&quot;: \&quot;030100\&quot;,   \&quot;bank_account\&quot;: \&quot;123456789\&quot; } &#x60;&#x60;&#x60;  The current banks supported and their bank_codes values are:  - Access Bank: 280100 - Barclays Bank: 030100 - GCB Bank: 040100 - Ecobank: 130100 - First National Bank: 330100 - Heritage Bank: 370100 - Prudential Bank: 180100 - Stanbic Bank: 190100 - Standard Chartered Bank: 020100 - United Bank for Africa: 060100 - Zenith Bank: 120100
+    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;bank_code\&quot;: \&quot;030100\&quot;,   \&quot;bank_account\&quot;: \&quot;123456789\&quot;,   \&quot;transfer_reason\&quot;: \&quot;third_party_person_account\&quot; } &#x60;&#x60;&#x60;  The current banks supported and their bank_codes values are:  - Access Bank: 280100 - Barclays Bank: 030100 - GCB Bank: 040100 - Ecobank: 130100 - First National Bank: 330100 - Heritage Bank: 370100 - Prudential Bank: 180100 - Stanbic Bank: 190100 - Standard Chartered Bank: 020100 - United Bank for Africa: 060100 - Zenith Bank: 120100
     /// </summary>
     [DataContract]
     public partial class PayoutMethodDetailsGHSBank :  IEquatable<PayoutMethodDetailsGHSBank>, IValidatableObject
@@ -42,12 +42,16 @@ namespace TransferZero.Sdk.Model
         /// <param name="lastName">lastName (required).</param>
         /// <param name="bankCode">bankCode (required).</param>
         /// <param name="bankAccount">bankAccount (required).</param>
-        public PayoutMethodDetailsGHSBank(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string))
+        /// <param name="birthDate">Date of birth of recipient.</param>
+        /// <param name="transferReason">transferReason.</param>
+        public PayoutMethodDetailsGHSBank(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string), DateTime? birthDate = default(DateTime?), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.BankCode = bankCode;
             this.BankAccount = bankAccount;
+            this.BirthDate = birthDate;
+            this.TransferReason = transferReason;
         }
         
         /// <summary>
@@ -75,6 +79,20 @@ namespace TransferZero.Sdk.Model
         public string BankAccount { get; set; }
 
         /// <summary>
+        /// Date of birth of recipient
+        /// </summary>
+        /// <value>Date of birth of recipient</value>
+        [DataMember(Name="birth_date", EmitDefaultValue=false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime? BirthDate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TransferReason
+        /// </summary>
+        [DataMember(Name="transfer_reason", EmitDefaultValue=false)]
+        public PayoutMethodTransferReasonEnum TransferReason { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -86,6 +104,8 @@ namespace TransferZero.Sdk.Model
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  BankCode: ").Append(BankCode).Append("\n");
             sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
+            sb.Append("  BirthDate: ").Append(BirthDate).Append("\n");
+            sb.Append("  TransferReason: ").Append(TransferReason).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -139,6 +159,16 @@ namespace TransferZero.Sdk.Model
                     this.BankAccount == input.BankAccount ||
                     (this.BankAccount != null &&
                     this.BankAccount.Equals(input.BankAccount))
+                ) && 
+                (
+                    this.BirthDate == input.BirthDate ||
+                    (this.BirthDate != null &&
+                    this.BirthDate.Equals(input.BirthDate))
+                ) && 
+                (
+                    this.TransferReason == input.TransferReason ||
+                    (this.TransferReason != null &&
+                    this.TransferReason.Equals(input.TransferReason))
                 );
         }
 
@@ -159,6 +189,10 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.BankCode.GetHashCode();
                 if (this.BankAccount != null)
                     hashCode = hashCode * 59 + this.BankAccount.GetHashCode();
+                if (this.BirthDate != null)
+                    hashCode = hashCode * 59 + this.BirthDate.GetHashCode();
+                if (this.TransferReason != null)
+                    hashCode = hashCode * 59 + this.TransferReason.GetHashCode();
                 return hashCode;
             }
         }

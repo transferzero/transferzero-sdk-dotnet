@@ -38,28 +38,82 @@ namespace TransferZero.Sdk.Model
         public enum CountryEnum
         {
             /// <summary>
-            /// Enum NG for value: NG
+            /// Enum BF for value: BF
             /// </summary>
-            [EnumMember(Value = "NG")]
-            NG = 1,
+            [EnumMember(Value = "BF")]
+            BF = 1,
 
             /// <summary>
-            /// Enum GH for value: GH
+            /// Enum BJ for value: BJ
             /// </summary>
-            [EnumMember(Value = "GH")]
-            GH = 2,
+            [EnumMember(Value = "BJ")]
+            BJ = 2,
 
             /// <summary>
-            /// Enum SN for value: SN
+            /// Enum CG for value: CG
             /// </summary>
-            [EnumMember(Value = "SN")]
-            SN = 3,
+            [EnumMember(Value = "CG")]
+            CG = 3,
 
             /// <summary>
             /// Enum CI for value: CI
             /// </summary>
             [EnumMember(Value = "CI")]
-            CI = 4
+            CI = 4,
+
+            /// <summary>
+            /// Enum CM for value: CM
+            /// </summary>
+            [EnumMember(Value = "CM")]
+            CM = 5,
+
+            /// <summary>
+            /// Enum GA for value: GA
+            /// </summary>
+            [EnumMember(Value = "GA")]
+            GA = 6,
+
+            /// <summary>
+            /// Enum GH for value: GH
+            /// </summary>
+            [EnumMember(Value = "GH")]
+            GH = 7,
+
+            /// <summary>
+            /// Enum KE for value: KE
+            /// </summary>
+            [EnumMember(Value = "KE")]
+            KE = 8,
+
+            /// <summary>
+            /// Enum NG for value: NG
+            /// </summary>
+            [EnumMember(Value = "NG")]
+            NG = 9,
+
+            /// <summary>
+            /// Enum SN for value: SN
+            /// </summary>
+            [EnumMember(Value = "SN")]
+            SN = 10,
+
+            /// <summary>
+            /// Enum TD for value: TD
+            /// </summary>
+            [EnumMember(Value = "TD")]
+            TD = 11,
+
+            /// <summary>
+            /// Enum TG for value: TG
+            /// </summary>
+            [EnumMember(Value = "TG")]
+            TG = 12,
+
+            /// <summary>
+            /// Enum UG for value: UG
+            /// </summary>
+            [EnumMember(Value = "UG")]
+            UG = 13
 
         }
 
@@ -89,10 +143,28 @@ namespace TransferZero.Sdk.Model
             GHS = 2,
 
             /// <summary>
+            /// Enum KES for value: KES
+            /// </summary>
+            [EnumMember(Value = "KES")]
+            KES = 3,
+
+            /// <summary>
             /// Enum XOF for value: XOF
             /// </summary>
             [EnumMember(Value = "XOF")]
-            XOF = 3
+            XOF = 4,
+
+            /// <summary>
+            /// Enum UGX for value: UGX
+            /// </summary>
+            [EnumMember(Value = "UGX")]
+            UGX = 5,
+
+            /// <summary>
+            /// Enum XAF for value: XAF
+            /// </summary>
+            [EnumMember(Value = "XAF")]
+            XAF = 6
 
         }
 

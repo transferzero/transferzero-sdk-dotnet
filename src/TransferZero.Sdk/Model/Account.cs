@@ -53,6 +53,13 @@ namespace TransferZero.Sdk.Model
         public string Currency { get; private set; }
 
         /// <summary>
+        /// Represents the account balance after deducting pending transactions from the last 7 days. It provides a more accurate depiction of available funds.
+        /// </summary>
+        /// <value>Represents the account balance after deducting pending transactions from the last 7 days. It provides a more accurate depiction of available funds.</value>
+        [DataMember(Name="amount_after_pending", EmitDefaultValue=false)]
+        public decimal? AmountAfterPending { get; private set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -62,6 +69,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("class Account {\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  AmountAfterPending: ").Append(AmountAfterPending).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,6 +113,11 @@ namespace TransferZero.Sdk.Model
                     this.Currency == input.Currency ||
                     (this.Currency != null &&
                     this.Currency.Equals(input.Currency))
+                ) && 
+                (
+                    this.AmountAfterPending == input.AmountAfterPending ||
+                    (this.AmountAfterPending != null &&
+                    this.AmountAfterPending.Equals(input.AmountAfterPending))
                 );
         }
 
@@ -121,6 +134,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.Amount.GetHashCode();
                 if (this.Currency != null)
                     hashCode = hashCode * 59 + this.Currency.GetHashCode();
+                if (this.AmountAfterPending != null)
+                    hashCode = hashCode * 59 + this.AmountAfterPending.GetHashCode();
                 return hashCode;
             }
         }

@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using System.IO;
+using System.Reflection;
 using System.Web;
 using System.Linq;
 using System.Net;
@@ -134,7 +135,19 @@ namespace TransferZero.Sdk.Client
             // add file parameter, if any
             foreach(var param in fileParams)
             {
-                request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentType);
+                // support both RestSharp 105.x and 106.x
+                Type requestType = request.GetType();
+
+                MethodInfo methodInfo = requestType.GetMethod("AddFile", new Type[] { typeof(string), typeof(Action<string>), typeof(string), typeof(string) });
+
+                if (methodInfo != null) {
+                    methodInfo.Invoke(request, new object[] { param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentType } );
+                } else {
+                    methodInfo = requestType.GetMethod("AddFile", new Type[] { typeof(string), typeof(Action<string>), typeof(long), typeof(string), typeof(string) });
+                    if (methodInfo != null) {
+                        methodInfo.Invoke(request, new object[] { param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentLength, param.Value.ContentType } );
+                    }
+                }
             }
 
             if (postBody != null) // http body (model or byte[]) parameter
@@ -494,7 +507,7 @@ namespace TransferZero.Sdk.Client
         }
 
         /// <summary>
-        /// Convert params to key/value pairs. 
+        /// Convert params to key/value pairs.
         /// Use collectionFormat to properly format lists and collections.
         /// </summary>
         /// <param name="name">Key name.</param>
