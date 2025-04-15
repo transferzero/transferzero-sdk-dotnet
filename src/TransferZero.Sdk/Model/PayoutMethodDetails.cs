@@ -43,6 +43,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="bankCode">bankCode (required).</param>
         /// <param name="bankAccount">bankAccount (required).</param>
         /// <param name="bankAccountType">bankAccountType.</param>
+        /// <param name="birthDate">Date of birth of recipient.</param>
         /// <param name="phoneNumber">phoneNumber (required).</param>
         /// <param name="mobileProvider">mobileProvider (required).</param>
         /// <param name="country">country (required).</param>
@@ -53,6 +54,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="cashProvider">cashProvider (required).</param>
         /// <param name="sortCode">sortCode.</param>
         /// <param name="bic">bic.</param>
+        /// <param name="narration">narration.</param>
         /// <param name="senderIdentityCardType">senderIdentityCardType (required).</param>
         /// <param name="senderIdentityCardId">senderIdentityCardId (required).</param>
         /// <param name="senderCityOfBirth">senderCityOfBirth.</param>
@@ -68,18 +70,21 @@ namespace TransferZero.Sdk.Model
         /// <param name="postalCode">postalCode (required).</param>
         /// <param name="city">city (required).</param>
         /// <param name="email">email.</param>
+        /// <param name="branchCode">branchCode (required).</param>
         /// <param name="transferReasonCode">transferReasonCode.</param>
         /// <param name="contactFirstName">contactFirstName.</param>
         /// <param name="contactLastName">contactLastName.</param>
         /// <param name="registrationNumber">registrationNumber.</param>
         /// <param name="natureOfBusiness">natureOfBusiness.</param>
         /// <param name="legalEntityType">legalEntityType.</param>
-        /// <param name="branchCode">branchCode (required).</param>
-        /// <param name="swiftCode">swiftCode (required).</param>
+        /// <param name="middleName">middleName (required).</param>
+        /// <param name="routingNumber">routingNumber.</param>
+        /// <param name="swiftCode">swiftCode.</param>
+        /// <param name="relationshipToSender">relationshipToSender.</param>
         /// <param name="pixKeyType">pixKeyType.</param>
         /// <param name="pixKeyValue">pixKeyValue.</param>
         /// <param name="ifscCode">ifscCode (required).</param>
-        public PayoutMethodDetails(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), string iban = default(string), string bankName = default(string), string bankCountry = default(string), PayoutMethodCashProviderEnum cashProvider = default(PayoutMethodCashProviderEnum), string sortCode = default(string), string bic = default(string), PayoutMethodIdentityCardTypeEnum senderIdentityCardType = default(PayoutMethodIdentityCardTypeEnum), string senderIdentityCardId = default(string), string senderCityOfBirth = default(string), string senderCountryOfBirth = default(string), PayoutMethodGenderEnum senderGender = default(PayoutMethodGenderEnum), string reason = default(string), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), string reference = default(string), string name = default(string), string address = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string email = default(string), string transferReasonCode = default(string), string contactFirstName = default(string), string contactLastName = default(string), string registrationNumber = default(string), PayoutMethodNatureOfBusinessEnum natureOfBusiness = default(PayoutMethodNatureOfBusinessEnum), PayoutMethodLegalEntityTypeEnum legalEntityType = default(PayoutMethodLegalEntityTypeEnum), string branchCode = default(string), string swiftCode = default(string), PayoutMethodPixKeyTypeEnum pixKeyType = default(PayoutMethodPixKeyTypeEnum), string pixKeyValue = default(string), string ifscCode = default(string))
+        public PayoutMethodDetails(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), DateTime? birthDate = default(DateTime?), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), string iban = default(string), string bankName = default(string), string bankCountry = default(string), PayoutMethodCashProviderEnum cashProvider = default(PayoutMethodCashProviderEnum), string sortCode = default(string), string bic = default(string), string narration = default(string), PayoutMethodIdentityCardTypeEnum senderIdentityCardType = default(PayoutMethodIdentityCardTypeEnum), string senderIdentityCardId = default(string), string senderCityOfBirth = default(string), string senderCountryOfBirth = default(string), PayoutMethodGenderEnum senderGender = default(PayoutMethodGenderEnum), string reason = default(string), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), string reference = default(string), string name = default(string), string address = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string email = default(string), string branchCode = default(string), string transferReasonCode = default(string), string contactFirstName = default(string), string contactLastName = default(string), string registrationNumber = default(string), PayoutMethodNatureOfBusinessEnum natureOfBusiness = default(PayoutMethodNatureOfBusinessEnum), PayoutMethodLegalEntityTypeEnum legalEntityType = default(PayoutMethodLegalEntityTypeEnum), string middleName = default(string), string routingNumber = default(string), string swiftCode = default(string), string relationshipToSender = default(string), PayoutMethodPixKeyTypeEnum pixKeyType = default(PayoutMethodPixKeyTypeEnum), string pixKeyValue = default(string), string ifscCode = default(string))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -102,12 +107,14 @@ namespace TransferZero.Sdk.Model
             this.PostalCode = postalCode;
             this.City = city;
             this.BranchCode = branchCode;
-            this.SwiftCode = swiftCode;
+            this.MiddleName = middleName;
             this.IfscCode = ifscCode;
             this.BankAccountType = bankAccountType;
+            this.BirthDate = birthDate;
             this.BankCountry = bankCountry;
             this.SortCode = sortCode;
             this.Bic = bic;
+            this.Narration = narration;
             this.SenderCityOfBirth = senderCityOfBirth;
             this.SenderCountryOfBirth = senderCountryOfBirth;
             this.SenderGender = senderGender;
@@ -120,6 +127,9 @@ namespace TransferZero.Sdk.Model
             this.RegistrationNumber = registrationNumber;
             this.NatureOfBusiness = natureOfBusiness;
             this.LegalEntityType = legalEntityType;
+            this.RoutingNumber = routingNumber;
+            this.SwiftCode = swiftCode;
+            this.RelationshipToSender = relationshipToSender;
             this.PixKeyType = pixKeyType;
             this.PixKeyValue = pixKeyValue;
         }
@@ -153,6 +163,14 @@ namespace TransferZero.Sdk.Model
         /// </summary>
         [DataMember(Name="bank_account_type", EmitDefaultValue=false)]
         public PayoutMethodBankAccountTypeEnum BankAccountType { get; set; }
+
+        /// <summary>
+        /// Date of birth of recipient
+        /// </summary>
+        /// <value>Date of birth of recipient</value>
+        [DataMember(Name="birth_date", EmitDefaultValue=false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime? BirthDate { get; set; }
 
         /// <summary>
         /// Gets or Sets PhoneNumber
@@ -213,6 +231,12 @@ namespace TransferZero.Sdk.Model
         /// </summary>
         [DataMember(Name="bic", EmitDefaultValue=false)]
         public string Bic { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Narration
+        /// </summary>
+        [DataMember(Name="narration", EmitDefaultValue=false)]
+        public string Narration { get; set; }
 
         /// <summary>
         /// Gets or Sets SenderIdentityCardType
@@ -305,6 +329,12 @@ namespace TransferZero.Sdk.Model
         public string Email { get; set; }
 
         /// <summary>
+        /// Gets or Sets BranchCode
+        /// </summary>
+        [DataMember(Name="branch_code", EmitDefaultValue=false)]
+        public string BranchCode { get; set; }
+
+        /// <summary>
         /// Gets or Sets TransferReasonCode
         /// </summary>
         [DataMember(Name="transfer_reason_code", EmitDefaultValue=false)]
@@ -341,16 +371,28 @@ namespace TransferZero.Sdk.Model
         public PayoutMethodLegalEntityTypeEnum LegalEntityType { get; set; }
 
         /// <summary>
-        /// Gets or Sets BranchCode
+        /// Gets or Sets MiddleName
         /// </summary>
-        [DataMember(Name="branch_code", EmitDefaultValue=false)]
-        public string BranchCode { get; set; }
+        [DataMember(Name="middle_name", EmitDefaultValue=false)]
+        public string MiddleName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RoutingNumber
+        /// </summary>
+        [DataMember(Name="routing_number", EmitDefaultValue=false)]
+        public string RoutingNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets SwiftCode
         /// </summary>
         [DataMember(Name="swift_code", EmitDefaultValue=false)]
         public string SwiftCode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RelationshipToSender
+        /// </summary>
+        [DataMember(Name="relationship_to_sender", EmitDefaultValue=false)]
+        public string RelationshipToSender { get; set; }
 
         /// <summary>
         /// Gets or Sets PixKeyType
@@ -383,6 +425,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  BankCode: ").Append(BankCode).Append("\n");
             sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
             sb.Append("  BankAccountType: ").Append(BankAccountType).Append("\n");
+            sb.Append("  BirthDate: ").Append(BirthDate).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  MobileProvider: ").Append(MobileProvider).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
@@ -393,6 +436,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  CashProvider: ").Append(CashProvider).Append("\n");
             sb.Append("  SortCode: ").Append(SortCode).Append("\n");
             sb.Append("  Bic: ").Append(Bic).Append("\n");
+            sb.Append("  Narration: ").Append(Narration).Append("\n");
             sb.Append("  SenderIdentityCardType: ").Append(SenderIdentityCardType).Append("\n");
             sb.Append("  SenderIdentityCardId: ").Append(SenderIdentityCardId).Append("\n");
             sb.Append("  SenderCityOfBirth: ").Append(SenderCityOfBirth).Append("\n");
@@ -408,14 +452,17 @@ namespace TransferZero.Sdk.Model
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("  City: ").Append(City).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("  BranchCode: ").Append(BranchCode).Append("\n");
             sb.Append("  TransferReasonCode: ").Append(TransferReasonCode).Append("\n");
             sb.Append("  ContactFirstName: ").Append(ContactFirstName).Append("\n");
             sb.Append("  ContactLastName: ").Append(ContactLastName).Append("\n");
             sb.Append("  RegistrationNumber: ").Append(RegistrationNumber).Append("\n");
             sb.Append("  NatureOfBusiness: ").Append(NatureOfBusiness).Append("\n");
             sb.Append("  LegalEntityType: ").Append(LegalEntityType).Append("\n");
-            sb.Append("  BranchCode: ").Append(BranchCode).Append("\n");
+            sb.Append("  MiddleName: ").Append(MiddleName).Append("\n");
+            sb.Append("  RoutingNumber: ").Append(RoutingNumber).Append("\n");
             sb.Append("  SwiftCode: ").Append(SwiftCode).Append("\n");
+            sb.Append("  RelationshipToSender: ").Append(RelationshipToSender).Append("\n");
             sb.Append("  PixKeyType: ").Append(PixKeyType).Append("\n");
             sb.Append("  PixKeyValue: ").Append(PixKeyValue).Append("\n");
             sb.Append("  IfscCode: ").Append(IfscCode).Append("\n");
@@ -479,6 +526,11 @@ namespace TransferZero.Sdk.Model
                     this.BankAccountType.Equals(input.BankAccountType))
                 ) && 
                 (
+                    this.BirthDate == input.BirthDate ||
+                    (this.BirthDate != null &&
+                    this.BirthDate.Equals(input.BirthDate))
+                ) && 
+                (
                     this.PhoneNumber == input.PhoneNumber ||
                     (this.PhoneNumber != null &&
                     this.PhoneNumber.Equals(input.PhoneNumber))
@@ -527,6 +579,11 @@ namespace TransferZero.Sdk.Model
                     this.Bic == input.Bic ||
                     (this.Bic != null &&
                     this.Bic.Equals(input.Bic))
+                ) && 
+                (
+                    this.Narration == input.Narration ||
+                    (this.Narration != null &&
+                    this.Narration.Equals(input.Narration))
                 ) && 
                 (
                     this.SenderIdentityCardType == input.SenderIdentityCardType ||
@@ -604,6 +661,11 @@ namespace TransferZero.Sdk.Model
                     this.Email.Equals(input.Email))
                 ) && 
                 (
+                    this.BranchCode == input.BranchCode ||
+                    (this.BranchCode != null &&
+                    this.BranchCode.Equals(input.BranchCode))
+                ) && 
+                (
                     this.TransferReasonCode == input.TransferReasonCode ||
                     (this.TransferReasonCode != null &&
                     this.TransferReasonCode.Equals(input.TransferReasonCode))
@@ -634,14 +696,24 @@ namespace TransferZero.Sdk.Model
                     this.LegalEntityType.Equals(input.LegalEntityType))
                 ) && 
                 (
-                    this.BranchCode == input.BranchCode ||
-                    (this.BranchCode != null &&
-                    this.BranchCode.Equals(input.BranchCode))
+                    this.MiddleName == input.MiddleName ||
+                    (this.MiddleName != null &&
+                    this.MiddleName.Equals(input.MiddleName))
+                ) && 
+                (
+                    this.RoutingNumber == input.RoutingNumber ||
+                    (this.RoutingNumber != null &&
+                    this.RoutingNumber.Equals(input.RoutingNumber))
                 ) && 
                 (
                     this.SwiftCode == input.SwiftCode ||
                     (this.SwiftCode != null &&
                     this.SwiftCode.Equals(input.SwiftCode))
+                ) && 
+                (
+                    this.RelationshipToSender == input.RelationshipToSender ||
+                    (this.RelationshipToSender != null &&
+                    this.RelationshipToSender.Equals(input.RelationshipToSender))
                 ) && 
                 (
                     this.PixKeyType == input.PixKeyType ||
@@ -679,6 +751,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.BankAccount.GetHashCode();
                 if (this.BankAccountType != null)
                     hashCode = hashCode * 59 + this.BankAccountType.GetHashCode();
+                if (this.BirthDate != null)
+                    hashCode = hashCode * 59 + this.BirthDate.GetHashCode();
                 if (this.PhoneNumber != null)
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
                 if (this.MobileProvider != null)
@@ -699,6 +773,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.SortCode.GetHashCode();
                 if (this.Bic != null)
                     hashCode = hashCode * 59 + this.Bic.GetHashCode();
+                if (this.Narration != null)
+                    hashCode = hashCode * 59 + this.Narration.GetHashCode();
                 if (this.SenderIdentityCardType != null)
                     hashCode = hashCode * 59 + this.SenderIdentityCardType.GetHashCode();
                 if (this.SenderIdentityCardId != null)
@@ -729,6 +805,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.City.GetHashCode();
                 if (this.Email != null)
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
+                if (this.BranchCode != null)
+                    hashCode = hashCode * 59 + this.BranchCode.GetHashCode();
                 if (this.TransferReasonCode != null)
                     hashCode = hashCode * 59 + this.TransferReasonCode.GetHashCode();
                 if (this.ContactFirstName != null)
@@ -741,10 +819,14 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.NatureOfBusiness.GetHashCode();
                 if (this.LegalEntityType != null)
                     hashCode = hashCode * 59 + this.LegalEntityType.GetHashCode();
-                if (this.BranchCode != null)
-                    hashCode = hashCode * 59 + this.BranchCode.GetHashCode();
+                if (this.MiddleName != null)
+                    hashCode = hashCode * 59 + this.MiddleName.GetHashCode();
+                if (this.RoutingNumber != null)
+                    hashCode = hashCode * 59 + this.RoutingNumber.GetHashCode();
                 if (this.SwiftCode != null)
                     hashCode = hashCode * 59 + this.SwiftCode.GetHashCode();
+                if (this.RelationshipToSender != null)
+                    hashCode = hashCode * 59 + this.RelationshipToSender.GetHashCode();
                 if (this.PixKeyType != null)
                     hashCode = hashCode * 59 + this.PixKeyType.GetHashCode();
                 if (this.PixKeyValue != null)

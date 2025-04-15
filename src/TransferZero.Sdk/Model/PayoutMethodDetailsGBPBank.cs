@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;bank_name\&quot;: \&quot;Deutsche Bank\&quot;,   \&quot;bank_account\&quot;: \&quot;12345678\&quot;, // Required if IBAN is not present   \&quot;sort_code\&quot;: \&quot;123456\&quot;, // Required if bank_account is present   \&quot;iban\&quot;: \&quot;DE89370400440532013000\&quot;, // Required if no bank_account &amp; sort_code   \&quot;bic\&quot;: \&quot;DEUTDEBBXXX\&quot; // Optional } &#x60;&#x60;&#x60;
+    /// &#x60;&#x60;&#x60;JSON \&quot;details\&quot;: {   \&quot;first_name\&quot;: \&quot;First\&quot;,   \&quot;last_name\&quot;: \&quot;Last\&quot;,   \&quot;iban\&quot;: \&quot;GB45LOYD60161331926819\&quot;, // Required if no &#x60;bank_account&#x60; and &#x60;sort_code&#x60;   \&quot;bank_account\&quot;: \&quot;12345678\&quot;, // Required if &#x60;iban&#x60; is not present   \&quot;sort_code\&quot;: \&quot;123456\&quot;, // Required if &#x60;bank_account&#x60; is present   \&quot;bic\&quot;: \&quot;CHASUS33XXX\&quot; // Optional   \&quot;bank_name\&quot;: \&quot;JPMorgan Chase Bank\&quot;, // Optional   \&quot;narration\&quot;: \&quot;Birthday Gift\&quot; // Optional } &#x60;&#x60;&#x60;
     /// </summary>
     [DataContract]
     public partial class PayoutMethodDetailsGBPBank :  IEquatable<PayoutMethodDetailsGBPBank>, IValidatableObject
@@ -40,20 +40,24 @@ namespace TransferZero.Sdk.Model
         /// </summary>
         /// <param name="firstName">firstName (required).</param>
         /// <param name="lastName">lastName (required).</param>
-        /// <param name="bankName">bankName.</param>
+        /// <param name="iban">iban.</param>
         /// <param name="bankAccount">bankAccount.</param>
         /// <param name="sortCode">sortCode.</param>
-        /// <param name="iban">iban.</param>
         /// <param name="bic">bic.</param>
-        public PayoutMethodDetailsGBPBank(string firstName = default(string), string lastName = default(string), string bankName = default(string), string bankAccount = default(string), string sortCode = default(string), string iban = default(string), string bic = default(string))
+        /// <param name="bankName">bankName.</param>
+        /// <param name="narration">narration.</param>
+        /// <param name="birthDate">Date of birth of recipient.</param>
+        public PayoutMethodDetailsGBPBank(string firstName = default(string), string lastName = default(string), string iban = default(string), string bankAccount = default(string), string sortCode = default(string), string bic = default(string), string bankName = default(string), string narration = default(string), DateTime? birthDate = default(DateTime?))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
-            this.BankName = bankName;
+            this.Iban = iban;
             this.BankAccount = bankAccount;
             this.SortCode = sortCode;
-            this.Iban = iban;
             this.Bic = bic;
+            this.BankName = bankName;
+            this.Narration = narration;
+            this.BirthDate = birthDate;
         }
         
         /// <summary>
@@ -69,10 +73,10 @@ namespace TransferZero.Sdk.Model
         public string LastName { get; set; }
 
         /// <summary>
-        /// Gets or Sets BankName
+        /// Gets or Sets Iban
         /// </summary>
-        [DataMember(Name="bank_name", EmitDefaultValue=false)]
-        public string BankName { get; set; }
+        [DataMember(Name="iban", EmitDefaultValue=false)]
+        public string Iban { get; set; }
 
         /// <summary>
         /// Gets or Sets BankAccount
@@ -87,16 +91,30 @@ namespace TransferZero.Sdk.Model
         public string SortCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets Iban
-        /// </summary>
-        [DataMember(Name="iban", EmitDefaultValue=false)]
-        public string Iban { get; set; }
-
-        /// <summary>
         /// Gets or Sets Bic
         /// </summary>
         [DataMember(Name="bic", EmitDefaultValue=false)]
         public string Bic { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BankName
+        /// </summary>
+        [DataMember(Name="bank_name", EmitDefaultValue=false)]
+        public string BankName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Narration
+        /// </summary>
+        [DataMember(Name="narration", EmitDefaultValue=false)]
+        public string Narration { get; set; }
+
+        /// <summary>
+        /// Date of birth of recipient
+        /// </summary>
+        /// <value>Date of birth of recipient</value>
+        [DataMember(Name="birth_date", EmitDefaultValue=false)]
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime? BirthDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -108,11 +126,13 @@ namespace TransferZero.Sdk.Model
             sb.Append("class PayoutMethodDetailsGBPBank {\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
-            sb.Append("  BankName: ").Append(BankName).Append("\n");
+            sb.Append("  Iban: ").Append(Iban).Append("\n");
             sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
             sb.Append("  SortCode: ").Append(SortCode).Append("\n");
-            sb.Append("  Iban: ").Append(Iban).Append("\n");
             sb.Append("  Bic: ").Append(Bic).Append("\n");
+            sb.Append("  BankName: ").Append(BankName).Append("\n");
+            sb.Append("  Narration: ").Append(Narration).Append("\n");
+            sb.Append("  BirthDate: ").Append(BirthDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -158,9 +178,9 @@ namespace TransferZero.Sdk.Model
                     this.LastName.Equals(input.LastName))
                 ) && 
                 (
-                    this.BankName == input.BankName ||
-                    (this.BankName != null &&
-                    this.BankName.Equals(input.BankName))
+                    this.Iban == input.Iban ||
+                    (this.Iban != null &&
+                    this.Iban.Equals(input.Iban))
                 ) && 
                 (
                     this.BankAccount == input.BankAccount ||
@@ -173,14 +193,24 @@ namespace TransferZero.Sdk.Model
                     this.SortCode.Equals(input.SortCode))
                 ) && 
                 (
-                    this.Iban == input.Iban ||
-                    (this.Iban != null &&
-                    this.Iban.Equals(input.Iban))
-                ) && 
-                (
                     this.Bic == input.Bic ||
                     (this.Bic != null &&
                     this.Bic.Equals(input.Bic))
+                ) && 
+                (
+                    this.BankName == input.BankName ||
+                    (this.BankName != null &&
+                    this.BankName.Equals(input.BankName))
+                ) && 
+                (
+                    this.Narration == input.Narration ||
+                    (this.Narration != null &&
+                    this.Narration.Equals(input.Narration))
+                ) && 
+                (
+                    this.BirthDate == input.BirthDate ||
+                    (this.BirthDate != null &&
+                    this.BirthDate.Equals(input.BirthDate))
                 );
         }
 
@@ -197,16 +227,20 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.FirstName.GetHashCode();
                 if (this.LastName != null)
                     hashCode = hashCode * 59 + this.LastName.GetHashCode();
-                if (this.BankName != null)
-                    hashCode = hashCode * 59 + this.BankName.GetHashCode();
+                if (this.Iban != null)
+                    hashCode = hashCode * 59 + this.Iban.GetHashCode();
                 if (this.BankAccount != null)
                     hashCode = hashCode * 59 + this.BankAccount.GetHashCode();
                 if (this.SortCode != null)
                     hashCode = hashCode * 59 + this.SortCode.GetHashCode();
-                if (this.Iban != null)
-                    hashCode = hashCode * 59 + this.Iban.GetHashCode();
                 if (this.Bic != null)
                     hashCode = hashCode * 59 + this.Bic.GetHashCode();
+                if (this.BankName != null)
+                    hashCode = hashCode * 59 + this.BankName.GetHashCode();
+                if (this.Narration != null)
+                    hashCode = hashCode * 59 + this.Narration.GetHashCode();
+                if (this.BirthDate != null)
+                    hashCode = hashCode * 59 + this.BirthDate.GetHashCode();
                 return hashCode;
             }
         }

@@ -7,9 +7,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FirstName** | **string** |  | 
 **LastName** | **string** |  | 
-**BankName** | **string** |  | [optional] 
 **Iban** | **string** |  | 
 **Bic** | **string** |  | [optional] 
+**BankName** | **string** |  | [optional] 
+**Narration** | **string** |  | [optional] 
+**BirthDate** | **DateTime?** | Date of birth of recipient | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

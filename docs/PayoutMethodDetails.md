@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **BankCode** | **string** |  | 
 **BankAccount** | **string** |  | 
 **BankAccountType** | [**PayoutMethodBankAccountTypeEnum**](PayoutMethodBankAccountTypeEnum.md) |  | [optional] 
+**BirthDate** | **DateTime?** | Date of birth of recipient | [optional] 
 **PhoneNumber** | **string** |  | 
 **MobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  | 
 **Country** | [**PayoutMethodCountryEnum**](PayoutMethodCountryEnum.md) |  | 
@@ -20,6 +21,7 @@ Name | Type | Description | Notes
 **CashProvider** | [**PayoutMethodCashProviderEnum**](PayoutMethodCashProviderEnum.md) |  | 
 **SortCode** | **string** |  | [optional] 
 **Bic** | **string** |  | [optional] 
+**Narration** | **string** |  | [optional] 
 **SenderIdentityCardType** | [**PayoutMethodIdentityCardTypeEnum**](PayoutMethodIdentityCardTypeEnum.md) |  | 
 **SenderIdentityCardId** | **string** |  | 
 **SenderCityOfBirth** | **string** |  | [optional] 
@@ -35,14 +37,17 @@ Name | Type | Description | Notes
 **PostalCode** | **string** |  | 
 **City** | **string** |  | 
 **Email** | **string** |  | [optional] 
+**BranchCode** | **string** |  | 
 **TransferReasonCode** | **string** |  | [optional] 
 **ContactFirstName** | **string** |  | [optional] 
 **ContactLastName** | **string** |  | [optional] 
 **RegistrationNumber** | **string** |  | [optional] 
 **NatureOfBusiness** | [**PayoutMethodNatureOfBusinessEnum**](PayoutMethodNatureOfBusinessEnum.md) |  | [optional] 
 **LegalEntityType** | [**PayoutMethodLegalEntityTypeEnum**](PayoutMethodLegalEntityTypeEnum.md) |  | [optional] 
-**BranchCode** | **string** |  | 
-**SwiftCode** | **string** |  | 
+**MiddleName** | **string** |  | 
+**RoutingNumber** | **string** |  | [optional] 
+**SwiftCode** | **string** |  | [optional] 
+**RelationshipToSender** | **string** |  | [optional] 
 **PixKeyType** | [**PayoutMethodPixKeyTypeEnum**](PayoutMethodPixKeyTypeEnum.md) |  | [optional] 
 **PixKeyValue** | **string** |  | [optional] 
 **IfscCode** | **string** |  | 

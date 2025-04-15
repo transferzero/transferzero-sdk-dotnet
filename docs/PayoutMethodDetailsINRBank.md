@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **BankName** | **string** |  | 
 **BankAccount** | **string** |  | 
 **IfscCode** | **string** |  | 
+**BirthDate** | **DateTime?** | Date of birth of recipient | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
