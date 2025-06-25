@@ -97,7 +97,7 @@ namespace TransferZero.Sdk.Model
         /// <summary>
         /// Gets or Sets Street
         /// </summary>
-        [DataMember(Name="street&quot;", EmitDefaultValue=false)]
+        [DataMember(Name="street", EmitDefaultValue=false)]
         public string Street { get; set; }
 
         /// <summary>
