@@ -360,6 +360,8 @@ Configuration configuration = new Configuration();
 configuration.ApiKey = "<key>";
 configuration.ApiSecret = "<secret>";
 configuration.BasePath = "https://api-sandbox.transferzero.com/v1";
+// Optional
+configuration.Timeout = 30000; // In milliseconds
 ```
 
 ### VB.NET
@@ -369,4 +371,6 @@ Dim configuration As Configuration = New Configuration()
 configuration.ApiKey = "<key>"
 configuration.ApiSecret = "<secret>"
 configuration.BasePath = "https://api-sandbox.transferzero.com/v1"
+// Optional
+configuration.Timeout = 30000; // In milliseconds
 ```
