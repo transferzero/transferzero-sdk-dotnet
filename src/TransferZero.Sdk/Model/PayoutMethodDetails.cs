@@ -44,6 +44,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="bankAccount">bankAccount (required).</param>
         /// <param name="bankAccountType">bankAccountType.</param>
         /// <param name="birthDate">Date of birth of recipient.</param>
+        /// <param name="street">street (required).</param>
         /// <param name="phoneNumber">phoneNumber (required).</param>
         /// <param name="mobileProvider">mobileProvider (required).</param>
         /// <param name="country">country (required).</param>
@@ -66,7 +67,6 @@ namespace TransferZero.Sdk.Model
         /// <param name="reference">reference.</param>
         /// <param name="name">name (required).</param>
         /// <param name="address">address (required).</param>
-        /// <param name="street">street (required).</param>
         /// <param name="postalCode">postalCode (required).</param>
         /// <param name="city">city (required).</param>
         /// <param name="email">email.</param>
@@ -84,12 +84,13 @@ namespace TransferZero.Sdk.Model
         /// <param name="pixKeyType">pixKeyType.</param>
         /// <param name="pixKeyValue">pixKeyValue.</param>
         /// <param name="ifscCode">ifscCode (required).</param>
-        public PayoutMethodDetails(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), DateTime? birthDate = default(DateTime?), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), string iban = default(string), string bankName = default(string), string bankCountry = default(string), PayoutMethodCashProviderEnum cashProvider = default(PayoutMethodCashProviderEnum), string sortCode = default(string), string bic = default(string), string narration = default(string), PayoutMethodIdentityCardTypeEnum senderIdentityCardType = default(PayoutMethodIdentityCardTypeEnum), string senderIdentityCardId = default(string), string senderCityOfBirth = default(string), string senderCountryOfBirth = default(string), PayoutMethodGenderEnum senderGender = default(PayoutMethodGenderEnum), string reason = default(string), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), string reference = default(string), string name = default(string), string address = default(string), string street = default(string), string postalCode = default(string), string city = default(string), string email = default(string), string branchCode = default(string), string transferReasonCode = default(string), string contactFirstName = default(string), string contactLastName = default(string), string registrationNumber = default(string), PayoutMethodNatureOfBusinessEnum natureOfBusiness = default(PayoutMethodNatureOfBusinessEnum), PayoutMethodLegalEntityTypeEnum legalEntityType = default(PayoutMethodLegalEntityTypeEnum), string middleName = default(string), string routingNumber = default(string), string swiftCode = default(string), string relationshipToSender = default(string), PayoutMethodPixKeyTypeEnum pixKeyType = default(PayoutMethodPixKeyTypeEnum), string pixKeyValue = default(string), string ifscCode = default(string))
+        public PayoutMethodDetails(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), DateTime? birthDate = default(DateTime?), string street = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), string iban = default(string), string bankName = default(string), string bankCountry = default(string), PayoutMethodCashProviderEnum cashProvider = default(PayoutMethodCashProviderEnum), string sortCode = default(string), string bic = default(string), string narration = default(string), PayoutMethodIdentityCardTypeEnum senderIdentityCardType = default(PayoutMethodIdentityCardTypeEnum), string senderIdentityCardId = default(string), string senderCityOfBirth = default(string), string senderCountryOfBirth = default(string), PayoutMethodGenderEnum senderGender = default(PayoutMethodGenderEnum), string reason = default(string), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), string reference = default(string), string name = default(string), string address = default(string), string postalCode = default(string), string city = default(string), string email = default(string), string branchCode = default(string), string transferReasonCode = default(string), string contactFirstName = default(string), string contactLastName = default(string), string registrationNumber = default(string), PayoutMethodNatureOfBusinessEnum natureOfBusiness = default(PayoutMethodNatureOfBusinessEnum), PayoutMethodLegalEntityTypeEnum legalEntityType = default(PayoutMethodLegalEntityTypeEnum), string middleName = default(string), string routingNumber = default(string), string swiftCode = default(string), string relationshipToSender = default(string), PayoutMethodPixKeyTypeEnum pixKeyType = default(PayoutMethodPixKeyTypeEnum), string pixKeyValue = default(string), string ifscCode = default(string))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.BankCode = bankCode;
             this.BankAccount = bankAccount;
+            this.Street = street;
             this.PhoneNumber = phoneNumber;
             this.MobileProvider = mobileProvider;
             this.Country = country;
@@ -103,7 +104,6 @@ namespace TransferZero.Sdk.Model
             this.IdentityCardId = identityCardId;
             this.Name = name;
             this.Address = address;
-            this.Street = street;
             this.PostalCode = postalCode;
             this.City = city;
             this.BranchCode = branchCode;
@@ -171,6 +171,12 @@ namespace TransferZero.Sdk.Model
         [DataMember(Name="birth_date", EmitDefaultValue=false)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
         public DateTime? BirthDate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Street
+        /// </summary>
+        [DataMember(Name="street", EmitDefaultValue=false)]
+        public string Street { get; set; }
 
         /// <summary>
         /// Gets or Sets PhoneNumber
@@ -305,12 +311,6 @@ namespace TransferZero.Sdk.Model
         public string Address { get; set; }
 
         /// <summary>
-        /// Gets or Sets Street
-        /// </summary>
-        [DataMember(Name="street", EmitDefaultValue=false)]
-        public string Street { get; set; }
-
-        /// <summary>
         /// Gets or Sets PostalCode
         /// </summary>
         [DataMember(Name="postal_code", EmitDefaultValue=false)]
@@ -426,6 +426,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
             sb.Append("  BankAccountType: ").Append(BankAccountType).Append("\n");
             sb.Append("  BirthDate: ").Append(BirthDate).Append("\n");
+            sb.Append("  Street: ").Append(Street).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  MobileProvider: ").Append(MobileProvider).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
@@ -448,7 +449,6 @@ namespace TransferZero.Sdk.Model
             sb.Append("  Reference: ").Append(Reference).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Address: ").Append(Address).Append("\n");
-            sb.Append("  Street: ").Append(Street).Append("\n");
             sb.Append("  PostalCode: ").Append(PostalCode).Append("\n");
             sb.Append("  City: ").Append(City).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
@@ -529,6 +529,11 @@ namespace TransferZero.Sdk.Model
                     this.BirthDate == input.BirthDate ||
                     (this.BirthDate != null &&
                     this.BirthDate.Equals(input.BirthDate))
+                ) && 
+                (
+                    this.Street == input.Street ||
+                    (this.Street != null &&
+                    this.Street.Equals(input.Street))
                 ) && 
                 (
                     this.PhoneNumber == input.PhoneNumber ||
@@ -641,11 +646,6 @@ namespace TransferZero.Sdk.Model
                     this.Address.Equals(input.Address))
                 ) && 
                 (
-                    this.Street == input.Street ||
-                    (this.Street != null &&
-                    this.Street.Equals(input.Street))
-                ) && 
-                (
                     this.PostalCode == input.PostalCode ||
                     (this.PostalCode != null &&
                     this.PostalCode.Equals(input.PostalCode))
@@ -753,6 +753,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.BankAccountType.GetHashCode();
                 if (this.BirthDate != null)
                     hashCode = hashCode * 59 + this.BirthDate.GetHashCode();
+                if (this.Street != null)
+                    hashCode = hashCode * 59 + this.Street.GetHashCode();
                 if (this.PhoneNumber != null)
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
                 if (this.MobileProvider != null)
@@ -797,8 +799,6 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Address != null)
                     hashCode = hashCode * 59 + this.Address.GetHashCode();
-                if (this.Street != null)
-                    hashCode = hashCode * 59 + this.Street.GetHashCode();
                 if (this.PostalCode != null)
                     hashCode = hashCode * 59 + this.PostalCode.GetHashCode();
                 if (this.City != null)

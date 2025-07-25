@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;phone_number\&quot;: \&quot;+2347087661211\&quot;   } &#x60;&#x60;&#x60;
+    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;phone_number\&quot;: \&quot;+2348187221236\&quot;,     \&quot;account_name\&quot;: \&quot;Test Merchant\&quot;,     \&quot;account_number\&quot;: \&quot;1234567890\&quot;   } &#x60;&#x60;&#x60;
     /// </summary>
     [DataContract]
     public partial class PayinMethodDetailsNGNBank :  IEquatable<PayinMethodDetailsNGNBank>, IValidatableObject
@@ -34,9 +34,13 @@ namespace TransferZero.Sdk.Model
         /// Initializes a new instance of the <see cref="PayinMethodDetailsNGNBank" /> class.
         /// </summary>
         /// <param name="phoneNumber">Sender&#39;s phone number.</param>
-        public PayinMethodDetailsNGNBank(string phoneNumber = default(string))
+        /// <param name="accountName">Merchant&#39;s virtual account name.</param>
+        /// <param name="accountNumber">Merchant&#39;s virtual account number.</param>
+        public PayinMethodDetailsNGNBank(string phoneNumber = default(string), string accountName = default(string), string accountNumber = default(string))
         {
             this.PhoneNumber = phoneNumber;
+            this.AccountName = accountName;
+            this.AccountNumber = accountNumber;
         }
         
         /// <summary>
@@ -47,6 +51,20 @@ namespace TransferZero.Sdk.Model
         public string PhoneNumber { get; set; }
 
         /// <summary>
+        /// Merchant&#39;s virtual account name
+        /// </summary>
+        /// <value>Merchant&#39;s virtual account name</value>
+        [DataMember(Name="account_name", EmitDefaultValue=false)]
+        public string AccountName { get; set; }
+
+        /// <summary>
+        /// Merchant&#39;s virtual account number
+        /// </summary>
+        /// <value>Merchant&#39;s virtual account number</value>
+        [DataMember(Name="account_number", EmitDefaultValue=false)]
+        public string AccountNumber { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -55,6 +73,8 @@ namespace TransferZero.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class PayinMethodDetailsNGNBank {\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            sb.Append("  AccountName: ").Append(AccountName).Append("\n");
+            sb.Append("  AccountNumber: ").Append(AccountNumber).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -93,6 +113,16 @@ namespace TransferZero.Sdk.Model
                     this.PhoneNumber == input.PhoneNumber ||
                     (this.PhoneNumber != null &&
                     this.PhoneNumber.Equals(input.PhoneNumber))
+                ) && 
+                (
+                    this.AccountName == input.AccountName ||
+                    (this.AccountName != null &&
+                    this.AccountName.Equals(input.AccountName))
+                ) && 
+                (
+                    this.AccountNumber == input.AccountNumber ||
+                    (this.AccountNumber != null &&
+                    this.AccountNumber.Equals(input.AccountNumber))
                 );
         }
 
@@ -107,6 +137,10 @@ namespace TransferZero.Sdk.Model
                 int hashCode = 41;
                 if (this.PhoneNumber != null)
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
+                if (this.AccountName != null)
+                    hashCode = hashCode * 59 + this.AccountName.GetHashCode();
+                if (this.AccountNumber != null)
+                    hashCode = hashCode * 59 + this.AccountNumber.GetHashCode();
                 return hashCode;
             }
         }

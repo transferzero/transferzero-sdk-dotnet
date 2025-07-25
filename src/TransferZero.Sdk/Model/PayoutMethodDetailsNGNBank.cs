@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;bank_code\&quot;: \&quot;058\&quot;,     \&quot;bank_account\&quot;: \&quot;123456789\&quot;,     \&quot;bank_account_type\&quot;: \&quot;10\&quot;       # 10 for saving       # 20 for current accounts   } &#x60;&#x60;&#x60;  See [NGN Bank](https://docs.azafinance.com/docs/individual-payments/#ngnbank) documentation for the bank_code
+    /// &#x60;&#x60;&#x60;JSON   \&quot;details\&quot;: {     \&quot;first_name\&quot;: \&quot;First\&quot;,     \&quot;last_name\&quot;: \&quot;Last\&quot;,     \&quot;bank_code\&quot;: \&quot;058\&quot;,     \&quot;bank_account\&quot;: \&quot;123456789\&quot;,     \&quot;bank_account_type\&quot;: \&quot;10\&quot;, # 10 for saving, 20 for current accounts     \&quot;street\&quot;: \&quot;1 Main Street\&quot;   } &#x60;&#x60;&#x60;  See [NGN Bank](https://docs.azafinance.com/docs/individual-payments/#ngnbank) documentation for the bank_code
     /// </summary>
     [DataContract]
     public partial class PayoutMethodDetailsNGNBank :  IEquatable<PayoutMethodDetailsNGNBank>, IValidatableObject
@@ -44,7 +44,8 @@ namespace TransferZero.Sdk.Model
         /// <param name="bankAccount">bankAccount (required).</param>
         /// <param name="bankAccountType">bankAccountType.</param>
         /// <param name="birthDate">Date of birth of recipient.</param>
-        public PayoutMethodDetailsNGNBank(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), DateTime? birthDate = default(DateTime?))
+        /// <param name="street">street.</param>
+        public PayoutMethodDetailsNGNBank(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), DateTime? birthDate = default(DateTime?), string street = default(string))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -52,6 +53,7 @@ namespace TransferZero.Sdk.Model
             this.BankAccount = bankAccount;
             this.BankAccountType = bankAccountType;
             this.BirthDate = birthDate;
+            this.Street = street;
         }
         
         /// <summary>
@@ -93,6 +95,12 @@ namespace TransferZero.Sdk.Model
         public DateTime? BirthDate { get; set; }
 
         /// <summary>
+        /// Gets or Sets Street
+        /// </summary>
+        [DataMember(Name="street", EmitDefaultValue=false)]
+        public string Street { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -106,6 +114,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  BankAccount: ").Append(BankAccount).Append("\n");
             sb.Append("  BankAccountType: ").Append(BankAccountType).Append("\n");
             sb.Append("  BirthDate: ").Append(BirthDate).Append("\n");
+            sb.Append("  Street: ").Append(Street).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -169,6 +178,11 @@ namespace TransferZero.Sdk.Model
                     this.BirthDate == input.BirthDate ||
                     (this.BirthDate != null &&
                     this.BirthDate.Equals(input.BirthDate))
+                ) && 
+                (
+                    this.Street == input.Street ||
+                    (this.Street != null &&
+                    this.Street.Equals(input.Street))
                 );
         }
 
@@ -193,6 +207,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.BankAccountType.GetHashCode();
                 if (this.BirthDate != null)
                     hashCode = hashCode * 59 + this.BirthDate.GetHashCode();
+                if (this.Street != null)
+                    hashCode = hashCode * 59 + this.Street.GetHashCode();
                 return hashCode;
             }
         }

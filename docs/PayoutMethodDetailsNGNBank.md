@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **BankAccount** | **string** |  | 
 **BankAccountType** | [**PayoutMethodBankAccountTypeEnum**](PayoutMethodBankAccountTypeEnum.md) |  | [optional] 
 **BirthDate** | **DateTime?** | Date of birth of recipient | [optional] 
+**Street** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
