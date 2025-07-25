@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-2019
+    runs-on: windows-2022
 
     steps:
       - name: Checkout repository
@@ -26,7 +26,7 @@ jobs:
       - name: Build and Pack
         run: |
           msbuild /property:Configuration=Release
-          nuget pack TransferZero.Sdk.csproj -properties Configuration=Release 
+          nuget pack TransferZero.Sdk.csproj -properties Configuration=Release
         working-directory: src/TransferZero.Sdk
 
       - name: Publish to NuGet
