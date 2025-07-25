@@ -34,13 +34,17 @@ namespace TransferZero.Sdk.Model
         /// Initializes a new instance of the <see cref="PayinMethodDetails" /> class.
         /// </summary>
         /// <param name="phoneNumber">The phone number where the funds should be collected from.</param>
+        /// <param name="accountName">Merchant&#39;s virtual account name.</param>
+        /// <param name="accountNumber">Merchant&#39;s virtual account number.</param>
         /// <param name="mobileProvider">mobileProvider.</param>
         /// <param name="country">country.</param>
         /// <param name="otp">The OTP that the sender received in otp verified ussd popup ux flow..</param>
         /// <param name="refundAddress">Please make sure the refund_address is a valid BTC address belonging to the sender, as that is going to be used in case the transaction has to be refunded..</param>
-        public PayinMethodDetails(string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum), string otp = default(string), string refundAddress = default(string))
+        public PayinMethodDetails(string phoneNumber = default(string), string accountName = default(string), string accountNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum), string otp = default(string), string refundAddress = default(string))
         {
             this.PhoneNumber = phoneNumber;
+            this.AccountName = accountName;
+            this.AccountNumber = accountNumber;
             this.MobileProvider = mobileProvider;
             this.Country = country;
             this.Otp = otp;
@@ -53,6 +57,20 @@ namespace TransferZero.Sdk.Model
         /// <value>The phone number where the funds should be collected from</value>
         [DataMember(Name="phone_number", EmitDefaultValue=false)]
         public string PhoneNumber { get; set; }
+
+        /// <summary>
+        /// Merchant&#39;s virtual account name
+        /// </summary>
+        /// <value>Merchant&#39;s virtual account name</value>
+        [DataMember(Name="account_name", EmitDefaultValue=false)]
+        public string AccountName { get; set; }
+
+        /// <summary>
+        /// Merchant&#39;s virtual account number
+        /// </summary>
+        /// <value>Merchant&#39;s virtual account number</value>
+        [DataMember(Name="account_number", EmitDefaultValue=false)]
+        public string AccountNumber { get; set; }
 
         /// <summary>
         /// Gets or Sets MobileProvider
@@ -89,6 +107,8 @@ namespace TransferZero.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class PayinMethodDetails {\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            sb.Append("  AccountName: ").Append(AccountName).Append("\n");
+            sb.Append("  AccountNumber: ").Append(AccountNumber).Append("\n");
             sb.Append("  MobileProvider: ").Append(MobileProvider).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
             sb.Append("  Otp: ").Append(Otp).Append("\n");
@@ -133,6 +153,16 @@ namespace TransferZero.Sdk.Model
                     this.PhoneNumber.Equals(input.PhoneNumber))
                 ) && 
                 (
+                    this.AccountName == input.AccountName ||
+                    (this.AccountName != null &&
+                    this.AccountName.Equals(input.AccountName))
+                ) && 
+                (
+                    this.AccountNumber == input.AccountNumber ||
+                    (this.AccountNumber != null &&
+                    this.AccountNumber.Equals(input.AccountNumber))
+                ) && 
+                (
                     this.MobileProvider == input.MobileProvider ||
                     (this.MobileProvider != null &&
                     this.MobileProvider.Equals(input.MobileProvider))
@@ -165,6 +195,10 @@ namespace TransferZero.Sdk.Model
                 int hashCode = 41;
                 if (this.PhoneNumber != null)
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
+                if (this.AccountName != null)
+                    hashCode = hashCode * 59 + this.AccountName.GetHashCode();
+                if (this.AccountNumber != null)
+                    hashCode = hashCode * 59 + this.AccountNumber.GetHashCode();
                 if (this.MobileProvider != null)
                     hashCode = hashCode * 59 + this.MobileProvider.GetHashCode();
                 if (this.Country != null)
