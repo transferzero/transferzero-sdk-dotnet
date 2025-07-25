@@ -9,7 +9,7 @@ OpenAPI spec version: 1.0
 -->
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    
+
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{94c1fc93-2648-4ab0-90fe-10f7555259ef}</ProjectGuid>
@@ -17,7 +17,7 @@ OpenAPI spec version: 1.0
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TransferZero.Sdk</RootNamespace>
     <AssemblyName>TransferZero.Sdk</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -75,4 +75,3 @@ OpenAPI spec version: 1.0
   </ItemGroup>
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
-
