@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **Id** | **Guid?** |  | [optional] 
 **Type** | **string** | Type of recipient to create - either person or business (defaults to person)  | [optional] 
 **Errors** | **Dictionary&lt;string, List&lt;ValidationErrorDescription&gt;&gt;** | The fields that have some problems and don&#39;t pass validation | [optional] 
+**MandateId** | **Guid?** | The ID of the mandate that is related to this recipient. This field is present when a ZAR bank mandate signing is required or has been completed. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

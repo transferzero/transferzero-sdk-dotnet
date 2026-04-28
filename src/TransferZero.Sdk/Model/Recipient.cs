@@ -245,6 +245,13 @@ namespace TransferZero.Sdk.Model
         public Dictionary<string, List<ValidationErrorDescription>> Errors { get; private set; }
 
         /// <summary>
+        /// The ID of the mandate that is related to this recipient. This field is present when a ZAR bank mandate signing is required or has been completed.
+        /// </summary>
+        /// <value>The ID of the mandate that is related to this recipient. This field is present when a ZAR bank mandate signing is required or has been completed.</value>
+        [DataMember(Name="mandate_id", EmitDefaultValue=false)]
+        public Guid? MandateId { get; private set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -276,6 +283,7 @@ namespace TransferZero.Sdk.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Errors: ").Append(Errors).Append("\n");
+            sb.Append("  MandateId: ").Append(MandateId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -429,6 +437,11 @@ namespace TransferZero.Sdk.Model
                     this.Errors == input.Errors ||
                     this.Errors != null &&
                     this.Errors.SequenceEqual(input.Errors)
+                ) && 
+                (
+                    this.MandateId == input.MandateId ||
+                    (this.MandateId != null &&
+                    this.MandateId.Equals(input.MandateId))
                 );
         }
 
@@ -489,6 +502,8 @@ namespace TransferZero.Sdk.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Errors != null)
                     hashCode = hashCode * 59 + this.Errors.GetHashCode();
+                if (this.MandateId != null)
+                    hashCode = hashCode * 59 + this.MandateId.GetHashCode();
                 return hashCode;
             }
         }
