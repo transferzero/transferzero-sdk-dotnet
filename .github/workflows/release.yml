@@ -19,6 +19,9 @@ jobs:
       - name: Install msbuild and add to PATH
         uses: microsoft/setup-msbuild@v2
 
+      - name: Install .NET Framework 4.5 Developer Pack
+        run: choco install netfx-4.5.2-devpack -y --no-progress
+
       - name: Restore NuGet Packages
         run: nuget restore -SolutionDirectory ../..
         working-directory: src/TransferZero.Sdk
