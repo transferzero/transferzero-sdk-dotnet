@@ -19,8 +19,10 @@ jobs:
       - name: Install msbuild and add to PATH
         uses: microsoft/setup-msbuild@v2
 
-      - name: Install .NET Framework 4.5 Developer Pack
-        run: choco install netfx-4.5.2-devpack -y --no-progress
+      - name: Install .NET Framework 4.5 reference assemblies
+        run: |
+          nuget install Microsoft.NETFramework.ReferenceAssemblies.net45 -Version 1.0.3 -OutputDirectory C:\refasm -ExcludeVersion
+          "FrameworkPathOverride=C:\refasm\Microsoft.NETFramework.ReferenceAssemblies.net45\build\.NETFramework\v4.5\" | Out-File -FilePath $env:GITHUB_ENV -Append
 
       - name: Restore NuGet Packages
         run: nuget restore -SolutionDirectory ../..
@@ -28,7 +30,7 @@ jobs:
 
       - name: Build and Pack
         run: |
-          msbuild /property:Configuration=Release
+          msbuild /property:Configuration=Release /property:FrameworkPathOverride=$env:FrameworkPathOverride
           nuget pack TransferZero.Sdk.csproj -properties Configuration=Release
         working-directory: src/TransferZero.Sdk
 
