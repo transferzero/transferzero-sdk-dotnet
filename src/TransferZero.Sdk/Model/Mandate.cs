@@ -31,56 +31,12 @@ namespace TransferZero.Sdk.Model
     public partial class Mandate : Dictionary<String, Object>,  IEquatable<Mandate>, IValidatableObject
     {
         /// <summary>
-        /// Current state of the mandate.  - &#x60;pending&#x60; — created, awaiting signing flow - &#x60;notified&#x60; — recipient has been notified to sign - &#x60;signed&#x60; — recipient signed; mandate is active - &#x60;failed&#x60; — signing flow failed (e.g. AVS/CDV rejection) - &#x60;bypassed&#x60; — administratively bypassed for an inward AZA payment
-        /// </summary>
-        /// <value>Current state of the mandate.  - &#x60;pending&#x60; — created, awaiting signing flow - &#x60;notified&#x60; — recipient has been notified to sign - &#x60;signed&#x60; — recipient signed; mandate is active - &#x60;failed&#x60; — signing flow failed (e.g. AVS/CDV rejection) - &#x60;bypassed&#x60; — administratively bypassed for an inward AZA payment</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum StatusEnum
-        {
-            /// <summary>
-            /// Enum Pending for value: pending
-            /// </summary>
-            [EnumMember(Value = "pending")]
-            Pending = 1,
-
-            /// <summary>
-            /// Enum Notified for value: notified
-            /// </summary>
-            [EnumMember(Value = "notified")]
-            Notified = 2,
-
-            /// <summary>
-            /// Enum Signed for value: signed
-            /// </summary>
-            [EnumMember(Value = "signed")]
-            Signed = 3,
-
-            /// <summary>
-            /// Enum Failed for value: failed
-            /// </summary>
-            [EnumMember(Value = "failed")]
-            Failed = 4,
-
-            /// <summary>
-            /// Enum Bypassed for value: bypassed
-            /// </summary>
-            [EnumMember(Value = "bypassed")]
-            Bypassed = 5
-
-        }
-
-        /// <summary>
-        /// Current state of the mandate.  - &#x60;pending&#x60; — created, awaiting signing flow - &#x60;notified&#x60; — recipient has been notified to sign - &#x60;signed&#x60; — recipient signed; mandate is active - &#x60;failed&#x60; — signing flow failed (e.g. AVS/CDV rejection) - &#x60;bypassed&#x60; — administratively bypassed for an inward AZA payment
-        /// </summary>
-        /// <value>Current state of the mandate.  - &#x60;pending&#x60; — created, awaiting signing flow - &#x60;notified&#x60; — recipient has been notified to sign - &#x60;signed&#x60; — recipient signed; mandate is active - &#x60;failed&#x60; — signing flow failed (e.g. AVS/CDV rejection) - &#x60;bypassed&#x60; — administratively bypassed for an inward AZA payment</value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public StatusEnum? Status { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="Mandate" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        public Mandate() : base()
+        /// <param name="status">status.</param>
+        public Mandate(MandateStatus status = default(MandateStatus)) : base()
         {
+            this.Status = status;
         }
         
         /// <summary>
@@ -90,6 +46,11 @@ namespace TransferZero.Sdk.Model
         [DataMember(Name="id", EmitDefaultValue=false)]
         public Guid? Id { get; private set; }
 
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public MandateStatus Status { get; set; }
 
         /// <summary>
         /// Numeric beneficiary type identifier. Identifies whether the mandate was issued for a natural person, sole proprietor, partnership, company, etc.
