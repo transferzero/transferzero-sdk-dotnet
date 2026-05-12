@@ -28,13 +28,13 @@ namespace TransferZero.Sdk.Model
     /// A Mandate authorises payouts to a Recipient. Mandates are issued per calendar year and must be in a &#x60;signed&#x60; (or &#x60;bypassed&#x60;) state before the linked Recipient can receive a payout.
     /// </summary>
     [DataContract]
-    public partial class Mandate : Dictionary<String, Object>,  IEquatable<Mandate>, IValidatableObject
+    public partial class Mandate :  IEquatable<Mandate>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Mandate" /> class.
         /// </summary>
         /// <param name="status">status.</param>
-        public Mandate(MandateStatus status = default(MandateStatus)) : base()
+        public Mandate(MandateStatus status = default(MandateStatus))
         {
             this.Status = status;
         }
@@ -95,7 +95,6 @@ namespace TransferZero.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Mandate {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  TypeId: ").Append(TypeId).Append("\n");
@@ -111,7 +110,7 @@ namespace TransferZero.Sdk.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -136,37 +135,37 @@ namespace TransferZero.Sdk.Model
             if (input == null)
                 return false;
 
-            return base.Equals(input) && 
+            return 
                 (
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.Status == input.Status ||
                     (this.Status != null &&
                     this.Status.Equals(input.Status))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.TypeId == input.TypeId ||
                     (this.TypeId != null &&
                     this.TypeId.Equals(input.TypeId))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.Reference == input.Reference ||
                     (this.Reference != null &&
                     this.Reference.Equals(input.Reference))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.SignedAt == input.SignedAt ||
                     (this.SignedAt != null &&
                     this.SignedAt.Equals(input.SignedAt))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.CreatedAt == input.CreatedAt ||
                     (this.CreatedAt != null &&
                     this.CreatedAt.Equals(input.CreatedAt))
-                ) && base.Equals(input) && 
+                ) && 
                 (
                     this.UpdatedAt == input.UpdatedAt ||
                     (this.UpdatedAt != null &&
@@ -182,7 +181,7 @@ namespace TransferZero.Sdk.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
+                int hashCode = 41;
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Status != null)
