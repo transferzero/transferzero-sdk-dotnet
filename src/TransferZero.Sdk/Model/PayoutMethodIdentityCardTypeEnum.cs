@@ -25,9 +25,9 @@ using OpenAPIDateConverter = TransferZero.Sdk.Client.OpenAPIDateConverter;
 namespace TransferZero.Sdk.Model
 {
     /// <summary>
-    /// The type of the identity card used by the sender or recipient:  - &#x60;PP&#x60;: Passport - &#x60;ID&#x60;: National Identity Card - &#x60;O&#x60;: Other type of identity card - &#x60;DL&#x60;: Driving License - &#x60;OT&#x60;: Other type of identity card
+    /// The type of the identity card used by the sender or recipient:  - &#x60;PP&#x60;: Passport - &#x60;ID&#x60;: National Identity Card - &#x60;O&#x60;: Other type of identity card - &#x60;DL&#x60;: Driving License - &#x60;OT&#x60;: Other type of identity card - &#x60;DNI&#x60;: Documento Nacional de Identidad (Peru) - &#x60;RUC&#x60;: Registro Único de Contribuyentes (Peru, business) - &#x60;CE&#x60;: Carnet de Extranjería (Peru, foreign national) - &#x60;PASS&#x60;: Passport (Peru) - &#x60;CI&#x60;: Cédula de Identidad (Costa Rica, individual) - &#x60;CJ&#x60;: Cédula Jurídica (Costa Rica, business) - &#x60;CR&#x60;: Cédula de Residencia (Costa Rica, resident)
     /// </summary>
-    /// <value>The type of the identity card used by the sender or recipient:  - &#x60;PP&#x60;: Passport - &#x60;ID&#x60;: National Identity Card - &#x60;O&#x60;: Other type of identity card - &#x60;DL&#x60;: Driving License - &#x60;OT&#x60;: Other type of identity card</value>
+    /// <value>The type of the identity card used by the sender or recipient:  - &#x60;PP&#x60;: Passport - &#x60;ID&#x60;: National Identity Card - &#x60;O&#x60;: Other type of identity card - &#x60;DL&#x60;: Driving License - &#x60;OT&#x60;: Other type of identity card - &#x60;DNI&#x60;: Documento Nacional de Identidad (Peru) - &#x60;RUC&#x60;: Registro Único de Contribuyentes (Peru, business) - &#x60;CE&#x60;: Carnet de Extranjería (Peru, foreign national) - &#x60;PASS&#x60;: Passport (Peru) - &#x60;CI&#x60;: Cédula de Identidad (Costa Rica, individual) - &#x60;CJ&#x60;: Cédula Jurídica (Costa Rica, business) - &#x60;CR&#x60;: Cédula de Residencia (Costa Rica, resident)</value>
     
     [JsonConverter(typeof(StringEnumConverter))]
     
@@ -61,7 +61,49 @@ namespace TransferZero.Sdk.Model
         /// Enum OT for value: OT
         /// </summary>
         [EnumMember(Value = "OT")]
-        OT = 5
+        OT = 5,
+
+        /// <summary>
+        /// Enum DNI for value: DNI
+        /// </summary>
+        [EnumMember(Value = "DNI")]
+        DNI = 6,
+
+        /// <summary>
+        /// Enum RUC for value: RUC
+        /// </summary>
+        [EnumMember(Value = "RUC")]
+        RUC = 7,
+
+        /// <summary>
+        /// Enum CE for value: CE
+        /// </summary>
+        [EnumMember(Value = "CE")]
+        CE = 8,
+
+        /// <summary>
+        /// Enum PASS for value: PASS
+        /// </summary>
+        [EnumMember(Value = "PASS")]
+        PASS = 9,
+
+        /// <summary>
+        /// Enum CI for value: CI
+        /// </summary>
+        [EnumMember(Value = "CI")]
+        CI = 10,
+
+        /// <summary>
+        /// Enum CJ for value: CJ
+        /// </summary>
+        [EnumMember(Value = "CJ")]
+        CJ = 11,
+
+        /// <summary>
+        /// Enum CR for value: CR
+        /// </summary>
+        [EnumMember(Value = "CR")]
+        CR = 12
 
     }
 

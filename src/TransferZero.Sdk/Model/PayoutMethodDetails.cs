@@ -42,7 +42,7 @@ namespace TransferZero.Sdk.Model
         /// <param name="lastName">lastName (required).</param>
         /// <param name="bankCode">bankCode (required).</param>
         /// <param name="bankAccount">bankAccount (required).</param>
-        /// <param name="bankAccountType">bankAccountType.</param>
+        /// <param name="bankAccountType">bankAccountType (required).</param>
         /// <param name="birthDate">Date of birth of recipient.</param>
         /// <param name="street">street (required).</param>
         /// <param name="phoneNumber">phoneNumber (required).</param>
@@ -83,12 +83,13 @@ namespace TransferZero.Sdk.Model
         /// <param name="relationshipToSender">relationshipToSender.</param>
         /// <param name="pixKeyType">pixKeyType.</param>
         /// <param name="pixKeyValue">pixKeyValue.</param>
-        public PayoutMethodDetails(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), DateTime? birthDate = default(DateTime?), string street = default(string), string phoneNumber = default(string), PayoutMethodMobileProviderEnum mobileProvider = default(PayoutMethodMobileProviderEnum), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), string iban = default(string), string bankName = default(string), string bankCountry = default(string), PayoutMethodCashProviderEnum cashProvider = default(PayoutMethodCashProviderEnum), string sortCode = default(string), string bic = default(string), string narration = default(string), PayoutMethodIdentityCardTypeEnum senderIdentityCardType = default(PayoutMethodIdentityCardTypeEnum), string senderIdentityCardId = default(string), string senderCityOfBirth = default(string), string senderCountryOfBirth = default(string), PayoutMethodGenderEnum senderGender = default(PayoutMethodGenderEnum), string reason = default(string), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), string reference = default(string), string name = default(string), string address = default(string), string postalCode = default(string), string city = default(string), string email = default(string), string branchCode = default(string), string transferReasonCode = default(string), string contactFirstName = default(string), string contactLastName = default(string), string registrationNumber = default(string), PayoutMethodNatureOfBusinessEnum natureOfBusiness = default(PayoutMethodNatureOfBusinessEnum), PayoutMethodLegalEntityTypeEnum legalEntityType = default(PayoutMethodLegalEntityTypeEnum), string middleName = default(string), string routingNumber = default(string), string swiftCode = default(string), string relationshipToSender = default(string), PayoutMethodPixKeyTypeEnum pixKeyType = default(PayoutMethodPixKeyTypeEnum), string pixKeyValue = default(string))
+        public PayoutMethodDetails(string firstName = default(string), string lastName = default(string), string bankCode = default(string), string bankAccount = default(string), PayoutMethodBankAccountTypeEnum bankAccountType = default(PayoutMethodBankAccountTypeEnum), DateTime? birthDate = default(DateTime?), string street = default(string), string phoneNumber = default(string), string mobileProvider = default(string), PayoutMethodCountryEnum country = default(PayoutMethodCountryEnum), PayoutMethodTransferReasonEnum transferReason = default(PayoutMethodTransferReasonEnum), string iban = default(string), string bankName = default(string), string bankCountry = default(string), PayoutMethodCashProviderEnum cashProvider = default(PayoutMethodCashProviderEnum), string sortCode = default(string), string bic = default(string), string narration = default(string), PayoutMethodIdentityCardTypeEnum senderIdentityCardType = default(PayoutMethodIdentityCardTypeEnum), string senderIdentityCardId = default(string), string senderCityOfBirth = default(string), string senderCountryOfBirth = default(string), PayoutMethodGenderEnum senderGender = default(PayoutMethodGenderEnum), string reason = default(string), PayoutMethodIdentityCardTypeEnum identityCardType = default(PayoutMethodIdentityCardTypeEnum), string identityCardId = default(string), string reference = default(string), string name = default(string), string address = default(string), string postalCode = default(string), string city = default(string), string email = default(string), string branchCode = default(string), string transferReasonCode = default(string), string contactFirstName = default(string), string contactLastName = default(string), string registrationNumber = default(string), PayoutMethodNatureOfBusinessEnum natureOfBusiness = default(PayoutMethodNatureOfBusinessEnum), PayoutMethodLegalEntityTypeEnum legalEntityType = default(PayoutMethodLegalEntityTypeEnum), string middleName = default(string), string routingNumber = default(string), string swiftCode = default(string), string relationshipToSender = default(string), PayoutMethodPixKeyTypeEnum pixKeyType = default(PayoutMethodPixKeyTypeEnum), string pixKeyValue = default(string))
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.BankCode = bankCode;
             this.BankAccount = bankAccount;
+            this.BankAccountType = bankAccountType;
             this.Street = street;
             this.PhoneNumber = phoneNumber;
             this.MobileProvider = mobileProvider;
@@ -107,7 +108,6 @@ namespace TransferZero.Sdk.Model
             this.City = city;
             this.BranchCode = branchCode;
             this.MiddleName = middleName;
-            this.BankAccountType = bankAccountType;
             this.BirthDate = birthDate;
             this.BankCountry = bankCountry;
             this.SortCode = sortCode;
@@ -186,7 +186,7 @@ namespace TransferZero.Sdk.Model
         /// Gets or Sets MobileProvider
         /// </summary>
         [DataMember(Name="mobile_provider", EmitDefaultValue=false)]
-        public PayoutMethodMobileProviderEnum MobileProvider { get; set; }
+        public string MobileProvider { get; set; }
 
         /// <summary>
         /// Gets or Sets Country

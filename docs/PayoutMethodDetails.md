@@ -9,11 +9,11 @@ Name | Type | Description | Notes
 **LastName** | **string** |  | 
 **BankCode** | **string** |  | 
 **BankAccount** | **string** |  | 
-**BankAccountType** | [**PayoutMethodBankAccountTypeEnum**](PayoutMethodBankAccountTypeEnum.md) |  | [optional] 
+**BankAccountType** | [**PayoutMethodBankAccountTypeEnum**](PayoutMethodBankAccountTypeEnum.md) |  | 
 **BirthDate** | **DateTime?** | Date of birth of recipient | [optional] 
 **Street** | **string** |  | 
 **PhoneNumber** | **string** |  | 
-**MobileProvider** | [**PayoutMethodMobileProviderEnum**](PayoutMethodMobileProviderEnum.md) |  | 
+**MobileProvider** | **string** |  | 
 **Country** | [**PayoutMethodCountryEnum**](PayoutMethodCountryEnum.md) |  | 
 **TransferReason** | [**PayoutMethodTransferReasonEnum**](PayoutMethodTransferReasonEnum.md) |  | 
 **Iban** | **string** |  | 
